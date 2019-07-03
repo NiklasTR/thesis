@@ -1,0 +1,158 @@
+\ProvidesPackage{packages/Harvard/style}
+
+% School name and location
+\university{Ruprecht-Karls Universität}
+\universitycity{Heidelberg}
+\universitystate{Baden-Württemberg}
+
+% School color found from university's graphic identity site:
+% http://isites.harvard.edu/icb/icb.do?keyword=k75408&pageid=icb.page392732
+\definecolor{SchoolColor}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
+\definecolor{chaptergrey}{rgb}{0.6471, 0.1098, 0.1882} % for chapter numbers
+
+\hypersetup{
+    colorlinks,
+    citecolor=SchoolColor,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+\renewcommand{\frontmatter}{
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\abstractpage
+	\tableofcontents
+	% \listoffigures % optional
+	\dedicationpage
+	\acknowledgments
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\begin{center}
+	\textsc{Aus dem Deutsches Krebsforschungszentrum\\
+	und dem Lehrstuhl für Zell- und Molekularbiologie \\ der Medizinischen Fakultät Mannheim \\
+	Leitung: \@advisor
+	}
+	\vspace{100pt}
+	\begin{center}
+	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	\vspace{100pt}
+	\textsc{
+	\vspace{12pt}
+	Inauguraldissertation \\
+	zur Erlangung des medizinischen Doktorgrades \\
+	an der \\
+	Medizinischen Fakultät Heidelberg der\\
+	Ruprecht-Karls-Universität\\
+	\vspace{12pt}
+	vorgelegt von
+	\theauthor\\
+	aus Tübingen\\
+    \vspace{12pt}
+	\@degreeyear}
+	\end{center} \vspace*{\fill}
+}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\scshape \noindent 
+	Dekan: Prof. Dr. Andreas Draguhn\\
+	Doktorvater: \@advisor\\
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+\newcommand{\dedicationpage}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill} \newpage \rm
+}
+
+\newcommand{\abstractpage}{
+	\newpage
+	\pagenumbering{roman}
+	\setcounter{page}{3}
+	\pagestyle{fancy}
+	\lhead{Doktorvater: \@advisor} \rhead{\@author}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\vspace*{35pt}
+	\begin{center}
+	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
+	\vspace*{20pt}
+	\scshape Zusammenfassung \\ \rm
+	\end{center}
+	\input{frontmatter/abstract}
+	\vspace*{\fill}
+	\newpage \lhead{} \rhead{}
+	\cfoot{\thepage}
+}
+
+\newcommand{\acknowledgments}{
+	\chapter*{Danksagung}
+	\noindent
+	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+}
+
+\newcommand{\eidesstaat}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent EIDESSTATTLICHE VERSICHERUNG \\
+	\begin{flushleft}
+	1. Bei der eingereichten Dissertation zu dem Thema
+	%%%%don't forget to update
+	"Multiparametric phenotyping of intestinal organoids to model disease initiation and treatment reponse in colorectal cancer" 
+	%%%%
+	handelt es sich um meine eigenständig erbrachte Leistung. \\
+	\vspace*{5pt}
+	2. Ich habe nur die angegebenen Quellen und Hilfsmittel benutzt und mich keiner unzulässigen Hilfe Dritter bedient. Insbesondere habe ich wörtlich oder sinngemäß aus anderen Werken übernommene Inhalte als solche kenntlich gemacht.\\
+	\vspace*{5pt}
+	3. Die Arbeit oder Teile davon habe ich bislang nicht an einer Hochschule des In- oder Auslands als Bestandteil einer Prüfungs- oder Qualifikationsleistung vorgelegt.\\
+	\vspace*{5pt}
+	4. Die Richtigkeit der vorstehenden Erklärungen bestätige ich.\\
+	\vspace*{5pt}
+	5. Die Bedeutung der eidesstattlichen Versicherung und die strafrechtlichen Folgen einer unrichtigen oder unvollständigen eidesstattlichen Versicherung sind mir bekannt. Ich versichere an Eides statt, dass ich nach bestem Wissen die reine Wahrheit erklärt und nichts verschwiegen habe.\\
+    \vspace*{35pt}
+    Heidelberg, den
+    \end{flushleft}
+	\vspace*{\fill} \newpage \rm
+}
+
+\newcommand{\eigenanteil}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent EIGENANTEIL AN DATENERHEBUNG UND -AUSWERTUNG SOWIE EIGENE VERÖFFENTLICHUNGEN \\
+	\begin{flushleft}
+Manuskripte, welche in dieser Dissertation behandelt werden:
+\begin{enumerate}
+\item Betge J*, \textbf{Rindtorff N*}, Sauer J*, Rauscher B, Dingert C, Gaitantzi H, Herweck F, Miersch T, Valentini E, Hauber V, Gutting T, Frank L, Belle S, Gaiser T, Buchholz I, Jesenofsky R, Haertel N, Zhan T, Fischer B, Breitkopf-Heinlein K, Burgermeister E, Ebert MP and Boutros M. Automated image-based profiling identifies distinct compound induced phenotypes in patient-derived organoids. Manuscript in preparation.
+\item \textbf{Rindtorff N}, Sauer J, Betge J, Zhan, T, Bohmann N, Fischer B., Scholl C, Boutros M. Manuscript in preparation
+\end{enumerate}
+\vspace*{15pt}
+Im Rahmen der erstgenannten Arbeit etablierte ich die Methodik zur Kultivierung und Hochdurchsatz-Medikamententestung von humanen Darmkrebsorganoiden in der Arbeitsgruppe von Michael Boutros. Von Beginn des Projektes an war ich mit Johannes Betge für die Zielsetzung und Planung verantwortlich. Zusammen mit Herrn Betge, initiierten und begleiteten wir die Analyse der Messergebnisse durch Jan Sauer und, kurz vor Einreichen der ersten Fassung des Manuskriptes, auch durch Benedikt Rauscher. Insgesamt beläuft sich mein Beitrag zu diesem Manuskript auf 30-40\% der Gesamtleistung.\\
+\vspace*{15pt}
+Im Rahmen der zweitgenannten Arbeit führte ich die Konzeption, Etablierung, Exekution und Datenanalyse des Projektes komplett selbstständig durch. Für Teile der Bildanalyse nutze ich von Jan Sauer bereites entwickelte Methoden. Johannes Betge und Tianzuo Zhan dienten als Berater während der initialen Phase des Projektes. Nick Bohmann arbeitete als ein besuchender Student für 6 Wochen auf dem Projekt mit. Bernd Fischer war vor seinem Tod der Arbeitsgruppenleiter von Jan Sauer. Claudia Scholls Arbeitsgruppe stellte das Mausmodell zur Verfügung. Michael Boutros war betreuender Doktorvater.\\
+
+\newpage
+Weitere Kollaborationen:
+\begin{enumerate}
+\item Heigwer F, Scheeder C, Laufer C, Rauscher B, \textbf{Rindtorff N}, Miersch T, Schmitt B, Blass C, Boutros M. A high-resolution map of signaling across the metazoan cell. Submitted.
+\item Zhan T*, Ambrosi G*, Wandmacher MA*, Rauscher B, Betge J, \textbf{Rindtorff N}, Haeussler R, Hinsenkamp I, Bamberg L, Hessling B, Erdmann G, Burgermeister E, Ebert MP and Boutros M. MEK inhibition activates Wnt signalling and induces stem cell plasticity in colorectal cancer organoids. Nature Communications - 2018
+\item Zhan T*, \textbf{Rindtorff N*} ,Betge J, Ebert M, Boutros M. CRISPR/Cas9 for cancer research and therapy. Seminars in Cancer Biology - 2017
+\item Zhan T*, Rindtorff N*, Boutros M. Wnt signaling in cancer. Oncogene. - 2016
+\end{enumerate}
+\vspace*{15pt}
+* equal contribution
+    \vspace*{35pt}
+    \end{flushleft}
+	\vspace*{\fill} \newpage \rm
+}
