@@ -4,7 +4,7 @@
 % Modify the following line to match your school
 % Available options include `Harvard`, `Princeton`, and `NYU`.
 \documentclass[School=Harvard]{Dissertate}
-
+\usepackage{textgreek}
 \begin{document}
 
 % the front matter
@@ -21,9 +21,9 @@
 % include each chapter...
 \setcounter{chapter}{0}  % start chapter numbering at 1 (set to -1 to start at 0)
 \include{chapters/introduction}
+\include{chapters/methods}
 \include{chapters/chapter1}
 \include{chapters/chapter2}
-\include{chapters/chapter3}
 \include{chapters/conclusion}
 \abstractpage
 \begin{appendices}
