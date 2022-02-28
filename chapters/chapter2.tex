@@ -163,8 +163,9 @@ To study the effect that small molecule perturbations had on organoid models, th
 Related to the approach chosen in the previous chapter, active treatments were identified based on the AUROC score that a classifier reached. Given differences in the distribution of AUROC scores between lines, with KRAS G12D/+ organoid lines being shifted towards higher AUROC values, I centered the distribution of AUROC scores around 0.5 and defined an arbitrary activity threshold at 3 times the Median Adjusted Deviation for all tested models (Figure \ref{fig_150}b). A primary source of variation in the genotype-dependent identity of active compounds (16\% of all tested small molecules) was the functional state of Apc, as most active compounds were shared among Apc+/+ and Apc-/- models, while little relative overlap existed between these two alleles (Figure \ref{fig_150}c). As described above, the higher classification performance seen in organoids with the Kras G12D/+ allele, led to a larger number of active drugs identified for these models. A possible reason for this systematic difference in the number of active treatments might be a larger number of developed organoids seen in the images of these models. This difference might be linked to the previously described increased colony-forming capacity seen in Kras G12D/+ colon cancer models.
 %% cite paper here
 
-Given the observation that the primary source of variation for drug activity, similar to other biochemical assays, was the state of the Apc allele, I focused the analysis of treatment-induced organoid phenotypes along this axes. Similar to the approach taken in the previous chapter, normal vectors of the logistic regression classifiers were compared by estimating the enclosed angle (Figure \ref{fig_150}d). Normal vectors for organoids with the same Apc allele were concatenated. The resulting clustering of normal vectors by their similarity showed an enrichment for small molecules with related mechanism of action (Figure \ref{fig_150}e and f). For example, EGFR inhibitors were significantly enriched in Apc-mutant organoid lines, while GSK3B-inhibitors, which generally lead to a stimulation of canonical Wnt signaling, were enriched in Apc-wildtype organoid models, only. 
+Given the observation that the primary source of variation for drug activity, similar to other biochemical assays, was the state of the Apc allele, I focused the analysis of treatment-induced organoid phenotypes along this axes. Similar to the approach taken in the previous chapter, normal vectors of the logistic regression classifiers were compared by estimating the enclosed angle (Figure \ref{fig_150}d). Normal vectors for organoids with the same Apc allele were concatenated. The resulting clustering of normal vectors by their similarity showed an enrichment for small molecules with related mechanism of action (Figure \ref{fig_150}e and f). For example, EGFR inhibitors were significantly enriched in Apc-mutant organoid lines, while GSK3B-inhibitors, which lead to a stimulation of canonical Wnt signaling, were enriched in Apc-wildtype organoid models, only. 
 
+\section{Multi-omics factor analysis identifies shared factors linking functional and structural biological views}
 
 \begin{figure}[h]
 \centering
@@ -177,7 +178,12 @@ Given the observation that the primary source of variation for drug activity, si
 \end{figure}
 \bigbreak
 
-To comprehensively model the differences between these models
+To comprehensively model the biological state of organoid models and explore potential interventions that move organoids in state-space, I performed multi-omics factor analysis (MOFA). Analogous to the process described in chapter 1, feature matrices from different sources were processed and factorized using k=4 factors (Figure \ref{fig_170}a and \ref{fig_180}a). The learned model was based on both functional (e.g. drug activity) and structural (e.g. genotype, proteomics, lipidomics and mRNA expression) information. To reduce the dimensionality of input data, only high variance features from gene expression and proteomics analysis were used.
+
+The resulting factorization explained an overall XX percent of variance across the analyzed views, of which the first three factors captured the majority (XX percent of variance, Figure \ref{fig_170}a). The learned model explained most variance within the mRNA expression and genotype data, while measurements within the organoid morphology data had the lowest explained variance (Figure \ref{fig_170}b). Visual inspection of factors as well as exploration of factor loadings within the genotype view showed that factor 1 explained state differences caused by Apc loss of function, while factor 2 explained state differences caused by the activation of KrasG12D in an Apc+/+ genotype (Figure \ref{fig_170}c and \ref{fig_180}b). In contrast to factor 2, factor 3 captured differences between Kras+/+ and KrasG12D/+ organoids with Apc loss of function, albeit with low overall explained variance. 
+% TODO check variance explained
+
+While the initial number of factors is a user-defined feature within MOFA, the method automatically drops excess factors if they are not considered effective based on an applied automatic relevance determination (ARD) prior. Increasing the number of factors above k=4 in this analysis, did not lead to an increased number of interpretable factors. In fact, factor 4 already did not capture differences between organoid genoypes and was not interpretable from a biological point of view (Figure \ref{fig_180}b). This observation and the fact that this study explored the biological effects of two oncogenic genetic events both in isolation and in concert reveals, I speculate, a potential conceptual intersection of representation learning methods, such as MOFA, and the theory of genetic interactions which will be explored in the last chapter of this thesis. 
 
 \begin{figure}[h]
 \centering
@@ -189,15 +195,34 @@ To comprehensively model the differences between these models
 \end{figure}
 \bigbreak
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_9.pdf}
-\caption{\textbf{Factor loadings for drug activity. a} Factor 1 and 2 loadings, and \textbf{b} Factor 1 and 3 loadings. Average drug activity score (AUROC) is color coded.}
-\label{fig_180}
-\end{figure}
-\bigbreak
+\section{A canonical Wnt signaling associated program caused by Apc loss}
+
+To understand the molecular changes associated with factor 1, factor loadings for mRNA expression data were analyzed using Reactome gene-set enrichment analysis (Figure \ref{fig_190}a). Three clusters of biological processes were significantly associated with a negative factor loading, caused by Apc loss-of-function: 1) Mitotic Anaphase related processes, including spindle checkpoints; 2) Mitotic S-phase, including DNA replication and 3) DNA repair mechanisms, including homology directed repair. 
+
+In line with the enrichment of processes seen in cell proliferation, factor 1 loadings were associated with an enrichment of a previously described intestinal proliferation signature (Figure \ref{fig_190}c) and an LGR5+ instestinal stem cell identity signature (Figure \ref{fig_190}b). These findings are in line with the long-standing evidence that loss of Apc leads to a hyperactivation of canonical Wnt signaling, which in turn leads to increased intestinal cell proliferation and Myc-dependent changes towards a stem-like cell state.
+%cite Myc paper
+%Wnt signaling dependent effects
+
+When focusing on factor loadings of compound activity measurements, a low factor 1 score was significantly linked to increased sensitivity towards small molecules interacting with microtubuli and focal adhesion kinase (Figure \ref{fig_190}d). 
+
+While both vulnerabiliti
+
+
+
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=\textwidth,
+%                height=\textheight,
+%                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_9.pdf}
+%\caption{\textbf{Factor loadings for drug activity. a} Factor 1 and 2 loadings, and \textbf{b} Factor 1 and 3 loadings. Average drug activity score (AUROC) is color coded.}
+%\label{fig_180}
+%\end{figure}
+%\bigbreak
+
+
+
+In contrast, small molecules targeting Wnt signaling were relatively 
 
 \begin{figure}[h]
 \centering
@@ -205,9 +230,11 @@ To comprehensively model the differences between these models
                 height=\textheight,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_1.pdf}
 \caption{}
-\label{fig_180}
+\label{fig_190}
 \end{figure}
 \bigbreak
+
+\section{An oncogene-induced senescence program caused by isolated KrasG12D activation}
 
 \begin{figure}[h]
 \centering
@@ -218,6 +245,12 @@ To comprehensively model the differences between these models
 \label{fig_180}
 \end{figure}
 \bigbreak
+
+Myc down
+
+
+\section{mTOR}
+
 
 \begin{figure}[h]
 \centering
