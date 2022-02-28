@@ -74,25 +74,37 @@ To explore comprehensive molecular differences between organoid models, I next p
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_6.pdf}
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_6_1.pdf}
 \caption{\textbf{Molecular profiling of organoid adenoma models. a} Differential gene expression of adenoma models. Shown are scaled expression values for the top 125 differentially expressed genes for every organoid line. Selected genes are highlighted. All organoids were cultured for 3 days in WENRAS before exposure to ENR for 4 days. Cell number was controlled between experiments. Whole organoid lysates were analyzed. 
 \textbf{b} Transcript abundance data. Shown are the first two principal components of scaled gene expression data. The proportion of variance of each principal component is listed in parenthesis. 
 \textbf{c} Protein abundance data. Shown are the first and third principal component of scaled protein expression data. The proportion of variance of each principal component is listed in parenthesis. 
 \textbf{d} Lipid species abundance data. Shown are the first two principal components of scaled lipid abundance data. The proportion of variance of each principal component is listed in parenthesis. 
 \textbf{e} Loss of Apc leads to increased expression of proliferation and intestinal stem cell associated genes. Shown is a gene set enrichment analysis of differentially expressed genes between Apc mutant and WT organoids. Intestinal gene expression signatures were used according to Merlos et al. NES, normalized enrichment score. 
-\textbf{f} Overview of cellular processes in organoid adenoma models. Shown are selected enriched differential gene expression signatures from reactome and Merlos et al. NES, normalized enrichment score. NES > 0 suggests an enriched/ activated biological process. FDR < 0.1. 
-\textbf{g} Representative up and down-regulated transcriptional processes after loss of Apc. Expression signatures were sourced from reactome and average log2 fold changes for included transcripts are illustrated. FDR < 0.1.
-\textbf{h} Representative up and down-regulated transcriptional processes after activation of oncogenic Kras G12D. Expression signatures were sourced from reactome and average log2 fold changes for included transcripts are shown. FDR < 0.1.}
-\label{fig_160}
+\textbf{f} Overview of cellular processes in organoid adenoma models. Shown are selected enriched differential gene expression signatures from reactome and Merlos et al. NES, normalized enrichment score. NES > 0 suggests an enriched/ activated biological process. FDR < 0.1.}
+\label{fig_161}
 \end{figure}
 \bigbreak
 
 
 A related observation was made during the analysis of protein abundance. Proteome profiling and imputation identified 3906 gene products in all measured organoid lines. Again, Wnt signaling regulators (Axin2, Notum) were enriched in Apc mutant organoid lines and the number of significantly regulated proteins after Apc loss was 2.5 times greater compared to an isolated KrasG12D activation (FDR = 0.1, Apc-/-: 260, KrasG12D/+: 105 assessed proteins). 
 
-Principal component analysis of both transcriptome, proteome and lipidome data showed a related organization of variance across measurements. Across modalities, the first principal component captured differences between Apc wildtype and Apc mutant organoid models, while the second (in case of proteomics measurements the third) principal component captured differences between wildtype and KrasG12D/+ single-mutant models (Figure \ref{fig_160}b, \ref{fig_160}c and \ref{fig_160}d). In every modality, a high degree of similarity was observed among Apc-/- and Apc-/- / KrasG12D/+ organoid lines. While activation of oncogenic KrasG12D in wildtype organoids led to global changes in transcript, protein and lipid expression, these changes were not as pronounced in organoids without functional Apc. In fact, only the mRNA expression of 91 genes was significantly altered between Apc-/- and Apc-/- / KrasG12D/+ organoids (FDR = 0.1). 
+Principal component analysis of both transcriptome, proteome and lipidome data showed a related organization of variance across measurements. Across modalities, the first principal component captured differences between Apc wildtype and Apc mutant organoid models, while the second (in case of proteomics measurements the third) principal component captured differences between wildtype and KrasG12D/+ single-mutant models (Figure \ref{fig_161}b, \ref{fig_161}c and \ref{fig_161}d). In every modality, a high degree of similarity was observed among Apc-/- and Apc-/- / KrasG12D/+ organoid lines. While activation of oncogenic KrasG12D in wildtype organoids led to global changes in transcript, protein and lipid expression, these changes were not as pronounced in organoids without functional Apc. In fact, only the mRNA expression of 91 genes was significantly altered between Apc-/- and Apc-/- / KrasG12D/+ organoids (FDR = 0.1). 
 
 To explore activated biological processes, gene set enrichment analysis on organoid mRNA expression data was performed. The strongest changes in gene expression after loss of Apc were linked to an increased proliferative activity (Figure \ref{fig_160}e). Gene set enrichment analysis of published intestinal cell-proliferation and stem cell signatures showed an enrichment of both signatures in Apc-/- organoids (Figure \ref{fig_160}e) (Merlos-Suárez et al., 2011). In contrast, a signature for differentiating transit-amplifying cells was depleted. Gene set enrichment analysis of Apc-/- / KrasG12D/+ double-mutant organoids showed the same results. 
+
+ \begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth,
+                height=\textheight,
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_6_2.pdf}
+\caption{
+\textbf{a} Representative up and down-regulated transcriptional processes after loss of Apc. Expression signatures were sourced from reactome and average log2 fold changes for included transcripts are illustrated. FDR < 0.1.
+\textbf{b} Representative up and down-regulated transcriptional processes after activation of oncogenic Kras G12D. Expression signatures were sourced from reactome and average log2 fold changes for included transcripts are shown. FDR < 0.1.
+}
+\label{fig_162}
+\end{figure}
+\bigbreak
+
 
 Next to these published signatures, I explored the enrichment of curated gene sets from the Reactome database (Fabregat et al., 2018). Here, both Apc-/- and Apc-/- / KrasG12D/+ double-mutant lines showed a positive enrichment of cell cycle and DNA repair related genes when compared to wildtype organoids (Figure \ref{fig_160}f and g). Unique to the KrasG12D/+ organoid line was a decreased expression of citric acid cycle and respiratory chain related genes (Figure \ref{fig_160}f and h). This effect, was not observed in Apc-/- / KrasG12D/+ double mutant organoids (Figure 2\ref{fig_160}f). In addition, organoid models with an KrasG12D/+ genotype showed a downregulation of the EGFR receptor, in line with a potential negative feedback response to hyperactivated RAS-MAPK signaling (Figure \ref{fig_160}h). Both Apc-/- and KrasG12D/+ organoid models showed a strong reduction of lipid metabolism and beta-oxidation (Figure \ref{fig_160}f, g, h).
 
