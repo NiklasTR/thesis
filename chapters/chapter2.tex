@@ -243,7 +243,7 @@ In contrast to microtubuli and FAK inhibitors, the average activity scores of sm
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_2.pdf}
-\caption{\textbf{Small molecule Wnt signaling inhibitors. a} AUROC activity score for three small molecule inhibitors of canonical Wnt signaling. \textbf{b} Target proteins for small molecules within the canonical Wnt signaling cascade with their relative position to the destruction complex (highlighted in blue). \textbf{c} Distributions of lipid abundance loadings grouped by lipid species for factor 1 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester}
+\caption{\textbf{Small molecule Wnt signaling inhibitors. a} AUROC activity score for three small molecule inhibitors of canonical Wnt signaling. \textbf{b} Target proteins for small molecules within the canonical Wnt signaling cascade with their relative position to the destruction complex (highlighted in blue). \textbf{c} Distributions of lipid abundance loadings grouped by lipid species for factor 1 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester)}
 \label{fig_199}
 \end{figure}
 \bigbreak
@@ -268,7 +268,7 @@ Members of group B primarily targeted the Proteasome (incl. Bortezomib, Carfilzo
 \centering
 \includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_4.pdf}
-\caption{\textbf{GSK3 beta inhibitino dependent morphology in colon organoid models. a} Small molecule inhibition of GSK3 beta (CHIR98014) leads to phenocopying of Apc-/- genotype organoid models. \textbf{b} Shift of morphological features relative to scaled population mean for Apc wildtype organoid models treated with CHIR98014. \textbf{c} Excerpt of clustering from figure \ref{fig_150}d, labeled with known binding activity of listed small molecules. Rucaparib is not member of the cluster and shown for comparison.}
+\caption{\textbf{GSK3 beta inhibition dependent morphology in colon organoid models. a} Small molecule inhibition of GSK3 beta (CHIR98014) leads to phenocopying of Apc-/- genotype organoid models. \textbf{b} Shift of morphological features relative to scaled population mean for Apc wildtype organoid models treated with CHIR98014. \textbf{c} Excerpt of clustering from figure \ref{fig_150}d, labeled with known binding activity of listed small molecules. Rucaparib is not member of the cluster and shown for comparison.}
 \label{fig_185}
 \end{figure}
 \bigbreak
@@ -280,24 +280,36 @@ Further validation of group A showed how treatment with the GSK3 beta inhibitor 
 
 In conclusion of this section, loss of Apc function is the primary source of variation across the four analyzed organoid genotypes. Increased cell proliferation rate, canonical Wnt signaling and genomic stress caused by a loss of Apc is observable across profiling modalities and leads to characteristic molecular dependencies (microtubuli, FAK signaling). Small molecules inhibiting the function of the destruction complex member GSK3 beta can phenocopy loss of Apc among colon organoid models.   
 
+\newpage
+
 \section{An oncogene-induced senescence program caused by isolated KrasG12D activation}
 % Myc down
+While the Apc-/- genotype only contributed to factor 1 (Figure \ref{fig_180}b), the KrasG12D allele showed a strong loading for both factor 2 and factor 3. This observation paired with the fact that only organoid models without Apc loss of function were seperated by factor 2 (Figure \ref{fig_170}c), led me to conclude that factor 2 described a KrasG12D dependent change in cell state that was conditioned on intact Apc function.
 
+\smallbreak
 
-\section{mTOR}
+To understand the molecular mechanisms represented by factor 2, I again analyzed features with large absolute loadings for this factor. Plotting of factor loadings for drug activty by small molecule target, showed that ERK and MEK inhibitors were more active in factor 2 low models (KrasG12D+/-) while EGFR/HER2 inhibitors were more active in factor 2 high organoids (WT, figure \ref{fig_200}a and b). This juxtaposition in small molecule activity against RAS-MAPK pathway members was reminiscent of the previous observations made around canonical Wnt signaling inhibitors (Figure \ref{fig_199}). With oncogenic Kras localized between the receptor-layer (including Egfr and Her2) and downstream kinases (for example Erk), hyperactive Kras signaling likely leads to a cell state with relative resistance to EGFR inhibitors and increased dependency on Erk signaling. 
 
+\smallbreak
+
+In addition, HMG-CoA reductase inhibitors (incl. Rosuvastatin) showed an increased activity in KrasG12D+/- organoids (Figure \ref{fig_200}a and b). This vulnerability towards cholesterol biosynthesis inhibitors in cells with oncogenic Kras signaling has previously been described. 
+% cite Kras papers
+
+\smallbreak
 
 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
+\includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_1.pdf}
-\caption{}
-\label{fig_180}
+\caption{\textbf{Factor 2, KrasG12D induced senescence. a} Distributions of drug activity loadings grouped by drug target for factor 2. \textbf{b} Relationship of representative drugs’ activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{c} Gene set enrichment results of a senescence signature by Fridman et al. over ranked factor 2 gene expression loadings (ranking from high factor 2 loading to low factor 2 loading, NES = normalized enrichment score). \textbf{d} Distributions of lipid abundance loadings grouped by lipid species for factor 2 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester). \textbf{e} Relationship of acyl chain length with factor 2 loading. Shown are lipids from highlighted species in panel (d)}
+\label{fig_200}
 \end{figure}
 \bigbreak
+% add Fridmann citationh
+
+
 
 \begin{figure}[h]
 \centering
