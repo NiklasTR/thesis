@@ -216,6 +216,7 @@ In line with the enrichment of processes seen in cell proliferation, factor 1 lo
 %TODO Wnt signaling dependent effects
 
 When focusing on factor loadings of compound activity measurements, a low factor 1 score was significantly linked to increased sensitivity towards small molecules targeting microtubuli and focal adhesion kinase (FAK, Figure \ref{fig_190}d). This morphological sensitivity was presented itself primarily as reduced organoid size and number relative to the DMSO vehicle control (Figure \ref{fig_190}e).
+% add a section on FAK theory and microtubuli
 
 %\begin{figure}[h]
 %\centering
@@ -241,44 +242,52 @@ In contrast to microtubuli and FAK inhibitors, the average activity scores of sm
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_2.pdf}
-\caption{}
+\includegraphics[keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_2.pdf}
+\caption{\textbf{Small molecule Wnt signaling inhibitors. a} AUROC activity score for three small molecule inhibitors of canonical Wnt signaling. \textbf{b} Target proteins for small molecules within the canonical Wnt signaling cascade with their relative position to the destruction complex (highlighted in blue). \textbf{c} Distributions of lipid abundance loadings grouped by lipid species for factor 1 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester}
 \label{fig_199}
 \end{figure}
 \bigbreak
 
 Next to factor related differences in morphological compound sensitivity, I analyzed the association of factor 1 weights with lipid species. High concentrations of cholesterol esters were associated with a low factor 1 score (seen in Apc-/- organoids), while elevated concentrations of phosphatidic acid species were linked to a high factor 1 score (figure \ref{fig_199}c).
 
+After linking factor 1 to Apc loss and identifying features caused by this molecular change, I was interested in identifying small molecule treatments that -based on the morphology they induced- shifted organoid state along the factor 1 axis. As described in the previous chapter, small molecules that led to a predicted factor 1 change were identified using ANOVA. To identify treatments that led to a drop in organoid viability, a classifier (LDC) trained on ground-truth lethal treatments within the stem-cell library was applied. Two groups of compounds were identified that induced a shift towards lower factor 1 scores (group A, figure \ref{fig_180}) and higher factor 1 scores (group B, \ref{fig_180}). 
 
+\begin{figure}[H]
+\centering
+\includegraphics[
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_3.pdf}
+\caption{\textbf{Projection of factor 1 scores for treatment-induced phenotypes and viability changes.} Highlighted are compounds leading to a significant change in projected factor scores across all organoid lines (ANOVA). Organoid viability is predicted using a random-forest based classified (LDC) with scores from 0 (no toxicity) to 1 (complete toxicity)}
+\label{fig_180}
+\end{figure}
+\bigbreak
+
+Small molecules within group A induced a morphology associated with Apc loss while maintaining organoid viability. In contrast, members of group B primarily led to a loss of viability and a shift towards a morphological state associated with Apc wildtype organoids. Of note, small molecules within these groups had related target proteins! Compounds within group A (incl. CHIR-98014, CHIR-99021, LY2090314) targeted GSK3 beta - a kinase with central function within the canonical Wnt signaling destruction complex. Inhibition of GSK3 beta leads to hyperactivation of canonical Wnt signaling. % TODO insert citation for statement above
+Members of group B primarily targeted the Proteasome (incl. Bortezomib, Carfilzomib, MLN2238).
+
+\begin{figure}[h]
+\centering
+\includegraphics[
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_4.pdf}
+\caption{\textbf{GSK3 beta inhibitino dependent morphology in colon organoid models. a} Small molecule inhibition of GSK3 beta (CHIR98014) leads to phenocopying of Apc-/- genotype organoid models. \textbf{b} Shift of morphological features relative to scaled population mean for Apc wildtype organoid models treated with CHIR98014. \textbf{c} Excerpt of clustering from figure \ref{fig_150}d, labeled with known binding activity of listed small molecules. Rucaparib is not member of the cluster and shown for comparison.}
+\label{fig_185}
+\end{figure}
+\bigbreak
+
+Further validation of group A showed how treatment with the GSK3 beta inhibitor CHIR-98014 led to treatment-induced phenotypes in WT and KrasG12D+/- organoids that phenocopied the unperturbed morphology of Apc-/- and double mutant organoid models (Figure \ref{fig_185}a). On the feature level, treatment led to an increase in organoid size and DNA intensity (Figure \ref{fig_185}b) in Apc wildtype models. This change in morphology was likely due to an increased proliferation rate of mutant cells, leading to rising organoid size and a higher density of nuclei per analyzed object. Guided by the identification of a strong GSK3 beta inhibition phenotype in Apc wildtype organoids, I analyzed small molecules that clustered with known inhibitors of this kinase based on the angular distance of their drug effect vectors within these models (Figure \ref{fig_185}c) and \ref{fig_150}d). All small molecules clustering with well-described inhibitors of GSK3 beta had previously described off-target binding activity against this kinase.  
+% include citations for off target
+
+\bigbreak
+
+In conclusion of this section, loss of Apc function is the primary source of variation across the four analyzed organoid genotypes. Increased cell proliferation rate, canonical Wnt signaling and genomic stress caused by a loss of Apc is observable across profiling modalities and leads to characteristic molecular dependencies (microtubuli, FAK signaling). Small molecules inhibiting the function of the destruction complex member GSK3 beta can phenocopy loss of Apc among colon organoid models.   
 
 \section{An oncogene-induced senescence program caused by isolated KrasG12D activation}
-Myc down
+% Myc down
 
 
 \section{mTOR}
 
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_3.pdf}
-\caption{}
-\label{fig_180}
-\end{figure}
-\bigbreak
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_4.pdf}
-\caption{}
-\label{fig_180}
-\end{figure}
-\bigbreak
 
 \begin{figure}[h]
 \centering
