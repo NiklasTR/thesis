@@ -287,7 +287,7 @@ In conclusion of this section, loss of Apc function is the primary source of var
 While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180}b), the KrasG12D allele showed a strong loading for both factor 2 and factor 3. This observation paired with the fact that only organoid models without Apc loss of function were seperated by factor 2 (Figure \ref{fig_170}c), led me to conclude that factor 2 described a KrasG12D dependent change in cell state that was conditioned on intact Apc function.
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_1.pdf}
@@ -345,6 +345,9 @@ Factor 2 explains differences between wildtype and KrasG12D+/- organoid models a
 \newpage
 \section{oncogenic Kras leads to increased mTOR signaling conditioned on loss of Apc function}
 
+While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170}c). Overall, factor 3 only accounted for x\% of variance within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids observed on the transcriptome, proteome, lipidome and phenotype level (Figure \ref{fig_161}a-d and \ref{fig_140}b).
+% TODO check variance explained
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,
@@ -353,10 +356,6 @@ Factor 2 explains differences between wildtype and KrasG12D+/- organoid models a
 \label{fig_300}
 \end{figure}
 % add and check details on Myc expression test
-
-While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170}c). Overall, factor 3 only accounted for x\% of variance within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids observed on the transcriptome, proteome, lipidome and phenotype level (Figure \ref{fig_161}a-d and \ref{fig_140}b).
-% TODO check variance explained
-\smallbreak
 
 Exploration of factor 3 loadings identified mTOR and FAK inhibitors to systematically contribute to a negative factor score. Double-mutant organoid models (Apc-/- KrasG12D+/-) were more sensitive these small molecule inhibitors than their Apc-/- counterparts (Figure \ref{fig_300}a). This difference in drug activity was observerable for both ATP-competitive (e.g. INK-128, Sapanisertib) and non-ATP-competitive (e.g. Rapamycin) inhibitors (Figure \ref{fig_300}b). In line with the increased sensitvity to mTOR inhibitors, differential gene expression analysis comparing single (Apc -/-, abbreviated A) and double mutant (Apc-/- KrasG12D+/-, abbreviated AK) organoids identified a significant increase in mTORC1 activation according to a Reactome signature (Figure \ref{fig_300}c). 
 % add citation for mTORC1 preference
