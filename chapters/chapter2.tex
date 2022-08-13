@@ -343,9 +343,9 @@ Factor 2 explains differences between wildtype and KrasG12D+/- organoid models a
 %\bigbreak
 
 \newpage
-\section{oncogenic Kras leads to increased mTOR signaling conditioned on loss of Apc function}
+\section{oncogenic Kras leads to increased mTOR signaling in the context of Apc loss of function}
 
-While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170}c). Overall, factor 3 only accounted for x\% of variance within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids observed on the transcriptome, proteome, lipidome and phenotype level (Figure \ref{fig_161}a-d and \ref{fig_140}b).
+While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170}c). Overall, factor 3 only accounted for x\% of variance within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids observed on the transcriptome, proteome, lipidome and phenotype level previously (Figure \ref{fig_161}a-d and \ref{fig_140}b).
 % TODO check variance explained
 
 \begin{figure}[h]
@@ -360,34 +360,17 @@ While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, f
 Exploration of factor 3 loadings identified mTOR and FAK inhibitors to systematically contribute to a negative factor score. Double-mutant organoid models (Apc-/- KrasG12D+/-) were more sensitive to these small molecule inhibitors than their single-mutant Apc-/- counterparts (Figure \ref{fig_300}a). This difference in drug activity was observerable for both ATP-competitive (e.g. INK-128, Sapanisertib) and non-ATP-competitive (e.g. Rapamycin) inhibitors (Figure \ref{fig_300}b). In line with the increased sensitvity to mTOR inhibitors, differential gene expression analysis comparing single (Apc -/-, abbreviated A) and double mutant (Apc-/- KrasG12D+/-, abbreviated AK) organoids identified a significant increase in mTORC1 activation according to a Reactome signature (Figure \ref{fig_300}c, FDR=0.0095, NES=2.5019). 
 % add citation for mTORC1 preference
 
-Further exploration of factor 3 loadings in gene expression space showed an enrichment for Myc target genes. Transcription signatures associated with increased Myc activity are enriched in double-mutant organoid models (Apc-/- KrasG12D+/-) when compared to single-mutant counterparts (Figure \ref{fig_300}d). In fact, further analysis of factor 1 and factor 2 gene expression loadings identified significant changes in Myc activity signatures for both factors. Simplified, loss of function of Apc led to an increased activity of Myc (factor 1) while the isolated presence of oncogenic KrasG12D+/- led to a reduced activity of Myc (factor 1: , factor 2: ,  ).
+Further exploration of factor 3 loadings in gene expression space showed an enrichment for Myc target genes. Transcription signatures associated with increased Myc activity are enriched in double-mutant organoid models (Apc-/- KrasG12D+/-) when compared to single-mutant counterparts (Figure \ref{fig_300}d). In fact, further analysis of factor 1 and factor 2 gene expression loadings identified significant changes in Myc activity signatures for both factors as well. Simplified, loss of function of Apc led to an increased activity of Myc (factor 1) while the isolated presence of oncogenic KrasG12D+/- led to a reduced activity of Myc (factor 1: , factor 2: ,  ). These observations are consistent with previous studies describing a central role of increased Myc activity in Wnt-signaling dependent adenoma formation and decreased Myc activity in oncogene induced senescence.
 %TODO add citation
 %TODO add GSEA statistics for factor 1 and 2
+%TODO add citation of japanese adenoma paper and zebrafish senescence
 
-Pathway enrichment in factor space 
-
-kras oncogene induced senescence
-next to mice p16 or TP53 deletion avoid cell state
-in zebrafish myc signaling avoids cell state
-Myc is a master regulator after loss of Apc 
-% cite japenese Myc paper
-Myc went up after loss of Apc 
-even further up after combination of Apc Kras 
-but down after Kras
-
-gene expression only
-fig_161
-cholesterol biosynthesis goes up relative to Apc loss mono
-respiratory electron transport goes low in Kras mono
-
-In summary
-the effect of Kras conditioned on the loss of Apc function. This factor captures little variance relative to factor 1 and 2.
-% look up variance and add in parenthesis.
+In summary, factor 3 is representing the interaction of Apc loss of function and oncogenic KrasG12D+/-. In the mouse colon organoid model, the introduction of oncogenic KrasG12D+/- within an Apc-/- background leads to an increased mTORC1 signaling related gene expression signature and increased sensitivity to small molecule mTOR inhibitors. Myc activity related gene expression is increased in all factors related to malignant transformation, except the introduction of oncogenic KrasG12D+/- in Apc+/+ organoids, where Myc activity is reduced. 
 
 \newpage
 \section{Ellagic acid is a candidate small molecule revertant of organoid adenoma states}
 
-Related to factor 1 and previous chapter, I searched for treatments reverting phenotype for both factor 1 and factor 2 towards wildtype. The majority of compounds that led to a shift towards a wildtype organoid state along both axes were associated with a high predicted toxicity (color coding, predictions based on LDC viability classifier). 
+Similar to the analysis in the previous chapter, I searched for treatments which induced organoid phenotypes which suggested a change of organoid state within the learned factor-space.  I along organoids in factor spreverting phenotype for both factor 1 and factor 2 towards wildtype. The majority of compounds that led to a shift towards a wildtype organoid state along both axes were associated with a high predicted toxicity (color coding, predictions based on LDC viability classifier). 
 
 
 \begin{figure}[h]
