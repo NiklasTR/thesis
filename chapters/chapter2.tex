@@ -111,7 +111,7 @@ Next to these published signatures, I explored the enrichment of curated gene se
 \smallbreak
 In summary, loss of Apc leads to a global shift in transcript, protein, and lipid abundance in colon organoids, including a strong increase in cell proliferation associated genes. Activation of isolated oncogenic KrasG12D leads to pronounced reduction in citric acid cycle related gene expression while this phenotype was not seen in organoid models with an additional loss of Apc.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
@@ -127,7 +127,8 @@ In summary, loss of Apc leads to a global shift in transcript, protein, and lipi
 
 To measure how organoids change their biological state as a response to small molecule perturbation, I used the previously developed image-based profiling method to observe organoid morphology. Organoid models of four different genotypes were perturbed with a library of ca. 1700 compounds and morphological profiles were computed (Figure \ref{fig_120}a). A UMAP projection of 25 principal components representing single-organoid morphology showed distinct genotype-dependent morphological states for viable organoids (Figure \ref{fig_120}b). Graph based clustering of organoid morphology profiles resulted in 8 different clusters (Figure \ref{fig_120}c). While developed organoids within cluster 4 and 3 were enriched for Apc+/+ organoid models, cluster 2 and 1 were populated by Apc-/- models. Analogous to gene expression, lipidomics and proteomics representation space, Apc mutant organoid models were less distinct from each other than organoids with a WT and isolated KrasG12D/+ genotype (Figure \ref{fig_140}b). While developed organoids that present with a larger organoid area showed distinct genotype-specific morphologies, small and dead organoids clustered together across genotypes within cluster 5 (Figure \ref{fig_120}c and d). 
 
-\begin{figure}[h]
+\bigbreak
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
@@ -135,11 +136,10 @@ To measure how organoids change their biological state as a response to small mo
 \caption{\textbf{Treatment and genotype dependent effects on organoid morphology distribution. a} UMAP representation of DMSO treated (vehicle) and small molecule treated organoids. \textbf{b}, UMAP embeddings of four organoid genotypes (baseline state = 0.1\% DMSO control-treated organoids), grey background consists of randomly sampled organoids.}
 \label{fig_140}
 \end{figure}
-\bigbreak
 
 The distribution of DMSO-treated organoids and small molecule perturbed organoids in morphological space overlapped strongly (Figure \ref{fig_140}a), possibly because of large amount of treatments that did not alter organoid morphology.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=200,
                 height=\textheight,
@@ -156,7 +156,7 @@ In summary, developed organoids showed genotype-dependent differences in morphol
 
 \section{Quantifying small molecule induced phenotypes across organoid models}
 
-\begin{figure}[H]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
@@ -182,7 +182,7 @@ Given the observation that the primary source of variation for drug activity, si
 
 \section{Multi-omics factor analysis identifies shared factors linking functional and structural biological views}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=350,
                 height=\textheight,
@@ -201,7 +201,7 @@ The resulting factorization explained ca. 90\% (gene expression) to 50\% (morpho
 \smallbreak
 While the initial number of factors is a user-defined feature within MOFA, the method automatically drops excess factors if they are not considered effective based on an applied automatic relevance determination (ARD) prior. Increasing the number of factors above k=4 in this analysis, did not lead to an increased number of interpretable factors. In fact, factor 4 already did not capture differences between organoid genoypes and was not interpretable from a biological point of view (Figure \ref{fig_180}b). This observation and the fact that this study explored the biological effects of two oncogenic genetic events both in isolation and in concert reveals, I speculate, a conceptual intersection of representation learning  and the theory of genetic interactions which will not be further explored in this thesis. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=300,
                 height=\textheight,
@@ -232,7 +232,7 @@ When focusing on compound activity related factor loadings, a low factor 1 score
 %\end{figure}
 %\bigbreak
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
@@ -244,7 +244,7 @@ When focusing on compound activity related factor loadings, a low factor 1 score
 
 In contrast to microtubuli and FAK inhibitors, the average activity scores of small molecules targeting Wnt signaling was associated with increased factor 1 scores (Figure \ref{fig_190}d). Further exploration of the association between the AUROC activity score and Apc genotype showed that small molecule inhibitors of the canonical Wnt secretion pathway protein Porcupine (Porcn), IWP-L6 and LGK-974, were more active in Apc WT organoids relative to their Apc-/- counterparts \cite{Liu2013-dh} (Figure \ref{fig_199}a). In contrast, this effect was not observable for PRI-724, a small molecule inhibitor targeting the interaction of beta-catenin and CREB-binding-protein \cite{Okazaki2019-gy} (Figure \ref{fig_199}a). These differences in drug activity scores among these small molecule inhibitors are most likely related to their different targets' relative location to Apc in the canonical Wnt signaling cascade. While Porcn-dependent Wnt secretion is generally upstream of the destruction complex, the interaction of beta-catenin and CREB-binding-protein is located downstream of it. As a consequence, inhibition of destruction complex function by loss of Apc is expected to render cells less sensitive to perturbations of the Wnt secretion cascade than perturbations of transcription factor binding properties (Figure \ref{fig_199}b). 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.75,keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_2.pdf}
 \caption{\textbf{Small molecule Wnt signaling inhibitors. a} AUROC activity score for three small molecule inhibitors of canonical Wnt signaling. \textbf{b} Target proteins for small molecules within the canonical Wnt signaling cascade with their relative position to the destruction complex (highlighted in blue). \textbf{c} Distributions of lipid abundance loadings grouped by lipid species for factor 1 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester)}
@@ -294,7 +294,7 @@ While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180
 \centering
 \includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_1.pdf}
-\caption{\textbf{Factor 2, KrasG12D induced senescence. a} Distributions of drug activity loadings grouped by drug target for factor 2. \textbf{b} Relationship of representative drugs’ activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{c} Gene set enrichment results of a senescence signature by Fridman et al. over ranked factor 2 gene expression loadings (ranking from high factor 2 loading to low factor 2 loading, NES = normalized enrichment score). \textbf{d} Distributions of lipid abundance loadings grouped by lipid species for factor 2 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester). \textbf{e} Relationship of acyl chain length with factor 2 loading. Shown are lipids from highlighted species in panel (d)}
+\caption{\textbf{Factor 2, KrasG12D induced senescence. a} Distributions of drug activity loadings grouped by drug target for factor 2. \textbf{b} Relationship of representative drugs’ activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{c} Gene set enrichment results of a senescence signature by ian et al. over ranked factor 2 gene expression loadings (ranking from high factor 2 loading to low factor 2 loading, NES = normalized enrichment score). \textbf{d} Distributions of lipid abundance loadings grouped by lipid species for factor 2 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester). \textbf{e} Relationship of acyl chain length with factor 2 loading. Shown are lipids from highlighted species in panel (d)}
 \label{fig_200}
 \end{figure}
 % add Fridmann citationh
@@ -377,6 +377,6 @@ Similar to the analysis in the previous chapter, I searched for treatments which
 
 The majority of compounds that led to a predicted shift towards a wildtype organoid state along both axes were also associated with a high predicted toxicity (Figure \ref{fig_310}a, color coding are predictions based on LDC viability classifier). Ellagic acid, however, a natural compound that was predicted to function as a revertant, showed a moderate predicted toxicity (Figure \ref{fig_310}a, top right). Inspection of organoid models treated with Ellagic acid showed reduced number and size of organoids compared to the vehicle control, while organoid viability was generally maintained (Figure \ref{fig_310}b). 
 
-\smallbreak
+\bigbreak
 In this chapter I hypothesized that image-based profiling of engineered organoid models can help identify small molecule candidates that move organoids within a well-defined multi-omics representation space. Analysis of four genetically defined organoid models resulted in three interpretable joint factors within the MOFA analysis. Exploration of factors revealed that Kras G12D dependent oncogene induced senescence in colon organoids is accompanied with characteristic changes to the lipidome, which are not observable in Apc mutant organoid models. Known small molecule inhibitors of GSK3 beta were predicted to move organoid in factor space along factor 1, a canonical Wnt-signaling associated program. Ellagic acid, a natural compound, was predicted to move organoid phenotypes towards an unperturbed morphology, prompting further validation.
 \end{flushleft}
