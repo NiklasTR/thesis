@@ -304,26 +304,20 @@ To understand the molecular mechanisms represented by factor 2, I again analyzed
 
 \smallbreak
 
-In addition, HMG-CoA reductase inhibitors (incl. Rosuvastatin) showed an increased activity in KrasG12D+/- organoids (Figure \ref{fig_200}a and b). This vulnerability towards cholesterol biosynthesis inhibitors in cells with oncogenic Kras signaling has previously been described. 
-% cite Kras papers
+In addition, HMG-CoA reductase inhibitors (incl. Rosuvastatin) showed an increased activity in KrasG12D+/- organoids (Figure \ref{fig_200}a and b). This vulnerability towards cholesterol biosynthesis inhibitors in cells with oncogenic Kras signaling has previously been discussed \cite{Yu2018-he}. 
 
 \smallbreak
+Oncogene induced senescence is a cell state marked by an arrest of the cell cycle and expression of pro-inflammatory mediators as a response to an oncogenic perturbation. An activated KrasG12D+/- genotype leads to oncogene induced senescence of colon epithelial cells in vivo \cite{Bennecke2010-zf}. 
 
-Oncogene induced senescence is a cell state marked by an arrest of the cell cycle and expression of pro-inflammatory mediators as a response to an oncogenic perturbation. An activated KrasG12D+/- genotype leads to oncogene induced senescence of colon epithelial cells in vivo. 
-% cite https://pubmed.ncbi.nlm.nih.gov/20708155/
+\smallbreak
 Prompted by previous reports on the effect of oncogenic Kras, I identified an enrichment of a senescence related gene expression signature by Fridman et al. within the loadings of factor 2 
 \cite{Fridman2008-ky} (Figure \ref{fig_200}c). Transcripts linked to cell senescence, including Igfbp3 (factor 2 loading ca. -0.999) and Hmga2 (factor 2 loading ca. -1.050) ranked among the strongest contributors to the factor. 
 
-% TODO check protoemics for factor 2 - notes suggest downregulation of telomer maintanance
+\smallbreak
 Further exploration of loadings for factor 2 revealed systematic shifts in the composition of the lipidome. Activation of oncogenic Kras led to an accumulation of sphingomyelin (SM) and triacylglycerol (TAG) species in colon cells. In contrast, I observed a relative depletion of cholesterol esters (CE) and lysophosphatidylcholine (LPC) (Figure \ref{fig_200}d). Next to shifts in the lipid comoposition, I also observed a correlation of fatty acid residue chain length and factor 2 loadings, where a low factor 2 score was correlated with higher residue chain length (Figure \ref{fig_200}e) and a higher degree of lipid desaturation (data not shown). Both of these association was primarily driven by differences in the abundance of lipid species, however. 
 
 \smallbreak
-
-To summarize, factor 2 represents an axis of variation within the observed organoid models that accounts for x\% of variance across data modalities.  
-% TODO lookup variaction explained
-Factor 2 explains differences between wildtype and KrasG12D+/- organoid models and captures the activation of RAS-MAPK signaling and subsequent oncogene induced senescence. KrasG12D+/- transformed colon cells showed a hyperactivation of RAS-MAPK signaling with characteristic changes in small molecule dependencies (ERK and EGFR inhibitors, respectively). Of note, KrasG12D+/- induced senescence coincided with the accumulation of triacylglycerol (TAG) and sphingomyelin (SM) species within colon organoids. Lipid accumulation in senescent cells has been observed in multiple senescent cells, including human fibroblasts (TAG accumulation) and, more specifically, has recently been described in non-mammalian model systems as a consequence of Kras mediated oncogene induced senescence. 
-% cite BJ fibroblast paper https://pubs.rsc.org/en/content/articlelanding/2017/mb/c6mb00842a
-% cite zebrafish paper.https://pubmed.ncbi.nlm.nih.gov/30065049/
+To summarize, factor 2 explains differences between wildtype and KrasG12D+/- organoid models and captures the activation of RAS-MAPK signaling and subsequent oncogene induced senescence. KrasG12D+/- transformed colon cells showed a hyperactivation of RAS-MAPK signaling with characteristic changes in small molecule dependencies (ERK and EGFR inhibitors, respectively). Of note, KrasG12D+/- induced senescence coincided with the accumulation of triacylglycerol (TAG) and sphingomyelin (SM) species within colon organoids. Lipid accumulation in senescent cells has been observed in multiple senescent cells, including human fibroblasts (TAG accumulation) \cite{Lizardo2017-uy} and, more specifically, has recently been described in non-mammalian model systems as a consequence of Kras mediated oncogene induced senescence \cite{Yao2018-ut}. 
 
 %\begin{figure}[h]
 %\centering
@@ -348,8 +342,7 @@ Factor 2 explains differences between wildtype and KrasG12D+/- organoid models a
 \newpage
 \section{oncogenic Kras leads to increased mTOR signaling in the context of Apc loss of function}
 
-While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170}c). Overall, factor 3 only accounted for x\% of variance within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids observed on the transcriptome, proteome, lipidome and phenotype level previously (Figure \ref{fig_161}a-d and \ref{fig_140}b).
-% TODO check variance explained
+While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170}c). On average, factor 3 only accounted for ca. 10\% of variance across modalities within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids previously observed on the transcriptome, proteome, lipidome and phenotype level (Figure \ref{fig_161}a-d and \ref{fig_140}b).
 
 \begin{figure}[h]
 \centering
@@ -358,23 +351,21 @@ While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, f
 \caption{\textbf{Factor 3, KrasG12D effects in the context of Apc loss of function. a} Distributions of drug activity loadings grouped by drug target for factor 3. \textbf{b} Relationship of representative mTOR inhibitor activity with factor 3 score. \textbf{c} Gene set enrichment results of a Reactome mTORC1 activation signature over ranked factor 3 gene expression loadings (ranking from high factor 3 loading to low factor 3 loading, NES = normalized enrichment score). \textbf{d} Visual summary of Myc gene set enrichment results for organoid state transitions. Myc signatures were significantly enriched in Apc-/- models and depleted in models with isolated KrasG12D+/- mutation.}
 \label{fig_300}
 \end{figure}
-% add and check details on Myc expression test
+\bigbreak
 
 Exploration of factor 3 loadings identified mTOR and FAK inhibitors to systematically contribute to a negative factor score. Double-mutant organoid models (Apc-/- KrasG12D+/-) were more sensitive to these small molecule inhibitors than their single-mutant Apc-/- counterparts (Figure \ref{fig_300}a). This difference in drug activity was observerable for both ATP-competitive (e.g. INK-128, Sapanisertib) and non-ATP-competitive (e.g. Rapamycin) inhibitors (Figure \ref{fig_300}b). In line with the increased sensitvity to mTOR inhibitors, differential gene expression analysis comparing single (Apc -/-, abbreviated A) and double mutant (Apc-/- KrasG12D+/-, abbreviated AK) organoids identified a significant increase in mTORC1 activation according to a Reactome signature (Figure \ref{fig_300}c, FDR=0.0095, NES=2.5019). 
-% add citation for mTORC1 preference
 
-Further exploration of factor 3 loadings in gene expression space showed an enrichment for Myc target genes. Transcription signatures associated with increased Myc activity are enriched in double-mutant organoid models (Apc-/- KrasG12D+/-) when compared to single-mutant counterparts (Figure \ref{fig_300}d). In fact, further analysis of factor 1 and factor 2 gene expression loadings identified significant changes in Myc activity signatures for both factors as well. Simplified, loss of function of Apc led to an increased activity of Myc (factor 1) while the isolated presence of oncogenic KrasG12D+/- led to a reduced activity of Myc (factor 1: , factor 2: ,  ). These observations are consistent with previous studies describing a central role of increased Myc activity in Wnt-signaling dependent adenoma formation and decreased Myc activity in oncogene induced senescence.
-%TODO add citation
-%TODO add GSEA statistics for factor 1 and 2
-%TODO add citation of japanese adenoma paper and zebrafish senescence
+\smallbreak
+Further exploration of factor 3 loadings in gene expression space showed an enrichment of multiple Myc target gene signatures \cite{Yu2005-em, Zeller2003-ok}. Transcription signatures associated with increased Myc activity are enriched in double-mutant organoid models (Apc-/- KrasG12D+/-) when compared to single-mutant counterparts (Figure \ref{fig_300}d). In fact, further analysis of factor 1 and factor 2 gene expression loadings identified significant changes in Myc activity signatures for both factors as well. Simplified, loss of function of Apc led to an increased activity of Myc (factor 1) while the isolated presence of oncogenic KrasG12D+/- led to a reduced activity of Myc. These observations are consistent with previous studies describing a central role of increased Myc activity in Wnt-signaling dependent adenoma formation \cite{Satoh2017-nd} and decreased Myc activity in oncogene induced senescence \cite{Yao2018-ut}.
 
-In summary, factor 3 is representing the interaction of Apc loss of function and oncogenic KrasG12D+/-. In the mouse colon organoid model, the introduction of oncogenic KrasG12D+/- within an Apc-/- background leads to an increased mTORC1 signaling related gene expression signature and increased sensitivity to small molecule mTOR inhibitors. Myc activity related gene expression is increased in all factors related to malignant transformation, except the introduction of oncogenic KrasG12D+/- in Apc+/+ organoids, where Myc activity is reduced. 
+\smallbreak
+In summary, factor 3 is representing the interaction of Apc loss of function and oncogenic KrasG12D+/-. In the mouse colon organoid model, the introduction of oncogenic KrasG12D+/- within an Apc-/- background leads to an increased mTORC1 signaling related gene expression signature and increased sensitivity to small molecule mTOR inhibitors. Myc activity related gene expression is increased in all factors related to malignant transformation, except the introduction of isolated oncogenic KrasG12D+/- in where Myc activity is reduced in line with the oncogene induced senescence model. 
 
 \newpage
 \section{Ellagic acid is a candidate small molecule revertant therapeutic of organoid adenoma states}
 
 Similar to the analysis in the previous chapter, I searched for treatments which induced organoid phenotypes that suggested a change of organoid state within the learned factor-space. Treatments that were predicted to move organoids towards a wildtype state along factor 1 and 2 were of particular medical relevance. Analogous to the concept of revertant genetic mutations, I referred to small molecules with a predicted ability to move transformed organoids towards a wildtype state as potential revertant therapeutics.
-% TODO citation revertant genetic mutation
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,
@@ -386,8 +377,6 @@ Similar to the analysis in the previous chapter, I searched for treatments which
 
 The majority of compounds that led to a predicted shift towards a wildtype organoid state along both axes were also associated with a high predicted toxicity (Figure \ref{fig_310}a, color coding are predictions based on LDC viability classifier). Ellagic acid, however, a natural compound that was predicted to function as a revertant, showed a moderate predicted toxicity (Figure \ref{fig_310}a, top right). Inspection of organoid models treated with Ellagic acid showed reduced number and size of organoids compared to the vehicle control, while organoid viability was generally maintained (Figure \ref{fig_310}b). 
 
-
-
-%modeling of ANOVA score ~ organoid + drug
-
+\smallbreak
+In this chapter I hypothesized that image-based profiling of engineered organoid models can help identify small molecule candidates that move organoids within a well-defined multi-omics representation space. Analysis of four genetically defined organoid models resulted in three interpretable joint factors within the MOFA analysis. Exploration of factors revealed that Kras G12D dependent oncogene induced senescence in colon organoids is accompanied with characteristic changes to the lipidome, which are not observable in Apc mutant organoid models. Known small molecule inhibitors of GSK3 beta were predicted to move organoid in factor space along factor 1, a canonical Wnt-signaling associated program. Ellagic acid, a natural compound, was predicted to move organoid phenotypes towards an unperturbed morphology, prompting further validation.
 \end{flushleft}
