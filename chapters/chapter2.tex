@@ -9,23 +9,22 @@ What I cannot create, I do not understand.
 
 \section{Motivation}
 
-Based on the observation that (1) joint representations of organoid morphology and biochemical state can be learned, and (2) small molecule perturbations can shift organoids in representation space, the following hypothesis can be formulated: If well-annotated small molecules can help identify a causal representation of unknown organoid states, unknown small molecules with desirable properties can be identified by their ability to shift the state of well-annotated organoid models. 
-Put differently, instead of using small-molecule perturbations to learn about the biology of non-characterized patient derived organoids, we should be able to use genetically engineered organoid models to learn about desirable properties of non-characterized small molecules.
-
-The emergence of colorectal cancer via the chromosomal instability process is a well understood sequence of genetic events that start with hyperactivation of canonical Wnt signaling, often via loss of APC, followed by the hyperactivation of RAS-MAPK signaling, often via oncogenic mutations of KRAS. These two mutations are frequent and signficantly co-occuring in colorectal cancer patients, suggesting an interplay between these two acquired genetic functional events that lead to a selfish evolutionary advantage of premalignant cells. While the genetic events within this process are well understood, no therapeutics targeting the loss of APC or the hyperactivation of KRAS via the frequent G12D activation have yet been developed. 
+Based on the observation that (1) joint representations of organoid morphology and biological state can be learned, and (2) small molecule perturbations can shift organoids in representation space, the following hypothesis can be formulated: If well-annotated small molecules can help explain unknown organoid states, unknown small molecules with desirable properties should be identifyable by their ability to shift the state of well-annotated organoid models. 
+Put differently, instead of using small-molecule perturbations to learn about the biology of non-characterized patient derived organoids, it should be possible to use genetically engineered organoid models to learn about desirable properties of non-characterized small molecules.
+\smallbreak
+To test this hypothesis, I generated a set of genetically engineered mouse colon organoid models that model the initiation of colorectal cancer via the chromosomal instability process. The emergence of colorectal cancer via the chromosomal instability process is a well understood sequence of genetic events that start with hyperactivation of canonical Wnt signaling, often via loss of APC, followed by the hyperactivation of RAS-MAPK signaling, often via oncogenic mutations of KRAS. These two mutations are frequent and signficantly co-occuring in colorectal cancer patients, suggesting an interplay between these two acquired genetic functional events that lead to an evolutionary advantage of premalignant cells. While the genetic events within this process are well understood, no therapeutics targeting the loss of APC or the hyperactivation of KRAS via the frequent G12D activation have been developed for clinical use yet. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=250,
                 height=\textheight,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_0_2.pdf}
-\caption{\textbf{Visual abstract of adenoma model profiling project.}}
+\caption{\textbf{Visual abstract of adenoma model profiling project.} Mouse colon organoid models were developed, characterized and subjected to image-based small molecule profiling. The resulting data was used to learn a representation space of organoid states, identify state dependent changes in organoid lipid composition and generate hypotheses about small molcules that potentially have the ability to move organoid states.}
 \label{fig_a02}
 \end{figure}
 \bigbreak
 
-
-By using image-based profiling of genetically engineered mouse colon organoid models carrying Apc truncating mutations and/or a Kras G12D allele, I modelled the first set of genetic events within the Adenoma-Carcinoma sequence. Using a similar strategy than in the first chapter of this thesis, organoid models were characterized in-depth and subjected to a high-throughput small molecule screen of ca. 1700 FDA-approved substances and experimental compounds. The goal of this project was to (1) understand the biological state changes caused by individual transforming genetic changes in Apc and Kras within colon epithelial cells and (2) identify putative candidates that shift organoid states within the learned representation away from a pre-malignant state. 
+I genetically engineered mouse colon organoid models carrying Apc truncating mutations and/or a Kras G12D allele, thereby modelling the first set of genetic events within the chromosomal instability process leading to colorectal cancer. Using a strategy similar to the approach in the first chapter of this thesis, organoid models were characterized in-depth and subjected to a high-throughput small molecule screen of ca. 1700 FDA-approved substances and experimental compounds. The goal of this project was to (1) understand the biological state changes caused by individual transforming genetic changes in Apc and Kras within colon epithelial cells and (2) identify putative candidates that shift organoid states within the learned representation away from a transformed state. 
 
 
 \begin{figure}[H]
@@ -372,11 +371,6 @@ In summary, factor 3 is representing the interaction of Apc loss of function and
 
 Similar to the analysis in the previous chapter, I searched for treatments which induced organoid phenotypes that suggested a change of organoid state within the learned factor-space. Treatments that were predicted to move organoids towards a wildtype state along factor 1 and 2 were of particular medical relevance. Analogous to the concept of revertant genetic mutations, I referred to small molecules with a predicted ability to move transformed organoids towards a wildtype state as potential revertant therapeutics.
 % TODO citation revertant genetic mutation
-
-The majority of compounds that led to a predicted shift towards a wildtype organoid state along both axes were also associated with a high predicted toxicity (Figure \ref{fig_310}a, color coding are predictions based on LDC viability classifier). Ellagic acid, however, a natural compound that was predicted to function as a revertant, showed a moderate predicted toxicity (Figure \ref{fig_310}a, top right). Inspection of organoid models treated with Ellagic acid showed reduced number and size of organoids compared to the vehicle control, while organoid viability was generally maintained (Figure \ref{fig_310}b). 
-
-
-
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,
@@ -385,6 +379,10 @@ The majority of compounds that led to a predicted shift towards a wildtype organ
 \label{fig_310}
 \end{figure}
 \bigbreak
+
+The majority of compounds that led to a predicted shift towards a wildtype organoid state along both axes were also associated with a high predicted toxicity (Figure \ref{fig_310}a, color coding are predictions based on LDC viability classifier). Ellagic acid, however, a natural compound that was predicted to function as a revertant, showed a moderate predicted toxicity (Figure \ref{fig_310}a, top right). Inspection of organoid models treated with Ellagic acid showed reduced number and size of organoids compared to the vehicle control, while organoid viability was generally maintained (Figure \ref{fig_310}b). 
+
+
 
 %modeling of ANOVA score ~ organoid + drug
 
