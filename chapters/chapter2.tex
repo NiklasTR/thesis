@@ -11,7 +11,7 @@ Often when works at a hard question, nothing good is accomplished at the first a
 
 
 \section{Disclosure}
-Significant parts of this chapter have been adapted from own manuscripts, including \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) were previously developed by Jan Sauer as part of his dissertation \cite{noauthor_undated-ij}. Image-based profiling experiments were supported by Johannes Betge and Clara Dingert. 
+Significant parts of this chapter have been adapted from own manuscripts, including \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) were previously developed by Jan Sauer as part of his dissertation \cite{noauthor_undated-ij}. Image-based profiling experiments were supported by Johannes Betge. 
 
 \section{Image-based profiling captures the morphological diversity of patient-derived cancer organoids}
 
@@ -41,6 +41,7 @@ While DNA and Actin staining intensity were positively correlated with organoid 
 \caption{\textbf{Image-based profiling captures the phenotype diversity of patient derived cancer organoids a} Uniform Manifold Approximation and Projection (UMAP) of organoid-level features for a random 5\% sample out of ca. 5.5 million organoids. The same sample is used for visualizations throughout the figure. Color corresponds to the log-scaled organoid area (dark blue: minimum size, yellow: maximum size). \textbf{b} organoid size distribution across lines. \textbf{c} UMAP representation of DMSO treated and drug treated organoids. Graph-based clustering of organoids by morphology. \textbf{d} UMAP embeddings of selected organoid lines (baseline state / 0.1\% DMSO control-treated organoids) representing different morphological subsets, grey background consists of randomly sampled points. Depicted are representative example images for each line (right, cyan = DNA, magenta = Actin, scale-bar: 200µm).}
 \label{fig_140}
 \end{figure}
+\bigbreak
 
 Different organoid lines within the embedding were located in characteristic regions, with organoid size and organoid architecture as primary organizing factors (Figure \ref{fig_140} b and d). For example, organoid line D018T had the largest median organoid size within the dataset and a cystic organoid architecture, while D020T organoids had a solid architecture and smaller median size. In most cases, organoid lines had two areas of main density, with one of them in regions 2, 3 or 4, reflecting the previously mentioned bimodal size distribution. In summary, image-based profiling of patient derived colorectal cancer organoids showed strong morphological heterogeneity with line dependent differences in size and organoid architecture.
 
@@ -54,7 +55,10 @@ Different organoid lines within the embedding were located in characteristic reg
 \end{figure}
 \bigbreak
 
-Exploratory data analysis of the relationship between organoid morphology and batch showed overall reproducible measurements of organoid profiles across experiments (Figure \ref{fig_145}). While objects with a log-area of 8 pixels and larger showed reproducible phenotypes across contexts, smaller objects (mostly dead organoids) showed batch-dependent differences in phenotype. For example, region 1 within the UMAP embedding was exclusively occupied by observations from batch HC1092-09 and HC1092-10, while region 4 was relatively underoccupied. Given the confounding of line differences by experimental batches (experimental batches and tested organoid lines were not independent) and the stronger prevalence of batch effects for small objects, no procedure to remove these batch-dependent differences in organoid phenotype were performed. 
+Exploratory data analysis of the relationship between organoid morphology and experimental batch showed overall reproducible measurements of organoid profiles across experiments (Figure \ref{fig_145} e). While objects with a log-area of 8 pixels and larger showed reproducible phenotypes across contexts, smaller objects (mostly dead organoids) showed batch-dependent differences in phenotype.
+
+\smallbreak
+For example, region 1 within the UMAP embedding was exclusively occupied by observations from batch HC1092-09 and HC1092-10, while region 4 was relatively underoccupied (Figure \ref{fig_216} a). Given the confounding of line differences by experimental batches (experimental batches and tested organoid lines were not independent) and the stronger prevalence of batch effects for small objects, no procedure to remove these batch-dependent differences in organoid phenotype were performed. 
 
 \bigbreak
 
@@ -63,7 +67,7 @@ Exploratory data analysis of the relationship between organoid morphology and ba
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_1_6.pdf}
-\caption{\textbf{Technical confounders and their impact on organoid phenotype. a} UMAP of organoid level features stratified by organoid line and colored by experimental batch.}
+\caption{\textbf{Experimental batches and their impact on organoid phenotype. a} UMAP of organoid level features stratified by organoid line and colored by experimental batch.}
 \label{fig_216}
 \end{figure}
 \clearpage
@@ -71,7 +75,7 @@ Exploratory data analysis of the relationship between organoid morphology and ba
 
 \section{Organoid phenotype-profiles capture organoid viability}
 
-Drug induced changes in cell viability are a basic readout in oncology drug discovery. Prompted by the observation that organoid size was a major factor determining the structure of the phenotype embedding (UMAP and factor 1 in MOFA analysis, see below), I hypothesized that low organoid size was at least partially the result of cell death within the organoid and, more broadly, that phenotype data could be used to estimate organoid viability. Bortezomib, a small molecule Proteasome inhibitor with high in-vitro toxicity led to dose dependent organoid death in all organoid lines, thus representing suitable positive controls (Fig. 2a). Analogous to pseudotime in single-cell  gene expression analysis, dose-dependent trajectories of Bortezomib drug response could be fitted (Fig. 2b) using the non-parametric principle curve method. Starting from diverse baseline morphologies, increasing doses of this compound led to a step-wise convergence on a final death-related phenotype, which corresponded to the areas with enrichment of small objects (regions 2, 3 and 4). 
+Drug induced changes in cell viability are a basic readout in oncology drug discovery. Prompted by the observation that organoid size was a major factor determining the structure of the phenotype embedding (UMAP and factor 1 in MOFA analysis, see below), I hypothesized that low organoid size was at least partially the result of cell death within the organoid and, more broadly, that phenotype data could be used to estimate organoid viability. Bortezomib, a small molecule proteasome inhibitor with high in-vitro toxicity led to dose dependent organoid death in all organoid lines, thus representing suitable positive controls (Figure \ref{fig_221} a). Analogous to pseudotime in single-cell  gene expression analysis, dose-dependent trajectories of Bortezomib drug response could be fitted (Figure \ref{fig_221} b) using the non-parametric principle curve method. Starting from diverse baseline morphologies, increasing doses of Bortezomib led to a step-wise convergence on a final death-related phenotype, which corresponded to the areas with enrichment of small objects (regions 2, 3 and 4). 
 
 \begin{figure}[h]
 \centering
@@ -83,19 +87,31 @@ Drug induced changes in cell viability are a basic readout in oncology drug disc
 \end{figure}
 \bigbreak
 
-Similarly, Paclitaxel, a microtubule disassembly inhibitor, shifted the bimodal size distribution of organoids in a dose-dependent fashion (figure \ref{fig_161}a), while organoid count remained largely unchanged (figure \ref{fig_161}b). This effect, however, was organoid line-specific, as median organoid size in paclitaxel sensitive lines (e.g. D022T) decreased, while the size of other organoids remained unaffected (e.g. D046T, Fig. 2c-f). These observations suggested a link between organoid morphology, especially organoid size, with a loss of cell viability. To further test the link between organoid morphology and cell viability, I performed a luminescence-based, ATP dependent, cell viability assay (CTG) in parallel with imaging as benchmark. A strong association of CTG viability with organoid size (Fig. 2g) was visible. 
+Similarly, Paclitaxel, a microtubule disassembly inhibitor, shifted the bimodal size distribution of organoids in a dose-dependent fashion (Figure \ref{fig_222} a), while organoid count remained largely unchanged (Figure \ref{fig_222} b). This effect, however, was organoid line-specific, as median organoid size in Paclitaxel sensitive lines (e.g. D022T) decreased, while the size of other organoids remained unaffected (e.g. D046T, Figure \ref{fig_222} c-f). These observations suggested a link between organoid morphology, especially organoid size, with a loss of cell viability. 
+
+\bigbreak
+To further test the link between organoid morphology and cell viability, I performed a luminescence-based, ATP dependent, cell viability assays (CTG) in parallel with imaging as benchmark. A correlation of CTG viability with organoid size (r = 0.64) (Figure \ref{fig_222} a) was visible. 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_2_2.pdf}
-\caption{\textbf{Organoid phenotype-profiles capture treatment specific changes in organoid viability. a} Distribution of organoid size at different concentrations of paclitaxel. Shown is a random sample of 30\% of all paclitaxel treated organoids for this and following figures. \textbf{b} Distribution of organoid number per well at different concentrations of paclitaxel. \textbf{c} Example images of D022T organoids treated with paclitaxel. \textbf{d} Dose-response relationship of organoid size and paclitaxel dose. D022T and D046T are highlighted. \textbf{e} UMAP of organoid morphology highlighting D022T organoids treated at different concentrations of paclitaxel. \textbf{f} UMAP of organoid morphology highlighting D046T organoids treated at different concentrations of paclitaxel.}
+\caption{\textbf{Organoid phenotype-profiles capture treatment specific changes in organoid viability. a} Distribution of organoid size at different concentrations of Paclitaxel. Shown is a random sample of 30\% of all Paclitaxel treated organoids for this and following figures. \textbf{b} Distribution of organoid number per well at different concentrations of Paclitaxel. \textbf{c} Example images of D022T organoids treated with Paclitaxel. \textbf{d} Dose-response relationship of organoid size and paclitaxel dose. D022T and D046T are highlighted. \textbf{e} UMAP of organoid morphology highlighting D022T organoids treated at different concentrations of Paclitaxel. \textbf{f} UMAP of organoid morphology highlighting D046T organoids treated at different concentrations of Paclitaxel.}
 \label{fig_222}
 \end{figure}
 \bigbreak
 
-To test whether a more accurate prediction of organoid viability was achievable by using all available imaging data, I used a previously trained set of random forest classifiers (live/dead classifiers, LDC). These classifiers were trained on individual organoid phenotype profiles to distinguish between negative and positive control treatments (DMSO, bortezomib and sn-38, Supplemental Fig. S3d-e). When applying the classifier to the whole imaging dataset and visualizing predictions via UMAP, organoids within previously identified regions 2, 3 and 4 had the highest probabilities for death (Fig. 2h). LDC had the highest correlation with CTG based viability data (Fig. 2i), however, the association with organoid size was almost as strong in the majority of organoid lines (Fig. 2i, Supplemental Fig. S3g), while other simple features, such as DAPI actin, and permeability (DeadGreen) intensity were less suitable to predict viability of organoids (Fig 2i). In conclusion, organoid size is an informative metric to describe organoid viability, but is biased by line-specific differences in untreated organoid size. Models consuming more comprehensive morphological information can achieve even higher predictive performance of organoid viability. 
+To test whether a more accurate prediction of organoid viability was achievable by using all available imaging data, I used a previously trained set of random forest classifiers (live/dead classifiers, LDC). These classifiers were trained on individual organoid phenotype profiles to distinguish between negative and positive control treatments (DMSO, Bortezomib and SN-38). 
+
+\smallbreak
+When applying the classifier to the whole imaging dataset and visualizing predictions via UMAP, organoids within previously identified small-object regions 2, 3 and 4 had the highest probabilities for death (Figure \ref{fig_222} b). 
+
+\smallbreak
+Not only organoid size, but also the viability classified (LDC) correlated with luminescence-based viability (CTG) measurements (Figure \ref{fig_222} b and c). In fact, the trained classified, together with organoid size showed the most robust correlation with luminescence-based viability measurements across all profiled organoid lines (Figure \ref{fig_222} d), while other simple features, such as DAPI, Actin, and permeability (DeadGreen) intensity were less suitable to predict the viability of organoids. 
+
+\smallbreak
+In conclusion, organoid size is an informative metric to describe organoid viability, but is biased by line-specific differences in untreated organoid size. Models consuming more comprehensive morphological information can achieve even higher predictive performance of organoid viability. 
 
 \clearpage
 \begin{figure}[h]
