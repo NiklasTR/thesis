@@ -10,23 +10,30 @@ The beginning is the most important part of the work.
 \newpage
 
 \section{Disclosure}
-Significant parts of this chapter have been adapted from own manuscripts, including \textit{Image-based profiling identifies molecular determinants of cancer organoid architecture and plasticity} \cite{Betge2019MultiparametricOrganoids} and its public pre-print versions. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) was previously developed by Jan Sauer as part of his dissertation. Image-based profiling experiments were supported by Johannes Betge and Clara Dingert. 
+Significant parts of this chapter have been adapted from own manuscripts, including \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) were previously developed by Jan Sauer as part of his dissertation \cite{noauthor_undated-ij}. Image-based profiling experiments were supported by Johannes Betge and Clara Dingert. 
 
 \section{Establishing patient derived organoids for image-based profiling}
 
-Patient derived organoids can be established from diverse healthy or malignant tissues and have been shown to represent their tissue of origin with respect to morphological and molecular features including gene expression and somatic mutations \cite{Fujii:2016jo, Weeber2015-sn, Van_De_Wetering2015-ko, Sato:2011-1h,  Broutier2017-wg}. To generate personalized cancer models for image-based profiling, I designed and implemented a standardized laboratory workflow to generate patient derived organoids from colorectal cancer samples via endoscopic biopsy (Figure 1a). Briefly, fresh patient samples were washed, digested and embedded in a basal membrane extract, a proprietary mixture of extracellular matrix proteins especially rich in Laminin and Collagen 4. The isolated tumor cells were then overlaid with a growth factor rich medium, containing Epidermal Growth Factor (EGF), the BMP-signaling antagonist Noggin and the small-molecule inhibitor A83-01, which inhibits TGF\beta-signaling by targeting the Activin receptor-like kinase family.
+Patient derived organoids can be established from diverse healthy or malignant tissues and have been shown to represent their tissue of origin with respect to morphological and molecular features including gene expression and somatic mutations \cite{Fujii2016-ax, Weeber2015-sn, Van_De_Wetering2015-ko, Sato2011-lh,  Broutier2017-wg}. To generate personalized cancer models for image-based profiling, I designed and implemented a standardized laboratory workflow to generate patient derived organoids from colorectal cancer samples via endoscopic biopsy (Figure \ref{fig_110}a). Briefly, fresh patient samples were washed, digested and embedded in a basal membrane extract, a proprietary mixture of extracellular matrix proteins especially rich in Laminin and Collagen 4. The isolated tumor cells were then overlaid with a growth factor rich medium, containing Epidermal Growth Factor (EGF), the BMP-signaling antagonist Noggin and the small-molecule inhibitor A83-01, which inhibits TGF\beta-signaling by targeting the Activin receptor-like kinase family.
 
 %\clearpage
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_0_1.pdf}
-\caption{\textbf{Central liquid handling methods a} Organoid isolation procedure. Colorectal cancer tissue biopsies were collected via endoscopy, enzymatically removed from extracellular matrix proteins, washed and resuspended in basal membrane extract hydrogel. After solidification of hydrogel domes, organoids were overlayed with growth factor rich culture medium. \textbf{b} Organoid high-throughput experimentation. Colorectal cancer organoids were harvested, partially digested, seeded in hydrogel-coated 384-well plates}
+\caption{\textbf{Core liquid handling methods a} Organoid isolation procedure. Colorectal cancer tissue biopsies were collected via endoscopy, enzymatically removed from extracellular matrix proteins, washed and resuspended in basal membrane extract hydrogel. After solidification of hydrogel domes, organoids were overlayed with growth factor rich culture medium. \textbf{b} Organoid high-throughput experimentation. Colorectal cancer organoids were harvested, partially digested, seeded in hydrogel-coated 384-well plates}
 \label{fig_110}
 \end{figure}
 
-Following this protocol, patient derived organoids from 13 patients with colorectal cancer were prospectively developed. Donors to the biobank represented different UICC stages (Figure \ref{S1_mod}). Gene expression profiling and amplicon sequencing of frequently altered genes in colorectal cancer showed molecular profiles characteristic for the disease . Similar to sequencing studies of primary tumors, patient derived organoids harbored a high frequency of APC (6/13), KRAS (8/13) and TP53 (5/13) mutations \cite{Muzny2012-hr}. On a gene expression level, patient derived organoids mainly represented the canonical consensus molecular subtype CMS 2 of colorectal cancer \cite{Guinney2015-ex}. No patient derived organoid line with a MSI-high phenotype and the associated CMS 1 molecular subtype was established. Also, no organoid line matched the molecular subtype CMS 4, which is associated with stromal infiltration and TGF\(\beta\)-signaling. These results are in line with previous observations \cite{Van_De_Wetering2015-ko, Schutte2017-fl} and the limitations of the organoid culture system, which selects for growth of epithelial cells (favored by canonical Wnt signaling high, BMP4 signaling low) over mesenchymal cells (favored by canonical Wnt signaling low, BMP4 signaling high) \textit{ex vivo} \cite{Sato2011-lh}.
+\newpage
+Following this protocol, patient derived organoids from 13 patients with colorectal cancer were prospectively developed. Donors to the biobank represented different UICC stages (Figure \ref{fig_120}a). 
+
+\smallbreak
+Amplicon sequencing of frequently altered genes in colorectal cancer showed molecular profiles characteristic for the disease (Figure \ref{fig_120}c). Similar to sequencing studies of primary tumors, patient derived organoids harbored a high frequency of APC (6/13), KRAS (8/13) and TP53 (5/13) mutations \cite{Muzny2012-hr}. 
+
+\smallbreak
+On a gene expression level, patient derived organoids mainly represented the canonical consensus molecular subtype CMS 2 of colorectal cancer \cite{Guinney2015-ex} (Figure \ref{fig_120}b). No patient derived organoid line with a MSI-high phenotype and the associated CMS 1 molecular subtype was established. Also, no organoid line matched the molecular subtype CMS 4, which is associated with stromal infiltration and TGF\(\beta\)-signaling. These results are in line with previous observations \cite{Van_De_Wetering2015-ko, Schutte2017-fl} and demonstrate limitations of the organoid culture system, which selects for growth of epithelial cells (favored by canonical Wnt signaling high, BMP4 signaling low) over mesenchymal cells (favored by canonical Wnt signaling low, BMP4 signaling high) \textit{ex vivo} \cite{Sato2011-lh}.
 
 \clearpage
 \begin{figure}[h]
@@ -41,7 +48,7 @@ Following this protocol, patient derived organoids from 13 patients with colorec
 
 
 \section{Enabling methods for high-throughput image-based profiling of organoids}
-To systematically measure organoid morphology, I established a platform for high-throughput image-based profiling experiments. The three engineering problems that had to be solved were (1) control of organoid size and density in a 384-well plate format, (2) control of organoid location within the hydrogel for efficient microscopy and (3) maintenance of organoid integrity during automatic fixation and permeabilization. 
+To systematically measure organoid morphology, I established a platform for high-throughput image-based profiling experiments. The three engineering problems that had to be solved were (1) control of organoid size and density in a 384-well plate format, (2) control of organoid location within the hydrogel for efficient microscopy and (3) maintenance of organoid integrity during automated fixation and permeabilization. 
 
 \begin{figure}[h]
 \centering
