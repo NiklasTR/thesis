@@ -104,13 +104,13 @@ To further test the link between organoid morphology and cell viability, I perfo
 
 To test whether a more accurate prediction of organoid viability was achievable by using all available imaging data, I used a previously trained set of random forest classifiers (live/dead classifiers, LDC). These classifiers were trained on individual organoid phenotype profiles to distinguish between negative and positive control treatments (DMSO, Bortezomib and SN-38). 
 
-\smallbreak
+\bigbreak
 When applying the classifier to the whole imaging dataset and visualizing predictions via UMAP, organoids within previously identified small-object regions 2, 3 and 4 had the highest probabilities for death (Figure \ref{fig_222} b). 
 
-\smallbreak
+\bigbreak
 Not only organoid size, but also the viability classified (LDC) correlated with luminescence-based viability (CTG) measurements (Figure \ref{fig_222} b and c). In fact, the trained classified, together with organoid size showed the most robust correlation with luminescence-based viability measurements across all profiled organoid lines (Figure \ref{fig_222} d), while other simple features, such as DAPI, Actin, and permeability (DeadGreen) intensity were less suitable to predict the viability of organoids. 
 
-\smallbreak
+\bigbreak
 In conclusion, organoid size is an informative metric to approximate organoid viability, but is biased by line-specific differences organoid size. Models consuming more comprehensive morphological information can achieve even higher predictive performance of organoid viability. 
 
 \clearpage
@@ -128,7 +128,7 @@ In conclusion, organoid size is an informative metric to approximate organoid vi
 
 An advantage of image-based phenotyping over cell viability measurements in drug discovery is the ability to use the high dimensional drug-induced phenotype-profiles to identify active but not necessarily lethal drugs and estimate their mechanism of action by unsupervised clustering. 
 
-\smallbreak
+\bigbreak
 To test whether this approach could be used in cancer organoids, I used a weakly supervised learning approach to identify drug effect vectors and group them by similarity. With the support of Jan Sauer, logistic regression models to separate individual compound-treated organoids from unperturbed controls were trained. The resulting normal vector between control- and treated organoid profiles was referred to as the drug effect vector. Next I scored every model’s ability to separate treated and untreated organoids (AUROC, ranging from 0.5 to 1) to identify active treatments that induce a robust change in organoid morphology (Figure \ref{fig_230} a, b). Drug activity was necessary but not sufficient for a viability effect (Figure \ref{fig_230} c). A fraction of drugs led to identifiable changes in organoid morphology but were not classified as lethal by our LDC model. 
 
 \begin{figure}[h]
@@ -141,16 +141,10 @@ To test whether this approach could be used in cancer organoids, I used a weakly
 \end{figure}
 \bigbreak
 
-To test whether active drugs systematically lead to organoid phenotypes that are informative of mechanism of action, the cosine distance between concatenated drug effect vectors was determined. This approach led to a clustering of specific mode-of-actions, including inhibitors of MEK, Aurora kinase, CDK, mTOR, AKT, EGFR or GSK3 (Figure \ref{fig_231}). An alternative approach, based on phenotype profile averaging followed by pearson correlation led to similar results (Figure \ref{fig_231}). 
+To test whether active drugs systematically lead to organoid phenotypes that are informative of mechanism of action, the cosine distance between concatenated drug effect vectors was determined. This approach led to a clustering of specific mode-of-actions, including inhibitors of MEK, Aurora kinase, CDK, mTOR, AKT, EGFR or GSK3 (Figure \ref{fig_231} a). 
 
-\smallbreak
-Furthermore, compounds with related targets also induced similar phenotypes, for example MEK inhibitors clustered with specific RAF- and ERK inhibitors (Fig. 3e) or AKT and PI3K inhibitors were part of a cluster mainly containing mTOR targeting compounds (Fig. 3f, Supplemental Fig. 5a). The clustering also suggested additional mode-of-actions or off-target effects for well-described compounds (Fig. 3g-h). For example, the PKC inhibitor enzastaurin was related to GSK3, substantiating a previously described interaction with the alpha and beta subunits of GSK328 (Fig. 3h). 
-
-\smallbreak
-To assess whether morphological profiles of active drug treatments were primarily driven by differences in organoid viability, we compared LDC predictions with the phenotypic clustering (Fig. 3i). We observed a larger cluster of lethal treatments (including molecules targeting ATM, JAK, PLK, CDK). However, the majority of clusters were caused by non-lethal phenotypes, including those induced by inhibitors of AKT, mTOR, EGFR or GSK3.
-
-\smallbreak
-Visual inspection of several phenotypes (Fig. 3j) revealed recurring drug target dependent phenotypes. Most notably, MEK inhibitors led to reorganization towards more cystic organoid architecture. These drug target dependent phenotypes were observable across organoid lines and drugs.
+\bigbreak
+I next validated the previous approach. The AUROC metric which was used to define active treatments, correlated with the eucledian distance of phenotype profiles (Figure \ref{fig_232} a) and showed moderate variation when evaluated for stability using bootstrapping (Figure \ref{fig_232} b). Evaluating an alternative clustering method based on phenotype profile averaging followed by pearson correlation led to similar results to the previous clustering (Figure \ref{fig_232} c). 
 
 \begin{figure}[h!]
 \centering
@@ -162,6 +156,14 @@ Visual inspection of several phenotypes (Fig. 3j) revealed recurring drug target
 \end{figure}
 \bigbreak
 
+Compounds with related, but not identical, targets also induced related phenotypes, for example MEK inhibitors clustered with specific RAF- and ERK inhibitors (Figure \ref{fig_231} c-f) or AKT and PI3K inhibitors were part of a cluster mainly containing mTOR targeting compounds. The clustering also suggested additional mode-of-actions or off-target effects for well-described compounds. For example, the PKC inhibitor enzastaurin was related to GSK3 inhibitors, substantiating a previously described interaction with the alpha and beta subunits of GSK3 28 (Figure \ref{fig_231} f). 
+
+\bigbreak
+To assess whether morphological profiles of active drug treatments were primarily driven by differences in organoid viability, we compared viability predictions with the phenotypic clustering (Figure \ref{fig_231} b). While a large cluster of lethal treatments (including molecules targeting ATM, JAK, PLK, CDK) existed, the majority of clusters were caused by non-lethal phenotypes - including those induced by inhibitors of AKT, mTOR, EGFR or GSK3.
+
+\bigbreak
+Visual inspection of several phenotypes (Figure \ref{fig_231} g) revealed recurring drug target dependent phenotypes. Most notably, MEK inhibitors led to reorganization towards more cystic organoid architecture. These drug target dependent phenotypes were observable across organoid lines and drugs.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
@@ -172,19 +174,19 @@ Visual inspection of several phenotypes (Fig. 3j) revealed recurring drug target
 \end{figure}
 \bigbreak
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/promise/pdf/fig_3_3.pdf}
-\caption{}
-\label{fig_233}
-\end{figure}
-\bigbreak
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=\textwidth,
+%                 height=\textheight,
+%                 keepaspectratio]{figures/promise/pdf/fig_3_3.pdf}
+% \caption{}
+% \label{fig_233}
+% \end{figure}
+% \bigbreak
 
 
 
-
+\newpage
 
 \section{Multi-omics factor analysis identifies shared factors linking morphology, genomic data and drug activity}
 
