@@ -7,8 +7,6 @@ The beginning is the most important part of the work.
 \begin{flushleft}
 \chapter{Image-based profiling of organoids}
 
-\newpage
-
 \section{Disclosure}
 Significant parts of this chapter have been adapted from own manuscripts, including \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) were previously developed by Jan Sauer as part of his dissertation \cite{noauthor_undated-ij}. Image-based profiling experiments were supported by Johannes Betge. 
 
@@ -41,7 +39,7 @@ On a gene expression level, patient derived organoids mainly represented the can
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_1_0.pdf}
-\caption{\textbf{Organoid cohort overview a} Tumor location (right/left/rectum) and AJCC/UICC stage of colorectal cancers that patient derived organoids were derived from. \textbf{b}  Consensus molecular subtypes of organoids determined by RNA expression analysis. \textbf{c} Mutation status in PDOs, as analyzed by amplicon sequencing. Figure created with support from Johannes Betge (graphical presentation),  Erica Valentini (sequencing data analysis) and Benedikt Rauscher (CMS type inference)}
+\caption{\textbf{Organoid cohort overview a} Tumor location (right/left/rectum) and AJCC/UICC stage of colorectal cancers that patient derived organoids were derived from. \textbf{b}  Consensus molecular subtypes of organoids determined by RNA expression analysis. \textbf{c} Mutation status in PDOs, as analyzed by amplicon sequencing. Figure created with support from Johannes Betge (graphical presentation),  Erica Valentini (sequencing data analysis) and Benedikt Rauscher (CMS type inference). Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}}
 \label{fig_120}
 \end{figure}
 \clearpage
@@ -55,7 +53,7 @@ To systematically measure organoid morphology, I established a platform for high
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_1_1.pdf}
-\caption{\textbf{Overview of experiments a} Organoids were isolated from endoscopic biopsies from patients with colorectal cancer. Organoids were dissociated and evenly seeded in 384-well plates before perturbation with an experimental (464 compounds) and a clinical compound library (63 compounds à 5 concentrations, 842 perturbations across both libraries). After treatment, high-throughput fluorescence microscopy was used to capture the morphology of organoids.  The multi-channel (DNA, beta-actin, cell permeability) 3D imaging data was projected, segmented, and descriptive features were extracted to quantify potential drug-induced phenotypes. Untreated organoid morphology, organoid size and drug activity scores were integrated with mRNA expression and mutation data in a Multi-Omics Factor Analysis (MOFA) to increase interpretability of organoid variation. Figure created with support from Johannes Betge (graphical presentation)}
+\caption{\textbf{Overview of experiments a} Organoids were isolated from endoscopic biopsies from patients with colorectal cancer. Organoids were dissociated and evenly seeded in 384-well plates before perturbation with an experimental (464 compounds) and a clinical compound library (63 compounds à 5 concentrations, 842 perturbations across both libraries). After treatment, high-throughput fluorescence microscopy was used to capture the morphology of organoids.  The multi-channel (DNA, beta-actin, cell permeability) 3D imaging data was projected, segmented, and descriptive features were extracted to quantify potential drug-induced phenotypes. Untreated organoid morphology, organoid size and drug activity scores were integrated with mRNA expression and mutation data in a Multi-Omics Factor Analysis (MOFA) to increase interpretability of organoid variation. Figure created with support from Johannes Betge (graphical presentation) and adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}}
 \label{fig_130}
 \end{figure}
 
@@ -67,7 +65,7 @@ A standard protocol for cell-based assays, including image-based profiling, is s
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_1_2.pdf}
-\caption{\textbf{Image-based profiling method a} The image-processing pipeline illustrated with representative example images from two organoid lines: Organoids were imaged at multiple layers along the z-axis. Images were projected using a maximum contrast projection and segmented using a convolutional neural network, both designed and implemented by Jan Sauer. Descriptive features were extracted from all three channels to quantify phenotypes. Feature plots show the median phenotype of unperturbed organoids, six example features (Area, Phalloidin intensity, DAPI intensity, FITC intensity, FITC Haralic angular second moment (ASM) and FITC intensity 1-percentile) and their z-scores relative to all profiled organoid lines are shown. Figure created with support from Jan Sauer (data processing) and Johannes Betge (graphical presentation)}
+\caption{\textbf{Image-based profiling method a} The image-processing pipeline illustrated with representative example images from two organoid lines: Organoids were imaged at multiple layers along the z-axis. Images were projected using a maximum contrast projection and segmented using a convolutional neural network, both designed and implemented by Jan Sauer. Descriptive features were extracted from all three channels to quantify phenotypes. Feature plots show the median phenotype of unperturbed organoids, six example features (Area, Phalloidin intensity, DAPI intensity, FITC intensity, FITC Haralic angular second moment (ASM) and FITC intensity 1-percentile) and their z-scores relative to all profiled organoid lines are shown. Figure created with support from Jan Sauer (data processing) and Johannes Betge (graphical presentation). Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}}
 \label{fig_135}
 \end{figure}
 
