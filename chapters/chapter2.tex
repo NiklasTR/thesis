@@ -206,7 +206,7 @@ When trained with a low number of k = 3 factors, MOFA recovered factors explaini
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_4_0.pdf}
-\caption{\textbf{Mulit-omics factor analysis of organoid profiles. a-b} Variance decomposition of the MOFA model. Shown is the variance explained for every factor and data modality, as well as only by modality. \textbf{c} Factor scores for individual observations. The shape represents the manually determined morphology label and color average organoid size. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}.}
+\caption{\textbf{Mulit-omics factor analysis of organoid profiles. a-b} Variance decomposition of the MOFA model. Shown is the variance explained for every factor and data modality, as well as only by modality. \textbf{c} Factor scores for individual observations. The shapes represent the manually determined morphology label and color average organoid size. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}.}
 \label{fig_240}
 \end{figure}
 
@@ -231,14 +231,14 @@ To summarize, MOFA identified factors within the dataset that explained variatio
 \newpage
 \section{An IGF1R signaling program is associated with increased organoid size, decreased EGFR inhibitor activity and can be induced by mTOR inhibition}
 
-Differences in organoid size are an obvious contributing factor to intra- and inter-organoid line heterogeneity. Organoid size was influenced by both organoid line and drug treatments and was associated with factor 1 scores (Figure \ref{fig_261} a). An unsupervised gene set enrichment analysis (GSEA) for reactome pathways across factor 1 loadings showed an enrichment for IGF1R signaling and mitogen-activated protein kinase signaling related genes (Figure \ref{fig_261} b). 
+Differences in organoid size are a contributing factor to intra- and inter-organoid line heterogeneity. Organoid size was influenced by both organoid line and drug treatments and was associated with factor 1 scores (Figure \ref{fig_261} a). An unsupervised gene set enrichment analysis (GSEA) for Reactome pathways across factor 1 loadings showed an enrichment for IGF1R signaling and mitogen-activated protein kinase signaling related genes (Figure \ref{fig_261} b). 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_6_1.pdf}
-\caption{}
+\caption{\textbf{Factor 1 overview. a} Association between organoid size and factor 1 score. \textbf{b} GSEA network of factor 1 gene expression loadings. An edge connects Reactome pathways with more than 20\% overlap. \textbf{c} GSEA of the proliferation signature and the colorectal cancer CRIS-D subtype over ranked factor 1 gene expression loadings (ranking from high factor 1 to low factor 1 loading). \textbf{d} Distributions of treatment activity score loadings grouped by targets for factor 1. \textbf{e} Relationship of selected treatment activity scores (AUROC) with factor 1 score. \textbf{f} Projection of factor 1 scores for drug-induced phenotypes. Highlighted are drug targets leading to a significant change in projected factor scores across all organoid lines (ANOVA). \textbf{g} Western blot of IRS-1 protein abundance under mTOR inhibition for a representative organoid line (D013T). \textbf{h} Illustration of IGF1R signaling pathway with highlighted drug targets. Shown is the disinhibition of mTOR mediated IRS-1 repression after treatment with mTOR inhibitors. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}.}
 \label{fig_261}
 \end{figure}
 \bigbreak
@@ -253,18 +253,18 @@ To better understand clinical correlates to the identified gene expression patte
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_6_2.pdf}
-\caption{}
+\caption{\textbf{Factor 1 extended overview. a} GSEA of the CRIS C subtype signature over ranked factor 1 gene expression loadings. \textbf{b} IGF2 and H19 locus in the human genome. \textbf{c-e} Association between treatment activity scores and factor 1 scores for three classes of compounds, targeting IGF1R, MEK and EGFR, respectively. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}.}
 \label{fig_262}
 \end{figure}
 
 \bigbreak
-Prompted by the observation that mitogenic signaling, including IGF1R signaling, was underlying factor 1, we hypothesized that other compound treatments could influence the plasticity between the observed organoid states by modulating signaling pathway activity within organoids. 
+Prompted by the observation that mitogenic signaling, including IGF1R signaling, was underlying factor 1, I hypothesized that other compound treatments could influence the plasticity between the observed organoid states by modulating signaling pathway activity within organoids. 
 
 \bigbreak
-To tested whether drug treatments shifted organoid phenotype profiles in factor space, I took advantage of the previous observation that unperturbed and certain perturbed organoids shared similar phenotypic profiles. To this end, the previously estimated factor loading matrix for unperturbed organoid morphology, which was generated during MOFA training, was used as a starting point. By generating the pseudoinverse of the loading matrix and multiplying with average phenotypic profiles of drug-treated organoids, the influence various drug treatments had on biological programs previously identified in unperturbed organoids was approximated. 
+To tested whether drug treatments shifted organoid phenotype profiles in factor space, I took advantage of the previous observation that unperturbed and certain perturbed organoids shared similar phenotypic profiles. To this end, the previesously estimated factor loading matrix for unperturbed organoid morphology, which was generated during MOFA fitting, was used as a starting point. By generating the pseudoinverse of the loading matrix and multiplying with the average phenotypic profiles of drug-treated organoids, I approximated the influence various drug treatments had on biological programs previously identified in unperturbed organoids. 
 
 \bigbreak
-A group of cell cycle related kinase inhibitors targeting polo like kinases, Aurora kinases and cyclin dependent kinases shifted organoids to a low factor 1 score (Figure \ref{fig_261} f). In contrast, mTOR inhibitor treatment increased factor 1 scores in cancer organoids (Figure \ref{fig_261} f). Given the observation that factor 1 was associated with IGF-1R signaling and mTOR inhibitor treatment led to an increase in factor 1 scores, I hypothesized that mTOR inhibition leads to a reactive upregulation of IGF1R signaling in cancer organoids. In fact, inhibition of mTOR signaling had previously been linked to transcriptional disinhibition of IRS-1 in a negative feedback loop \cite{OReilly2006-fc} and  reactive induction of IGF1R signaling had previously been described as a resistance mechanism to small molecule mTOR inhibitors in cancer \cite{Sharma2010-qa}. When testing this hypothesis in patient derived organoids, a dose-dependent increase of IRS-1 protein abundance in organoids treated with the ATP competitive mTOR inhibitor WYE-132 was observable (Figure \ref{fig_261} g). 
+A group of cell cycle related kinase inhibitors targeting polo like kinases, Aurora kinases and cyclin dependent kinases shifted organoids to a low factor 1 score (Figure \ref{fig_261} f). In contrast, mTOR inhibitor treatment increased factor 1 scores in cancer organoids (Figure \ref{fig_261} f). Given the observation that factor 1 was associated with IGF-1R signaling and mTOR inhibitor treatment led to an increase in factor 1 scores, I hypothesized that mTOR inhibition leads to a reactive upregulation of IGF1R signaling in cancer organoids. In fact, inhibition of mTOR signaling had previously been linked to transcriptional disinhibition of IRS-1 in a negative feedback loop \cite{OReilly2006-fc} and  reactive induction of IGF1R signaling had previously been described as a resistance mechanism to small molecule mTOR inhibitors in cancer \cite{Sharma2010-qa}. When testing this hypothesis in patient derived organoids, a dose-dependent increase of IRS-1 protein abundance in organoids treated with the ATP competitive mTOR inhibitor WYE-132 was observable (Figure \ref{fig_261} g and h). 
 
 \bigbreak
 To summarize, factor 1 described an organoid state with relatively large organoid size, elevated IGF1R dependent mitogenic signaling and relative inactivity of EGFR inhibitor treatment that could be induced by inhibiting an mTOR dependent negative feedback loop in patient derived cancer organoids.
@@ -272,33 +272,31 @@ To summarize, factor 1 described an organoid state with relatively large organoi
 \newpage
 \section{An LGR5+ stemness program is associated with cystic organoid architecture and can be induced by inhibition of MEK}
 
-Besides size differences, a particularly strong recurring organoid phenotype was the presence of a cystic organoid architecture, seen for example in untreated D018T organoids and organoids treated with MEK inhibitors (Figure Fig 1e, 3f, 5a). In the cystic state, which was observed in factor 2 high organoid lines, organoids consisted of a monolayer of uniform cells lining a central spherical lumen with a distinct apico-basally oriented actin cytoskeleton (Fig 5b). This phenotype was reminiscent of organoid morphologies previously seen in APC-/- or Wnt ligand treated human intestinal organoids. 
+Besides size differences, a particularly strong recurring organoid phenotype was the presence of a cystic organoid architecture, seen for example in untreated D018T organoids and organoids treated with MEK inhibitors (Figure \ref{fig_140} and \ref{fig_231}). In the cystic state, which was observed in factor 2 high organoid lines, organoids consisted of a monolayer of uniform cells lining a central spherical lumen with a distinct apico-basally oriented actin cytoskeleton (Figure \ref{fig_251} a and b). This phenotype was reminiscent of organoid morphologies previously seen in APC-/- or Wnt ligand treated human intestinal organoids \cite{Matano2015-zw}. 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_5_1.pdf}
-\caption{}
+\caption{\textbf{Factor 2 overview. a} UMAP of observed organoids. Color labels represent the manually determined morphology labels. \textbf{b} Representative images of solid and cystic organoid phenotypes (cyan = DNA, magenta = actin, yellow = cell permeability; average images were selected and embedded in black background; scale bar: 50µm). \textbf{c} GSEA of LGR5 gene expression signature over ranked factor 2 gene expression loadings (ranking from high factor 2 to low factor 2 loading). \textbf{d} Distributions of treatment activity score loadings grouped by targets for factor 2. \textbf{e} Relationship of selected treatment activity scores (AUROC) with factor 2 score. Example images curated with support from Johannes Betge. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}.}
 \label{fig_251}
 \end{figure}
 \bigbreak
 
-To test if factor 2 comprised Wnt signaling and intestinal stem cell identity related gene expression programs, gene set enrichment analyses (GSEA) was performed for cell identity signatures previously identified in intestinal crypts and colorectal cancer. GSEA revealed an enrichment of Lgr5+ stem cell signature-related genes for the factor 2 loadings (FDR=0.002, NES=1.74) (Fig 5c and Supplemental Figure S7a).31 Next, we wondered whether factor 2 was associated with particular drug activity or inactivity patterns. Activity of Wnt signaling inhibitors and EGFR inhibitors were the strongest average contributors to a positive factor 2 score (t statistic = 3.02, FDR = 0.046 and t statistic = 3.08, FDR = 0.046, respectively), while activity of ERK and MEK inhibitors were associated with a low factor 2 score (Fig 5d), albeit not significantly. As expected from these results, factor 2 high organoid lines showed a stronger morphological response to the Wnt pathway inhibitor PRI-724. (Fig 5e and Supplemental Figure S7b).
-
-
-
+To test if factor 2 comprised Wnt signaling and intestinal stem cell identity related gene expression programs, gene set enrichment analyses (GSEA) was performed for cell identity signatures previously by Merlos-Suarez et al. \cite{Merlos-Suarez2011-gd}. GSEA revealed an enrichment of Lgr5+ stem cell signature-related genes for the factor 2 loadings (FDR=0.002, NES=1.74) (Figure \ref{fig_251} c). Next, I wondered whether factor 2 was associated with particular drug activity or inactivity patterns. Activity of Wnt signaling inhibitors and EGFR inhibitors were the strongest average contributors to a positive factor 2 score (t statistic = 3.02, FDR = 0.046 and t statistic = 3.08, FDR = 0.046, respectively), while activity of ERK and MEK inhibitors were associated with a low factor 2 score (Figure \ref{fig_251} d), albeit not significantly. As expected from these results, factor 2 high organoid lines showed a stronger morphological response to the Wnt pathway inhibitor PRI-724. (Figure \ref{fig_251} e).
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_5_3.pdf}
-\caption{}
+\caption{\textbf{Factor 2 extended overview. a} Projection of factor 2 scores for drug-induced phenotypes. Highlighted are drug targets leading to a significant change in projected factor scores across all organoid lines (ANOVA). \textbf{b} Representative images of organoid phenotypes across 5 increasing concentrations of MEK inhibitor treatment and negative control (0.1\% DMSO) (cyan = DNA, magenta = actin, yellow = cell permeability; average images were selected and embedded in black background; scale bar: 50µm). \textbf{c} Projected dose-dependent changes in factor 2 scores after treatment with the MEK inhibitor Binimetinib. The horizontal black line indicates median factor 2 values of all binimetinib treatment observations. A loess fit with 95\% confidence interval (grey background) is provided. \textbf{d} Dose-dependent changes in LGR5 transcript abundance after treatment with the MEK inhibitor trametinib, as assessed by qPCR, data from 3 (D027T) and 4 (D019T) independent replicates are presented as mean + s.e.m. *p < 0.05, **p < 0.005, NS = not significant, two-sided Student’s t test. p values: D019T: p = 0.061 (0.004 µM), p = 0.0196, (0.02 µM), p = 0.0187 (0.1 µM), p = 0.024 (0.5 µM), P = 0.0024 (2.5 µM), D027T: p = 0.0051 (0.004 µM), p = 0.00038, (0.02 µM), p = 0.045 (0.1 µM), p = 0.048 (0.5 µM), P = 0.090 (2.5 µM). Example images curated with support from Johannes Betge. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}.}
 \label{fig_253}
 \end{figure}
 \bigbreak
 
-Next, we again used phenotype profiles of drug treated organoids and approximated how drug treatment shifted organoids along the factor 2 program. We observed MEK and focal adhesion kinase inhibitors significantly shifting all tested organoid lines towards higher factor 2 scores (Fig 5f and Supplemental Figure S7c). This change in factor 2 scores was concentration dependent for MEK inhibitors (Fig 5g and Supplemental Figure S7d-e) and coincided with a visual shift in organoid morphology (Fig 5h). Given the observation that factor 2 was enriched for an LGR5+ stem cell signature, we measured the expression of LGR5 transcripts at different concentrations of MEK inhibitor treatment and observed analogous dose-dependent increases in transcript abundance. In summary, factor 2 represents an organoid state with cystic architecture, increased expression of LGR5+ stem cell related genes and increased sensitivity to Wnt signaling inhibitors that could be induced by MEK inhibition.
+Next, I again used phenotype profiles of drug treated organoids and approximated how drug treatment shifted organoids along the factor 2 program. I observed MEK and focal adhesion kinase inhibitors significantly shifting all tested organoid lines towards higher factor 2 scores (Figure \ref{fig_253} a). This change in factor 2 scores was concentration dependent for MEK inhibitors and coincided with a visual shift in organoid morphology (Figure \ref{fig_253} b and c). Given the observation that factor 2 was enriched for an LGR5+ stem cell signature, the expression of LGR5 transcripts at different concentrations of MEK inhibitor treatment was measured and an analogous dose-dependent increases in transcript abundance was observed (Figure \ref{fig_253} d). These findings were in agreement with the observation that MEK inhibitor activity had a negative contribution to factor 2 \ref{fig_251} d) - While organoids are shifted to a factor 2 high state by MEK inhibition, within the factor 2 high state itself, organoids are relatively insensitive to this treatment. In summary, factor 2 represents an organoid state with cystic architecture, increased expression of LGR5+ stem cell related genes and increased sensitivity to Wnt signaling inhibitors that could be induced by MEK inhibition.
 
 \end{flushleft}
+
