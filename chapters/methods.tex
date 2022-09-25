@@ -128,7 +128,7 @@ A random forest classifier was trained by Jan Sauer on the original single organ
 
 \section{Multi-omics factor analysis}
 \subsection{Model training of Patient Derived Organoids}
-A multi-omics factor analysis model was trained based on a set of five modalities describing unperturbed organoid lines:
+A multi-omics factor analysis model \cite{Argelaguet2018-mz} was trained based on a set of five modalities describing unperturbed organoid lines:
 
 * organoid size estimated based on log-normal model fit of all DMSO treated organoids [22 replicates, 1 feature]
 * organoid somatic mutations as determined by amplicon sequencing [20 replicates, 12 features]
@@ -136,10 +136,10 @@ A multi-omics factor analysis model was trained based on a set of five modalitie
 * organoid morphology as determined by averaging DMSO treated morphological profiles [22 replicates, 25 features]
 * organoid drug activity as determined by AUROC score of logistic regression models for drugs that were defined as active in at least one observation [22 replicates, 252 features]
 
-Input data was scaled and the MOFA model was trained with default MOFA2 training parameters and a number of 3 factors. The number of factors was chosen given the limited number of observations in the training data. The further analysis focused on the first two factors, which correlated with prominent visible organoid phenotypes. Gene set enrichment analysis and Reactome pathway enrichment of factor loadings was performed using the clusterprofiler R package (v4.2)93. Enrichment of drug targets within factor loadings was tested using ANOVA by fitting a linear model, lm(factor loading ~ target). Drug targets that were represented with at least three small molecule inhibitors were included in this analysis. The analysis was run using the MOFA docker container available from https://hub.docker.com/r/gtca/mofa2.
+Input data was scaled and the MOFA model was trained with default MOFA2 training parameters and a number of 3 factors. The number of factors was chosen given the limited number of observations in the training data. The further analysis focused on the first two factors, which correlated with prominent visible organoid phenotypes. Gene set enrichment analysis and Reactome pathway enrichment of factor loadings was performed using the clusterprofiler R package. Enrichment of drug targets within factor loadings was tested using ANOVA by fitting a linear model, lm(factor loading ~ target). Drug targets that were represented with at least three small molecule inhibitors were included in this analysis. The analysis was run using the MOFA docker container available from https://hub.docker.com/r/gtca/mofa2.
 
 \subsection{Model training of Mouse Organoids}
-The multi-omics factor analysis model was trained and results were analysed as above, with a different set of input data: 
+A multi-omics factor analysis model with k=4 factors was trained and results were analysed as above, with a different set of input data: 
 * organoid size all DMSO treated organoids (one replicate of Apc-/- organoids was removed from the analysis) [7 replicates, 1 feature]
 * organoid transcript expression including the top 10\% genes with the highest coefficient of variance after robust multi-array average normalization [8 replicates, 2727 features]
 * organoid protein expression [12 replicates, 3906 features]
@@ -147,9 +147,6 @@ The multi-omics factor analysis model was trained and results were analysed as a
 * organoid genotype for the Apc and KrasG12 allele [12 replicates, 2 features]
 * organoid morphology as determined by averaging DMSO treated morphological profiles (one replicate of Apc-/- organoids was removed from the analysis) [7 replicates, 25 features]
 * organoid drug activity as determined by AUROC score of logistic regression models for drugs that were defined as active in at least one observation [7 replicates, 1699 features]
-
-The number of factors was set to k=4. The analysis was run using the MOFA docker container available from https://hub.docker.com/r/gtca/mofa2.
-
 
 \subsection{Model projection}
 To estimate the factor scores for drug-induced organoid morphologies, the morphology profiles of organoids treated with the same drug were averaged. The resulting average profile matrix was multipled with the pseudoinverse of the previously learnt model loading matrix for organoid morphology data. 
