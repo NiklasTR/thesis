@@ -152,10 +152,10 @@ The multi-omics factor analysis model was trained and results were analysed as a
 The number of factors was set to k=4. The analysis was run using the MOFA docker container available from https://hub.docker.com/r/gtca/mofa2.
 
 
-\subsection{Model projection of Patient Derived Organoids}
-To estimate the factor scores for drug-induced organoid morphologies, the morphology profiles of organoids treated with the same drug were averaged. The resulting average profile matrix was multipled with the pseudoinverse of the previously learnt model loading matrix for organoid morphology data. The resulting projected factor score matrix was used to estimate the drug-induced biological changes in cancer organoids. Associations between drug targets and projected factor scores of drug treated organoids were identified via ANOVA by fitting a linear model, lm(projected factor score ~ target). Drug targets that were represented with at least three small molecule inhibitors were included in this analysis.
+\subsection{Model projection}
+To estimate the factor scores for drug-induced organoid morphologies, the morphology profiles of organoids treated with the same drug were averaged. The resulting average profile matrix was multipled with the pseudoinverse of the previously learnt model loading matrix for organoid morphology data. 
 
-\subsection{Model projection of Mouse Organoids}
-
+\smallbreak
+The resulting projected factor score matrix was used to estimate the drug-induced biological changes in both patient derived and mouse organoids. Associations between drug targets and projected factor scores of drug treated organoids were identified via ANOVA by fitting a linear model, lm(projected factor score ~ target). Drug targets that were represented with at least three small molecule inhibitors were included in this analysis.
 
 \end{flushleft}
