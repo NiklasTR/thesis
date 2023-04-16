@@ -33,13 +33,15 @@ Organoids were passaged weekly by digestion with TrypLE (Gibco) and resuspension
 Organoids were regularly tested for Mycoplasma contaminations.  
 
 \subsection{Genetic editing of organoids}
-An sgRNA targeting the murine ortholog of the APC mutation cluster region (MCR) was designed using E-CRISP(Heigwer et al., 2014). The Apc targeting sgRNA was cloned into the one-vector plasmid pSpCas9(BB)-2A-Puro (PX459) V2.0 according to Ran et al. \cite{Ran2013}. Briefly, the vector was digested with Bbs1-HF (Thermo Fischer Scientific) and the phosphorylated and annealed oligonucleotide sgApc1 (sgAPC1 F and -R) was ligated using T4-Ligase (Thermo Fischer Scientific). The construct was transformed into chemically competent bacterial cells (Stellar, Clontech) and plated on Carbenicillin agar. Individual colonies were isolated and sequencing of plasmid DNA from cultured colonies confirmed successful molecular cloning.   
+An sgRNA targeting the murine ortholog of the APC mutation cluster region (MCR) was designed using E-CRISP \cite{Heigwer2014-gq}. The Apc targeting sgRNA was cloned into the one-vector plasmid pSpCas9(BB)-2A-Puro (PX459) V2.0 according to Ran et al. \cite{Ran2013-ca}. Briefly, the vector was digested with Bbs1-HF (Thermo Fischer Scientific) and the phosphorylated and annealed oligonucleotide sgApc1 (sgApc1 F and -R) was ligated using T4-Ligase (Thermo Fischer Scientific). The construct was transformed into chemically competent bacterial cells (Stellar, Clontech) and plated on Carbenicillin agar. Individual colonies were isolated and sequencing of plasmid DNA from cultured colonies confirmed successful molecular cloning.   
 Extracted organoids (termed “wildtype”, “WT”) were cultured for multiple passages before transfection of the plasmid with Lipofectamine 2000 (Thermo Fischer Scientific). Here, grown organoids were digested with TrypLE (Gibco) and treated with Lipofectamine and plasmid DNA according to the manufacturer’s protocol. Transfected organoids were seeded in BME R1 (10mg/ml) and Wnt3A/R-Spondin1-Fc withdrawal was started 7 days after transfection. Surviving organoids were cultured continuously without Wnt3A and R-Spondin1-Fc conditioned medium (termed “A”).
 To activate oncogenic Kras, Wildtype and APC mutant organoid lines were treated for 7 days with 0.5uM 4-Hydroxytamoxifen (Sigma) without EGF in the medium. 4-Hydroxytamoxifen was dissolved in Ethanol. After treatment, organoids were cultured with EGF containing media thereafter (termed “K” or “AK”, respectively).
 
-\section{Biochemical assays}
+\smallbreak
+Guide oligonulcleotides for Apc are listed below:
+sgApc1: 5´-GGCACTCAAAACGCTTTTGA-3′ and 5′-TCAAAAGCGTTTTGAGTGCC-3′ 
 
-%% stopped citing
+\section{Biochemical assays}
 
 \subsection{Amplicon Sequencing of Patient derived Organoids}
 DNA was isolated from 19 organoid cultures with the DNA blood and tissue kit (Qiagen). Sequencing libraries were prepared with a custom panel (Tru-Seq custom library kit, Illumina) according to the manufacturers protocol and sequenced on a MiSeq (Illumina). Targeted regions included the most commonly mutated hot spots in colorectal cancer in 46 genes captured with 157 amplicons of approximately 250bp length. After mapping of the reads to GRC38 reference genome using Burrows-Wheeler Aligner (BWA), data were analyzed using the Genome Analysis Toolkit (GATK) \cite{McKenna2010-cq}. Base recalibration was performed and variants were called using MuTect2 pipeline. Variants with a variant frequency below 10\%, with less than 10 reads, or with a high strand bias (FS<60) were filtered out. Variants were annotated with Ensemble variant effect predictor \cite{McLaren2016-dp} and manually checked and curated using integrative genomics viewer, if necessary \cite{Robinson2011-pc}. Only non-synonymous variants present in COSMIC \cite{Forbes2008-tk} were considered true somatic cancer mutations.
@@ -51,29 +53,47 @@ Amplicon sequencing was performed to validate the genetic perturbation of Apc. D
 \subsection{Genomic PCR of the KRAS G12D allele in Mouse Organoids}
 To confirm activation of oncogenic Kras in 4-Hydroxytamoxifen treated lines, genomic DNA was isolated from all 4 organoid lines as described above. Presence or absence of the Lox-STOP-Lox cassette was evaluated by PCR according to the Kras G12D conditional PCR protocol by Tyler Jacks’ group \cite{Jackson2001-wv}. Briefly, primers #2 and #3 were used for genotyping on genomic DNA using the Q5 PCR protocol (NEB).
 
+
 \subsection{Western Blot of Patient derived Organoids}
 Organoids seeded in 6-well plates were cultured in Matrigel (Corning). After 3-days incubation with WYE-132, organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Cells were subsequently lysed in RIPA buffer (Thermo Fisher Scientific) supplemented with protease inhibitors (Complete Mini, Roche) and phosphatase inhibitors (Phosphatase Inhibitor 1 and 2, Sigma), followed by sonication (Branson Sonifier, Heinemann). Protein concentrations of supernatants were measured using a BCA assay kit (Thermo Fisher Scientific). Lysates were mixed with an SDS-loading buffer and heated to 99 °C for 5 min. Proteins were separated by SDS–PAGE in MOPS running buffer and transferred to a nitrocellulose membrane. Membranes were blocked with 5\% (w/v) skim milk in PBS containing 0.1\% (v/v) Triton X-100 (PBS-T). Antibodies against IRS1 (06-248, Sigma–Aldrich) and HSP-90 (sc-13119, Santa Cruz) as loading control were used in 1:1000 dilution in 5\% milk in PBS-T, secondary antibodies (Mouse IgG HRP ECL, Sigma–Aldrich) were used in 1:10000. ECL Western Blotting W1001 (Promega) was used for visualization of bands.
 
 \subsection{Western Blot of Mouse Organoids}
-Organoids were cultured in Matrigel (Corning). Organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Isolated organoids were lysed in RIPA buffer (Sigma) with Protease inhibitor (Sigma) and Phosphatase inhibitor 3 (Sigma). Protein concentration was measured using the Pierce BCA kit (Thermo Fischer Scientific) according to the manufacturers protocol and samples were loaded onto NuPage gels (Thermo Fischer Scientific). Western Blotting was performed with following antibodies: anti-p(hospho)-Erk (1:2000), anti-Erk (1:1000) and anti-beta-actin-HRP secondary antibody (1:150,000).
+Organoids were cultured in Matrigel (Corning). Organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Isolated organoids were lysed in RIPA buffer (Sigma) with Protease inhibitor (Sigma) and Phosphatase inhibitor 3 (Sigma). Protein concentration was measured using the Pierce BCA kit (Thermo Fischer Scientific) according to the manufacturers protocol and samples were loaded onto NuPage gels (Thermo Fischer Scientific). Western Blotting was performed with following antibodies: anti-p(hospho)-Erk (1:2000, Cell Signaling, ID 4370), anti-Erk (1:1000, Cell Signaling, ID 4695) and anti-beta-actin-HRP secondary antibody (1:150,000).
 
 \subsection{Mouse Organoid Growth Patterns}
 Organoids were passaged and seeded in 4 different growth media with medium changes every 48h. Images were taken 120h after seeding.  
 
 \subsection{RT-qPCR of Patient derived Organoids}
-After 120h of growth, total RNA was isolated from organoids with the RNeasy Mini kit (Qiagen). cDNA synthesis was done with Verso cDNA kit (Thermo Fisher Scientific), and RT-PCR was performed using the SYBR Green Mix (Roche) on LightCycler480 system (Roche). The following primers for LGR5 were used: 5´-TTC CCA GGG AGT GGA TTC TAT-3′ (forward) and 5′-ACC AGA CTA TGC CTT TGG AAA C-3′ (reverse). Results were normalized to UBC mRNA using 5´-CTG ATC AGC AGA GGT TGA TCT TT-3´ forward and 5′-TCT GGA TGT TGT AGT CAG ACA GG-3′ reverse primers.
+After 120h of growth, total RNA was isolated from organoids with the RNeasy Mini kit (Qiagen). cDNA synthesis was done with Verso cDNA kit (Thermo Fisher Scientific), and RT-PCR was performed using the SYBR Green Mix (Roche) on LightCycler480 system (Roche). 
+
+\smallbreak
+Primers are listed below:
+LGR5: 5´-TTCCCAGGGAGTGGATTCTAT-3′ (forward) and 5′-ACCAGACTATGCCTTTGGAAAC-3′ (reverse)
+UBC: 5´-CTGATCAGCAGAGGTTGATCTTT-3´ (forward) and 5′-TCTGGATGTTGTAGTCAGACAGG-3′ (reverse)
+
 
 \subsection{RT-qPCR of Mouse Organoids}
 Organoids were passaged and seeded in 4 different growth media with medium changes every 48h. After 120h, organoid RNA was isolated using the RNAEasy Kit (Qiagen) with beta-Mercaptoethanol (Invitrogen) and a DNAse digestion step. cDNA was synthesized using Oligo-dT primers (Thermo Fisher Scientific), RiboLock Ribonuclease inhibitor (Thermo Fisher Scientific) and Revert Aid H Minus reverse transcriptase (Thermo Fisher Scientific). RT-qPCR was performed using the ROCHE UPL kit (Roche), Sdha and Hprt expression levels were used as controls and averaged. Relative transcript abundance was measured using the ddCT method. RT-qPCR primers targeting Axin2, Ccnd, as well as the mouse reference genes Sdha and Hprt were used. 
-%TODO qPCR primer
+
+\smallbreak
+Primers are listed below:
+Axin2: 5´-gagagtgagcggcagagc-3′ (forward) and 5′-cggctgactcgttctcct-3′ (reverse)
+Ccnd: 5´-tttctttccagagtcatcaagtgt-3´ (forward) and 5′-tgactccagaagggcttcaa-3′ (reverse)
+Ccnd: 5´-tttctttccagagtcatcaagtgt-3´ (forward) and 5′-tgactccagaagggcttcaa-3′ (reverse)
+Sdha: 5´-tgttcagttccaccccaca-3´ (forward) and 5′-tctccacgacacccttctgt-3′ (reverse)
+Hprt 5´-cctcctcagaccgcttttt-3´ (forward) and 5′-cctcctcagaccgcttttt-3′ (reverse)
+ 
+
 
 \subsection{Proteomics Profiling of Mouse Organoids}
-Organoids were cultured according to the screening protocol (above). Organoids were isolated with Matrisperse (Corning) as described above. Isolated organoids were lysed in Ammonium Bicarbonate lysis buffer (50mM, pH 8.2) with 2.5\% w/v SDC and 25U/ml Benzonase. 
-Samples were applied to 1D-SDS-PAGE and fractionated. Gel pieces were extracted, cysteins residues reduced by DTT and carbamidomethylated using iodoacetamide. The samples were digested with Trypsin overnight.
+Organoids were cultured according to the screening protocol (above). Samples were isolated with Matrisperse (Corning) as described above. Isolated organoids were lysed in Ammonium Bicarbonate lysis buffer (50mM, pH 8.2) with 2.5\% w/v SDC and 25U/ml Benzonase. 
+Samples were handed over to the Proteomics core facility at the German Cancer Research Center. There, a 1D-SDS-PAGE of the lysate was run followed by fractionation. Gel pieces were extracted, cysteins residues reduced by DTT and carbamidomethylated using iodoacetamide. The samples were digested with Trypsin overnight.
 Resulting peptides were loaded on a cartridge trap column, packed with Acclaim PepMap300 C18, 5µm, 300Å wide pore (Thermo Fischer Scientific) and segregated in a 60 min gradient from 3\% to 40\% ACN on a nanoEase MZ Peptide analytical column (300Å, 1.7 µm, 75 µm x 200 mm, Waters). Eluted peptides were analyzed by an online coupled Q-Exactive-HF-X mass spectrometer.
 
 \subsection{Lipidomics Profiling of Mouse Organoids}
-%TODO missing
+Organoids were cultured according to the the screening protocol (above) and prepared for analysis according to the proteomics protocol (above). 
+Isolated organoids were processed by the Lipidomics and Metabolomics core facility. 
+After lipid extraction, isolates were analysed using a Qtrap 6500 Mass Spectrometer (SCIEX) coupled to a NanoMate (NanoMate) electrospray source. Metabolome profiles were generated and handed over to the authors for downstream imputation and analysis.
 
 \subsection{Expression Profiling of Patient derived Organoids}
 Organoid RNA was isolated from 19 PDO lines with the RNeasy mini kit after snap freezing organoids on dry ice. Samples were hybridized on Affymetrix U133 plus 2.0 arrays. Raw microarray data were normalized using the robust multi-array average (RMA) method \cite{Irizarry2003-vi} followed by quantile normalization as implemented in the ‘affy’ \cite{Gautier2004-jj} R/Bioconductor \cite{Huber2015-kc} package. In order to exclude the presence of batch effects in the data, principal component analysis and hierarchical clustering were applied. Consensus molecular subtypes were determined as described previously using the single sample CMS classification algorithm with default parameters as implemented in the R package ‘CMSclassifier’. In all cases, differential gene expression analyses were performed using a moderated t-test as implemented in the R/Bioconductor package ‘limma’ \cite{Ritchie2015-vf}. Gene set enrichment analyses were performed using ConsensusPathDB \cite{Kamburov2013-co} for discrete gene sets or GSEA as implemented in the ‘fgsea’ \cite{Korotkevich2021-xu} R/Bioconductor package for ranked gene lists.
