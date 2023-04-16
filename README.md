@@ -3,7 +3,6 @@ organoids to model disease initiation and
 treatment response in colorectal cancer
 
 ## Project Milestones
-Below are the listed milestones
 
 ### research
 * X.X perform research and analysis
