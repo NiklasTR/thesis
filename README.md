@@ -1,19 +1,38 @@
-# Dissertate: a LaTeX dissertation template [![Build Status](https://travis-ci.org/suchow/Dissertate.svg?branch=master)](https://travis-ci.org/suchow/Dissertate)
+# Multiparametric phenotyping of intestinal
+organoids to model disease initiation and
+treatment response in colorectal cancer
 
+## Project Milestones
 
-This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, and NYU, though it can easily be adapted to meet the requirements of other schools. The format and styling is based closely on the requirements published by each university's registrar.
+### research
+X.X perform research and analysis
 
-## Getting started
-1. Pick your school by editing line 6 of `dissertation.tex` to use the option `Harvard`, `Princeton`, or `NYU`, depending on your school.
-4. Personalize the document by filling out your name and all the other info in `frontmatter/personalize.md`.
-5. Begin writing your thesis using the chapter files in 'chapters/'
+### writing
+0.0 analysis complete
+0.1 figures complete
+0.2 results complete
+0.3. methods complete
+0.4 discussion complete
+0.5 intro complete
+0.6 text complete 
+0.7 citations complete
+0.8 formatting complete
+0.9 informal review feedback
+1.0 submit for review by Michael
 
-## FAQ
+### submission
+1.1 revise based on feedback by Michael
+1.2 proposal for Zweitgutachter by Michael
+1.3 MEDISS transcript
+1.4 Zulassungsantrag
+1.5 eidesstaatliche Versicherung
+1.6 Statistikbogen
+1.7 Examenszeugnis
+1.8 CV
+1.9 Print thesis & bank transfer
+2.0 official submission
 
-### How do I make the text justified instead of ragged right?
-Remove or comment out the line `\RaggedRight` from the .cls file.
-
-## Acknowledgments
-Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
-
-## Note: This template has been preloaded into Overleaf (www.overleaf.com) to make it possible to get started without needing to install anything, and this README file has been updated to reflect this. To use this template on a local machine, please see the original source at https://github.com/suchow/Dissertate
+### defense 
+2.1 coordinate a time for the defense
+2.2 prepare presentation for defense
+2.3 write bioarxiv manuscript for adenomaprofiling
