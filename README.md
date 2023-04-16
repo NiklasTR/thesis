@@ -16,7 +16,7 @@
 * 0.7 citations complete
 * 0.8 formatting complete
 * 0.9 informal review feedback
-* 1.0 submit for review by Michael
+* 1.0 submit for review
 
 ### submission
 * 1.1 revise based on feedback by Michael
