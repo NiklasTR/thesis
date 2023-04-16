@@ -1,6 +1,4 @@
-# Multiparametric phenotyping of intestinal
-organoids to model disease initiation and
-treatment response in colorectal cancer
+# Multiparametric phenotyping of intestinal organoids to model disease initiation and treatment response in colorectal cancer
 
 ## Project Milestones
 
