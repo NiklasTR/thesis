@@ -9,7 +9,10 @@ I learned that if you work hard and creatively, you can have just about anything
 factor 1
 Wnt-STOP
 
-\label{conclusion}
+
+
+
+
 
 DMSO
 PDO
@@ -74,3 +77,9 @@ ellagic acid
 ## limitations
 media condition overemphasize effect of Apc and potentially mask effect of oncogenic Kras
 tradeoff between maximizing the phenotype state space while maintaining viable cells 
+
+
+
+
+
+Modern Drug Discovery is a sequential decision making problem. To motivate this statement, specifically the focus on *decision making* and its *sequential* nature, let's introduce a theoretical scenario, which we can call "the average treatment effect oracle". In its idealised form the oracle is a matrix that has a row for every synthesisable pharmacologically active molecule and a column for every human disease. Each entry of our matrix represents the clinical treatment effect (i.e. in QUALYs) experienced by patients with disease n that have been treated with molecule t. If we restricted this matrix to small druglike molecules only, the conservative estimate for this table's dimensions would still be very large: 10E60 rows t x 10E3 columns n. Unfortunately, most of this table is not known to us. Given the large size of chemical space and constrained resources, an agent within a Drug Discovery project has to make decisions about which molecules (rows) to run experiments with and on which human disease (columns) to focus on at any given time in order to identify a positive treatment effect. Staying within our theoretical scenario, one simple but problematic approach to tackle the treatment effect oracle problem would be a single-point decision making process in which an agent, equipped with all currently available knowledge, selected promising small molecules and directly performed clinical experiments to observe the treatment effect on patients. For obvious ethical and financial reasons, such a single-point decision process is not a viable solution. What follows is that Drug Discovery must be a sequential decision making process. In order to identify a new positive treatment effect, agents need to choose surrogate models, "placeholders", to perform experiments on. Ideally such surrogate models (1) approximate the human disease of interest as close as possible, (2) can be observed in a way that is predictive of the desired clinical outcome, and (3) create low ethical and financial burden. The iterative process of making decisions on which disease to focus on, which correspopnding surrogate models to use, and which molecules to test on the selected models in a given experiment are at the core of modern Drug Discovery. \par
