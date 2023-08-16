@@ -96,17 +96,74 @@ Given the benefits of the methodology, patient derived organoids are being trial
 
 Next to diagnostics, organoid have been evaluated as models in drug discovery. Patient derived organoids can be processed in high-throughput small molecule screens with conventional cell viability readouts \cite{VanDeWetering2015}. However, besides testing therapeutic candidates on late stage cancer models, organoids are amenable to efficient genetic engineering \cite{Matano2015-zw, Drost2017-fu}. This opens up the possibility of evaluating the effect of therapeutic candidates against precisely defined genetic disease states. For example, organoid models with engineered tumor forming genetic changes, open up searching for therapeutic candidates that show effects specific to a given genetic event. As I will demonstrate throughout this thesis -specifically in the context of multi-genic somatic disease such as colorectal cancer- organoids are promising models for therapeutic discovery programs against (1) early and (2) progressed stages of this disease.
 
-\section{Profiling Experiments in Drug Discovery} 
-
-Modern Drug Discovery is a sequential decision making problem. To motivate this statement, specifically the focus on *decision making* and its *sequential* nature, let's introduce a theoretical scenario, which we can call "the average treatment effect oracle". In its idealised form the oracle is a matrix that has a row for every synthesisable pharmacologically active molecule and a column for every human disease. Each entry of our matrix represents the clinical treatment effect (i.e. in QUALYs) experienced by patients with disease n that have been treated with molecule t. If we restricted this matrix to small druglike molecules only, the conservative estimate for this table's dimensions would still be very large: 10E60 rows t x 10E3 columns n. Unfortunately, most of this table is not known to us. Given the large size of chemical space and constrained resources, an agent within a Drug Discovery project has to make decisions about which molecules (rows) to run experiments with and on which human disease (columns) to focus on at any given time in order to identify a positive treatment effect. Staying within our theoretical scenario, one simple but problematic approach to tackle the treatment effect oracle problem would be a single-point decision making process in which an agent, equipped with all currently available knowledge, selected promising small molecules and directly performed clinical experiments to observe the treatment effect on patients. For obvious ethical and financial reasons, such a single-point decision process is not a viable solution. What follows is that Drug Discovery must be a sequential decision making process. In order to identify a new positive treatment effect, agents need to choose surrogate models, "placeholders", to perform experiments on. Ideally such surrogate models (1) approximate the human disease of interest as close as possible, (2) can be observed in a way that is predictive of the desired clinical outcome, and (3) create low ethical and financial burden. The iterative process of making decisions on which disease to focus on, which correspopnding surrogate models to use, and which molecules to test on the selected models in a given experiment are at the core of modern Drug Discovery. \par
+\section{Image-based Profiling in Therapeutic Discovery} 
 
 
+Image-based profiling is a is a high-throughput microscopy-based experimental methodology to systematically measure phenotypes of in-vitro models. When combined with chemical or genetic perturbations, image-based profiling is a powerful approach to gain systematic insights into biological processes in therapeutic discovery17–19. 
 
-\subsection{Motivation for Profiling Experiments in Drug Discovery}
-\subsection{Implementation of Profiling Experiments in Drug Discovery}
-\subsection{Interpreting results of Profiling Experiments in Drug Discovery}
+\subsection{Principles of experimental design for image-based profiling in Therpeutic Discovery}
+
+The principle hallmark underlying profiling experiments in general and image-based profiling experiments in particular are weaker, uncertainty-aware, assumptions underlying the design of the biological experiment. To motivate this statement, let's revisit the first steps in the design process of many biological experiments: 
+
+(1) definition of the biological model that should be studied (unit u)
+(2) definition of the treatment with which to perturb the model (treatment t)
+(3) definition of the phenotypes that should be measured of the treated biological models (phenotype p)
+
+Common, mechanistic, experimental designs are based on strong prior assumptions about the causal structure of a biological process. For example, in a Cancer Therapeutic Discovery project candidate small molecules might be hypothesised to exert a growth inhibiting effect on cancer cells by inhibiting a protein kinase through ATP-competitive binding to its active site. A well designed experiment might involve a custom-designed kinase binding assay in which the dissociation constant (phenotype p) of the small molecules (treatment t) relative to the kinase (unit u) can be estimated. Such experiments, referred to as screening experiments when run at large scale, are effective to discriminate results that are not in accordance with the well defined causal structure of the hypothesised biological process of interest. 
+
+In contrast, profiling-focused experimental designs are based on weaker prior assumptions about the causal structure of a biological process. The result is a 
 
 
+units are more complex (perhaps even more than one unit) -> more causal variables - without additional prior assumptions on the treatment set or phenotype of interest often lead to "target deconvolution dilemma"
+phenotype feature increased to match the introduced complexity by choosing a less well defined experimental unit
+similar dimensions of the treatment set
+
+
+general purpose -> higher iteration speed given reduced design changes
+
+matrix with treatments and one dimensional phenotype 
+tensor with 
+
+This requires 
+* machine learning augmented interpretation of the resulting data - cite paper which I advised
+* follow-up discriminative experiments to refine the mechanism - as any other highthrougput experiment to identifiy observations that are created by treatments adversarial to the experimental design
+
+
+
+In the context of image-based profiling the phenotype that is observed is the morphology of the biological model visualised through a set of unbiased, general purpose staining techniques. The benefits of image-based 
+
+
+Support set of observations
+diseased vs health cells from patients
+different geneticall modified cells 
+cell that are untreated und treated with a compound that is supposed to be imitaded 
+
+Query set of observations
+Test small molecules, identify moelcules that have a desireable trait
+
+
+
+
+Image-based assays have been used to screen large libraries of small molecules to identify potential drug candidates, to analyze a drug’s mode-of-action, or to classify drug-gene interactions by cell-morphology20–23. 
+
+\subsection{Examples of image-based profiling experiments in Therpeutic Discovery}
+
+
+\subsection{Current limitations of image-based profiling}
+
+models 3D Models
+complex diseases 
+
+collecting interpretable phenotypes - large data 
+
+interpreting treatment effects
+
+
+
+Per- forming large image-based profiling experiments of organoids has been, however, a biological, technical and computational challenge24–26. As a consequence, the morphological hetero- geneity of patient-derived cancer organoids between and within patient donors, their diverging behaviors upon pharmacological perturbation as well as the underlying mechanisms of cancer organoid morphology are not yet systematically understood.
+
+
+Here we report a large scale image-based phenotyping study of patient-derived cancer organoids to understand underlying fac- tors governing organoid morphology. Colorectal cancer orga- noids from 11 patients were treated with more than 500 experimental and clinically used small molecules at different concentrations. We systematically mapped the morphological heterogeneity of patient-derived organoids and their response to compound perturbations from more than 3,700,000 confocal microscopy images. We found that the resulting landscape of organoid phenotypes was mainly driven by differences in orga- noid size, viability and cystic vs. solid organoid architecture. Using multi-omics factor analysis for integrating organoid mor- phology, size, gene expression, somatic mutations and drug activity, we identified biological programs underlying these phe- notypes and small molecules that modulate them.
 
 \section{Aims of Thesis}
 \subsection{Establishing Image-based Profiling Experiments for Organoids}
