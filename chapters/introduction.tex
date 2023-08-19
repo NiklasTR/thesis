@@ -90,7 +90,7 @@ Culturing organoids from primary cells requires the addition of specific tissue-
 
 \subsection{Diagnostic use of Colorectal Cancer Organoids}
 
-Given the benefits of the methodology, patient derived organoids are being trialed as predictive models for personalised treatment recommendation in colorectal cancer care \cite{VanDeWetering2015, Vlachogiannis2018, ganeshRectalCancerOrganoid2019a, ooftPatientderivedOrganoidsCan2019a, yaoPatientDerivedOrganoidsPredict2020a}. In these assays, personalised organoid models are generated and then treated with a candidate drug in-vitro. While robust reports on the predictive ability of organoids for progression-free survival are still missing, current results for response rate models show strong performance for the prediction of irinotecan, FOLFIRI, and neoadjuvant radiation therapy treatment effects. A pooled analyses of the previously published literature recently summarised the aggregate sensitivity and specificity for organoid based treatment response rate prediction at 0.81 and 0.74, respectively (conservative single-point AUROC estimate: 0.78) \cite{wensinkPatientderivedOrganoidsPredictive2021, zhangNoteROCAnalysis2005}. For reference, a retrospective study of clinical experts estimated the predictive validity of an emergency room EKG for occlusive myocardial infarction at a sensitivity and specificity of 0.79 and 0.80, respectively (multi-point AUROC estimate: 0.80) \cite{al-zaitiMachineLearningECG2023}. Further standardisation of reagents, isolation procedures, and in-vitro protocols will likely lead to an increased adoption of organoid-based diagnostics in patient subgroups. \par
+Given the benefits of the methodology, patient derived organoids are being trialed as predictive models for personalised treatment recommendation in colorectal cancer care \cite{VanDeWetering2015, Vlachogiannis2018, ganeshRectalCancerOrganoid2019a, ooftPatientderivedOrganoidsCan2019a, yaoPatientDerivedOrganoidsPredict2020a}. In these assays, personalised organoid models are generated and then treated with a candidate drug in-vitro. While robust reports on the predictive ability of organoids for progression-free survival are still missing, current results for response rate models show strong performance for the prediction of irinotecan, FOLFIRI, and neoadjuvant radiation therapy treatment effects. A pooled analyses of the previously published literature recently summarised the aggregate sensitivity and specificity for organoid based treatment response rate prediction at 0.81 and 0.74, respectively (conservative single-point AUROC estimate: 0.78) \cite{wensinkPatientderivedOrganoidsPredictive2021, zhangNoteROCAnalysis2005}. For reference, a retrospective study of clinical experts estimated the predictive validity of an emergency room EKG for occlusive myocardial infarction at a sensitivity and specificity of 0.79 and 0.80, respectively (multi-point AUROC estimate: 0.80) \cite{al-zaitiMachineLearningECG2023}. Despite the potential of patient derived organoids to guide clinical decision making, the method is not ready for use in a clinical context with the biopys-to-evaluation success rate and tunraround time being the primary technical hurdles. A recent failed single-arm prospective clinical trial for organoid-based last-line treatment recommendations reported a treatment for 6 out of 61 included patients (<10 \% evaluation rate, 23 lost during organoid establishment, 11 lost due to disease progression) \cite{ooftProspectiveExperimentalTreatment2021}. Further improvements of reagents, isolation procedures, and in-vitro protocols might lead to higher evaluation rates and lower turnaround times to enable further investigation of organoid-based diagnostics for personalised colorectal cancer care. \par
 
 \subsection{Drug Discovery using Colorectal Cancer Organoids}
 
@@ -120,6 +120,13 @@ To further refine the distinction between profiling and screening experiments, l
 
 Besodes follow-up discriminative experiments to refine the mechanism - as any other highthrougput experiment to identifiy observations that are created by treatments adversarial to the experimental design, This requires 
 * machine learning augmented interpretation of the resulting data - cite paper which I advised
+
+Support Set -> interpretability and robustness of the representation space
+* untreated untis (incl. negative control)
+* well annotated treatements (incl. positive control)
+
+the larger the support set the better the guarantees above
+
 
 
 Labels for units and treatments
@@ -177,7 +184,9 @@ Bernd Fischer
 models 3D Models
 complex diseases 
 
-collecting interpretable phenotypes - multi-view data 
+collecting interpretable phenotypes - multi-view data - representation
+gene info is interpretable - but also here peopel identify programs
+morphology is more challenging - features are often not interpretable - commonly done is a PCA or other transformation into compressed
 factorisation
 there are labels for units and treatments, there are not yet interpretable phenotype features - especially in image-based profiling (other modalities have semantic concepts, such as a gene)
 
