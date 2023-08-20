@@ -90,7 +90,7 @@ Culturing organoids from primary cells requires the addition of specific tissue-
 
 \subsection{Diagnostic use of Colorectal Cancer Organoids}
 
-Given the benefits of the methodology, patient derived organoids are being trialed as predictive models for personalised treatment recommendation in colorectal cancer care \cite{VanDeWetering2015, Vlachogiannis2018, ganeshRectalCancerOrganoid2019a, ooftPatientderivedOrganoidsCan2019a, yaoPatientDerivedOrganoidsPredict2020a}. In these assays, personalised organoid models are generated and then treated with a candidate drug in-vitro. While robust reports on the predictive ability of organoids for progression-free survival are still missing, current results for response rate models show strong performance for the prediction of irinotecan, FOLFIRI, and neoadjuvant radiation therapy treatment effects. A pooled analyses of the previously published literature recently summarised the aggregate sensitivity and specificity for organoid based treatment response rate prediction at 0.81 and 0.74, respectively (conservative single-point AUROC estimate: 0.78) \cite{wensinkPatientderivedOrganoidsPredictive2021, zhangNoteROCAnalysis2005}. For reference, a retrospective study of clinical experts estimated the predictive validity of an emergency room EKG for occlusive myocardial infarction at a sensitivity and specificity of 0.79 and 0.80, respectively (multi-point AUROC estimate: 0.80) \cite{al-zaitiMachineLearningECG2023}. Despite the potential of patient derived organoids to guide clinical decision making, the method is not ready for use in a clinical context with the biopys-to-evaluation success rate and tunraround time being the primary technical hurdles. A recent failed single-arm prospective clinical trial for organoid-based last-line treatment recommendations reported a treatment for 6 out of 61 included patients (<10 \% evaluation rate, 23 lost during organoid establishment, 11 lost due to disease progression) \cite{ooftProspectiveExperimentalTreatment2021}. Further improvements of reagents, isolation procedures, and in-vitro protocols might lead to higher evaluation rates and lower turnaround times to enable further investigation of organoid-based diagnostics for personalised colorectal cancer care. \par
+Given the benefits of the methodology, patient derived organoids are being trialed as predictive models for personalised treatment recommendation in colorectal cancer care \cite{VanDeWetering2015, Vlachogiannis2018, ganeshRectalCancerOrganoid2019a, ooftPatientderivedOrganoidsCan2019a, yaoPatientDerivedOrganoidsPredict2020a}. In these assays, personalised organoid models are generated and then treated with a candidate drug in-vitro. While robust reports on the predictive validity of organoids for progression-free survival are still missing, current results for response rate models show considerable predictive validity for Irinotecan, FOLFIRI, and neoadjuvant radiation therapy. A pooled analyses of the previously published literature recently summarised the aggregate sensitivity and specificity for organoid based treatment response rate prediction at 0.81 and 0.74, respectively (conservative single-point AUROC estimate: 0.78) \cite{wensinkPatientderivedOrganoidsPredictive2021, zhangNoteROCAnalysis2005}. For reference, a retrospective study of clinical experts estimated the predictive validity of an emergency room EKG for occlusive myocardial infarction at a sensitivity and specificity of 0.79 and 0.80, respectively (multi-point AUROC estimate: 0.80) \cite{al-zaitiMachineLearningECG2023}. Despite the potential of patient derived organoids to guide clinical decision making, the method is not ready for use in a clinical context with a high biopys-to-evaluation dropout rate and tunraround time being the primary technical hurdles. A recent failed single-arm prospective clinical trial for organoid-based last-line treatment recommendations reported a treatment for 6 out of 61 included patients (>90 \% dropout rate and 10 week turnaround time, 23 lost during organoid establishment, 11 lost due to disease progression) \cite{ooftProspectiveExperimentalTreatment2021}. Further improvements of reagents, isolation procedures, and in-vitro protocols might lead to lower dropout rates and turnaround times to enable further investigation of organoid-based diagnostics for personalised colorectal cancer care. \par
 
 \subsection{Drug Discovery using Colorectal Cancer Organoids}
 
@@ -102,7 +102,7 @@ Profiling experiments are biological experiments in which high dimensional pheno
 
 \subsection{Distinguishing Screening Experiments and Profiling Experiments in Therapeutic Discovery}
 
-During Therapeutic Discovery, profiling experiments in general and image-based profiling experiments in particular have been adopted during the early stages of the discovery process: (1) the target identification phase, (2) hit identification phase, and (3) hit to lead transition phase \cite{chandrasekaranImagebasedProfilingDrug2021}. A hallmark of profiling experiments are coarse-grained and uncertainty-aware assumptions about the biological mechanism that is investigated and, as a result, an emphasis on the unbiased collection of phenotype information as well as the use of complex biological models. In practice a profiling experiment collects more information than needed to test a coarse-grained mechanistic hypothesis and can as a result also serve as a starting point for further mechanism discovery. 
+During Therapeutic Discovery, profiling experiments in general and image-based profiling experiments in particular have been adopted during the early stages of the discovery process: (1) the target identification phase, (2) hit identification phase, and (3) hit to lead transition phase \cite{chandrasekaranImagebasedProfilingDrug2021}. A hallmark of profiling experiments are coarse-grained and uncertainty-aware assumptions about the biological mechanism that is investigated and, as a result, an emphasis on the unbiased collection of phenotype information as well as the use of complex biological models with high clinical predictive validity. In practice a profiling experiment collects more information than needed to test a coarse-grained mechanistic hypothesis and can as a result also serve as a starting point for further mechanism discovery. 
 
 To further illustrate the statement above, let's contrast profiling experiments against alternative and previously more common screening experiments. The first general steps in the design process of biological experiments are:
 
@@ -112,14 +112,18 @@ To further illustrate the statement above, let's contrast profiling experiments 
 
 Common, mechanistic, experimental designs are based on strong prior assumptions about the biological mechanism of interest. For example, in a Cancer Therapeutic Discovery project, candidates within a small molecule set might be hypothesised to exert a selective cytotoxic effect on cancer cells by inhibiting a protein kinase through ATP-competitive binding to its active site. A well designed experiment might involve a kinase binding assay in which the dissociation constant (phenotype p) of the set's small molecules (treatment t) relative to the kinase's catalytic domain (unit u) can be estimated. Such experiments, referred to as screening experiments when run at large scale, are effective to test potential treatments against a well defined mechanistic hypothesis. 
 
-In contrast, profiling-focused experiments are based on weaker prior assumptions about the biological mechanism of interest, and -as a result- often use more complex experimental units and collect more, high-dimensional phenotypes. To stay with the example of the Cancer Therapeutic Discovery project above, the weaker prior assumptions might be that candidates within the small molecule set change the growth pattern of cancer cells so that they are more similar to healthy epithelial cells. Such a coarse-grained hypothesis does not include assumptions about the expected mechanism of action of such a desired small molecule. The resulting design might include adherent cell lines from different tissues as experimental units and a set of hundreds of unbiased morphological features that are collected through automated microscopy as phenotypes. Such profiling experiments are effective to both test potential treatments against a coarse-grained mechanistic hypothesis and to extend said hypothesis by providing observations for further mechanism discovery. 
+In contrast, profiling-focused experiments are based on weaker prior assumptions about the biological mechanism of interest, and -as a result- often use more complex, valid experimental units and collect more, high-dimensional phenotypes. To stay with the example of the Cancer Therapeutic Discovery project above, the weaker prior assumptions might be that candidates within the small molecule set change the growth pattern of cancer cells so that they are more similar to healthy epithelial cells. Such a coarse-grained hypothesis does not include assumptions about the expected mechanism of action of such a desired small molecule. The resulting design might include adherent cell lines from different tissues as experimental units and a set of hundreds of unbiased morphological features that are collected through automated microscopy as phenotypes. Such profiling experiments are effective to both test potential treatments against a coarse-grained mechanistic hypothesis and to extend said hypothesis by providing observations for further mechanism discovery. 
 
 To further refine the distinction between profiling and screening experiments, let's reconsider our previous profiling experiment. If the rest of the experimental design was kept similar, but the high dimensional phenotype data was replaced with a one-dimensional ATP-based cell viability assay, the resulting experiment would be considered a phenotypic screening experiment, and not a profiling experiment. In a phenotypic screen a complex experimental unit, such as a cell, is perturbed and a single robust aggregate phenotype, such as the cell viability is measured. While phenotypic screens can be useful to test treatment against one hypothesised mechanism, a mechanism discovery problem presents itself, often referred to as "target deconvolution dilemma" by practioners: The experiment does not enable further reasoning about the unit's complex inner workings and the potential mechanisms of action of observed treatments. Put differently, there are many biological mechanisms through which a treatment could have let to the observed phenotype. Profiling experiments, in contrast, observe more data than would be sufficient to test the simple underlying mechanistic hypothesis - often hundreds to thousands of features for a given treatment and unit. When combined with additional labels, these enriched phenotype profiles can help guide through the "target deconvolution dilemma" by, for example, grouping treatments according to proposed mechanisms of action.
 
-\subsection{Principles of effective profiling experiments}
+\subsection{Learning meaningful representations for image-based profiling experiments}
 
 Besodes follow-up discriminative experiments to refine the mechanism - as any other highthrougput experiment to identifiy observations that are created by treatments adversarial to the experimental design, This requires 
 * machine learning augmented interpretation of the resulting data - cite paper which I advised
+
+Representation Space is key 
+what do we describe the phenotype with?
+
 
 Support Set -> interpretability and robustness of the representation space
 * untreated untis (incl. negative control)
@@ -127,6 +131,16 @@ Support Set -> interpretability and robustness of the representation space
 
 the larger the support set the better the guarantees above
 
+Central piece is the representation
+Often learnt on all available data 
+Can be a challenge if we are in an actual discovery process - i.e. target annotation for small molecules are avaiable only for a subset of the tested treatments 
+in RNAi - do not confuse with query and target treatements that are used in combinations. 
+intro support set and query set in this vain - I propose the use of these terms, term is new, but the practice is not
+
+common methods for representation have been 
+feature selection
+unsupervised
+self-supervised
 
 
 Labels for units and treatments
@@ -181,33 +195,36 @@ Bernd Fischer
 
 \subsection{Current limitations of image-based profiling}
 
+predictive validity - if we see an effect we would like it to be real
 models 3D Models
 complex diseases 
+Per- forming large image-based profiling experiments of organoids has been, however, a biological, technical and computational challenge24–26. As a consequence, the morphological hetero- geneity of patient-derived cancer organoids between and within patient donors, their diverging behaviors upon pharmacological perturbation as well as the underlying mechanisms of cancer organoid morphology are not yet systematically understood.
 
-collecting interpretable phenotypes - multi-view data - representation
+
+if we see an effect we would like to have a hypothesis why it happenend -> guide further decision making; drugs with mechanism have a higher chance of being approved
+meaningful representations - collecting interpretable phenotypes - multi-view data - representation
 gene info is interpretable - but also here peopel identify programs
 morphology is more challenging - features are often not interpretable - commonly done is a PCA or other transformation into compressed
 factorisation
 there are labels for units and treatments, there are not yet interpretable phenotype features - especially in image-based profiling (other modalities have semantic concepts, such as a gene)
 
 
-interpreting treatment effects
-target deconvolution not yet effective enough, i.e. down to the target level - could be done through genotype-specific cell line models
-
-
-
-predictive validity
-reliability means scalability
+cost and scale - most affordable profiling method
+can be made for accessible for collaborative discovery if we reduce technical overhead. I.e. brightfield microscopy as a common trunk 
+increase reliability for scientists at different locations
 
 
 
 
-Per- forming large image-based profiling experiments of organoids has been, however, a biological, technical and computational challenge24–26. As a consequence, the morphological hetero- geneity of patient-derived cancer organoids between and within patient donors, their diverging behaviors upon pharmacological perturbation as well as the underlying mechanisms of cancer organoid morphology are not yet systematically understood.
 
 
-Here we report a large scale image-based phenotyping study of patient-derived cancer organoids to understand underlying fac- tors governing organoid morphology. Colorectal cancer orga- noids from 11 patients were treated with more than 500 experimental and clinically used small molecules at different concentrations. We systematically mapped the morphological heterogeneity of patient-derived organoids and their response to compound perturbations from more than 3,700,000 confocal microscopy images. We found that the resulting landscape of organoid phenotypes was mainly driven by differences in orga- noid size, viability and cystic vs. solid organoid architecture. Using multi-omics factor analysis for integrating organoid mor- phology, size, gene expression, somatic mutations and drug activity, we identified biological programs underlying these phe- notypes and small molecules that modulate them.
+
 
 \section{Aims of Thesis}
+Here we report a large scale image-based phenotyping study of patient-derived cancer organoids to understand underlying fac- tors governing organoid morphology. Colorectal cancer orga- noids from 11 patients were treated with more than 500 experimental and clinically used small molecules at different concentrations. We systematically mapped the morphological heterogeneity of patient-derived organoids and their response to compound perturbations from more than 3,700,000 confocal microscopy images. We found that the resulting landscape of organoid phenotypes was mainly driven by differences in orga- noid size, viability and cystic vs. solid organoid architecture. Using multi-omics factor analysis for integrating organoid mor- phology, size, gene expression, somatic mutations and drug activity, we identified biological programs underlying these phe- notypes and small molecules that modulate them.
+
+Our contributions are
+
 \subsection{Establishing Image-based Profiling Experiments for Organoids}
 
 Patient derived organoids (PDOs) are physiological 3D tumor models that can be efficiently derived from cancer and normal tissues.1–3 Organoid isolation from human primary tumors and metastases1,4 has enabled the establishment of living biobanks.2,3,5–7 Notably, patient derived organoids have been shown to represent their origin’s molecular features and morphology,2–4,8 enabling functional experiments such as drug testing ex vivo.3,5,9–14 
@@ -217,6 +234,7 @@ Here we report on a large-scale image based phenotyping study of patient derived
 
 
 \subsection{Identification of molecular factors of colorectal cancer organoid architecture and plasticity}
+
 \subsection{Demonstrating Small Molecule Profiling in a multi-step, multi-view model of colon cancer initiation}
 \end{flushleft}
 
