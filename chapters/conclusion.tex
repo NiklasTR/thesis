@@ -6,89 +6,27 @@ I learned that if you work hard and creatively, you can have just about anything
 
 \chapter{Discussion}
 
-factor 1
-Wnt-STOP
 
+\section{image-based profiling of organoids for therapeutic discovery}
 
+\subsection{Organoids as high validity in-vitro models for therapeutic discovery}
+Organoids are representative in vitro models for diverse human tissues and can be used for image-based small molecule profiling. While the prospective use of organoids as a diagnostic is currently limited by high sample dropout and [[tunraround time]], a high overall predictive validity for multiple therapeutic regimens has been reported. With the use of organoids in a diagnostic context is limited by these factors, the use of organoid models in early stage drug disocovery is not. In the context of therapeutic discovery, previous studies have success- fully used organoids to perform medium-scale small molecule treatment assays. The most commonly used method is screening with an ATP based cell viability readouts 7,9–15,47–49. Additionally, imaging studies with organoids have been used to characterize developmental processes such as the self-organization of intestinal cells25,50 or the morphological response to individual drugs24,51. While image-based profiling of in vitro models has become an important tool for the analysis of biological processes, particularly in drug discovery and functional genomics17–19, performing such high-content experiments in disease models that cannot be cul- tured and perturbed in 2D, has been a technological challenge. 
+Primary challenges: high heterogeneity of morphology, technical challenge, interest in including multiple organoid lines into the experiment
+How they were solved: 
+sparse 3D imaging and projection, mulit view representation learning to interpret morphological differences
+Introducing these changes enabled the use of small molecule image-based profiling of patient-derived and genetically engineered organoid disease models. 
+\par
 
+High validity in-vitro models, such as organoids, are an essential component of the therapeutic discovery process. Therapeutic discvory is a sequential decision making process in which a selected small moelcule can not, for ethical and practical reasons, be tested directly in a clinical context to observe its treatment effect. Instead, therapeutic candidates have to be evaluated using one or more models to approximate the treatment effect that could be observed in large clinical trials. In the context of optimisation theory, these models can be considered "surrogate models", while the large clinical trial is an "oracle". In practice, multiple in-silico, in-vitro and in-vivo surrogate models are combined and used sequentially to guide decision making during a discovery program. The higher the predictive validity and the lower the (ethical and financial) cost of using a [[surrogate model]], the more value does it provide to the therapeutic discovery process. While determining the validity of an in-vitro model is an empirical process, a set of axioms to prioritise models have been formulated: 
 
-DMSO
-PDO
+(1) the model must have a clear link to the disease of interest (i.e. matched tissue of origin, representative culture conditions) and, if engineered, model the disease state based on the best understanding of the disease pathophysiology
+(2) the phenotype observed during the experiment should represent the desired clinical endpoint (i.e. overall tumor regression) and ideally capture a high degree of information
+(3) the treatment schedule and overall experimental design should be aligned closely with assays that have been successfully in clinical a diagnostic context
 
-CTG
-LDC
+Designing or "fitting" in-vitro biological models to a disease that align with these axioms is a cost intensive process, but already minor changes in predictive validity of an experiment can offset these cost in a drug discovery program. In fact, economic research into the overall cost of therapeutic discovery by Scannel et al. concludes with the statement:
 
-Oncogene induced senescence 
-TP53 dependent 
+"The rate of creation of valid screening and disease models may be the major constraint on R&D productivity".  
 
+\subsection{Learning meaningful representations for image-based profiling experiments}
 
-
-kras oncogene induced senescence
-next to mice p16 or TP53 deletion avoid cell state
-in zebrafish myc signaling avoids cell state
-Myc is a master regulator after loss of Apc 
-% cite japenese Myc paper
-Myc went up after loss of Apc 
-even further up after combination of Apc Kras 
-but down after Kras
-
-switch from cholesterol esters to TAG 
-
-		* in fact downregulation of [[beta oxidation]] seen in all 3 mutant organoid lines
-		* in [[KRAS]] also reduction of [[citric acid cycle]] and [[respiratory electron transport]] -> [[warburg effect]]
-		* accumulation of [[triacylglycerol TG]]
-			* [[long chain fatty acids]] - also desaturated as in lizardo
-			* [[cholesterol ester CE]] and [[phosphatidyl choline PC]] depletion - previously described in adherent cell lines [[lizardo2017.pdf]]
-			* similar bias toward [[triacylglycerol TG]] has also been observed in [[zebrafish]] models with Kras solo mutation
-
-
-	* bias away from [[glycerophospholipid]] also observed in [[zebrafish]]
-% cite Serrano et al 
-
-
-
-Myc 
-just like reprogramming
-high canonical Wnt signaling can rejuvenate organoid models
-interferon response as mediator of oncogene induced senescence
-%TODO cite https://pubmed.ncbi.nlm.nih.gov/27052162/
-
-oncogene induced senescence
-%TODO https://www.nature.com/articles/1210950
-
- why no KRAS alone? - [[oncogene induced senescence]]
- % * the already come with better colony formation
-* why no APC alone? - proliferative advantage? cell cycle? 
-	* weakness of this method is presence of [[EGF]] ligand
-
- 
-
-Sakai 2017
-small intestinal organoids more polyps in AK vs. A! (tumorigenicity in-vitro - other papers)and in-vivo) no invasion in AK/AKF K necessary but not sufficient for invasion/metastasis  no differences in proliferation A vs. AK  they found them to be similar - confirmed with our data  AKT program AK is the most aggresive combo - mouse in-vivo studies - it is the mostactive form
-
-outlook 
-mouse genetics - coarse phenotypes  - Sakai
-organoid - high genetic control - Matano, PI3KCA + APC paper
-image based profiling coupled with organoids - Rindtorff
-identify phase space of cancer development in vitro and ways to therapeutically target it
-
-ellagic acid
-
-## limitations
-media condition overemphasize effect of Apc and potentially mask effect of oncogenic Kras
-tradeoff between maximizing the phenotype state space while maintaining viable cells 
-
-
-
-## why support set 
-
-why distinguish? 
-supervised representation space obvious 
-unsupervised & self-supervised - needs to be learnt on something with multimodal high quality - not all data is available in query set, cost of retraining and consistency - do it in cycles; also makes sure that the representation is interpretable from the outset of the expeirment - creates robustness. Representation space does not depend on the order of  molecules that were tested of 
-add activity of well annotated compounds
-
-in the future 
-perform simple tests of association between annotated compounds instead of incorporating them
-
-
-Modern Drug Discovery is a sequential decision making problem. To motivate this statement, specifically the focus on *decision making* and its *sequential* nature, let's introduce a theoretical scenario, which we can call "the average treatment effect oracle". In its idealised form the oracle is a matrix that has a row for every synthesisable pharmacologically active molecule and a column for every human disease. Each entry of our matrix represents the clinical treatment effect (i.e. in QUALYs) experienced by patients with disease n that have been treated with molecule t. If we restricted this matrix to small druglike molecules only, the conservative estimate for this table's dimensions would still be very large: 10E60 rows t x 10E3 columns n. Unfortunately, most of this table is not known to us. Given the large size of chemical space and constrained resources, an agent within a Drug Discovery project has to make decisions about which molecules (rows) to run experiments with and on which human disease (columns) to focus on at any given time in order to identify a positive treatment effect. Staying within our theoretical scenario, one simple but problematic approach to tackle the treatment effect oracle problem would be a single-point decision making process in which an agent, equipped with all currently available knowledge, selected promising small molecules and directly performed clinical experiments to observe the treatment effect on patients. For obvious ethical and financial reasons, such a single-point decision process is not a viable solution. What follows is that Drug Discovery must be a sequential decision making process. In order to identify a new positive treatment effect, agents need to choose surrogate models, "placeholders", to perform experiments on. Ideally such surrogate models (1) approximate the human disease of interest as close as possible, (2) can be observed in a way that is predictive of the desired clinical outcome, and (3) create low ethical and financial burden. The iterative process of making decisions on which disease to focus on, which correspopnding surrogate models to use, and which molecules to test on the selected models in a given experiment are at the core of modern Drug Discovery. \par
+\subsection{}
