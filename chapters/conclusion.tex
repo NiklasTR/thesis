@@ -14,7 +14,7 @@ My contributions to the general field of biological profiling methods described 
 This discussion is divided into three sections, a general methodological part as well as discussions on findings within the patient-derived organoid project, and the engineered mouse organoid profiling project.
 
 
-\section{image-based profiling of organoids}
+\section{Image-based profiling of organoids}
 
 \subsection{Organoids as high validity in-vitro models}
 
@@ -35,7 +35,7 @@ Designing or "fitting" in-vitro biological models to a disease along these axiom
 "The rate of creation of valid screening and disease models may be the major constraint on R\&D productivity."
 \end{quote}
 
-\subsection{Multi-view representation learning for image-based profiling}
+\subsection{Applying multi-view representation learning to image-based profiling: Towards multi-view profiling}
 
 Increasing the interpretability of the representation space within image-based profiling experiments can aid in the discovery of new biological processes. While gene-level measurements from other profiling experiments, such as transcriptome profiling, can be intuitively interpreted and used for human or algorithmic causal discovery, image-based profiling measurements suffer from a lack of mechanistic biological interpretability. For example, while changes in protein abundance after treatment with a small molecule can be directly interpreted by biologists and put into context with prior knowledge and literature to guide subsequent decision making, the same is not true for image-based profiling data. Classic quantitative features of cellular morphology are rarely descriptive, and even when dimensionality reduction methods or self-supervised learning techniques are used, the learnt representations are not interpretable within the context of our current mechanistic understanding of cellular biology. One approach to increase the interpretability of representations in a given image-based profiling experiment, is to collect a multi-view support set comprising transcriptomic, proteomic or metabolomic data to "annotate" the morphological states. This learnt factor representation can then be used to interpret observations within the remaining image set, here referred to as the query set. By choosing such an approach I enabled a higher degree of interpretability of morphological information in image-based profiling experiments, while increasing the risk of mis- or over-interpreting state changes in factor space. The underlying motivation and trade-offs involved in using multi-view representation learning for image-based profiling experiments are discussed below. 
 \bigbreak
@@ -64,15 +64,38 @@ Given the risks and limitations of interpreting learnt multi-view representation
 Additional simplifications of MOFA include its ability to handle missing data (not supported by iCluster) and high training speed. Generally, multi-view representation learning method should perform simple transformations using modality specific features, have a tolerance to data missingness, and regularised towards sparsity. 
 \bigbreak
 
-\subsection{Perspective on organoids and  multi-view profiling experiments}
-This thesis discusses the establishment of image-based profiling for patient derived and genetically engineered organoid models. Progress in image analysis \cite{chandrasekaranImagebasedProfilingDrug2021a}, the emergence of standardised protocols \cite{Bray2016-ue}, as well as cross-organisational alliances \cite{chandrasekaranJUMPCellPainting2023} are currently leading to a widespread uptake of the image-based profiling method. In the future, I expect to see a development towards in-vitro models that span tissue types using coculture methods to improve clinical predictive validity of in-vitro models. On the analytical side, I expect the multi-view representation learning approach tested in this thesis to be further explored and improved. Image-based profiling experiments are used both in academic and industry contexts and enriching learnt image representations with other modalities holds the potential to accelerate the discovery of new mechanisms and therapeutic candidates. Advances in modality-specific general purpose representation learning models, such as for biological images, will likely further increase the interest in learning and sampling multi-view representations of cellular state \cite{pfaendlerSelfsupervisedVisionTransformers2023}.
+\subsection{Perspective on multi-view profiling of organoids}
+This thesis discusses the establishment of image-based profiling for patient derived and genetically engineered organoid models. Progress in image analysis \cite{chandrasekaranImagebasedProfilingDrug2021a}, the emergence of standardised protocols \cite{Bray2016-ue}, as well as cross-organisational alliances \cite{chandrasekaranJUMPCellPainting2023} are currently leading to a widespread uptake of the image-based profiling method. In the future, I expect the combination of multi-view representation learning and image-based profiling of organoids introduced in this thesis to be further explored and improved - with possibly even more complex and representative organoid models, such as coculture systems. A direct next step towards more robust multi-view profiling could be the combination of RNA-Sequencing of formalin fixed cells after samples have completed their microscopy run. Directly enriching learnt image representations with such transcriptomic data holds the potential to accelerate the discovery of new biological mechanisms and therapeutic candidates. Advances in modality-specific general purpose representation learning models, such as for biological images, will likely further increase the interest in learning and sampling multi-view representations of cellular state \cite{pfaendlerSelfsupervisedVisionTransformers2023}.
+
+
+
+\section{Multi-view profiling of colorectal cancer organoids identifies factors of cancer organoid architecture and plasticity}
+
+\subsection{The importance of large in-vitro cancer organoid collections for translational medicine}
+
+Patient derived cancer organoids are representative in-vitro models of their tissue of origin. In therapeutic discovery, it is desireable to test a candidate against as many such high validity in-vitro models as possible, to make confident estimates about its future clinical value. Despite the extremely high value of human in-vitro models, the number of available models is relatively low. Today only about 500 in-vitro models are easily accesible from large commercial-grade providers, about 2000 have been systematically characterised by international scientific consortia, and about 100,000 human cell lines have been tracked in literature-based repositories. More so, not all human cell lines models have the same degree of representativeness relative to their tissue of origin. Mapping of transcript abundance data from human cancer cell lines and bulk tissue samples shows systematic differences in the degree of representation across tissues. Central nervous system, liver and lung cancer derived cell lines have the lowest similarity with their tissue of origin, while colorectal cancer cell lines show an overall high degree of similarity. As a consequence, both the quantity and quality of new in-vitro models needs to be considered during the establishing process. At the time of writing, there are multiple efforts to develop new in-vitro disease models from primary samples. Here, the organoid method has emerged as a popoular approach to develop new models, given its establishment efficiency and availability of protocols for multiple tissues. 
+\bigbreak
+
+\subsection{Characterising colorectal cancer organoid collections with image-based profiling}
+
+To increase their value for applied research, new in-vitro models should be thoroughly characterised - both in an untreated and perturbed state. Image-based profiling is a cost effective and informative profiling method (introduced and discussed above). In this project I combined the isolation of new patient derived organoid models with the direct collection of an image-based profiling reference dataset. I applied a multi-view representation learning approach to model the observed data (discussed above) and identified two primary axes of variation across organoid models. 
+\bigbreak
+
+\subsection{Two primary biological programs identified in colorectal cancer organoids}
+
+An IGF1R signaling program is associated with increased organoid size, EGFR inhibitor resistance and can be induced by mTOR inhibition
+\bigbreak
+
+An LGR5+ program is associated with cystic organoid architecture, Wnt signaling inhibitor sensitivity, and can be induced by inhibition of MEK
+\bigbreak
+
+\subsection{Towards an organoid multi-view profiling atlas}
+
+
+\section{Multi-view profiling of pre-malignant models of colon cancer}
 
 
 
 
 
-
-
-\section{Profiling of colorectal cancer organoids identifies multi-view factors of cancer organoid architecture and plasticity}
-\section{Profiling of pre-malignant models of colon cancer}
 \end{flushleft}
