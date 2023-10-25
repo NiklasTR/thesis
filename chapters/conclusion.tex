@@ -100,26 +100,28 @@ The ability of RAS MAPK inhibition (here EGFR and MEK) to move intestinal organo
 
 \subsection{Towards an organoid multi-view profiling atlas}
 Organoid models did not appear to be evenly distributed within the space created by the two identified factors. While constrained by a small number of observations, I observed three prototypical states:
-\begin{enumerate} 
+\begin{itemize} 
     \item \textit{F1-; F2-}: The largest group of observed organoid samples were both factor 1 and factor 2 low. These samples had a dense architecture, relatively smaller volume and a high relative sensitivity to EGFR inhibitors. 
     \item \textit{F1+; F2-}: A second group of samples were factor 1 high and factor 2 low. These samples had a dense architecture but large volume. They showed strong IGFR1 signaling, had sensitivity to IGF1R inhibitors, and were comparably resistant to EGFR inhibitors. 
     \item \textit{F2+}: The smallest group of samples had an average factor 1 score and high factor 2 score. These samples had a cystic architecture and were marked by high canonical Wnt signaling. 
-\end{enumerate}
+\end{itemize}
 
 When searching for previous description of such stereotypical states in colorectal cancer, I noticed a partial alignment of the these states with the previously published colorectal cancer intrinsic subtype (CRIS) model \cite{isellaSelectiveAnalysisCancercell2017a}. The CRIS model was identified based on transcriptomic data from patient derived xenografts (PDX), an alternative method to propagate patient derived cancer cells ex-vivo with high efficiency. By removing genes that are not expressed in epithelial cells during model development, the resulting classification avoided previously described instabilities when applying it to previously un-observed, heterogenous clinical samples \cite{dunneCancercellIntrinsicGene2017}.
 
 Abbreviated, the five states comprising the CRIS model are: 
 \begin{itemize} 
-    \item A BRAF-mutated MSI, and KRAS-mutated MSS samples
-    \item B TGF-b pathway activation, enriched for MSI samples 
-    \item C EGFR activation, and sensitive to inhibition (\textit{F1-; F2-})
-    \item D IGF signaling activation and EGFR inhibitor resistance (\textit{F1+; F2-}) 
-    \item E high canonical Wnt signaling with a "Paneth cell-like" transcriptome signature
+    \item CRIS A: BRAF-mutated MSI, and KRAS-mutated MSS samples
+    \item CRIS B: TGF-b pathway activation, enriched for MSI samples 
+    \item CRIS C: EGFR activation, and sensitive to inhibition (\textit{F1-; F2-})
+    \item CRIS D: IGF signaling activation and EGFR inhibitor resistance (\textit{F1+; F2-}) 
+    \item CRIS E: high canonical Wnt signaling with a "Paneth cell-like" transcriptome signature
 \end{itemize}
 
 A subset of CRIS classes was identified within the presented organoid profiling data. The gene sets defining CRIS C and D were found to be separated along factor 1, with low factor 1 scores (\textit{F1-; F2-}) associated with CRIS C and high factor 1 scores (\textit{F1+; F2-}) associated with CRIS D. There was no significant enrichment identified for the other states outlined within the CRIS model, however, a potential association between CRIS E and \textit{F2+} might motivate further investigation.
 
-The complete absence of CRIS A or CRIS B organoid models is worthy of further discussion. The enrichment of MSI positive cases within CRIS A and B might serve as an explanation for the absence of organoids with this classification \cite{isellaSelectiveAnalysisCancercell2017a}. Throughout this project, I was not able to isolate and profile MSI positive organoids. Both MSI positive colorectal cancer cell lines \cite{MetabolicBalanceColorectala} and PDX models \cite{isellaSelectiveAnalysisCancercell2017a} have been reported to show lower levels of intrinsic canonical Wnt signaling and an enrichment for RNF43 mutations, a Wnt signaling related functional event that -in contrast to truncating mutations of APC- does not render cells independent of Wnt ligands \cite{Van_De_Wetering2015-ko}. At this point it is important to state that the quality of Wnt ligands in organoid medium is a common source of poor colon organoid culture efficiency (Kim Boonekamp, direct correspondence). From this observation, I hypothesise that the organoid methodology applied at the time of this study exerted a systematic bias against the development of Wnt low, MSI positive colon cancer organoids - possible due to methodological challenges related to maintaining sufficiently Wnt-high organoid culture conditions. Further optimising procedures of colon cancer organoid culture will be required to develop fully representative in-vitro model collections for translational colorectal cancer research.
+The complete absence of CRIS A or CRIS B organoid models is worthy of further discussion. The enrichment of MSI positive cases within CRIS A and B might serve as an explanation for the absence of organoids with this classification \cite{isellaSelectiveAnalysisCancercell2017a}. Throughout this project, I was not able to isolate and profile MSI positive organoids. Both MSI positive colorectal cancer cell lines \cite{MetabolicBalanceColorectala} and PDX models \cite{isellaSelectiveAnalysisCancercell2017a} have been reported to show lower levels of intrinsic canonical Wnt signaling and an enrichment for RNF43 mutations, a Wnt signaling related functional event that -in contrast to truncating mutations of APC- does not render cells independent of Wnt ligands \cite{Van_De_Wetering2015-ko}. At this point it is important to state that the quality of Wnt ligands in organoid medium is a common source of poor colon organoid culture efficiency (Kim Boonekamp, direct correspondence). From this observation, I hypothesise that the organoid methodology applied at the time of this study exerted a systematic bias against the development of Wnt low, MSI positive colon cancer organoids - possible due to methodological challenges related to maintaining sufficiently Wnt-high organoid culture conditions. Further standardising and optimising reagents related to colon cancer organoid culture will accelerate the development of fully representative in-vitro model collections for translational colorectal cancer research. 
+
+In summary, image-based profiling of colon cancer organoids revealed two main axes of variation related to IGF1R signaling and canonical Wnt signaling. The recovery of previously described molecular classifications within organoid models highlights the ability to recapitulate major signaling programs observed in colorectal cancer. At the same time, imbalances related to the prevalence of certain subtypes within the set of organoid models reveals directions for further methodological improvements. Despite remaining challenges, I expect clinical networks of living organoid biobanks to serve as a public good accelerating profiling-based therapeutic discovery in the future. 
 
 \section{Multi-view profiling of pre-malignant models of colon cancer}
 
