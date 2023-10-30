@@ -32,7 +32,7 @@
 \def\pdTwoYear#1{\gdef\@pdTwoYear{#1}}
 
 \RequirePackage{color}
-\usepackage{hyperref}
+
 \RequirePackage[tiny, md, sc]{titlesec}
 \setlength{\headheight}{15pt}
 \pagestyle{plain}
@@ -47,7 +47,10 @@
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
-\RequirePackage[super,comma,numbers]{natbib}
+\RequirePackage[authoryear,comma,square]{natbib}
+\usepackage{hyperref}
+\bibliographystyle{apalike}
+%\RequirePackage[authoryear,comma]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \RequirePackage[width=5.75in, letterpaper]{geometry}
 \RequirePackage{fancyhdr}
@@ -130,3 +133,7 @@
       {\@latex@warning{Empty `thebibliography' environment}}
      \endlist}
 \makeatother
+
+\renewcommand{\citep}[1]{\citeauthor{#1} (\citeyear{#1})}
+\renewcommand{\citet}[1]{\citeauthor{#1} (\citeyear{#1})}
+\setmainfont{TeX Gyre Termes}
