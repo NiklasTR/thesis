@@ -47,14 +47,12 @@
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
-\RequirePackage[authoryear,comma,square]{natbib}
-\usepackage{hyperref}
-\bibliographystyle{apalike}
-%\RequirePackage[authoryear,comma]{natbib}
-\renewcommand{\bibnumfmt}[1]{[#1]}
-\RequirePackage[width=5.75in, letterpaper]{geometry}
-\RequirePackage{fancyhdr}
 
+\RequirePackage[authoryear]{natbib}
+\bibliographystyle{apalike}
+\usepackage{hyperref}
+
+\renewcommand{\bibnumfmt}[1]{[#1]}
 \usepackage[titletoc]{appendix}
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
 
@@ -73,7 +71,7 @@
 
 \renewcommand\bibname{References}
 \renewcommand\listfigurename{Listing of figures}
-\RaggedRight
+%\RaggedRight
 
 \parindent 12pt
 \RequirePackage{mathspec}
@@ -86,7 +84,8 @@
 
 \defaultfontfeatures{Mapping=tex-text}
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
-\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
+%\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
+\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{TeX Gyre Termes}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Noto Mono} % Font substitution for Source Code Pro
 
@@ -134,6 +133,35 @@
      \endlist}
 \makeatother
 
-\renewcommand{\citep}[1]{\citeauthor{#1} (\citeyear{#1})}
-\renewcommand{\citet}[1]{\citeauthor{#1} (\citeyear{#1})}
-\setmainfont{TeX Gyre Termes}
+\makeatletter
+\newcommand{\citeps}[1]{%
+  \def\NAT@space{}%
+  \NAT@open%
+  \citeauthor{#1}%
+  \NAT@space%
+  \NAT@yearpar{#1}%
+  \NAT@close%
+}
+\makeatother
+
+
+\renewcommand{\citep}[1]{(\citeauthor{#1} \citeyear{#1})}
+\renewcommand{\citet}[1]{\citeauthor{#1} \citeyear{#1}}
+%\setmainfont{TeX Gyre Termes}
+
+\makeatletter
+\newcommand*{\citei}[1]{%
+  \begingroup
+    \NAT@swatrue
+    \citetrackerfalse
+    \pagetrackerfalse
+    \backtrackerfalse
+    \NAT@parse{#1}%
+    \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+    \NAT@nmfmt{\NAT@nm}%
+    \NAT@aysep\NAT@spacechar
+    \NAT@date
+    \hyper@natlinkend
+  \endgroup
+}
+\makeatother
