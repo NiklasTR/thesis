@@ -25,10 +25,15 @@
 	\maketitle
 	\copyrightpage
 	\abstractpage
+ 	\dedicationpage
 	\tableofcontents
-	% \listoffigures % optional
-	\dedicationpage
-	\acknowledgments
+	\listoffigures
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of figures}
+ 	\listoftables
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of tables}
+	%\acknowledgments
 }
 
 \renewcommand{\maketitle}{
