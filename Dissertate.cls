@@ -82,6 +82,21 @@
 \widowpenalty=300
 \clubpenalty=300
 
+% table utility
+\usepackage{tabularx} % For tables that stretch to fill the width of the page
+
+% overwriting TOC functions
+\renewcommand{\listfigurename}{List of Figures}
+
+\RequirePackage{geometry}
+\geometry{
+  top=1in, % Top margin
+  bottom=1in, % Bottom margin
+  left=1in, % Left margin
+  right=1in % Right margin
+}
+
+
 \defaultfontfeatures{Mapping=tex-text}
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
 %\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
