@@ -12,7 +12,7 @@ Significant parts of this chapter have been adapted from own manuscripts, includ
 
 \section{Materials}
 
-\subsection*{Antibodies}
+\subsection{Antibodies}
 \begin{table}[htb]
 \caption{List of Antibodies used in experiments}
 \label{tab:antibodies} % Label for referencing
@@ -28,11 +28,41 @@ Anti-beta-actin HRP (mouse) &  &  \\
 \end{table}
 
 
-\subsection*{Biological Samples}
-% Add your data here
+\subsection{Biological Samples}
+
+
+\begin{table}[htbp]
+\caption{Patient derived organoid characteristics}
+\label{tab:patient_organoid}
+\begin{tabularx}{\textwidth}{lXXXXX}
+\toprule
+\textbf{Line} & \textbf{Optimal medium} & \textbf{Qualitative growth} & \textbf{Patient sex} & \textbf{Location} & \textbf{UICC stage} \\
+\midrule
+D004T & ENA & good & f & rectum & 3 \\
+D007T & ENA & good & m & rectum & 3 \\
+D010T & ENA & good & f & sigm & 3 \\
+D013T & ENAS & good & m & rectum & 1 \\
+D015T & ENA & good & m & desc & 2 \\
+D018T & ENA & good & f & sigm & 1 \\
+D019T & ENA & good & m & sigm & 2 \\
+D020T & ENA & good & m & rectum & 1 \\
+D021T & ENA & medium & m & rectum & 1 \\
+D022T & ENA & good & m & asc & 4 \\
+D027T & ENA & good & f & rectum & 2 \\
+D030T & ENA & good & f & asc & 2 \\
+D046T & ENA & good & f & rectum & 3 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Abbreviations: f, female; m, male; sigm, sigmoid; desc, descending colon; asc, ascending colon; ENA, basal medium + EGF, Noggin and A83-01 (ALK-inhibitor); ENAS, ENA + SB202190 (p38 inhibitor).
+
 
 \subsection*{Chemicals, Peptides, and Recombinant Proteins}
-\begin{tabular}{lll}
+\begin{table}[htb]
+\caption{List of Chemicals, Peptides, and Recombinant Proteins}
+\label{tab:chemicals} % Label for referencing
+\begin{tabularx}{\textwidth}{Xll}
 \toprule
 \textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
 \midrule
@@ -47,22 +77,16 @@ Matrigel & Corning &  \\
 BME R1 & Trevigen &  \\
 BME V2 & Trevigen &  \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+\end{table}
 
-\subsection*{Critical Commercial Assays}
-% Add your data here
-
-\subsection*{Deposited Data}
-% Add your data here
-
-\subsection*{Experimental Models: Cell Lines}
-% Add your data here
-
-\subsection*{Experimental Models: Organisms/Strains}
-% Add your data here
+% Repeat similar structure for other sections
 
 \subsection*{Oligonucleotides}
-\begin{tabular}{lll}
+\begin{table}[htb]
+\caption{List of Oligonucleotides}
+\label{tab:oligonucleotides} % Label for referencing
+\begin{tabularx}{\textwidth}{Xll}
 \toprule
 \textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
 \midrule
@@ -75,16 +99,21 @@ Primer R2 & GATC Biotech &  \\
 \textit{... More items ...} \\
 Hprt R: cctcctcagaccgcttttt & GATC Biotech &  \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+\end{table}
 
 \subsection*{Recombinant DNA}
-\begin{tabular}{lll}
+\begin{table}[htb]
+\caption{List of Recombinant DNA}
+\label{tab:recombinant_dna} % Label for referencing
+\begin{tabularx}{\textwidth}{Xll}
 \toprule
 \textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
 \midrule
 pSpCas9(BB)-2A-Puro (PX459) V2.0 & F. Zhang via Addgene & \# 62988 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+\end{table}
 
 \section{Methods}
 
@@ -98,6 +127,47 @@ Patient derived organiod (PDO) cultures were extracted from biopsies as reported
 The tumor niche was determined after 14 days and organoids were subsequently cultured in the condition with best visible growth. 
 Organoids were passaged every 7 days and medium was changed every 2-3 days.
 
+\begin{table}[htbp]
+\caption{Basal Medium Components}
+\label{tab:basal_medium_components}
+\begin{tabularx}{\textwidth}{Xll}
+\toprule
+\textbf{Component} &  \textbf{Concentration} & \textbf{Manufacturer} \\
+\midrule
+Advanced Dulbecco’s modified eagle medium (aDMEM) & 97\% v/v & Life technologies; Carlsbad, California, USA \\
+GlutaMAX™ (100x) & 1\% v/v & Life technologies; Carlsbad, California, USA \\
+Pen/Strep (100x) & 1\% v/v & Life technologies; Carlsbad, California, USA \\
+1 M HEPES (100x) & 1\% v/v & Sigma-Aldrich Life Science/Merck, St. Louis, Missouri, USA \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\caption{ENA Medium Components}
+\label{tab:ena_medium_supplements}
+\begin{tabularx}{\textwidth}{Xll}
+\toprule
+\textbf{Supplement} & \textbf{Concentration} & \textbf{Manufacturer} \\
+\midrule
+Basal Medium (described above) & 98\% v/v & Produced In-House \\
+B27 (50x) & 2\% v/v & Life technologies; Carlsbad, California, USA \\
+N-Acetylcysteine & 1.25 mM & Sigma/Merck; St. Louis, Missouri, USA \\
+Human EGF & 50 ng/ml & PeproTech; Hamburg, Germany \\
+Noggin & 100 ng/ml & PeproTech; Hamburg, Germany \\
+Y-27632 & 10 µM & Selleck chemicals; Houston, Texas, USA \\
+A83-01 & 500 nM & BioCat; Heidelberg, Germany \\
+Prostaglandin E2 & 10 nM & Santa Cruz Biotechnology \\
+Gastrin & 10 nM & PeproTech; Hamburg, Germany \\
+Nicotinamide (Vit. B3) & 10 mM & Sigma/Merck; St. Louis, Missouri, USA \\
+Primocin & 100 µg/ml & Invivogen; San Diego, California, USA \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+
+
 \subsection{Mouse Organoid Culture}
 A heterozygous LSL-Kras G12D (B6.129S4-Krastm4Tyj/J) female mouse was crossed with a homozygous Rosa26-CreERT2 (B6.129-Gt(ROSA)26Sortm1(cre/ERT2)Tyj/J) male to generate offspring with a Tamoxifen activatable KRAS G12D allele. A single healthy LSL-Kras G12D CreERT2 mouse (male, 8 weeks) was sacrificed for organoid generation. 
 
@@ -105,6 +175,34 @@ Mouse colon organoids were isolated based on work by Sato et al \cite{Sato2009-j
 
 Complete colon organoid medium, termed WENRAS, contained 30\% advanced DMEM/F12 (Life Technologies) supplemented with 1\% v/v penicillin/streptomycin solution (Life Technologies), 1\% v/v HEPES buffer (Life Technologies) and 1\% v/v Glutamax (Life Technologies), 50\% Wnt3A conditioned medium, and 20\% R-spondin1-FC conditioned medium. 
 The medium was further supplemented with recombinant Noggin (100 ng/ml), 1x B27 (1x), n-Acetyl-cysteine (1.25 mM), Nicotinamide (10 mM), EGF (50 ng/ml), 500 nM A83-01 (Tocris), SB202190 (3 μM), Y-27632 (10 µM) and Primocin (100 µg/ml). All small molecule inhibitors were dissolved in DMSO. 
+
+the two cell lines
+
+\begin{table}[htbp]
+\caption{WENRAS Medium Components}
+\label{tab:wenras_medium_components}
+\begin{tabularx}{\textwidth}{Xll}
+\toprule
+\textbf{Component} & \textbf{Concentration} & \textbf{Manufacturer} \
+\midrule
+Advanced DMEM/F12 & 30\% v/v & Life Technologies; Carlsbad, California, USA \
+Penicillin/Streptomycin Solution & 1\% v/v & Life Technologies; Carlsbad, California, USA \
+HEPES Buffer & 1\% v/v & Life Technologies; Carlsbad, California, USA \
+GlutaMAX & 1\% v/v & Life Technologies; Carlsbad, California, USA \
+Wnt3A Conditioned Medium & 50\% v/v & Produced In-House \
+R-spondin1-FC Conditioned Medium & 20\% v/v & Produced In-House \
+Noggin & 100 ng/ml & PeproTech; Hamburg, Germany \\
+B27 Supplement (50x) & 2\% v/v & Life Technologies; Carlsbad, California, USA \
+N-Acetyl-cysteine & 1.25 mM & Sigma-Aldrich; St. Louis, Missouri, USA \
+Nicotinamide (Vit. B3) & 10 mM & Sigma-Aldrich; St. Louis, Missouri, USA \
+EGF & 50 ng/ml & PeproTech; Hamburg, Germany \
+A83-01 & 500 nM & Tocris; Bristol, UK \
+SB202190 & 3 µM & [Manufacturer Info Needed] \
+Y-27632 & 10 µM & Selleck Chemicals; Houston, Texas, USA \
+Primocin & 100 µg/ml & InvivoGen; San Diego, California, USA \
+\bottomrule
+\end{tabularx}
+\end{table}
 
 After isolation, colon organoids were cultured in solidified BME R1 (10mg/ml) droplets and overlaid with genotype and experiment dependent growth medium. The medium was exchanged every 48-72 h. 
 APC mutant colon organoid lines were cultured without Wnt and R-spondin conditioned medium, which was replaced by basal medium instead.
