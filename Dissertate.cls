@@ -103,14 +103,6 @@
   \printfield{doi}%
   \usebibmacro{finentry}}
 
-
-
-% debugging publisher
-\newcommand{\printpublisher}[1]{%
-  \entrydata{#1}{\usebibmacro{publisher}}
-}
-
-
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 
