@@ -48,9 +48,71 @@
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
 
-\RequirePackage[authoryear]{natbib}
-\bibliographystyle{apalike}
+%\RequirePackage[authoryear]{natbib}
+%\bibliographystyle{harvard}
+%\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
+\usepackage[backend=biber, style=authoryear, doi=true, natbib=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false]{biblatex}
+\addbibresource{references.bib}
 \usepackage{hyperref}
+
+% Remove quotation marks around titles
+\DeclareFieldFormat[article]{title}{#1}
+\DeclareFieldFormat[misc]{title}{#1} % Apply same title format to misc entries
+
+% Regular expression to extract 'Pages: XXXX' from the note field for preprints
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \pertype{misc}
+      \step[fieldsource=note, match=\regexp{Pages:\s+(\d+)}, final]
+      \step[fieldset=pages, origfieldval, overwrite]
+    }
+  }
+}
+
+
+% Redefine the article driver
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{journal}%
+  \setunit{\addspace}
+  \printfield{volume}%
+  % Add a comma and a space before page number
+  \setunit{\addcomma\space}
+  \printfield{pages}%
+  \newunit\newblock
+  \printfield{doi}%
+  \usebibmacro{finentry}}
+
+% New misc driver, similar to article driver but customized for preprints
+\DeclareBibliographyDriver{misc}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  % Directly print the publisher field using lower-level command
+  \printfield{publisher}%
+  \setunit{\addcomma\space}
+  \printfield{doi}%
+  \usebibmacro{finentry}}
+
+
+
+% debugging publisher
+\newcommand{\printpublisher}[1]{%
+  \entrydata{#1}{\usebibmacro{publisher}}
+}
+
+
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \usepackage[titletoc]{appendix}
