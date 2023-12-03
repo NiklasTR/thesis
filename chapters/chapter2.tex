@@ -71,7 +71,7 @@ For example, region 1 within the UMAP embedding was exclusively occupied by obse
 \clearpage
 
 
-\section{Organoid phenotype-profiles capture organoid viability}
+\subsection{Organoid phenotype-profiles capture organoid viability}
 
 Cell viability assays are common readouts in cancer drug discovery. Prompted by the observation that organoid size was a major factor determining the structure of the phenotype embedding (UMAP and factor 1 in MOFA analysis, see below), I hypothesized that low organoid size was at least partially the result of cell death within the organoid and, more broadly, that phenotype data could be used to estimate organoid viability. Bortezomib, a small molecule proteasome inhibitor with high in-vitro toxicity led to dose dependent organoid death in all organoid lines, thus representing suitable positive controls (Figure \ref{fig_221} a). Analogous to pseudotime in single-cell  gene expression analysis, dose-dependent trajectories of Bortezomib drug response could be fitted (Figure \ref{fig_221} b) using the non-parametric principle curve method. Starting from diverse baseline morphologies, increasing doses of Bortezomib led to a step-wise convergence on a final death-related phenotype, which corresponded to the areas with enrichment of small objects (regions 2, 3 and 4). 
 
@@ -122,7 +122,7 @@ In conclusion, organoid size is an informative metric to approximate organoid vi
 \end{figure}
 \bigbreak
 
-\section{Drug induced organoid phenotypes correspond to drug mechanism of action}
+\subsection{Drug induced organoid phenotypes correspond to drug mechanism of action}
 
 An advantage of image-based profiling over one dimensional cell viability measurements in drug discovery is the ability to use the high dimensional drug-induced phenotype-profiles to identify active but not necessarily lethal small molecules and estimate their mechanism of action through clustering with other well-annotated small molecules. 
 
@@ -218,7 +218,7 @@ Overall, MOFA factors explained up to 40\% of variance in median organoid size, 
 
 
 \newpage
-\section{An IGF1R signaling program is associated with increased organoid size, EGFR inhibitor resistance and can be induced by mTOR inhibition}
+\subsection{An IGF1R signaling program is associated with increased organoid size, EGFR inhibitor resistance and can be induced by mTOR inhibition}
 
 Differences in organoid size are a contributing factor to intra- and inter-organoid line heterogeneity. Organoid size was influenced by both organoid line and drug treatments and was associated with factor 1 scores (Figure \ref{fig_261} a). An unsupervised gene set enrichment analysis (GSEA) for Reactome pathways across factor 1 loadings showed an enrichment for IGF1R signaling and mitogen-activated protein kinase signaling related genes (Figure \ref{fig_261} b). 
 
@@ -256,7 +256,7 @@ A group of cell cycle related kinase inhibitors targeting polo like kinases, Aur
 To summarize, factor 1 described an organoid state with relatively large organoid size, elevated IGF1R dependent mitogenic signaling which could be induced by inhibiting an mTOR dependent negative feedback loop in patient derived cancer organoids.
 
 \newpage
-\section{An LGR5+ program is associated with cystic organoid architecture, Wnt signaling inhibitor sensitivity, and can be induced by inhibition of MEK}
+\subsection{An LGR5+ program is associated with cystic organoid architecture, Wnt signaling inhibitor sensitivity, and can be induced by inhibition of MEK}
 
 Besides size differences, a particularly strong recurring organoid phenotype was the presence of a cystic organoid architecture, seen for example in untreated D018T organoids and organoids treated with MEK inhibitors (Figure \ref{fig_140} and \ref{fig_231}). In the cystic state, which was observed in factor 2 high organoid lines, organoids consisted of a monolayer of uniform cells lining a central spherical lumen with a distinct apico-basally oriented actin cytoskeleton (Figure \ref{fig_251} a and b). This phenotype was reminiscent of organoid morphologies previously seen in APC-/- or Wnt ligand treated human intestinal organoids \citep{Matano2015-zw}. 
 
