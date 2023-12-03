@@ -32,7 +32,7 @@
 \def\pdTwoYear#1{\gdef\@pdTwoYear{#1}}
 
 \RequirePackage{color}
-\usepackage{hyperref}
+
 \RequirePackage[tiny, md, sc]{titlesec}
 \setlength{\headheight}{15pt}
 \pagestyle{plain}
@@ -47,11 +47,66 @@
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
-\RequirePackage[super,comma,numbers]{natbib}
-\renewcommand{\bibnumfmt}[1]{[#1]}
-\RequirePackage[width=5.75in, letterpaper]{geometry}
-\RequirePackage{fancyhdr}
 
+%\RequirePackage[authoryear]{natbib}
+%\bibliographystyle{harvard}
+%\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
+\usepackage[backend=biber, style=authoryear, doi=true, natbib=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false]{biblatex}
+\addbibresource{references.bib}
+\usepackage{hyperref}
+
+% Remove quotation marks around titles
+\DeclareFieldFormat[article]{title}{#1}
+\DeclareFieldFormat[misc]{title}{#1} % Apply same title format to misc entries
+
+% Regular expression to extract 'Pages: XXXX' from the note field for preprints
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \pertype{misc}
+      \step[fieldsource=note, match=\regexp{Pages:\s+(\d+)}, final]
+      \step[fieldset=pages, origfieldval, overwrite]
+    }
+  }
+}
+
+
+% Redefine the article driver
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{journal}%
+  \setunit{\addspace}
+  \printfield{volume}%
+  % Add a comma and a space before page number
+  \setunit{\addcomma\space}
+  \printfield{pages}%
+  \newunit\newblock
+  \printfield{doi}%
+  \usebibmacro{finentry}}
+
+% New misc driver, similar to article driver but customized for preprints
+\DeclareBibliographyDriver{misc}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  % Directly print the publisher field using lower-level command
+  \printfield{publisher}%
+  \setunit{\addcomma\space}
+  \printfield{doi}%
+  \usebibmacro{finentry}}
+
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+
+\renewcommand{\bibnumfmt}[1]{[#1]}
 \usepackage[titletoc]{appendix}
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
 
@@ -70,7 +125,7 @@
 
 \renewcommand\bibname{References}
 \renewcommand\listfigurename{Listing of figures}
-\RaggedRight
+%\RaggedRight
 
 \parindent 12pt
 \RequirePackage{mathspec}
@@ -81,9 +136,25 @@
 \widowpenalty=300
 \clubpenalty=300
 
+% table utility
+\usepackage{tabularx} % For tables that stretch to fill the width of the page
+
+% overwriting TOC functions
+\renewcommand{\listfigurename}{List of Figures}
+
+\RequirePackage{geometry}
+\geometry{
+  top=1in, % Top margin
+  bottom=1in, % Bottom margin
+  left=1in, % Left margin
+  right=1in % Right margin
+}
+
+
 \defaultfontfeatures{Mapping=tex-text}
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
-\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
+%\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
+\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{TeX Gyre Termes}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Noto Mono} % Font substitution for Source Code Pro
 
@@ -129,4 +200,37 @@
     {\def\@noitemerr
       {\@latex@warning{Empty `thebibliography' environment}}
      \endlist}
+\makeatother
+
+\makeatletter
+\newcommand{\citeps}[1]{%
+  \def\NAT@space{}%
+  \NAT@open%
+  \citeauthor{#1}%
+  \NAT@space%
+  \NAT@yearpar{#1}%
+  \NAT@close%
+}
+\makeatother
+
+
+\renewcommand{\citep}[1]{(\citeauthor{#1} \citeyear{#1})}
+\renewcommand{\citet}[1]{\citeauthor{#1} \citeyear{#1}}
+%\setmainfont{TeX Gyre Termes}
+
+\makeatletter
+\newcommand*{\citei}[1]{%
+  \begingroup
+    \NAT@swatrue
+    \citetrackerfalse
+    \pagetrackerfalse
+    \backtrackerfalse
+    \NAT@parse{#1}%
+    \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+    \NAT@nmfmt{\NAT@nm}%
+    \NAT@aysep\NAT@spacechar
+    \NAT@date
+    \hyper@natlinkend
+  \endgroup
+}
 \makeatother
