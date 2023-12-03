@@ -9,8 +9,10 @@ What I cannot create, I do not understand.
 
 \section{Motivation}
 
-Based on the observation in the previous chapter that (1) multi-view representations combining organoid morphology and biological state can be learned, and (2) small molecule perturbations can shift organoids in the learnt representation space in an interpretable way, the establishment of image-based profiling of organoids was validated. Following the establishment of image-based profiling of cancer organoid models, the next project had the goal of testing the extend to which small molecules can be identified by their ability to shift the state of organoids from a healthy organoid to a pre-malignant state and back. For this project, I generated a set of genetically engineered mouse colon organoid lines that model the initiation of colorectal cancer by harboring tumorigenic Apc and Kras mutations in isolation and combination. A comprehensive multi-view support set included gene expression, proteomics and lipidomics data of untreated organoids as well as the activity of well-annotated small molecules. A high-throughput image-based profiling experiment covering FDA-approved, natural and targeted small molecules was performed to identify treatments that shifted organoid between states linked to early stage colorectal cancer development \ref{fig_a02}. 
+In the previous chapter it was demonstrated that interpretable multi-view representations combining organoid morphology and molecular state can be learned. Furthermore, previously unobserved small molecule induced morphological changes can be projected into the joint representation space to aid the interpretation of small molecule effects and generate hypotheses for validating experiments.
 
+In this chapter I built upon these observations and explored to what extent the projection of small molecule induced morphological changes can be used for therapeutic discovery. To this end, I generated a set of genetically engineered mouse colon organoid lines that model the initiation of colorectal cancer by harboring tumorigenic Apc and Kras mutations in isolation and combination. 
+The organoid models were characterised using transcript expression, proteomics and lipidomics measurements. After their characterisation, A high-throughput image-based profiling experiment covering FDA-approved, natural and targeted small molecules was performed to identify conditions that shift organoids between pre-malignant and wildtype states \ref{fig_a02}. 
 
 \begin{figure}[h]
 \centering
@@ -22,7 +24,8 @@ Based on the observation in the previous chapter that (1) multi-view representat
 \end{figure}
 \bigbreak
 
-The emergence of colorectal cancer via the chromosomal instability process is a well understood sequence of genetic events that start with hyperactivation of canonical Wnt signaling, often via loss of APC, followed by the hyperactivation of RAS-MAPK signaling, often via oncogenic mutations of KRAS. These two mutations are frequent and signficantly co-occuring in colorectal cancer patients \citep{Schell2016-ew}, suggesting an interplay between these two acquired genetic functional events that lead to an evolutionary advantage of premalignant cells. While the genetic events within this process are well understood, no therapeutics targeting the loss of APC or the hyperactivation of KRAS via the frequent G12D activation have been developed for clinical use yet. I genetically engineered mouse colon organoid models carrying Apc truncating mutations and/or a Kras G12D allele, thereby modelling the first set of genetic events within the chromosomal instability process leading to colorectal cancer. Using a strategy similar to the approach in the first chapter of this thesis, organoid models were characterized in-depth and subjected to a high-throughput small molecule image-based profiling assay of ca. 1700 FDA-approved substances and experimental compounds. The goal of this project was to (1) understand the biological state caused by individual transforming genetic changes in Apc and Kras within colon epithelial cells and (2) identify small molecule treatments that shift organoids within the learned representation between genetically-defined states. 
+To summarise, the goal of this project was to (1) comprehensively characterise the effects of individual transforming genetic events in colon organoids, and (2) identify small molecule treatments that shift organoids within the learned representation between genetically-defined states. 
+
 
 \begin{figure}[H]
 \centering
@@ -39,8 +42,9 @@ The emergence of colorectal cancer via the chromosomal instability process is a 
 \end{figure}
 \bigbreak
 
-\section{Generation of organoid colon adenoma models}
-APC and KRAS mutant lesions are considered intermediate colon adenomas \citep{Fearon1989-wf}. To model the formation of colon adenomas in vitro, I used a transgenic mouse to derive organoid cultures. The transgenic animal carried a conditional tamoxifen inducible KrasG12D/+ allele \citep{Jackson2001-wv} (Figure \ref{fig_a10} a). After isolation, I confirmed that extracted colon organoids did not express an activated form of KrasG12D (Figure \ref{fig_a11}a) and defined these organoids as wildtype (WT). To model loss-of-function mutations of the tumor suppressor Apc, the frequently mutated mutation-cluster-region on the APC gene was targeted by CRISPR (Figure \ref{fig_a10} a). Generated organoids harbored biallelic loss-of-function mutations in Apc (Figure \ref{fig_a11}a). Subsequent activation of oncogenic KrasG12D by treatment with 4-Hydroxytamoxifen led to four distinct organoid adenoma models (Figure \ref{fig_a10} a and Figure \ref{fig_a11}a-b); wildtype (WT), Apc-/- (A), KrasG12D/+ (K), and Apc-/- / KrasG12D/+ (AK).
+\section{Generation and characterization of organoid models}
+\subsection{Generation of organoid colon adenoma models}
+The emergence of colorectal cancer via the chromosomal instability process is a well understood sequence of genetic events that start with hyperactivation of canonical Wnt signaling through truncating mutations of APC, followed by the hyperactivation of RAS-MAPK signaling via oncogenic mutations of KRAS. I genetically engineered mouse colon organoid models carrying Apc truncating mutations and/or a Kras G12D allele, thereby modelling the first set of genetic events within the chromosomal instability process leading to colorectal cancer. To model the formation of colon adenomas in vitro, I used a transgenic mouse to derive organoid cultures. The transgenic animal carried a conditional tamoxifen inducible KrasG12D/+ allele \citep{Jackson2001-wv} (Figure \ref{fig_a10} a). After isolation, I confirmed that extracted colon organoids did not express an activated form of KrasG12D (Figure \ref{fig_a11}a) and defined these organoids as wildtype (WT). To model loss-of-function mutations of the tumor suppressor Apc, the frequently mutated mutation-cluster-region on the APC gene was targeted by CRISPR (Figure \ref{fig_a10} a). Generated organoids harbored biallelic loss-of-function mutations in Apc (Figure \ref{fig_a11}a). Subsequent activation of oncogenic KrasG12D by treatment with 4-Hydroxytamoxifen led to four distinct organoid adenoma models (Figure \ref{fig_a10} a and Figure \ref{fig_a11}a-b); wildtype (WT), Apc-/- (A), KrasG12D/+ (K), and Apc-/- / KrasG12D/+ (AK).
 
 
 \begin{figure}[h]
@@ -54,20 +58,20 @@ APC and KRAS mutant lesions are considered intermediate colon adenomas \citep{Fe
 \end{figure}
 \bigbreak
 
-Similar to genetically modified human colon organoids (\citet{Drost2015-ph}; \citet{Matano2015-zw}), murine adenoma models showed characteristic niche requirements. Both Apc mutant organoid lines grew independent of the Wnt-signaling activating factors Wnt 3a and R-Spondin1 (Figure \ref{fig_a10} b) and at an accelerated proliferation rate. In fact, Apc mutant lines showed an increased growth in a Wnt3a and R-Spondin1 free environment when compared to the complete medium. Organoid models with an activated KrasG12D allele were less sensitive to removal of EGF from the media. However, as observed before \citep{Drost2015-ph}, the mutant KrasG12D allele was insufficient to compensate completely for the loss of EGF from the medium. Nevertheless, KrasG12D mutant organoid lines were more resistant to pharmacological inhibition of Egfr signaling (Figure \ref{fig_a10} c). In conclusion, organoid model genotypes were reflected in characteristic growth factor dependencies in experimental conditions. 
+Similar to genetically modified human colon organoids (\citet{Drost2015-ph}; \citet{Matano2015-zw}), murine adenoma models showed characteristic niche requirements. Both Apc mutant organoid lines grew independent of the Wnt-signaling activating factors Wnt 3a and R-Spondin1 (Figure \ref{fig_a10} b) and at an accelerated proliferation rate. In fact, Apc mutant lines showed an increased growth in a Wnt3a and R-Spondin1 free environment when compared to the complete medium. Organoid models with an activated KrasG12D allele were less sensitive to removal of EGF from the media. However, as observed before \citep{Drost2015-ph}, the mutant KrasG12D allele was insufficient to compensate completely for the loss of EGF from the medium. Nevertheless, KrasG12D mutant organoid lines were more resistant to pharmacological inhibition of Egfr signaling (Figure \ref{fig_a10} c). In conclusion, organoid model genotypes were reflected in characteristic growth factor dependencies in experimental conditions.
 
 \bigbreak
 Next, I investigated the effects of mutations in Apc and Kras on both canonical Wnt- and Erk dependent signaling. While the presence of the KrasG12D/+ allele led to an increase in Erk-phosphorylation across models, Apc-/- / KrasG12D/+ organoids showed no marked additional increase in Erk-phosphorylation when compared to KrasG12D/+ organoids (Figure \ref{fig_a10} d). Moreover, Apc-/- / KrasG12D/+ adenoma models showed no significant differences in expression of the Wnt target genes Axin2 and Ccnd when compared to Apc-/- single-mutant models (A) (p > 0.34 for all conditions, Wilcoxon rank sum test) (Figure \ref{fig_a10} e). These results indicate that organoid adenoma models show genotype-dependent activity of characteristic signaling pathways, while there is no extensive crosstalk between the Apc-/-  and KrasG12D/+ allele in mouse colon organoids that that is directly reflected in canonical Wnt- and Erk dependent signaling.  
 
 \bigbreak
-\section{Molecular profiling of organoid models}
-To comprehensively characterise the four organoid models, transcriptome, proteome and lipidome profiling was completed (Figure \ref{fig_161}). Transcriptome profiling of organoid models showed an increased expression of the stem-cell marker Lgr5 and Wnt-signaling regulators such as Nkd1, Notum, Wif1 and Znrf3 in Apc mutant organoid lines (Figure \ref{fig_160} b). In contrast, Apc wildtype organoid lines showed an increased expression of epithelial differentiation markers, such as Krt20, Alpp and Abcb1 (P-glycoprotein). Overall, the number of genes with significant expression changes after Apc loss was 2.5 times greater compared to isolated KrasG12D activation (FDR = 0.1, Apc-/-: 44.5\%, KrasG12D/+: 18.3\% of assessed genes). A related observation was made during the analysis of protein abundance. Again, Wnt signaling regulators (Axin2, Notum) were enriched in Apc mutant organoid lines and the number of significantly regulated proteins after Apc loss was 2.5 times greater compared to an isolated KrasG12D activation (FDR = 0.1, Apc-/-: 260, KrasG12D/+: 105 assessed proteins). Principal component analysis of both transcriptome, proteome and lipidome data showed related axes of variation across measurements. In all observerd modalities, the first principal component captured differences between Apc wildtype and Apc mutant organoid models, while the second (in case of proteomics measurements the third) principal component captured differences between wildtype and KrasG12D/+ single-mutant models (Figure \ref{fig_161}b, \ref{fig_161}c and \ref{fig_161}d). In every modality, a high degree of similarity was observed among Apc-/- and Apc-/- / KrasG12D/+ organoid lines. While activation of oncogenic KrasG12D in wildtype organoids led to global changes in transcript, protein and lipid expression, these changes were not as pronounced in organoids without functional Apc. In fact, only the mRNA expression of 91 genes was significantly altered between Apc-/- and Apc-/- / KrasG12D/+ organoids (FDR = 0.1). 
+\subsection{Molecular characterisation of organoid models}
+To comprehensively characterise the four organoid models, transcriptome, proteome and lipidome profiling was performed (Figure \ref{fig_161}). For these measurements organoids were kept in the same culture condition and duration that were used during the subsequent image-based profiling experiment: After passaging, all organoids were kept in Wnt 3a, R-Spondin1 rich medium (WENRAS) to model conditions within the niche and stimulate outgrowth before the medium was changed to a Wnt 3a-free medium (ENR) to model the progression outside the niche. The medium was supplemented with EGF both before and after the medium change. Transcriptome profiling of organoid models showed an increased expression of the stem-cell marker Lgr5 and Wnt-signaling regulators such as Nkd1, Notum, Wif1 and Znrf3 in Apc mutant organoid lines (Figure \ref{fig_160} b). In contrast, Apc wildtype organoid lines showed an increased expression of epithelial differentiation markers, such as Krt20, Alpp and Abcb1 (P-glycoprotein). Overall, the number of genes with significant expression changes after Apc loss was 2.5 times greater compared to isolated KrasG12D activation (FDR = 0.1, Apc-/-: 44.5\%, KrasG12D/+: 18.3\% of assessed genes). A related observation was made during the analysis of protein abundance. Again, Wnt signaling regulators (Axin2, Notum) were enriched in Apc mutant organoid lines and the number of significantly regulated proteins after Apc loss was 2.5 times greater compared to an isolated KrasG12D activation (FDR = 0.1, Apc-/-: 260, KrasG12D/+: 105 assessed proteins). Principal component analysis of both transcriptome, proteome and lipidome data showed related axes of variation across measurements. In all observed modalities, the first principal component captured differences between Apc wildtype and Apc mutant organoid models, while the second (in case of proteomics measurements the third) principal component captured differences between wildtype and KrasG12D/+ single-mutant models (Figure \ref{fig_161}b, \ref{fig_161}c and \ref{fig_161}d). In every modality, a high degree of similarity was observed among Apc-/- and Apc-/- / KrasG12D/+ organoid lines. While activation of oncogenic KrasG12D in wildtype organoids led to global changes in transcript, protein and lipid expression, these changes were not as pronounced in organoids without functional Apc. In fact, only the mRNA expression of 91 genes was significantly altered between Apc-/- and Apc-/- / KrasG12D/+ organoids (FDR = 0.1). 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_6_1.pdf}
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_6_1_2.pdf}
 \caption[Molecular characterisation of organoid adenoma models]{\textbf{Molecular characterisation of organoid adenoma models. a} Differential gene expression of adenoma models. Shown are scaled expression values for the top 125 differentially expressed genes for every organoid line. Selected genes are highlighted. All organoids were cultured for 3 days in WENRAS before exposure to ENR for 4 days. Cell number was controlled between experiments. Whole organoid lysates were analyzed. 
 \textbf{b} Transcript abundance data. Shown are the first two principal components of scaled gene expression data. The proportion of variance of each principal component is listed in parenthesis. 
 \textbf{c} Protein abundance data. Shown are the first and third principal component of scaled protein expression data. The proportion of variance of each principal component is listed in parenthesis. 
@@ -80,7 +84,7 @@ To comprehensively characterise the four organoid models, transcriptome, proteom
 
 To explore active biological processes, gene set enrichment analysis on organoid mRNA expression data was performed. The strongest changes in gene expression after loss of Apc were linked to an increased proliferation rate (Figure \ref{fig_160} e). Gene set enrichment analysis of published intestinal cell-proliferation and stem cell signatures showed an enrichment of both signatures in Apc-/- organoids (Figure \ref{fig_160} e) \citep{Merlos-Suarez2011-gd}. In contrast, a signature for differentiating, transit-amplifying cells was depleted. Gene set enrichment analysis of Apc-/- / KrasG12D/+ double-mutant organoids showed the same results. Next to these published signatures, I explored the enrichment of curated gene sets from the Reactome database \citep{Griss2020-qi}. Here, both Apc-/- and Apc-/- / KrasG12D/+ double-mutant lines showed a positive enrichment of cell cycle and DNA repair related genes when compared to wildtype organoids (Figure \ref{fig_162}a). Unique to the KrasG12D/+ organoid line was a decreased expression of citric acid cycle and respiratory chain related genes (Figure \ref{fig_162}b). This effect, was not observed in Apc-/- / KrasG12D/+ double mutant organoids (Figure \ref{fig_161}f). In addition, organoid models with an KrasG12D/+ genotype showed a downregulation of the EGFR receptor, in line with a potential negative feedback response to hyperactivated RAS-MAPK signaling (Figure \ref{fig_162}b). Both Apc-/- and KrasG12D/+ organoid models showed a strong reduction of lipid metabolism and beta-oxidation (Figure \ref{fig_162}a,b). In summary, loss of Apc leads to a global shift in transcript, protein, and lipid abundance in colon organoids, including a strong increase in cell proliferation associated genes. Activation of isolated oncogenic KrasG12D leads to pronounced reduction in citric acid cycle related gene expression while this phenotype was not seen in organoid models with an additional loss of Apc.
 
- \begin{figure}[h]
+\begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
@@ -93,6 +97,21 @@ To explore active biological processes, gene set enrichment analysis on organoid
 \end{figure}
 \bigbreak
 
+To further understand the pronounced changes in fatty acid metabolism observed in both Apc-/- and KrasG12D/+ organoid models, differences in lipid composition were measured using untargeted lipid extraction and Mass Spectrometry. In total, more than 350 lipids from 15 species were identified across all samples (Figure \ref{fig_168} a). The majority of identified lipids had fatty acid chain lengths of 20 to 40 carbon atoms, while Triglycerides (TAG) had a increased length of 40 to 60 carbon atoms (Figure \ref{fig_168} b). Major differences between organoid lines were seen especially for storage lipids - Triglycerides (TAG) and Cholesterol Esters (CE) (Figure \ref{fig_168} c and d, respectively). Both lipid species were more abundant in the two Apc-/- organoid lines (p < 0.05, TAG: t > 4.8, CE: t > 3.7, ANOVA). In single-mutant KrasG12D/+ organoids, Triglycerides were also more abundant compared to wildtype organoids (p < 0.05, t = 5.9, ANOVA), while Cholesterol esters were depleted (p < 0.05, t = -3.7, ANOVA). The increase in the abundance of storage lipids as a result of Apc loss of function and oncogenic Kras mutation were aligned with the transcriptional changes that indicated a reduced rate of beta-oxidation in both genotypes (Figure \ref{fig_162}a,b). 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=350,
+                height=\textheight,
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_6_8.pdf}
+\caption[Lipid composition changes across organoid adenoma models]{\textbf{Lipid composition changes across organoid adenoma models. a} Lipid species abundance of adenoma models. Shown are scaled abundance values for major lipid species for every organoid line. Selected lipid species are highlighted (Lipid Maps Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester, Chol - Cholesterol). All organoids were cultured for 3 days in WENRAS before exposure to ENR for 4 days. Cell number was controlled between experiments. Whole organoid lysates were analyzed. 
+\textbf{b} Fatty acid chain lengths by lipid species. Shown are the distribution of fatty acid chain lengths.
+\textbf{c} Distribution of Triacylglycerol (TAG) abundance across organoid adenoma models. ANOVA was performed to model average lipid abundance as a function of organoid line across replicates.
+\textbf{d} Distribution of Cholesterolester (CE) abundance across organoid adenoma models. ANOVA was performed to model average lipid abundance as a function of organoid line across replicates.
+}
+\label{fig_168}
+\end{figure}
+\bigbreak
 
 
 \begin{figure}[h!]
@@ -109,6 +128,7 @@ To explore active biological processes, gene set enrichment analysis on organoid
 \newpage
 \section{Image-based profiling of organoid models}
 
+\subsection{Single-Organoid level phenotypes are organised by model genotypes}
 Once models were characterised on a molecular level, the previously developed image-based profiling process was started. Organoid models of four different genotypes were perturbed with a library of ca. 1700 compounds and morphological profiles were observed (Figure \ref{fig_120} a). A UMAP projection of the first 25 principal components representing single-organoid morphology showed distinct genotype-dependent morphological states for viable organoids (Figure \ref{fig_120} b). Graph based clustering of organoid morphology profiles resulted in 8 different clusters (Figure \ref{fig_120} c). Organoids within cluster 4 and 3 were enriched for Apc+/+ organoid models, cluster 2 and 1 were populated by Apc-/- models. Analogous to gene expression, lipidomics and proteomics representation space, the two Apc mutant organoid models were less distinct from each other than organoids with a WT and isolated KrasG12D/+ genotype (Figure \ref{fig_140} b). While developed organoids that present with a larger organoid area showed distinct genotype-specific morphologies, small and dead organoids clustered together across genotypes within cluster 5 (Figure \ref{fig_120} c and d). The distribution of DMSO-treated organoids and small molecule perturbed organoids in morphological space overlapped considerably (Figure \ref{fig_140} a), possibly because many treatments were inactive and did not alter organoid morphology. When comparing the morphologies of different organoid models in detail, characteristic differences were identifiable (Figure \ref{fig_130} a). DMSO-treated Apc+/+ organoids showed a strong, regular apical actin cytoskeleton (high average actin intensity) that organized the multicellular formation into a regular-patterned spherical morphology (low average eccentricity). In contrast, Apc-/- organoids showed a relative lack of a regular actin cytoskeleton (low average actin intensity) and a irregular, non-spherical morphology (high average eccentricity). In summary, organoid models showed genotype-dependent differences in morphology. Analogous to differences in molecular state, a primary source of variation was caused by loss of the tumor suppressor gene Apc. Organoids with truncated Apc presented with a higher proliferation rate, increased overall DNA staining intensity and loss of the spherical apical actin cytoskeleton that was observed in Apc +/+ organoid models.
 
 \bigbreak
@@ -133,19 +153,17 @@ Once models were characterised on a molecular level, the previously developed im
 
 
 
-\section{Quantifying small molecule induced phenotypes across organoid models}
+\subsection{Scoring small molecule induced phenotypes across organoid models}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_5.pdf}
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_5_2.pdf}
 \caption[Treatment activity scoring]{\textbf{Treatment activity scoring. a} A logistic regression classifier is trained to distinguish morphology profiles of individual treated and untreated organoids across all available replicates. Afterwards, the classifier is applied to a validation set of organoids and the classification performance is estimated using the area under the receiver operating characteristic curve (AUROC) metric. Method implemented by Jan Sauer.
-\textbf{b} Distribution of treatment activity scores for all organoid lines, replicates and perturbations. AUROC scores were centered around 0.5 and treatments for this particular analysis were termed active when classification accuracy exceeded three times the Median Absolute Deviation (MAD) of the AUROC score distribution, an arbitrary threshold. A set of 184 compounds (16\% of all screened small molecules) met the activity criteria. 
-\textbf{c} Overlap of active compound treatments across organoid models. Shown is a Euler diagram of active compounds for each line. Apc -/- (abbreviated A), double mutant (Apc-/- KrasG12D+/-, abbreviated AK), Kras G12D (abbreviated K), and wildtype (abbreviated WT) are color coded. Plot diagnostics: diagError: 0.011, stress: 0.002.
-\textbf{d} Identifying related treatment induced phenotypes. Normal vectors of treatment specific classifiers were compared by calculating the angular distance (related to cosine similarity, ranging from 0-180 degrees). Small angular distance between vectors correspond to a high similarity between the treatment-induced organoid phenotypes. Method implemented by Jan Sauer.
-\textbf{e} A map of compound induced phenotypes for Apc mutant and Apc wildtype organoids. Highlighted are clusters of compound induced phenotypes with related targets. Normal vectors for Apc mutant and Apc wildtype organoids were concatenated before angular distance calculation. Method implemented by Jan Sauer.
-\textbf{f} Treatment induced phenotypes by organoid genotype. Shown are significantly enriched treatment induced phenotypes for Apc mutant and wildtype organoid models. Clusters of similar phenotypes were tested for overrepresentation of known molecular targets using Fisher’s exact test. Significantly enriched targets are shown. Method implemented by Jan Sauer.
+\textbf{b} Distribution of treatment activity scores for all organoid lines, replicates and perturbations. 
+\textbf{c} Identifying related treatment induced phenotypes. Normal vectors of treatment specific classifiers were compared by calculating the angular distance (related to cosine similarity, ranging from 0-180 degrees). Small angular distance between vectors correspond to a high similarity between the treatment-induced organoid phenotypes. Method implemented by Jan Sauer.
+\textbf{d} A map of compound induced phenotypes for Apc mutant and Apc wildtype organoids. Highlighted are clusters of compound induced phenotypes with related targets. Normal vectors for Apc mutant and Apc wildtype organoids were concatenated before angular distance calculation. Method implemented by Jan Sauer.
 }
 \label{fig_150}
 \end{figure}
@@ -155,12 +173,14 @@ With genotype-dependent morphologies identified, the next step was to explore ge
 
 \section{Multi-omics factor analysis identifies shared factors linking functional and structural biological views}
 
+\subsection{Learning a multi-view representation with MOFA}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=350,
                 height=\textheight,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_1_7.pdf}
-\caption[Multi-omics factor analysis to identify shared factors linking morphology, size, gene expression, lipidomics, proteomics, genotype and treatment activity]{\textbf{Multi-omics factor analysis to identify shared factors linking morphology, size, gene expression, lipidomics, proteomics, genotype and treatment activity. a} Percent variance explained by the MOFA model for each factor. Untreated organoid morphology, organoid size and treatment activity scores were integrated with genotype, proteomics, lipidomics and mRNA expression data. \textbf{b} Cumulative proportion of total variance explained by each experimental data modality within the MOFA model. \textbf{c}, Visualization of samples in factor space showing factors 1 and 2 as well as factor 1 and 3. Shown are independent replicates for each organoid line. 
+\caption[Multi-omics factor analysis (MOFA) to identify shared factors linking morphology, size, gene expression, lipidomics, proteomics, genotype and treatment activity]{\textbf{Multi-omics factor analysis (MOFA) to identify shared factors linking morphology, size, gene expression, lipidomics, proteomics, genotype and treatment activity. a} Percent variance explained by the MOFA model for each factor. Untreated organoid morphology, organoid size and treatment activity scores were integrated with genotype, proteomics, lipidomics and mRNA expression data. \textbf{b} Cumulative proportion of total variance explained by each experimental data modality within the MOFA model. \textbf{c}, Visualization of samples in factor space showing factors 1 and 2 as well as factor 1 and 3. Shown are independent replicates for each organoid line. 
 }
 \label{fig_170}
 \end{figure}
@@ -178,7 +198,7 @@ To comprehensively model the biological state of organoid models and interpret t
 \end{figure}
 \bigbreak
 
-\section{A canonical Wnt signaling associated program caused by Apc loss}
+\subsection{A canonical Wnt signaling associated program caused by Apc loss}
 
 To understand the molecular changes associated with factor 1, factor loadings for mRNA expression data were analyzed using Reactome gene-set enrichment analysis (Figure \ref{fig_190} a). Three clusters of biological processes were significantly associated with a negative factor loading, caused by Apc loss-of-function: 1) Mitotic Anaphase related processes, including spindle checkpoints; 2) Mitotic S-phase, including DNA replication and 3) DNA repair mechanisms, including homology directed repair. In line with the enrichment of processes associated with cell proliferation, factor 1 loadings showed an enrichment of a previously described intestinal proliferation signature (Figure \ref{fig_190} c) and an LGR5+ instestinal stem cell identity signature (Figure \ref{fig_190} b). These findings are in line with the long-standing evidence that loss of Apc leads to a hyperactivation of canonical Wnt signaling, which in turn leads to increased intestinal cell proliferation and Myc-dependent changes towards a stem-like cell state \citep{Sansom2007-wm, Satoh2017-nd}. When focusing on compound activity, a low factor 1 score was significantly linked to sensitivity towards microtubuli and focal adhesion kinase (FAK) targeting small molecules (Figure \ref{fig_190} d). This morphological sensitivity presented itself primarily as reduced organoid size and number relative to the DMSO vehicle control (Figure \ref{fig_190} e). In contrast, the average treatment activity scores of small molecules targeting Wnt signaling was associated with increased factor 1 scores (Figure \ref{fig_190} d). Further exploration of the association between the treatment activity score and Apc genotype showed that small molecule inhibitors of the canonical Wnt secretion pathway protein Porcupine (Porcn), IWP-L6 and LGK-974, were more active in Apc WT organoids relative to their Apc-/- counterparts \citep{Liu2013-dh} (Figure \ref{fig_199}a). In contrast, this effect was not observable for PRI-724, a small molecule inhibitor targeting the interaction of beta-catenin and CREB-binding-protein in the canonical Wnt signaling pathway \citep{Okazaki2019-gy} (Figure \ref{fig_199}a). The observed differences in treatment activity scores among small molecule inhibitors are most likely related to their targets' relative location to Apc in the canonical Wnt signaling cascade. While Porcn-dependent Wnt secretion is generally upstream of the destruction complex, the interaction of beta-catenin and the transcriptional coactivator CREB-binding-protein is located downstream of it. As a consequence, inhibition of destruction complex function by loss of Apc is expected to render cells less sensitive to perturbations of the Wnt secretion cascade than direct perturbations of transcription factor binding properties (Figure \ref{fig_199}b). Next to factor related differences in morphological compound sensitivity, I analyzed the association of factor 1 weights with measured lipid species. High concentrations of cholesterol esters were associated with a low factor 1 score (seen in Apc-/- organoids), while elevated concentrations of phosphatidic acid species were linked to a high factor 1 score (figure \ref{fig_199}c).
 
@@ -205,38 +225,16 @@ To understand the molecular changes associated with factor 1, factor loadings fo
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.75,keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_2.pdf}
-\caption[Activity of small molecule Wnt signaling inhibitors]{\textbf{Activity of small molecule Wnt signaling inhibitors. a} AUROC activity score for three small molecule inhibitors of canonical Wnt signaling. \textbf{b} Target proteins for small molecules within the canonical Wnt signaling cascade with their relative position to the destruction complex (highlighted in blue). \textbf{c} Distributions of lipid abundance loadings grouped by lipid species for factor 1 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester)}
+\includegraphics[scale=0.75,keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_2_1.pdf}
+\caption[Activity of small molecule Wnt signaling inhibitors]{\textbf{Activity of small molecule Wnt signaling inhibitors. a} AUROC activity score for three small molecule inhibitors of canonical Wnt signaling. \textbf{b} Target proteins for small molecules within the canonical Wnt signaling cascade with their relative position to the destruction complex (highlighted in blue).}
 \label{fig_199}
 \end{figure}
 \bigbreak
 
-After linking factor 1 to Apc loss and identifying associated molecular changes, I was interested in identifying active treatments that shifted organoid morphologies along the factor 1 axis. As described in the previous chapter, small molecules that led to a predicted factor 1 change were identified using ANOVA. To identify treatments that led to a drop in organoid viability, a classifier developed by Jan Sauer and described in the previous chapter (LDC) trained on ground-truth lethal treatments within the stem-cell library was applied. Two groups of compounds were identified that induced a shift towards lower factor 1 scores (group A, figure \ref{fig_180}) and higher factor 1 scores (group B, \ref{fig_180}). Small molecules within group A induced a morphology associated with Apc loss while maintaining organoid viability. In contrast, members of group B primarily led to a loss of viability and a shift towards a morphological state associated with Apc wildtype organoids. Of note, small molecules within these groups had related target proteins. Compounds within group A (incl. CHIR-98014, CHIR-99021, LY2090314) targeted GSK3 beta - a kinase with central function within the canonical Wnt signaling destruction complex. Inhibition of GSK3 beta leads to hyperactivation of canonical Wnt signaling. Members of group B primarily targeted the Proteasome (incl. Bortezomib, Carfilzomib, MLN2238). Further validation of group A showed how treatment with the GSK3 beta inhibitor CHIR-98014 led to treatment-induced phenotypes in WT and KrasG12D+/- organoids that phenocopied the unperturbed morphology of Apc-/- and double mutant organoid models (Figure \ref{fig_185} a). On the feature level, treatment led to an increase in organoid size and DNA intensity (Figure \ref{fig_185} b) in Apc wildtype models. This change in morphology was likely due to an increased proliferation rate of mutant cells, leading to rising organoid size and a higher density of nuclei per analyzed object. Guided by the identification of a strong GSK3 beta inhibition phenotype in Apc wildtype organoids, which was already identified during the unbiased clustering of treatment-induced phenotypes previously (Figure \ref{fig_150} d), I analyzed small molecules that clustered with known inhibitors of this kinase based on the angular distance of their drug effect vectors within these models (Figure \ref{fig_185} c). In line with the observations in this experiment, all small molecules clustering with well-described inhibitors of GSK3 beta had previously described off-target binding activity against this kinase within the LINCS KINOMEScan database \citep{Duan2014-ku}. 
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.75,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_3.pdf}
-\caption[Projection of factor 1 scores for treatment-induced phenotypes and viability changes]{\textbf{Projection of factor 1 scores for treatment-induced phenotypes and viability changes.} Highlighted are compounds leading to a significant change in projected factor scores across all organoid lines (ANOVA). Organoid viability is predicted using a random-forest based classified (LDC) with scores from 0 (no toxicity) to 1 (complete toxicity)}
-\label{fig_180}
-\end{figure}
-\bigbreak
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.75,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_4.pdf}
-\caption[GSK3 beta inhibition dependent morphology in colon organoid models]{\textbf{GSK3 beta inhibition dependent morphology in colon organoid models. a} Small molecule inhibition of GSK3 beta (CHIR98014) leads to phenocopying of Apc-/- genotype organoid models. \textbf{b} Shift of morphological features of wildtype and KrasG12D +/- organoid models treated with CHIR98014. Shown is an increase in organoid size (Area) and DNA intensity. \textbf{c} Excerpt of clustering from figure \ref{fig_150} d, labeled with known binding activity of listed small molecules. Rucaparib is not member of the cluster and shown for comparison.}
-\label{fig_185}
-\end{figure}
-\bigbreak
-
-
 
 \newpage
 
-\section{An oncogene-induced senescence program caused by isolated KrasG12D activation}
+\subsection{A program caused by isolated KrasG12D activation shares signs of oncogene-induced senescence}
 % Myc down
 While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180} b), the KrasG12D allele showed a strong loading for both factor 2 and factor 3. This observation paired with the fact that only organoid models without Apc loss of function were seperated by factor 2 (Figure \ref{fig_170} c), led to the conclusion that factor 2 described a KrasG12D dependent change in cell state in the presence of intact Apc function.
 
@@ -244,7 +242,7 @@ While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.75,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_1.pdf}
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_1_2.pdf}
 \caption[Factor 2, KrasG12D oncogene induced senescence]{\textbf{Factor 2, KrasG12D oncogene induced senescence. a} Distributions of treatment activity loadings grouped by drug target for factor 2. \textbf{b} Relationship of representative drugs’ activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{c} Gene set enrichment results of a senescence signature \citep{Fridman2008-ky} over ranked factor 2 gene expression loadings (ranking from high factor 2 loading to low factor 2 loading, NES = normalized enrichment score). \textbf{d} Distributions of lipid abundance loadings grouped by lipid species for factor 2 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester). \textbf{e} Relationship of acyl chain length with factor 2 loading. Shown are lipids from highlighted species in panel (d)}
 \label{fig_200}
 \end{figure}
@@ -252,6 +250,7 @@ While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180
 To understand the molecular mechanisms represented by factor 2, features with large absolute loadings were analysed again. ERK and MEK inhibitors were more active in factor 2 low models (KrasG12D+/-) while EGFR/HER2 inhibitors were more active in factor 2 high organoids (WT, figure \ref{fig_200} a and b). This juxtaposition in treatment activity against RAS-MAPK pathway members was reminiscent of the previous observations made around canonical Wnt signaling inhibitors (Figure \ref{fig_199}). With oncogenic Kras localized between the receptor-layer (including Egfr and Her2) and downstream kinases (for example Erk), hyperactive Kras signaling likely leads to a cell state with relative resistance to EGFR inhibitors and increased dependency on Erk signaling. The previously observed transcriptional process of Egfr-downregulation as a response to KrasG12D+/- is in line with these observations (Figure \ref{fig_162}b). 
 
 \bigbreak
+
 Oncogene induced senescence is a cell state marked by an arrest of the cell cycle and expression of pro-inflammatory mediators as a response to an oncogenic perturbation. An activated KrasG12D+/- genotype leads to oncogene induced senescence of colon epithelial cells in vivo \citepp{Bennecke2010-zf}. Prompted by previous reports on the effect of an isolated oncogenic Kras allele, I identified an enrichment of a senescence related gene expression signature by Fridman et al. within the loadings of factor 2 \citep{Fridman2008-ky} (Figure \ref{fig_200} c). Transcripts linked to cell senescence, including Igfbp3 (factor 2 loading ca. -0.999) and Hmga2 (factor 2 loading ca. -1.050) ranked among the strongest contributors to the factor. Further exploration of loadings for factor 2 revealed systematic shifts in the composition of the lipidome. Activation of oncogenic Kras led to an accumulation of sphingomyelin (SM) and triacylglycerol (TAG) species with long fatty acid chain length in colon organoid cells (Figure \ref{fig_200} d and e). Similar TAG accumulation during cellular senescence has been observed in previous contexts, including studies in human fibroblasts \citep{Lizardo2017-uy}. Next to an accumulation of sphingomyelin and triacylglycerol species, I observed a relative depletion of cholesterol esters (CE) and lysophosphatidylcholine (LPC) (Figure \ref{fig_200} d). In line with the depletion of cholesterol species, HMG-CoA reductase inhibitors (incl. Rosuvastatin) showed an increased activity in KrasG12D+/- organoids (Figure \ref{fig_200} a and b). A vulnerability towards pharmacological cholesterol biosynthesis perturbation in cancer cells with oncogenic Kras signaling has previously been observed and will be discussed in the following chapter \citep{Yu2018-he}. 
 
 
@@ -280,7 +279,7 @@ Oncogene induced senescence is a cell state marked by an arrest of the cell cycl
 %\bigbreak
 
 \newpage
-\section{oncogenic Kras leads to increased mTOR signaling in the context of Apc loss of function}
+\subsection{A program describing the effect of oncogenic Kras in the context of Apc loss of function is marked by increased mTOR signaling }
 
 While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170} c). On average, factor 3 only accounted for ca. 10\% of variance across modalities within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids previously observed separately on the transcriptome, proteome, lipidome and phenotype level (Figure \ref{fig_161}a-d and \ref{fig_140} b).
 
@@ -296,19 +295,66 @@ While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, f
 Exploration of factor 3 loadings identified mTOR and FAK inhibitors to systematically contribute to a negative factor score. Double-mutant organoid models (Apc-/- KrasG12D+/-) showed a greater treatment activity score for these small molecule inhibitors than their single-mutant Apc-/- counterparts (Figure \ref{fig_300} a). This difference in treatment activity was observerable for both ATP-competitive (e.g. INK-128, Sapanisertib) and non-ATP-competitive (e.g. Rapamycin) inhibitors (Figure \ref{fig_300} b). In line with the increased sensitvity to mTOR inhibitors, differential gene expression analysis comparing single (Apc -/-, abbreviated A) and double mutant (Apc-/- KrasG12D+/-, abbreviated AK) organoids identified a significant increase in mTORC1 activation according to a Reactome signature (Figure \ref{fig_300} c, FDR=0.0095, NES=2.5019). Further exploration of factor 3 loadings in gene expression space showed an enrichment of multiple Myc target gene signatures \citepp{Yu2005-em, Zeller2003-ok}. Transcription signatures associated with increased Myc activity are enriched in double-mutant organoid models (Apc-/- KrasG12D+/-) when compared to single-mutant counterparts (Figure \ref{fig_300} d). In fact, further analysis of factor 1 and factor 2 gene expression loadings identified significant changes in Myc activity signatures for both factors as well. Briefly, loss of function of Apc leads to an increased transcriptional activity of Myc (factor 1) while the isolated presence of oncogenic KrasG12D+/- leads to a reduced transcriptional activity of Myc (factor 2). These observations are consistent with previous studies describing a central role of increased Myc activity in Wnt-signaling dependent adenoma formation \citep{Satoh2017-nd} and decreased Myc activity in oncogene induced senescence \citep{Yao2018-ut}.
 
 
+
+
+
 \newpage
-\section{Ellagic acid is a candidate small molecule revertant therapeutic of organoid adenoma states}
+\section{Projecting treatment-induced organoid morphologies to identify small molecules with factor-specific effects}
+
+\subsection{Interpreting treatment-induced organoid morphologies using a learnt multi-omics factor model}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75,
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_0.pdf}
+\caption[]{\textbf{a} \textbf{b}}
+\label{fig_500}
+\end{figure}
+\bigbreak
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75,
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_3_1.pdf}
+\caption[Projection of factor 1 scores for treatment-induced phenotypes and viability changes]{\textbf{Projection of factor 1 scores for treatment-induced phenotypes and viability changes.} Highlighted are compounds leading to a significant change in projected factor scores across all organoid lines (ANOVA). Organoid viability is predicted using a random-forest based classified (LDC) with scores from 0 (no toxicity) to 1 (complete toxicity)}
+\label{fig_180}
+\end{figure}
+\bigbreak
+
+
+\subsection{Active treatments without factor-specificity are enriched for toxic and assay-interference compounds}
 
 To conclude this chapter, I searched through small molecules within the query set that were predicted to move organoids towards a wildtype state along factor 1 and 2. Such small molecules are of particular medical relevance, as this would suggest a property for a given small molecule to counteract the effects of Apc loss or Kras activation, respectively. Analogous to the concept of revertant genetic mutations, I referred to small molecules with a predicted ability to move transformed organoids towards a wildtype state as potential revertant therapeutics. Unfortunately, the majority of compounds that led to a predicted shift towards a wildtype organoid state along both axes were also associated with a high predicted toxicity (Figure \ref{fig_310} a, color coding are predictions based on LDC viability classifier). Ellagic acid, however, a natural compound that was predicted to function as a revertant, showed a moderate predicted toxicity (Figure \ref{fig_310} a, top right). Inspection of organoid models treated with Ellagic acid showed reduced number and size of organoids compared to the vehicle control, while organoid viability was generally maintained (Figure \ref{fig_310} b). 
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_1.pdf}
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_1_2.pdf}
 \caption[Projected changes in factor 1 and 2 scores after small molecule treatment]{\textbf{Projected changes in factor 1 and 2 scores after small molecule treatment a} Shows are treatments leading to change in projected factor scores across all organoid lines (ANOVA). Color coding represents predictions based on LDC viability classifier. The structural formula of Ellagic Acid is depicted in the top right. \textbf{b} Organoid treatment with Ellagic acid. Depicted are representative example images for each line (blue = DNA, red = actin, green = cell permeability, scale bar=200µm).}
 \label{fig_310}
 \end{figure}
 \bigbreak
+
+
+\subsection{GSK3 beta inhibitors move Apc wildtype organoids specifically along a canonical Wnt signaling program}
+
+After linking factor 1 to Apc loss and identifying associated molecular changes, I was interested in identifying active treatments that shifted organoid morphologies along the factor 1 axis. As described in the previous chapter, small molecules that led to a predicted factor 1 change were identified using ANOVA. To identify treatments that led to a drop in organoid viability, a classifier developed by Jan Sauer and described in the previous chapter (LDC) trained on ground-truth lethal treatments within the stem-cell library was applied. Two groups of compounds were identified that induced a shift towards lower factor 1 scores (group A, figure \ref{fig_180}) and higher factor 1 scores (group B, \ref{fig_180}). Small molecules within group A induced a morphology associated with Apc loss while maintaining organoid viability. In contrast, members of group B primarily led to a loss of viability and a shift towards a morphological state associated with Apc wildtype organoids. Of note, small molecules within these groups had related target proteins. Compounds within group A (incl. CHIR-98014, CHIR-99021, LY2090314) targeted GSK3 beta - a kinase with central function within the canonical Wnt signaling destruction complex. Inhibition of GSK3 beta leads to hyperactivation of canonical Wnt signaling. Members of group B primarily targeted the Proteasome (incl. Bortezomib, Carfilzomib, MLN2238). Further validation of group A showed how treatment with the GSK3 beta inhibitor CHIR-98014 led to treatment-induced phenotypes in WT and KrasG12D+/- organoids that phenocopied the unperturbed morphology of Apc-/- and double mutant organoid models (Figure \ref{fig_185} a). On the feature level, treatment led to an increase in organoid size and DNA intensity (Figure \ref{fig_185} b) in Apc wildtype models. This change in morphology was likely due to an increased proliferation rate of mutant cells, leading to rising organoid size and a higher density of nuclei per analyzed object. Guided by the identification of a strong GSK3 beta inhibition phenotype in Apc wildtype organoids, which was already identified during the unbiased clustering of treatment-induced phenotypes previously (Figure \ref{fig_150} d), I analyzed small molecules that clustered with known inhibitors of this kinase based on the angular distance of their drug effect vectors within these models (Figure \ref{fig_185} c). In line with the observations in this experiment, all small molecules clustering with well-described inhibitors of GSK3 beta had previously described off-target binding activity against this kinase within the LINCS KINOMEScan database \citep{Duan2014-ku}. 
+
+
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75,
+                keepaspectratio]{figures/adenomaprofiling/pdf/fig_2_4_1.pdf}
+\caption[GSK3 beta inhibition dependent morphology in colon organoid models]{\textbf{GSK3 beta inhibition dependent morphology in colon organoid models. a} Small molecule inhibition of GSK3 beta (CHIR98014) leads to phenocopying of Apc-/- genotype organoid models. \textbf{b} Shift of morphological features of wildtype and KrasG12D +/- organoid models treated with CHIR98014. Shown is an increase in organoid size (Area) and DNA intensity. \textbf{c} Excerpt of clustering from figure \ref{fig_150} d, labeled with known binding activity of listed small molecules. Rucaparib is not member of the cluster and shown for comparison.}
+\label{fig_185}
+\end{figure}
+\bigbreak
+
+
 
 
 \end{flushleft}
