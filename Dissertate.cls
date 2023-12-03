@@ -51,7 +51,9 @@
 %\RequirePackage[authoryear]{natbib}
 %\bibliographystyle{harvard}
 %\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
-\usepackage[backend=biber, style=authoryear, doi=true, natbib=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false]{biblatex}
+\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false]{biblatex}
+%\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=2, url=false, isbn=false, issn=false]{biblatex}
+\addbibresource{references.bib}
 \addbibresource{references.bib}
 \usepackage{hyperref}
 
@@ -214,7 +216,8 @@
 \makeatother
 
 
-\renewcommand{\citep}[1]{(\citeauthor{#1} \citeyear{#1})}
+% Remove natbib compatibility option since we're using biblatex's commands
+\renewcommand{\citep}[1]{\parencite{#1}}
 \renewcommand{\citet}[1]{\citeauthor{#1} \citeyear{#1}}
 %\setmainfont{TeX Gyre Termes}
 
