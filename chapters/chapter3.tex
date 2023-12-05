@@ -9,10 +9,11 @@ What I cannot create, I do not understand.
 
 \section{Motivation}
 
-In the previous chapter it was demonstrated that interpretable multi-view representations combining organoid morphology and molecular state can be learned. Furthermore, previously unobserved small molecule induced morphological changes can be projected into the joint representation space to aid the interpretation of small molecule effects and generate hypotheses for validating experiments.
+In the previous chapter I demonstrated that interpretable multi-view representations from organoid morphology and molecular measurements can be learned. Furthermore, previously unobserved small molecule induced morphological changes can be projected into the learnt representation space to aid the interpretation of these small molecule effects and generate hypotheses for further validating experiments. In this chapter I built upon these observations and explored to what extent the projection of small molecule induced morphological changes could be applied for therapeutic discovery scenarios. 
 
-In this chapter I built upon these observations and explored to what extent the projection of small molecule induced morphological changes can be used for therapeutic discovery. To this end, I generated a set of genetically engineered mouse colon organoid lines that model the initiation of colorectal cancer by harboring tumorigenic Apc and Kras mutations in isolation and combination. 
-The organoid models were characterised using transcript expression, proteomics and lipidomics measurements. After their characterisation, A high-throughput image-based profiling experiment covering FDA-approved, natural and targeted small molecules was performed to identify conditions that shift organoids between pre-malignant and wildtype states \ref{fig_a02}. 
+I generated a set of four genetically engineered mouse colon organoid lines that model the initiation of colorectal cancer by harboring tumorigenic Apc and Kras mutations in isolation and combination. The organoid models were then characterised using transcript expression, proteomics and lipidomics measurements. After their characterisation, a high-throughput image-based profiling experiment covering ca 1700 FDA-approved, natural and targeted small molecules was performed.
+
+The goal of the image-based profiling experiment was to identify treatments that shift organoids between pre-malignant and wildtype states \ref{fig_a02}. As mentioned above, the chosen Ansatz to identify such phenotype-shifting treatments was to project the morphology of treated organoids into a previously learnt multi-view representation where movement along well-annotated biological axes of variation can readily be identified.  
 
 \begin{figure}[h]
 \centering
@@ -24,8 +25,11 @@ The organoid models were characterised using transcript expression, proteomics a
 \end{figure}
 \bigbreak
 
-To summarise, the goal of this project was to (1) comprehensively characterise the effects of individual transforming genetic events in colon organoids, and (2) identify small molecule treatments that shift organoids within the learned representation between genetically-defined states. 
 
+
+\section{Generation and characterization of organoid models}
+\subsection{Generation of organoid colon adenoma models}
+The emergence of colorectal cancer via the chromosomal instability process is a well understood sequence of genetic events that start with hyperactivation of canonical Wnt signaling, i.e. through truncating mutations of APC, followed by the hyperactivation of RAS-MAPK signaling, i.e. via oncogenic mutations of KRAS. I genetically engineered mouse colon organoid models carrying Apc truncating mutations and/or a Kras G12D allele, thereby modelling the first set of genetic events within the chromosomal instability process leading to colorectal cancer. 
 
 \begin{figure}[H]
 \centering
@@ -42,9 +46,7 @@ To summarise, the goal of this project was to (1) comprehensively characterise t
 \end{figure}
 \bigbreak
 
-\section{Generation and characterization of organoid models}
-\subsection{Generation of organoid colon adenoma models}
-The emergence of colorectal cancer via the chromosomal instability process is a well understood sequence of genetic events that start with hyperactivation of canonical Wnt signaling, i.e. through truncating mutations of APC, followed by the hyperactivation of RAS-MAPK signaling, i.e. via oncogenic mutations of KRAS. I genetically engineered mouse colon organoid models carrying Apc truncating mutations and/or a Kras G12D allele, thereby modelling the first set of genetic events within the chromosomal instability process leading to colorectal cancer. To model the formation of colon adenomas in vitro, I used a transgenic mouse to derive organoid cultures. The transgenic animal carried a conditional tamoxifen inducible KrasG12D/+ allele \citep{Jackson2001-wv} (Figure \ref{fig_a10} a). After isolation, I confirmed that extracted colon organoids did not express an activated form of KrasG12D (Figure \ref{fig_a11}a) and defined these organoids as wildtype (WT). To model loss-of-function mutations of the tumor suppressor Apc, the ortholog of the frequently mutated mutation-cluster-region on the APC gene was targeted by CRISPR (Figure \ref{fig_a10} a). Generated organoids harbored biallelic loss-of-function mutations in Apc (Figure \ref{fig_a11}a). Subsequent activation of oncogenic KrasG12D by treatment with 4-Hydroxytamoxifen led to four distinct organoid adenoma models (Figure \ref{fig_a10} a and Figure \ref{fig_a11}a-b); wildtype (WT), Apc-/- (A), KrasG12D/+ (K), and Apc-/- / KrasG12D/+ (AK).
+To model the formation of colon adenomas in vitro, I used a transgenic mouse to derive organoid cultures. The transgenic animal carried a conditional tamoxifen inducible KrasG12D/+ allele \citep{Jackson2001-wv} (Figure \ref{fig_a10} a). After isolation, I confirmed that extracted colon organoids did not express an activated form of KrasG12D (Figure \ref{fig_a11}a) and defined these organoids as wildtype (WT). To model loss-of-function mutations of the tumor suppressor Apc, the ortholog of the frequently mutated mutation-cluster-region on the APC gene was targeted by CRISPR (Figure \ref{fig_a10} a). Generated organoids harbored biallelic loss-of-function mutations in Apc (Figure \ref{fig_a11}a). Subsequent activation of oncogenic KrasG12D by treatment with 4-Hydroxytamoxifen led to four distinct organoid adenoma models (Figure \ref{fig_a10} a and Figure \ref{fig_a11}a-b); wildtype (WT), Apc-/- (A), KrasG12D/+ (K), and Apc-/- / KrasG12D/+ (AK).
 
 
 \begin{figure}[h]
@@ -129,7 +131,7 @@ To further understand the pronounced changes in fatty acid metabolism observed i
 \bigbreak
 
 \subsection{Single-Organoid level phenotypes are organised by model genotypes}
-Once models were characterised on a molecular level, the previously developed image-based profiling process was started. Organoid models of the four different genotypes were perturbed with a library of ca. 1700 compounds and morphological profiles were systematically observed (Figure \ref{fig_120} a). A UMAP projection of the first 25 principal components representing single-organoid morphology showed distinct genotype-dependent morphological states for identified organoids (Figure \ref{fig_120} b). Graph based clustering of organoid morphology profiles resulted in 8 clusters (Figure \ref{fig_120} c). Organoids within cluster 4 and 3 were enriched for Apc+/+ organoid models, cluster 2 and 1 were populated by Apc-/- models. Analogous to gene expression, lipidomics and proteomics representation space, the two Apc mutant organoid models were less distinct from each other than organoids with a WT and isolated KrasG12D/+ genotype (Figure \ref{fig_140} b). While developed organoids that present with a larger organoid area showed distinct genotype-specific morphologies, small organoids and non-viable organoid fragments clustered together across genotypes within cluster 5 (Figure \ref{fig_120} c and d). The distribution of DMSO-treated organoids and small molecule perturbed organoids in morphological space overlapped considerably (Figure \ref{fig_140} a), most likely because many treatments were inactive and did not alter organoid morphology. 
+Once models were characterised on a molecular level, the previously developed image-based profiling approach was applied. Organoid models of the four different genotypes were perturbed with a library of ca. 1700 compounds and morphological profiles were systematically observed (Figure \ref{fig_120} a). A UMAP projection of the first 25 principal components representing single-organoid morphology showed distinct genotype-dependent morphological states for identified organoids (Figure \ref{fig_120} b). Graph based clustering of organoid morphology profiles resulted in 8 clusters (Figure \ref{fig_120} c). Organoids within cluster 4 and 3 were enriched for Apc+/+ organoid models, cluster 2 and 1 were populated by Apc-/- models. Analogous to gene expression, lipidomics and proteomics representation space, the two Apc mutant organoid models were less distinct from each other than organoids with a WT and isolated KrasG12D/+ genotype (Figure \ref{fig_140} b). While developed organoids that present with a larger organoid area showed distinct genotype-specific morphologies, small organoids and non-viable organoid fragments clustered together across genotypes within cluster 5 (Figure \ref{fig_120} c and d). The distribution of DMSO-treated organoids and small molecule perturbed organoids in morphological space overlapped considerably (Figure \ref{fig_140} a), most likely because many treatments were inactive and did not alter organoid morphology. 
 
 \bigbreak
 \begin{figure}[h!]
@@ -171,7 +173,7 @@ When comparing the morphologies of different organoid models in detail, characte
 \end{figure}
 \bigbreak
 
-After identifying genotype-dependent morphological differences, the next step was to explore effects of small molecule treatment. To describe the activity of a treatment, the classification-based approach developed during the study of human cancer organoid phenotypes in the previous chapter was used. Briefly, for every treatment and genotype, a logistic regression classifier was trained to distinguish DMSO-treated organoids from treated organoids. The classification performance, expressed as the AUROC, was used to determine the activity of a treatment. A high AUROC score (approaching 1) is observed for compounds that lead to a treatment-induced organoid morphology that is very distinct from DMSO treated organoids. In contrast a low AUROC (centered around 0.5) is observed for compounds where the model's classification performance approaches random guessing (Figure \ref{fig_150} a). The distribution of activity scores across organoid lines showed that most compounds did not lead to an identifyable morphological change (Figure \ref{fig_150} b) and showed AUROC values centered around 0.5. Next to identifying differences around the number of active treatments, I was interested what small molecules were active in a given organoid genotype and their treatment-induced morphology change. Based on the observation that the primary source of variation for treatment activity was the state of the Apc allele, I aggregated organoid lines by their Apc allele for further analysis. In line with the approach taken in the previous chapter, normal vectors of the logistic regression classifiers were compared using the cosine distance (Figure \ref{fig_150} d). The resulting clustering of treatments showed an enrichment for small molecules with related mechanism of action (Figure \ref{fig_150} e and f). For example, EGFR inhibitors were significantly enriched in Apc-mutant organoid lines, while GSK3B-inhibitors, which lead to a stimulation of canonical Wnt signaling, were only enriched in Apc-wildtype organoid models. To summarise the findings above, organoid models showed genotype-specific treatment-induced phenotypes. For example, GSK3B-inhibitors were active in Apc +/+ organoids and showed a characteristic treatment-induced phenotype in these models.
+After identifying genotype-dependent morphological differences, the next step was to explore effects of small molecule treatment on different organoid models. To describe the activity of a treatment, the classification-based approach developed during the study of human cancer organoid phenotypes in the previous chapter was used. Briefly, for every treatment and genotype, a logistic regression classifier was trained to distinguish DMSO-treated organoids from treated organoids. The classification performance, expressed as the AUROC, was used to determine the activity of a treatment. A high AUROC score (approaching 1) is observed for compounds that lead to a treatment-induced organoid morphology that is very distinct from DMSO treated organoids. In contrast a low AUROC (centered around 0.5) is observed for compounds where the model's classification performance approaches random guessing (Figure \ref{fig_150} a). The distribution of activity scores across organoid lines showed that most compounds did not lead to an identifyable morphological change (Figure \ref{fig_150} b) and showed AUROC values centered around 0.5. Next to identifying differences around the number of active treatments, I was interested what small molecules were active in a given organoid genotype and their treatment-induced morphology change. Based on the observation that the primary source of variation for treatment activity was the state of the Apc allele, I aggregated organoid lines by their Apc allele for further analysis. In line with the approach taken in the previous chapter, normal vectors of the logistic regression classifiers were compared using the cosine distance (Figure \ref{fig_150} d). The resulting clustering of treatments showed an enrichment for small molecules with related mechanism of action (Figure \ref{fig_150} e and f). For example, EGFR inhibitors were significantly enriched in Apc-mutant organoid lines, while GSK3B-inhibitors, which lead to a stimulation of canonical Wnt signaling, were only enriched in Apc-wildtype organoid models. To summarise the findings above, organoid models showed genotype-specific treatment-induced phenotypes. For example, GSK3B-inhibitors were active in Apc +/+ organoids and showed a characteristic treatment-induced phenotype in these models.
 
 \section{Multi-omics factor analysis identifies shared factors linking functional and structural biological views}
 
@@ -188,7 +190,7 @@ After identifying genotype-dependent morphological differences, the next step wa
 \end{figure}
 \bigbreak
 
-To jointly model the biological state of organoid models and their morphology, I performed multi-omics factor analysis (MOFA). Analogous to the process described in the previous chapter, molecular and morphological features from untreated organoids were factorized using k=4 factors (Figure \ref{fig_170} a and \ref{fig_180} a). The learned model was based on both functional (e.g. morphology, size) and structural (e.g. genotype, proteomics, lipidomics and transcript expression) information. To reduce the dimensionality of data modalities with a high amount of features, only high variance features from gene expression and proteomics analysis were used. The resulting factorization explained ca. 90\% (gene expression) to 50\% (morphology) of variance across the analyzed views, of which the first three factors captured the majority of variance, (Figure \ref{fig_170} a). The learned model explained most variance within the mRNA expression and genotype data, while measurements within the organoid morphology data had the lowest explained variance (Figure \ref{fig_170} b). Visual inspection of factors as well as exploration of factor loadings within the genotype view showed that factor 1 explained differences caused by Apc loss of function, while factor 2 explained differences caused by the activation of KrasG12D in an Apc+/+ genotype (Figure \ref{fig_170} c and \ref{fig_180} b). In contrast to factor 2, factor 3 captured differences between Kras+/+ and KrasG12D/+ organoids with Apc loss of function, albeit with low overall explained variance. While the number of factors is a user-defined hyperparameter within MOFA, the method automatically drops excess factors if they are not considered effective based on an applied automatic relevance determination (ARD) prior \citep{Argelaguet2018-yi}. Increasing the number of factors above k=4 in this analysis, did not lead to an increased number of interpretable factors. In fact, factor 4 already did not capture differences between organoid genoypes and was not interpretable by the author from a biological point of view (Figure \ref{fig_180} b). The determined number of explanatory factors corresponded to the hypothesized intrinsic dimensionality of the data: effects attributed to the Apc-/- allele, the Kras G12D allele, and their interaction.
+To jointly model the biological and morphological state of organoid models, I performed multi-omics factor analysis (MOFA). Analogous to the process described in the previous chapter, molecular and morphological features from untreated organoids were factorized using k=4 factors (Figure \ref{fig_170} a and \ref{fig_180} a). The learned model was based on both morphological (e.g. morphology, size, small molecule activity) and molecular (e.g. genotype, proteomics, lipidomics and transcript expression) information. To reduce the dimensionality of data modalities with a high number of features, only high variance features from gene expression and proteomics analysis were used. The resulting factorization explained the data ranging from ca. 90\% (gene expression) to 50\% (morphology) of explained variance ($R^{2}$) across the analyzed views. The first three factors captured the majority of variance, >40\%, ca. 10\%, and <10\%, respectively (Figure \ref{fig_170} a). The learned model explained most variance within the mRNA expression and genotype data, while measurements within the organoid morphology data had the lowest explained variance (Figure \ref{fig_170} b). Visual inspection of factors as well as exploration of factor loadings within the genotype view showed that factor 1 explained differences caused by Apc loss of function, while factor 2 explained differences caused by the activation of KrasG12D in an Apc+/+ genotype (Figure \ref{fig_170} c and \ref{fig_180} b). In contrast to factor 2, factor 3 captured differences between Kras+/+ and KrasG12D/+ organoids with Apc loss of function. While the number of factors is a user-defined hyperparameter within MOFA, the method automatically drops excess factors if they are not considered effective based on an applied automatic relevance determination (ARD) prior \citep{Argelaguet2018-yi}. Increasing the number of factors above k=4 in this analysis, did not lead to an increased number of interpretable factors. In fact, factor 4 already did not capture differences between organoid genoypes and was not interpretable by the author from a biological point of view (Figure \ref{fig_180} b). The determined number of explanatory factors corresponded to the hypothesized intrinsic dimensionality of the data: effects attributed to the Apc-/- allele, the Kras G12D allele, and their interaction.
 
 \begin{figure}[h!]
 \centering
@@ -237,7 +239,6 @@ Further exploration of the association between the treatment activity score and 
 \newpage
 
 \subsection{A program caused by isolated KrasG12D activation shares signs of oncogene-induced senescence}
-% Myc down
 While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180} b), the KrasG12D allele showed a strong loading for both factor 2 and factor 3. This observation corresponded with the fact that only organoid models without Apc loss of function were separated by factor 2 (Figure \ref{fig_170} c). Factor 2 described a KrasG12D dependent change in cell state in the presence of intact Apc function.
 
 
@@ -245,41 +246,22 @@ While the Apc-/- genotype contributed primarily to factor 1 (Figure \ref{fig_180
 \centering
 \includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_1_2.pdf}
-\caption[Factor 2, KrasG12D oncogene induced senescence]{\textbf{Factor 2, KrasG12D oncogene induced senescence. a} Distributions of treatment activity loadings grouped by drug target for factor 2. \textbf{b} Relationship of representative drugs’ activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{c} Gene set enrichment results of a senescence signature \citep{Fridman2008-ky} over ranked factor 2 gene expression loadings (ranking from high factor 2 loading to low factor 2 loading, NES = normalized enrichment score). \textbf{d} Distributions of lipid abundance loadings grouped by lipid species for factor 2 (Abbreviations: HexCer - Hexosylceramide; PA - Phosphatidate; Cer - Ceramide; SM - Sphingomyelin; LPC - Lysophosphatidylcholine; PS - Phosphatidylserine; PE - Phosphatidylethanolamine; PI - Phosphatidylinositol; PG - Phosphatidylglycerol; DAG - Diacylglycerol; PC - Phosphatidylcholine; TAG - Triacylglycerol; Hex2Cer - Dihexosylceramide; CE - Cholersterolester). \textbf{e} Relationship of acyl chain length with factor 2 loading. Shown are lipids from highlighted species in panel (d)}
+\caption[Factor 2, isolated KrasG12D activity and oncogene induced senescence]{\textbf{Factor 2, isolated KrasG12D activity and oncogene induced senescence. a} Distributions of treatment activity loadings grouped by drug target for factor 2. \textbf{b} Relationship of representative ERK inhibitor activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{c} Relationship of representative EGFR inhibitor activity with factor 2 score. Shown are compounds from highlighted groups in panel (a). \textbf{d} Gene set enrichment results of a senescence signature \citep{Fridman2008-ky} over ranked factor 2 gene expression loadings (ranking from high factor 2 loading to low factor 2 loading, NES = normalized enrichment score).}
 \label{fig_200}
 \end{figure}
 
-To understand the molecular mechanisms represented by factor 2, features with large absolute loadings were analysed again. ERK and MEK inhibitors were more active in factor 2 low models (KrasG12D+/-) while EGFR/HER2 inhibitors were more active in factor 2 high organoids (WT, figure \ref{fig_200} a and b). This juxtaposition in treatment activity against RAS-MAPK pathway members was reminiscent of the previous observations made around canonical Wnt signaling inhibitors (Figure \ref{fig_199}). With oncogenic Kras localized between the receptor-layer (including Egfr and Her2) and downstream kinases (for example Erk), hyperactive Kras signaling likely leads to a cell state with relative resistance to EGFR inhibitors and increased dependency on Erk signaling. The previously observed transcriptional process of Egfr-downregulation as a response to KrasG12D+/- is in line with these observations (Figure \ref{fig_162}b). 
+As above, to understand the molecular mechanisms represented by factor 2, features with large absolute loadings were identified. ERK and MEK inhibitors were more active in factor 2 low models (KrasG12D+/-) while EGFR/HER2 inhibitors were more active in factor 2 high organoids (WT, figure \ref{fig_200} a and b). This juxtaposition in treatment activity against RAS-MAPK pathway members was reminiscent of the previous observations made for canonical Wnt signaling inhibitors (Figure \ref{fig_199}). With oncogenic Kras localized between the receptor-layer (including Egfr and Her2) and downstream mediating kinases (for example Erk), hyperactive Kras signaling likely leads to a cell state with relative resistance to EGFR inhibitors and increased dependency on Erk signaling. The previously observed transcriptional process of Egfr-downregulation as a response to KrasG12D+/- is in line with these observations (Figure \ref{fig_162}b). 
 
 \bigbreak
 
-Oncogene induced senescence is a cell state marked by an arrest of the cell cycle and expression of pro-inflammatory mediators as a response to an oncogenic perturbation. An activated KrasG12D+/- genotype leads to oncogene induced senescence of colon epithelial cells in vivo \citepp{Bennecke2010-zf}. Prompted by previous reports on the effect of an isolated oncogenic Kras allele, I identified an enrichment of a senescence related gene expression signature by Fridman et al. within the loadings of factor 2 \citep{Fridman2008-ky} (Figure \ref{fig_200} c). Transcripts linked to cell senescence, including Igfbp3 (factor 2 loading ca. -0.999) and Hmga2 (factor 2 loading ca. -1.050) ranked among the strongest contributors to the factor. Further exploration of loadings for factor 2 revealed systematic shifts in the composition of the lipidome. Activation of oncogenic Kras led to an accumulation of sphingomyelin (SM) and triacylglycerol (TAG) species with long fatty acid chain length in colon organoid cells (Figure \ref{fig_200} d and e). Similar TAG accumulation during cellular senescence has been observed in previous contexts, including studies in human fibroblasts \citep{Lizardo2017-uy}. Next to an accumulation of sphingomyelin and triacylglycerol species, I observed a relative depletion of cholesterol esters (CE) and lysophosphatidylcholine (LPC) (Figure \ref{fig_200} d). In line with the depletion of cholesterol species, HMG-CoA reductase inhibitors (incl. Rosuvastatin) showed an increased activity in KrasG12D+/- organoids (Figure \ref{fig_200} a and b). A vulnerability towards pharmacological cholesterol biosynthesis perturbation in cancer cells with oncogenic Kras signaling has previously been observed and will be discussed in the following chapter \citep{Yu2018-he}. 
+Oncogene induced senescence is a cell state marked by an arrest of the cell cycle and expression of pro-inflammatory mediators as a response to an oncogenic perturbation. An activated KrasG12D+/- genotype leads to oncogene induced senescence of colon epithelial cells in vivo \citepp{Bennecke2010-zf}. Prompted by previous reports on the effect of an isolated oncogenic Kras allele, I identified an enrichment of a senescence related gene expression signature by Fridman et al. within the loadings of factor 2 \citep{Fridman2008-ky} (Figure \ref{fig_200} c). Transcripts linked to cell senescence, including Igfbp3 (factor 2 loading ca. -0.999) and Hmga2 (factor 2 loading ca. -1.050) ranked among the strongest contributors to the factor. 
 \bigbreak
 
-%\begin{figure}[h]
-%\centering
-%\includegraphics[width=\textwidth,
-%                height=\textheight,
-%                keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_2.pdf}
-%\caption{}
-%\label{fig_180}
-%\end{figure}
-%\bigbreak
-
-%\begin{figure}[h]
-%\centering
-%\includegraphics[width=\textwidth,
-%                height=\textheight,
-%                keepaspectratio]{figures/adenomaprofiling/pdf/fig_3_3.pdf}
-%\caption{}
-%\label{fig_180}
-%\end{figure}
-%\bigbreak
 
 \newpage
 \subsection{A program describing the effect of oncogenic Kras in the context of Apc loss of function is marked by increased mTOR signaling }
 
-While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170} c). On average, factor 3 only accounted for ca. 10\% of variance across modalities within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids previously observed separately on the transcriptome, proteome, lipidome and phenotype level (Figure \ref{fig_161}a-d and \ref{fig_140} b).
+While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, factor 3 scores separated organoid models by Kras genotype in the context of an Apc loss of function (Figure \ref{fig_170} c). On average, factor 3 only accounted for less than 10\% of variance across modalities within the MOFA model, supporting the overall similarity of Apc-/- and Apc-/- KrasG12D+/- organoids previously observed separately on the transcriptome, proteome, lipidome and morphology level (Figure \ref{fig_161}a-d and \ref{fig_140} b).
 
 \begin{figure}[h]
 \centering
@@ -290,16 +272,39 @@ While factor 2 captured the effect of oncogenic Kras in an Apc wildtype state, f
 \end{figure}
 \bigbreak
 
-Exploration of factor 3 loadings identified mTOR and FAK inhibitors to systematically contribute to a negative factor score. Double-mutant organoid models (Apc-/- KrasG12D+/-) showed a greater treatment activity score for these small molecule inhibitors than their single-mutant Apc-/- counterparts (Figure \ref{fig_300} a). This difference in treatment activity was observerable for both ATP-competitive (e.g. INK-128, Sapanisertib) and non-ATP-competitive (e.g. Rapamycin) inhibitors (Figure \ref{fig_300} b). In line with the increased sensitvity to mTOR inhibitors, differential gene expression analysis comparing single (Apc -/-, abbreviated A) and double mutant (Apc-/- KrasG12D+/-, abbreviated AK) organoids identified a significant increase in mTORC1 activation according to a Reactome signature (Figure \ref{fig_300} c, FDR=0.0095, NES=2.5019). Further exploration of factor 3 loadings in gene expression space showed an enrichment of multiple Myc target gene signatures \citepp{Yu2005-em, Zeller2003-ok}. Transcription signatures associated with increased Myc activity are enriched in double-mutant organoid models (Apc-/- KrasG12D+/-) when compared to single-mutant counterparts (Figure \ref{fig_300} d). In fact, further analysis of factor 1 and factor 2 gene expression loadings identified significant changes in Myc activity signatures for both factors as well. Briefly, loss of function of Apc leads to an increased transcriptional activity of Myc (factor 1) while the isolated presence of oncogenic KrasG12D+/- leads to a reduced transcriptional activity of Myc (factor 2). These observations are consistent with previous studies describing a central role of increased Myc activity in Wnt-signaling dependent adenoma formation \citep{Satoh2017-nd} and decreased Myc activity in oncogene induced senescence \citep{Yao2018-ut}.
-
-
-
+Exploration of factor 3 loadings identified mTOR and FAK inhibitor activity to contribute to a negative factor score. Double-mutant organoid models (Apc-/- KrasG12D+/-), which had a low factor 3 score, showed a greater treatment activity for these small molecule inhibitors than their single-mutant Apc-/- counterparts (Figure \ref{fig_300} a). This difference in treatment activity was observerable for both ATP-competitive (e.g. INK-128, Sapanisertib) and non-ATP-competitive (e.g. Rapamycin) inhibitors (Figure \ref{fig_300} b). In line with the increased sensitvity to mTOR inhibitors, differential transcript expression analysis comparing single (Apc -/-, abbreviated A) and double mutant (Apc-/- KrasG12D+/-, abbreviated AK) organoids identified a significant increase in mTORC1 activation according to a Reactome signature (Figure \ref{fig_300} c, FDR=0.0095, NES=2.5019). In summary, factor 3 was aligned with the effect of oncogenic Kras in Apc mutant colon organoids and was characterized by increased transcriptional activity and sensitivity to mTOR signaling.
 
 
 \newpage
 \section{Projecting treatment-induced organoid morphologies to identify small molecules with factor-specific effects}
-
 \subsection{Interpreting treatment-induced organoid morphologies using a learnt multi-omics factor model}
+
+A central idea 
+learn a multi view representation to
+* identify dimensionality
+* estimate magnitude
+* simplify the modeling of multiple modalities 
+
+even when the dimensionality of the data is a function of the genotypes that are compared, the estimation of the magnitude is useful, as well as the simplification 
+
+
+
+Explain the basic algorithm one more time
+
+Now to the projection> 
+Explain the inversion 
+another benefit is the 
+learning of the distribution of states within a support set, it can help interpret samples in a query set. 
+
+This enables us
+In our case we could train a classifier to compare lines directly, but at the risk of interinterpreting compounds that moved between states
+
+We invert a function to interpret treated organoid morphology
+
+no clustering needed for detection 
+direction of the change observable
+
+
 
 
 \begin{figure}[h]
@@ -319,6 +324,13 @@ Exploration of factor 3 loadings identified mTOR and FAK inhibitors to systemati
 \label{fig_180}
 \end{figure}
 \bigbreak
+
+
+a desired effect moves along one factor, but keeps other factors constant - specificity of the effect - factors are orthogonal 
+I also treatments that affect both factors
+enriched for highly active and toxic compounds
+also enriched for natural compound fulfilling PAINS criteria
+
 
 
 \subsection{Active treatments without factor-specificity are enriched for toxic and assay-interference compounds}
