@@ -281,15 +281,24 @@ Exploration of factor 3 loadings identified mTOR and FAK inhibitor activity to c
 
 A central idea 
 learn a multi view representation to
-* identify dimensionality
+* identify intrinsic dimensionality
 * estimate magnitude
 * simplify the modeling of multiple modalities 
 
 even when the dimensionality of the data is a function of the genotypes that are compared, the estimation of the magnitude is useful, as well as the simplification 
 
+The basic goal of matrix factorization methods is to identify a small number of factors in measured data that explain its intrinsic structure. In this process, a data matrix \( Y \), consisting of \( n \) samples and \( m \) features, is decomposed into two lower-dimensional matrices: 
 
+\begin{enumerate}
+    \item The factor score matrix \( Z \), which has dimensions \( n \times k \), where \( k \) represents the number of latent factors. Each row in \( Z \) corresponds to a sample, and each column corresponds to a latent factor.
+    \item The factor weight matrix \( W^T \), which has dimensions \( k \times m \). Here, each row corresponds to a latent factor, and each column corresponds to a feature. 
+\end{enumerate}
 
-Explain the basic algorithm one more time
+The factor score matrix \( Z \) is also referred to as a learnt, lower-dimensional representation of the data. The choice of \( k \) (the number of latent factors) ideally strikes a balance between simplicity and comprehensiveness and can be algorithmically determined.  
+
+In group factor analysis, including multi-omics factor analysis (MOFA), the matrix factorization method is extended to multiple data modalities: A set of \(m\) data matrices \( Y^m \) is decomposed into a single factor score matrix \( Z \) as well as a corresponding set of  \(m\) weight matrices \( W^T^m \). Factors that are identified using this approach describe axes of variation within the data that can span multiple different data modalities. Next to simplifying the interpretation of complex data, factors that have been learnt to represent the structure of measurements across multiple modalities with group factor analysis enable more reliable similarity measurements and missing data prediction than alternative factor learning methods or raw features data \citep{Klami}.
+
+% move the more detailed explanaition into the introduction, including the projection 
 
 Now to the projection> 
 Explain the inversion 
@@ -304,6 +313,7 @@ We invert a function to interpret treated organoid morphology
 no clustering needed for detection 
 direction of the change observable
 
+% The same way that more similar compounds can be retrieved using factors than raw chemical descriptors, the more compouds that are similar to APC mutant organoids can be retrieved using factors over raw image descriptors
 
 
 
