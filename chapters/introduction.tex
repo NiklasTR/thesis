@@ -109,6 +109,51 @@ Profiling experiments are biological experiments in which high dimensional pheno
 \subsection{Image based Profiling}
 
 \subsection{Matrix Factorization}
+The basic goal of matrix factorization methods is to identify a small number of underlying factors within high-dimensional measured data that explain its intrinsic structure. 
+
+\begin{equation}
+    Y = ZW^T + \epsilon
+\end{equation}
+
+In this process, a data matrix \( Y \), consisting of \( n \) samples and \( m \) features, is decomposed into two lower-dimensional matrices: 
+
+\begin{enumerate}
+    \item The factor score matrix \( Z \), which has dimensions \( n \times k \), where \( k \) represents the number of latent factors. Each row in \( Z \) corresponds to a sample, and each column corresponds to a latent factor.
+    \item The factor weight matrix \( W^T \), which has dimensions \( k \times m \). Here, each row corresponds to a latent factor, and each column corresponds to a feature. This matrix is also referred to as the loading matrix. 
+\end{enumerate}
+
+The factor score matrix \( Z \) can be understood as a learnt, lower-dimensional representation of the data with \( k \) dimensions. The choice of \( k \) (the number of latent factors) ideally strikes a balance between simplicity and comprehensiveness and can be algorithmically determined. 
+
+Different matrix factorization methods exist, with Principal Component Analysis (PCA), non-negative matrix factorization (NMF) and Independent Component Analysis (ICA) being among the most popular. Each of these methods performs the basic decomposition outlined above, but apply different constraints during the decomposition. For example, in PCA the identified factors are orthogonal to each other and are ranked by the amount of variance they explain within the data. In NMF both the factor score and weight matrix must be non-negative, which aides interpretation. In ICA the factors are statistical independent and non-gaussian, which is useful for the analysis of time-course data, such as audio or electrical activity. Each of these three popular methods do not include further assumptions, such as a dedicated measurement error \(\epsilon\).
+
+In case the data generating process is better understood and robust solutions are preferred, additional assumptions can be introduced. For example, directly modeling the measurement error \(\epsilon\) and applying sparsity constraints to the matrix factorization are options. If such additional assumptions are made, the method is commonly referred to as a form of factor analysis.
+
+In group factor analysis, including multi-omics factor analysis (MOFA), the factor analysis method is extended to multiple data modalities: A set of \(m\) data matrices \( Y_m \) is decomposed into a single factor score matrix \( Z \) and a corresponding set of \(m\) weight matrices \( W_m^T \) and error terms \(\epsilon_m\). 
+
+\begin{equation}
+    Y_m = ZW_m^T + \epsilon_m
+\end{equation}
+
+Factors that are identified using this approach describe patterns within the data that can span multiple different data modalities. Next to simplifying the interpretation of complex data, factors that have been learnt to represent the structure of measurements across multiple modalities with group factor analysis have been shown to enable more reliable similarity estimation and missing data prediction than alternative factor analysis methods or simply raw features from the measured data \citep{Klami}.
+
+% move the more detailed explanaition into the introduction, including the projection 
+While matrix factorization methods are commonly used to learn the intrinsic structure of high-dimensional data in an unsupervised manner within an exploratory context, it can also be used to guide decision making by predicting similarities between observations. In the latter context, a well-annotated subset of the data, here referred to as the support set, is first used to learn factors. In a second step, another set of observations which are not yet well understood, here referred to as query set, are projected into the learnt representation to estimate their properties. Decisions can be made based on these estimates, such as planning further experiments. 
+
+In order to estimate the factor scores for new observations from the query set the previously identified factor weight matrix is used. 
+
+\begin{equation}
+    Z_{\text{new}} = Y_{\text{new}} W^+
+\end{equation}
+
+Instead of decomposing the query data matrix \(Y_{\text{new}}\) into a factor score matrix and factor weight matrix, as done during the initial learning, the query data matrix  \(Y_{\text{new}}\) is multiplied with an approximated inverse of the factor weight matrix \( W^+ \) to estimate the corresponding factor scores \( Z_{\text{new}} \). 
+
+In practice, such a two-step approach consisting of (1) the learning of a representation space through matrix factorization from well-annotated data followed by (2) the projection of new data into the representation space can be useful when different levels of information about samples are available. For example, some data modalities might be more expensive to observe than others. In this case, a cost-intensive, representative support set containing relevant conditions, for example untreated controls, is first established. Subsequently, less expensive observations are projected into the 
+
+beneficial for establishing a baseline representation. Subsequently, less expensive or more readily available data, comprising the query set, can be effectively mapped onto this pre-established space. This approach allows for the integration of diverse data types and the leveraging of rich, well-characterized datasets to inform the understanding and interpretation of less understood or newly acquired data. By doing so, one can maximize the utility of high-cost data and efficiently extract meaningful insights from more accessible data, enabling a more informed and strategic approach to further experimentation and research.
+
+
+In the context of the work presented in this thesis, group factor analysis is used to learn multi-modality representations for both patient derived and genetically engineered colon organoids. The modeled data comprised modalities such as organoid morphology, transcript expression, protein and lipid abundance. The identified factors correspond to major axes of biological variation and help in the interpretation of results from image-based profiling experiments. 
+
 
 \subsection{Multi-view Representation Learning}
 

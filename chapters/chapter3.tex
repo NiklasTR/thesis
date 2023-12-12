@@ -5,11 +5,11 @@ What I cannot create, I do not understand.
 
 % pending plagiarism check
 \begin{flushleft}
-\chapter{Profiling to identify revertant therapeutics in pre-malignant models of colon cancer}
+\chapter{Image-based Profiling of genetically engineered models of early colorectal cancer development}
 
 \section{Motivation}
 
-In the previous chapter I demonstrated that interpretable multi-view representations from organoid morphology and molecular measurements can be learned. Furthermore, previously unobserved small molecule induced morphological changes can be projected into the learnt representation space to aid the interpretation of these small molecule effects and generate hypotheses for further validating experiments. In this chapter I built upon these observations and explored to what extent the projection of small molecule induced morphological changes could be applied for therapeutic discovery scenarios. 
+In the previous chapter I demonstrated that interpretable multi-view representations from organoid morphology and molecular measurements can be learned. Furthermore, previously unobserved treatment-induced morphological changes can be projected into the learnt representation space to aid the interpretation of these small molecule effects and generate hypotheses for further validating experiments. In this chapter I built upon these observations and explored to what extent the projection of small molecule induced morphological changes could be applied for therapeutic discovery scenarios. 
 
 I generated a set of four genetically engineered mouse colon organoid lines that model the initiation of colorectal cancer by harboring tumorigenic Apc and Kras mutations in isolation and combination. The organoid models were then characterised using transcript expression, proteomics and lipidomics measurements. After their characterisation, a high-throughput image-based profiling experiment covering ca 1700 FDA-approved, natural and targeted small molecules was performed.
 
@@ -131,7 +131,7 @@ To further understand the pronounced changes in fatty acid metabolism observed i
 \bigbreak
 
 \subsection{Single-Organoid level phenotypes are organised by model genotypes}
-Once models were characterised on a molecular level, the previously developed image-based profiling approach was applied. Organoid models of the four different genotypes were perturbed with a library of ca. 1700 compounds and morphological profiles were systematically observed (Figure \ref{fig_120} a). A UMAP projection of the first 25 principal components representing single-organoid morphology showed distinct genotype-dependent morphological states for identified organoids (Figure \ref{fig_120} b). Graph based clustering of organoid morphology profiles resulted in 8 clusters (Figure \ref{fig_120} c). Organoids within cluster 4 and 3 were enriched for Apc+/+ organoid models, cluster 2 and 1 were populated by Apc-/- models. Analogous to gene expression, lipidomics and proteomics representation space, the two Apc mutant organoid models were less distinct from each other than organoids with a WT and isolated KrasG12D/+ genotype (Figure \ref{fig_140} b). While developed organoids that present with a larger organoid area showed distinct genotype-specific morphologies, small organoids and non-viable organoid fragments clustered together across genotypes within cluster 5 (Figure \ref{fig_120} c and d). The distribution of DMSO-treated organoids and small molecule perturbed organoids in morphological space overlapped considerably (Figure \ref{fig_140} a), most likely because many treatments were inactive and did not alter organoid morphology. 
+Once models were characterised on a molecular level, the previously developed image-based profiling approach was applied. Organoid models of the four different genotypes were perturbed with a library of ca. 1700 compounds and morphological profiles were systematically observed (Figure \ref{fig_120} a). As previously described, classic morphological features were collected for single organoids, normalised, and principal components were calculated, of which 25 components (accounting for >80\% of the variance) were retained and used throughout the further analysis. A UMAP projection of single-organoid morphology showed distinct genotype-dependent morphological states for identified organoids (Figure \ref{fig_120} b). Graph based clustering of organoid morphology profiles resulted in 8 clusters (Figure \ref{fig_120} c). Organoids within cluster 4 and 3 were enriched for Apc+/+ organoid models, cluster 2 and 1 were populated by Apc-/- models. Analogous to gene expression, lipidomics and proteomics representation space, the two Apc mutant organoid models were less distinct from each other than organoids with a WT and isolated KrasG12D/+ genotype (Figure \ref{fig_140} b). While developed organoids that present with a larger organoid area showed distinct genotype-specific morphologies, small organoids and non-viable organoid fragments clustered together across genotypes within cluster 5 (Figure \ref{fig_120} c and d). The distribution of DMSO-treated organoids and small molecule perturbed organoids in morphological space overlapped considerably (Figure \ref{fig_140} a), most likely because many treatments were inactive and did not alter organoid morphology. 
 
 \bigbreak
 \begin{figure}[h!]
@@ -143,7 +143,7 @@ Once models were characterised on a molecular level, the previously developed im
 \label{fig_140}
 \end{figure}
 
-When comparing the morphologies of different organoid models in detail, characteristic differences were identifiable (Figure \ref{fig_130} a). DMSO-treated Apc+/+ organoids showed a strong, regular apical actin cytoskeleton (high average actin intensity) that organized the multicellular formation into a regular-patterned spherical morphology (low average eccentricity). In contrast, Apc-/- organoids showed a relative lack of a regular actin cytoskeleton (low average actin intensity) and a irregular, non-spherical morphology (high average eccentricity). In summary, organoid models showed genotype-dependent differences in morphology. Analogous to differences in molecular state, a primary source of variation was caused by loss of the tumor suppressor gene Apc. Organoids with truncated Apc presented with a higher proliferation rate, increased overall DNA staining intensity and loss of the regular spherical apical actin cytoskeleton that was observed in Apc +/+ organoid models.
+When comparing the morphologies of different organoid lines in detail, characteristic differences were identifiable (Figure \ref{fig_130} a). DMSO-treated Apc+/+ organoids showed a strong, regular apical actin cytoskeleton (high average actin intensity) that organized the multicellular formation into a regular-patterned spherical morphology (low average eccentricity). In contrast, Apc-/- organoids showed a relative lack of a regular actin cytoskeleton (low average actin intensity) and a irregular, non-spherical morphology (high average eccentricity). In summary, organoid models showed genotype-dependent differences in morphology. Analogous to differences in molecular state, a primary source of variation was caused by loss of the tumor suppressor gene Apc. Organoids with truncated Apc presented with a higher proliferation rate, increased overall DNA staining intensity and loss of the regular spherical apical actin cytoskeleton that was observed in Apc +/+ organoid models.
 
 \begin{figure}[h!]
 \centering
@@ -167,7 +167,7 @@ When comparing the morphologies of different organoid models in detail, characte
 \caption[Treatment activity scoring]{\textbf{Treatment activity scoring. a} A logistic regression classifier is trained to distinguish morphology profiles of individual treated and untreated organoids across all available replicates. Afterwards, the classifier is applied to a validation set of organoids and the classification performance is estimated using the area under the receiver operating characteristic curve (AUROC) metric. Method implemented by Jan Sauer.
 \textbf{b} Distribution of treatment activity scores for all organoid lines, replicates and perturbations. 
 \textbf{c} Identifying related treatment induced phenotypes. Normal vectors of treatment specific classifiers were compared by calculating the angular distance (related to cosine similarity, ranging from 0-180 degrees). Small angular distance between vectors correspond to a high similarity between the treatment-induced organoid phenotypes. Method implemented by Jan Sauer.
-\textbf{d} A map of compound induced phenotypes for Apc mutant and Apc wildtype organoids. Highlighted are clusters of compound induced phenotypes with related targets. Normal vectors for Apc mutant and Apc wildtype organoids were concatenated before angular distance calculation. Method implemented by Jan Sauer.
+\textbf{d} A clustered heatmap of compound induced phenotypes for Apc mutant and Apc wildtype organoids. Highlighted are clusters of compound induced phenotypes with related targets. Normal vectors for Apc mutant and Apc wildtype organoids were concatenated before angular distance calculation. Method implemented by Jan Sauer.
 }
 \label{fig_150}
 \end{figure}
@@ -190,7 +190,10 @@ After identifying genotype-dependent morphological differences, the next step wa
 \end{figure}
 \bigbreak
 
-To jointly model the biological and morphological state of organoid models, I performed multi-omics factor analysis (MOFA). Analogous to the process described in the previous chapter, molecular and morphological features from untreated organoids were factorized using k=4 factors (Figure \ref{fig_170} a and \ref{fig_180} a). The learned model was based on both morphological (e.g. morphology, size, small molecule activity) and molecular (e.g. genotype, proteomics, lipidomics and transcript expression) information. To reduce the dimensionality of data modalities with a high number of features, only high variance features from gene expression and proteomics analysis were used. The resulting factorization explained the data ranging from ca. 90\% (gene expression) to 50\% (morphology) of explained variance ($R^{2}$) across the analyzed views. The first three factors captured the majority of variance, >40\%, ca. 10\%, and <10\%, respectively (Figure \ref{fig_170} a). The learned model explained most variance within the mRNA expression and genotype data, while measurements within the organoid morphology data had the lowest explained variance (Figure \ref{fig_170} b). Visual inspection of factors as well as exploration of factor loadings within the genotype view showed that factor 1 explained differences caused by Apc loss of function, while factor 2 explained differences caused by the activation of KrasG12D in an Apc+/+ genotype (Figure \ref{fig_170} c and \ref{fig_180} b). In contrast to factor 2, factor 3 captured differences between Kras+/+ and KrasG12D/+ organoids with Apc loss of function. While the number of factors is a user-defined hyperparameter within MOFA, the method automatically drops excess factors if they are not considered effective based on an applied automatic relevance determination (ARD) prior \citep{Argelaguet2018-yi}. Increasing the number of factors above k=4 in this analysis, did not lead to an increased number of interpretable factors. In fact, factor 4 already did not capture differences between organoid genoypes and was not interpretable by the author from a biological point of view (Figure \ref{fig_180} b). The determined number of explanatory factors corresponded to the hypothesized intrinsic dimensionality of the data: effects attributed to the Apc-/- allele, the Kras G12D allele, and their interaction.
+To jointly model the biological and morphological state of the four organoid lines, I performed multi-omics factor analysis (MOFA). Analogous to the process described in the previous chapter, molecular and morphological features from untreated organoids were factorized using k=4 factors (Figure \ref{fig_170} a and \ref{fig_180} a). The learned model was based on both morphological (e.g. morphology, size, small molecule activity) and molecular (e.g. genotype, proteomics, lipidomics and transcript expression) information. To reduce the dimensionality of data modalities with a high number of features, only high variance features from gene expression and proteomics analysis were used. The resulting factorization explained the data ranging from ca. 90\% (gene expression) to 50\% (morphology) of explained variance ($R^{2}$) across the analyzed views. The first three factors captured the majority of variance, >40\%, ca. 10\%, and <10\%, respectively (Figure \ref{fig_170} a). The learned model explained most variance within the mRNA expression and genotype data, while measurements within the organoid morphology data had the lowest explained variance (Figure \ref{fig_170} b). When inspecting factor weights for the morphology domain, principal component 1, which accounted for ca. 30\% of variance within all observed (treated and untreated) morphology data during the image processing had small relative assigned feature weights across all learnt factors (from high to low absolute feature weight: rank 8/25, 11/25, 24/25 and 25/25 for factors 1 through 4, respectively). In contrast, principal components 2, 3, and 4 had the highest assigned feature weights across all four factors. In summary, MOFA was used to learn k=4 factors across a set of distinct data modalities. In the imaging domain, the learnt representation captured only a subspace of the observed morphological space, possibly because of high noise levels in morphological data and the fact that only observations from untreated organoids were contained in the modeled support set. 
+\par
+
+Visual inspection of factors as well as exploration of factor weights within the genotype view showed that factor 1 explained differences caused by Apc loss of function, while factor 2 explained differences caused by the activation of KrasG12D in an Apc+/+ genotype (Figure \ref{fig_170} c and \ref{fig_180} b). In contrast to factor 2, factor 3 captured differences between Kras+/+ and KrasG12D/+ organoids with Apc loss of function. While the number of factors is a user-defined hyperparameter within MOFA, the method automatically drops excess factors if they are not considered effective based on an applied automatic relevance determination (ARD) prior \citep{Argelaguet2018-yi}. Increasing the number of factors above k=4 in this analysis, did not lead to an increased number of interpretable factors. In fact, factor 4 already did not capture differences between organoid genoypes and was not interpretable from a biological point of view by the author (Figure \ref{fig_180} b). The determined number of explanatory factors corresponded to the hypothesized intrinsic dimensionality of the data: effects attributed to the Apc-/- allele, the Kras G12D allele, and their interaction.
 
 \begin{figure}[h!]
 \centering
@@ -277,9 +280,26 @@ Exploration of factor 3 loadings identified mTOR and FAK inhibitor activity to c
 
 \newpage
 \section{Projecting treatment-induced organoid morphologies to identify small molecules with factor-specific effects}
-\subsection{Interpreting treatment-induced organoid morphologies using a learnt multi-omics factor model}
 
-A central idea 
+
+
+
+
+% introduction
+
+% for discussion
+Other methods for representation learning beyond matrix factorization have been developed, including deep-learning methods which introduce multiple layers of non-linear activation functions. While these methods have shown unparalleled results when pre-trained with very large data, their ability to learn robust representations when only few observations are available is limited and subject of the current few-shot learning research field. While not subject of this thesis, in the future there will be multiple, exciting, opportunities to learn deep foundation models for organoid biology. 
+
+To summarise and motivate the use of MOFA in this thesis, one can argue that it is among the simplest methods to learn robust representations across multiple data modalities. Given that we are analysing highly complex data with very limited observations, care should be taken to use simple methods first whenever possible. 
+
+%TODO
+Outliers - Examples that are projected into interpretable regions but are not actually in this regions - reconstruction error methods / outlier detection. This way We can quantify and differentiate between projected samples that are outside of the learnt subspace or inside it.  
+1. no detectable treatment effect
+2. treatment effect outside of the representation space - most likely toxic treatment effect
+3. treatment effect inside the representation space - most likely viable but state changing treatment effect
+
+%TODO
+Why not use simple comparative methods? 
 learn a multi view representation to
 * identify intrinsic dimensionality
 * estimate magnitude
@@ -287,83 +307,59 @@ learn a multi view representation to
 
 even when the dimensionality of the data is a function of the genotypes that are compared, the estimation of the magnitude is useful, as well as the simplification 
 
-The basic goal of matrix factorization methods is to identify a small number of factors in measured data that explain its intrinsic structure. In this process, a data matrix \( Y \), consisting of \( n \) samples and \( m \) features, is decomposed into two lower-dimensional matrices: 
-
-\begin{enumerate}
-    \item The factor score matrix \( Z \), which has dimensions \( n \times k \), where \( k \) represents the number of latent factors. Each row in \( Z \) corresponds to a sample, and each column corresponds to a latent factor.
-    \item The factor weight matrix \( W^T \), which has dimensions \( k \times m \). Here, each row corresponds to a latent factor, and each column corresponds to a feature. 
-\end{enumerate}
-
-The factor score matrix \( Z \) is also referred to as a learnt, lower-dimensional representation of the data. The choice of \( k \) (the number of latent factors) ideally strikes a balance between simplicity and comprehensiveness and can be algorithmically determined.  
-
-In group factor analysis, including multi-omics factor analysis (MOFA), the matrix factorization method is extended to multiple data modalities: A set of \(m\) data matrices \( Y^m \) is decomposed into a single factor score matrix \( Z \) as well as a corresponding set of  \(m\) weight matrices \( W^T^m \). Factors that are identified using this approach describe axes of variation within the data that can span multiple different data modalities. Next to simplifying the interpretation of complex data, factors that have been learnt to represent the structure of measurements across multiple modalities with group factor analysis enable more reliable similarity measurements and missing data prediction than alternative factor learning methods or raw features data \citep{Klami}.
-
-% move the more detailed explanaition into the introduction, including the projection 
-
-Now to the projection> 
-Explain the inversion 
-another benefit is the 
-learning of the distribution of states within a support set, it can help interpret samples in a query set. 
-
-This enables us
-In our case we could train a classifier to compare lines directly, but at the risk of interinterpreting compounds that moved between states
-
+In our case we could train a classifier to compare lines directly, but at the risk of overinterpreting compounds that moved between states
 We invert a function to interpret treated organoid morphology
 
-no clustering needed for detection 
-direction of the change observable
+%TODO 
+limitations to the representativeness of the adenomaprofiling project to a real world discovery situation - mostly due to the joint processing of observations within the query and support set. 
 
-% The same way that more similar compounds can be retrieved using factors than raw chemical descriptors, the more compouds that are similar to APC mutant organoids can be retrieved using factors over raw image descriptors
+we processed and reduced the dimensionality of our image-based features in one go - in a real world setting there would be considerable drift - reducing the ability to project treatments reliable into a learnt representation
+we include compound activity into the learnt representation as an additional features. This feature would not be available as new data are collected and might have to be removed
+
+In the future operate on raw classic features or learnt representations from self-supervised learning models
 
 
+%TODO - include critique from the MOFA discussion in the original manuscript
+
+% actual text
+A common challenge in phenotypic discovery experiments is navigating the trade-off between breadth and depth of information generated by an imaging experiment (i.e. custom pathway activity reporters and staining protocols vs. general purpose reagent, such as cell painting). If general morphology profiles are collected, such as in the image-based profiling experiments presented here, the annotation of treatment-induced morphologies is often limited to describing similarities among treatments (i.e. small molecules with the same mechanism of action show similar treatment-induced morphologies). In the previous chapter, it was observed that treatment-induced morphologies can also be used to identify similarities between treatments and well-characterised untreated states of organoid models to support the generation of hypotheses regarding their detailed mechanism of action. To retrieve these similarities, treatment-induced morphologies were projected into a lower dimensional factor space learnt through MOFA. To evaluate whether such an approach could be used in a therapeutic discovery scenario, I applied this approach to the treatmend-induced morphologies observed in the four genetically defined organoid models.  
+\bigbreak
+
+To project the observed organoid morphologies (1699 treatments x 25 morphology features) into the previously learnt MOFA representation, the pseudoinverse of the morphology factor-weight matrix was calculated and factor scores were estimated (1699 treatments x 3 factors). Projection of treated organoid morphologies recovered the previously identified distribution of untreated organoid genotypes (Figure \ref{fig_500} c and d). As expected, treatments which showed a strong dispersion away from the centers formed by their respective genotype showed a high AUROC score (Figure \ref{fig_500} e and f).
+\bigbreak
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_0.pdf}
-\caption[]{\textbf{a} \textbf{b}}
+\caption[Visualization of treated samples projected into factor space]{\textbf{Visualization of treated samples projected into factor space. a and b} Visualization of projected samples along factor 1, factor 2 and factor 3, respectively. Samples are colored by genotype. \textbf{c and d} Visualization of projected samples along factor 1, factor 2 and factor 3, respectively. Samples are colored by AUROC score distance from vehicle control (DMSO).}
 \label{fig_500}
 \end{figure}
 \bigbreak
+
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75,
                 keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_3_1.pdf}
-\caption[Projection of factor 1 scores for treatment-induced phenotypes and viability changes]{\textbf{Projection of factor 1 scores for treatment-induced phenotypes and viability changes.} Highlighted are compounds leading to a significant change in projected factor scores across all organoid lines (ANOVA). Organoid viability is predicted using a random-forest based classified (LDC) with scores from 0 (no toxicity) to 1 (complete toxicity)}
+\caption[Treatment-induced changes on factor 1 and factor 2 scores]{\textbf{Treatment-induced changes on factor 1 and factor 2 scores. a} Highlighted are treatments with a significant effect on projected scores for factor 1 and factor 2 across all organoid lines (ANOVA, FDR = 0.05). Treatments with a significant effect in only one of the three evaluated factors are highlighted in black. \textbf{b} Example for treatments with unspecific effects. Shown are Proteasome inhibitors. \textbf{c} Example for treatment with specific effects along one factor. Treatments are colored by their literature-derived mechanism of action.)}
 \label{fig_180}
 \end{figure}
 \bigbreak
 
+\subsection{Interpreting treatment-induced organoid morphologies using a learnt multi-omics factor model}
 
-a desired effect moves along one factor, but keeps other factors constant - specificity of the effect - factors are orthogonal 
-I also treatments that affect both factors
-enriched for highly active and toxic compounds
-also enriched for natural compound fulfilling PAINS criteria
+Next, I was interested in identifying treatments that changed organoid morphology along one of the two primary factors that were previously identified. To this end an ANOVA modeling the factor scores as a function of the treatment and organoid line (without an interaction term) was performed for each factor (Figure \ref{fig_185} a). Of the x evaluated treatment, y ( \%) showed a significant effect on either factor 1 or factor 2, z showed an effect on both factors, and q showed no effect - thereby creating three groups: (1) treatments with a specific effect, (2) an unspecific effect, and (3) no observed effect. 
+\par
 
+As treatments that cause low-viability phenotypes, which were not modeled during training of the MOFA model, can cause spurious and unspecific effects in the learnt factor space, treatments with unspecific effects were inspected first. Among these treatments were multiple compounds which were tested at toxic concentrations including Proteasome inhibitors (i.e. Bortezomib; t =, Delanzomib; t = , Carfilzomib; t = ; Figure \ref{fig_185} b) and conventional DNA-intercalating agents (i.e. Epirubicin; t=). 
+\par
 
-
-\subsection{Active treatments without factor-specificity are enriched for toxic and assay-interference compounds}
-
-To conclude this chapter, I searched through small molecules within the query set that were predicted to move organoids towards a wildtype state along factor 1 and 2. Such small molecules are of particular medical relevance, as this would suggest a property for a given small molecule to counteract the effects of Apc loss or Kras activation, respectively. Analogous to the concept of revertant genetic mutations, I referred to small molecules with a predicted ability to move transformed organoids towards a wildtype state as potential revertant therapeutics. Unfortunately, the majority of compounds that led to a predicted shift towards a wildtype organoid state along both axes were also associated with a high predicted toxicity (Figure \ref{fig_310} a, color coding are predictions based on LDC viability classifier). Ellagic acid, however, a natural compound that was predicted to function as a revertant, showed a moderate predicted toxicity (Figure \ref{fig_310} a, top right). Inspection of organoid models treated with Ellagic acid showed reduced number and size of organoids compared to the vehicle control, while organoid viability was generally maintained (Figure \ref{fig_310} b). 
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.75,
-                keepaspectratio]{figures/adenomaprofiling/pdf/fig_5_1_2.pdf}
-\caption[Projected changes in factor 1 and 2 scores after small molecule treatment]{\textbf{Projected changes in factor 1 and 2 scores after small molecule treatment a} Shows are treatments leading to change in projected factor scores across all organoid lines (ANOVA). Color coding represents predictions based on LDC viability classifier. The structural formula of Ellagic Acid is depicted in the top right. \textbf{b} Organoid treatment with Ellagic acid. Depicted are representative example images for each line (blue = DNA, red = actin, green = cell permeability, scale bar=200µm).}
-\label{fig_310}
-\end{figure}
-\bigbreak
-
+Among factor specific treatments, small molecules that displayed a negative effect on factor 1 (shifting from a state associated with an Apc wildtype allele to an Apc-/- associated state) were enriched for GSK3 beta inhibitors (i.e. CHIR-98014, CHIR-99021, LY2090314). Along factor 2, small molecules targeting downstream mediators of RAS-MAPK signaling (i.e.  PD184352, Ulixertinib) and PI3K-AKT-mTOR signaling (i.e. Buparlisib, KU−0063794) had a positive effect (shifting from a state associated with KrasG12D +/- genotype to a Kras wildtype associated state). No treatment with positive effect on factor 1, indicating a shift from an Apc-/- associated state towards an Apc wildtype state was identified. 
 
 \subsection{GSK3 beta inhibitors move Apc wildtype organoids specifically along a canonical Wnt signaling program}
 
-After linking factor 1 to Apc loss and identifying associated molecular changes, I was interested in identifying active treatments that shifted organoid morphologies along the factor 1 axis. As described in the previous chapter, small molecules that led to a predicted factor 1 change were identified using ANOVA. To identify treatments that led to a drop in organoid viability, a classifier developed by Jan Sauer and described in the previous chapter (LDC) trained on ground-truth lethal treatments within the stem-cell library was applied. Two groups of compounds were identified that induced a shift towards lower factor 1 scores (group A, figure \ref{fig_180}) and higher factor 1 scores (group B, \ref{fig_180}). Small molecules within group A induced a morphology associated with Apc loss while maintaining organoid viability. In contrast, members of group B primarily led to a loss of viability and a shift towards a morphological state associated with Apc wildtype organoids. Of note, small molecules within these groups had related target proteins. Compounds within group A (incl. CHIR-98014, CHIR-99021, LY2090314) targeted GSK3 beta - a kinase with central function within the canonical Wnt signaling destruction complex. Inhibition of GSK3 beta leads to hyperactivation of canonical Wnt signaling. Members of group B primarily targeted the Proteasome (incl. Bortezomib, Carfilzomib, MLN2238). Further validation of group A showed how treatment with the GSK3 beta inhibitor CHIR-98014 led to treatment-induced phenotypes in WT and KrasG12D+/- organoids that phenocopied the unperturbed morphology of Apc-/- and double mutant organoid models (Figure \ref{fig_185} a). On the feature level, treatment led to an increase in organoid size and DNA intensity (Figure \ref{fig_185} b) in Apc wildtype models. This change in morphology was likely due to an increased proliferation rate of mutant cells, leading to rising organoid size and a higher density of nuclei per analyzed object. Guided by the identification of a strong GSK3 beta inhibition phenotype in Apc wildtype organoids, which was already identified during the unbiased clustering of treatment-induced phenotypes previously (Figure \ref{fig_150} d), I analyzed small molecules that clustered with known inhibitors of this kinase based on the angular distance of their drug effect vectors within these models (Figure \ref{fig_185} c). In line with the observations in this experiment, all small molecules clustering with well-described inhibitors of GSK3 beta had previously described off-target binding activity against this kinase within the LINCS KINOMEScan database \citep{Duan2014-ku}. 
-
-
-
-
+GSK3 beta is a kinase with central function within the canonical Wnt signaling destruction complex \citep{stamos} and inhibition of GSK3 beta has been shown to lead to hyperactivation of canonical Wnt signaling \citep{Stambolic}. Based on the fact that Apc -/- organoids are "already" in a state of high canonical Wnt signaling, I hypothesized that GSK3 beta inhibition should lead to a larger observed effect along factor 1 in Apc+/+ organoids than their Apc-/- counterparts, a case of treatment-genotype interaction. 
 
 \begin{figure}[h]
 \centering
@@ -374,7 +370,7 @@ After linking factor 1 to Apc loss and identifying associated molecular changes,
 \end{figure}
 \bigbreak
 
-
-
+Indeed, the effect on factor 1 was stronger for WT and KrasG12D+/- organoid lines (Figure \ref{fig_185}). Treatment with the GSK3 beta inhibitor CHIR-98014 led to treatment-induced phenotypes in WT and KrasG12D+/- organoids that phenocopied the unperturbed morphology of Apc-/- and double mutant organoid models (Figure \ref{fig_185} b). On the individual morphology feature level, treatment led to an increase in organoid size and DNA intensity (Figure \ref{fig_185} c) in Apc+/+ models. This change in morphology was likely due to an increased proliferation rate of mutant cells, leading to rising organoid size and a higher density of nuclei per analyzed object. Guided by the identification of an interpretable GSK3 beta inhibition induced phenotype, I analyzed small molecules that clustered with known inhibitors of this kinase based on the similarity of their drug effect vectors (Figure \ref{fig_185} d). In line with the observations in this experiment, all small molecules clustering with well-described inhibitors of GSK3 beta had previously described off-target binding activity against this kinase within the LINCS KINOMEScan database \citep{Duan2014-ku}. In summary, projecting treatment-induced morphologies into a factor space that was learnt from annotated organoid samples, helped interpret small molecule effects and recovered previously known annotated on-target and off-target mechanisms.
+\bigbreak
 
 \end{flushleft}
