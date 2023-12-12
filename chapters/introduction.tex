@@ -104,9 +104,15 @@ Next to diagnostics, organoid have been evaluated as models in drug discovery. P
 
 \section{Profiling Experiments} 
 
-Profiling experiments are biological experiments in which high dimensional phenotype data are collected for biological models that are subjected to multiple treatments \cite{chandrasekaranImagebasedProfilingDrug2021}. Examples for such methods include Transcriptome Profiling Experiments (Perturb-Seq, L1000 Profiling) as well as Image-based Profiling Experiments. These data intensive experiments generate three-dimensional data tensors containing phenotype profiles (i.e. transcript count or morphological feature) for multiple treatments (i.e. small molecules) and experimental units (i.e. conventional adherent cell lines or organoids). At this point it is important to note that the presence of dense phenotype information for multiple treatments (= causal interventions) is what separates profiling experiments from observational studies, such as -for example- single-cell RNA-Sequencing of multiple clinical samples. Image-based profiling is a high-throughput microscopy-based experimental methodology to systematically measure phenotypes of in-vitro models. When combined with chemical or genetic perturbations, image-based profiling experiments are a powerful approach to gain systematic insights into biological processes during therapeutic discovery projects. 
+Profiling experiments are biological experiments in which high dimensional phenotypes are observed of biological models that are subjected to multiple treatments. Examples for such methods include Transcriptome Profiling Experiments (i.e. Perturb-Seq \citep{dixitPerturbSeqDissectingMolecular2016}, L1000 Profiling \citep{}) as well as Image-based Profiling Experiments \cite{chandrasekaranImagebasedProfilingDrug2021} (described below). These data intensive experiments generate three-dimensional data tensors containing (1) multiple features (i.e. transcript count or morphological feature) for (2) multiple treatments (i.e. small molecules) and (3) multiple experimental units (i.e. multiple genetically perturbed cell lines, multiple organoids from different patients). The presence of high dimensional phenotype information for multiple treatments is what separates profiling experiments from observational studies, such as single-cell RNA-Sequencing of multiple untreated tissue samples (multiple features and multiple experimental units, but not multiple interventions). 
 
-\subsection{Image based Profiling}
+\subsection{Image-based Profiling}
+
+Image-based profiling is a combination of high-throughput microscopy with small molecule or genetic perturbations to systematically measure phenotypes of in-vitro models.
+
+Recursion - cavernous malformaiton
+Carpenter - predict MoA from images
+Bernd Fischer
 
 \subsection{Matrix Factorization}
 The basic goal of matrix factorization methods is to identify a small number of underlying factors within high-dimensional measured data that explain its intrinsic structure. 
@@ -124,22 +130,31 @@ In this process, a data matrix \( Y \), consisting of \( n \) samples and \( m \
 
 The factor score matrix \( Z \) can be understood as a learnt, lower-dimensional representation of the data with \( k \) dimensions. The choice of \( k \) (the number of latent factors) ideally strikes a balance between simplicity and comprehensiveness and can be algorithmically determined. 
 
-Different matrix factorization methods exist, with Principal Component Analysis (PCA), non-negative matrix factorization (NMF) and Independent Component Analysis (ICA) being among the most popular. Each of these methods performs the basic decomposition outlined above, but apply different constraints during the decomposition. For example, in PCA the identified factors are orthogonal to each other and are ranked by the amount of variance they explain within the data. In NMF both the factor score and weight matrix must be non-negative, which aides interpretation. In ICA the factors are statistical independent and non-gaussian, which is useful for the analysis of time-course data, such as audio or electrical activity. Each of these three popular methods do not include further assumptions, such as a dedicated measurement error \(\epsilon\).
+Different matrix factorization methods exist, with Principal Component Analysis (PCA), non-negative matrix factorization (NMF) and Independent Component Analysis (ICA) being among the most common \citep{stein-obrienEnterMatrixFactorization2018}. Each of these methods performs the basic decomposition outlined above, but apply different constraints during the decomposition \citep{stein-obrienEnterMatrixFactorization2018}: In PCA the identified factors are orthogonal to each other and are ranked by the amount of variance they explain within the data. In NMF both the factor score and weight matrix must be non-negative, which aides interpretation. In ICA the factors are statistical independent and non-gaussian, which is useful for the analysis of time-course data, such as audio or electrical activity. Each of these three popular methods do not include further assumptions, such as a dedicated measurement error \(\epsilon\).
 
-In case the data generating process is better understood and robust solutions are preferred, additional assumptions can be introduced. For example, directly modeling the measurement error \(\epsilon\) and applying sparsity constraints to the matrix factorization are options. If such additional assumptions are made, the method is commonly referred to as a form of factor analysis.
+In case the data generating process is better understood and robust solutions are preferred, additional assumptions can be introduced. For example, directly modeling the measurement error for each feature \(\epsilon\) and applying sparsity constraints to the matrix factorization are options. If such additional assumptions are made, the method is more commonly referred to as a form of factor analysis \citep{klamiGroupFactorAnalysis2014}.
 
-In group factor analysis, including multi-omics factor analysis (MOFA), the factor analysis method is extended to multiple data modalities: A set of \(m\) data matrices \( Y_m \) is decomposed into a single factor score matrix \( Z \) and a corresponding set of \(m\) weight matrices \( W_m^T \) and error terms \(\epsilon_m\). 
+
+\subsection{Extending Matrix Factorization to multiple experimental Views}
+
+Many physical processes of scientific interest can be observed through more than one method or "view". For example, a patient tissue sample can be characterised through DNA sequencing, RNA sequencing and lipid abundance measurements. Finding a small number of underlying factors across high-dimensional data coming from multiple views is thus an increasingly frequent problem in biological data analysis and is the focus of the multi-view representation learning field \citep{liSurveyMultiViewRepresentation2019}. In group factor analysis methods \citep{virtanenBayesianGroupFactor2012, klamiGroupFactorAnalysis2014}, including multi-omics factor analysis (MOFA) \citep{argelaguetMultiOmicsFactorAnalysis2018b, argelaguetMOFAStatisticalFramework2020a}, the factor analysis described above is extended to multiple data views (also referred to as modalities): A set of \(m\) data matrices \( Y_m \) is decomposed into a single factor score matrix \( Z \) and a corresponding set of \(m\) weight matrices \( W_m^T \) and error terms \(\epsilon_m\). 
 
 \begin{equation}
     Y_m = ZW_m^T + \epsilon_m
 \end{equation}
 
-Factors that are identified using this approach describe patterns within the data that can span multiple different data modalities. Next to simplifying the interpretation of complex data, factors that have been learnt to represent the structure of measurements across multiple modalities with group factor analysis have been shown to enable more reliable similarity estimation and missing data prediction than alternative factor analysis methods or simply raw features from the measured data \citep{Klami}.
+Factors that are identified using this approach describe patterns within the data that can span multiple different data modalities. Next to simplifying the interpretation of complex data, factors that have been learnt to represent the structure of measurements across multiple modalities with group factor analysis have been shown to enable more reliable similarity estimation and missing data prediction than alternative factor analysis methods or simply raw features from the measured data \citep{klamiGroupFactorAnalysis2014}.
 
-% move the more detailed explanaition into the introduction, including the projection 
-While matrix factorization methods are commonly used to learn the intrinsic structure of high-dimensional data in an unsupervised manner within an exploratory context, it can also be used to guide decision making by predicting similarities between observations. In the latter context, a well-annotated subset of the data, here referred to as the support set, is first used to learn factors. In a second step, another set of observations which are not yet well understood, here referred to as query set, are projected into the learnt representation to estimate their properties. Decisions can be made based on these estimates, such as planning further experiments. 
+% TODO
+% share details about MOFA here 
 
-In order to estimate the factor scores for new observations from the query set the previously identified factor weight matrix is used. 
+In the context of the work presented in this thesis, multi-omics factor analysis (MOFA) is used to learn multi-modality representations for both patient derived and genetically engineered colon organoids. The modeled data comprised modalities such as organoid morphology, transcript expression, protein and lipid abundance. The identified factors correspond to major axes of biological variation and help in the interpretation of results from image-based profiling experiments as outlined below. 
+
+\subsection{Model guided Profiling}
+
+While matrix factorization methods are commonly used to learn the intrinsic structure of high-dimensional data within an exploratory context, it can also be used to guide decision making by predicting similarities between observations. In the latter context, a well-annotated subset of the data, here referred to as the support set, is first used to learn factors. In a second step, another set of observations which are not yet well understood, here referred to as query set, are projected into the learnt representation to estimate their properties. The "support set" and "query set" terminology is adapted from the meta-learning field - a part of the machine learning literature focused on scenarios when only few well-annotated observations are available \citep{hospedalesMetaLearningNeuralNetworks2020}, a common situation in biomedical research and therapeutic discovery. 
+
+In order to estimate the factor scores for new observations in the query set the previously identified factor weight matrix is used. 
 
 \begin{equation}
     Z_{\text{new}} = Y_{\text{new}} W^+
@@ -147,140 +162,10 @@ In order to estimate the factor scores for new observations from the query set t
 
 Instead of decomposing the query data matrix \(Y_{\text{new}}\) into a factor score matrix and factor weight matrix, as done during the initial learning, the query data matrix  \(Y_{\text{new}}\) is multiplied with an approximated inverse of the factor weight matrix \( W^+ \) to estimate the corresponding factor scores \( Z_{\text{new}} \). 
 
-In practice, such a two-step approach consisting of (1) the learning of a representation space through matrix factorization from well-annotated data followed by (2) the projection of new data into the representation space can be useful when different levels of information about samples are available. For example, some data modalities might be more expensive to observe than others. In this case, a cost-intensive, representative support set containing relevant conditions, for example untreated controls, is first established. Subsequently, less expensive observations are projected into the 
-
-beneficial for establishing a baseline representation. Subsequently, less expensive or more readily available data, comprising the query set, can be effectively mapped onto this pre-established space. This approach allows for the integration of diverse data types and the leveraging of rich, well-characterized datasets to inform the understanding and interpretation of less understood or newly acquired data. By doing so, one can maximize the utility of high-cost data and efficiently extract meaningful insights from more accessible data, enabling a more informed and strategic approach to further experimentation and research.
-
-
-In the context of the work presented in this thesis, group factor analysis is used to learn multi-modality representations for both patient derived and genetically engineered colon organoids. The modeled data comprised modalities such as organoid morphology, transcript expression, protein and lipid abundance. The identified factors correspond to major axes of biological variation and help in the interpretation of results from image-based profiling experiments. 
-
-
-\subsection{Multi-view Representation Learning}
-
-Matrix Factorization
-
-\subsection{Distinguishing Screening Experiments and Profiling Experiments in Therapeutic Discovery}
-
-During Therapeutic Discovery, profiling experiments in general and image-based profiling experiments in particular have been adopted during the early stages of the discovery process: (1) the target identification phase, (2) hit identification phase, and (3) hit to lead transition phase \cite{chandrasekaranImagebasedProfilingDrug2021}. A hallmark of profiling experiments are coarse-grained and uncertainty-aware assumptions about the biological mechanism that is investigated and, as a result, an emphasis on the unbiased collection of phenotype information as well as the use of complex biological models with high clinical predictive validity. In practice a profiling experiment collects more information than needed to test a coarse-grained mechanistic hypothesis and can as a result also serve as a starting point for further mechanism discovery. 
-
-To further illustrate the statement above, let's contrast profiling experiments against alternative and previously more common screening experiments. The first general steps in the design process of biological experiments are:
-
-(1) definition of the experimental units, here the biological models that are studied (units u)
-(2) definition of the treatments with which to perturb the models (treatments t)
-(3) definition of the phenotypes that are measured by observing the treated biological models (phenotypes p)
-
-Common, mechanistic, experimental designs are based on strong prior assumptions about the biological mechanism of interest. For example, in a Cancer Therapeutic Discovery project, candidates within a small molecule set might be hypothesised to exert a selective cytotoxic effect on cancer cells by inhibiting a protein kinase through ATP-competitive binding to its active site. A well designed experiment might involve a kinase binding assay in which the dissociation constant (phenotype p) of the set's small molecules (treatment t) relative to the kinase's catalytic domain (unit u) can be estimated. Such experiments, referred to as screening experiments when run at large scale, are effective to test potential treatments against a well defined mechanistic hypothesis. 
-
-In contrast, profiling-focused experiments are based on weaker prior assumptions about the biological mechanism of interest, and -as a result- often use more complex, valid experimental units and collect more, high-dimensional phenotypes. To stay with the example of the Cancer Therapeutic Discovery project above, the weaker prior assumptions might be that candidates within the small molecule set change the growth pattern of cancer cells so that they are more similar to healthy epithelial cells. Such a coarse-grained hypothesis does not include assumptions about the expected mechanism of action of such a desired small molecule. The resulting design might include adherent cell lines from different tissues as experimental units and a set of hundreds of unbiased morphological features that are collected through automated microscopy as phenotypes. Such profiling experiments are effective to both test potential treatments against a coarse-grained mechanistic hypothesis and to extend said hypothesis by providing observations for further mechanism discovery. 
-
-To further refine the distinction between profiling and screening experiments, let's reconsider our previous profiling experiment. If the rest of the experimental design was kept similar, but the high dimensional phenotype data was replaced with a one-dimensional ATP-based cell viability assay, the resulting experiment would be considered a phenotypic screening experiment, and not a profiling experiment. In a phenotypic screen a complex experimental unit, such as a cell, is perturbed and a single robust aggregate phenotype, such as the cell viability is measured. While phenotypic screens can be useful to test treatment against one hypothesised mechanism, a mechanism discovery problem presents itself, often referred to as "target deconvolution dilemma" by practioners: The experiment does not enable further reasoning about the unit's complex inner workings and the potential mechanisms of action of observed treatments. Put differently, there are many biological mechanisms through which a treatment could have let to the observed phenotype. Profiling experiments, in contrast, observe more data than would be sufficient to test the simple underlying mechanistic hypothesis - often hundreds to thousands of features for a given treatment and unit. When combined with additional labels, these enriched phenotype profiles can help guide through the "target deconvolution dilemma" by, for example, grouping treatments according to proposed mechanisms of action.
-
-\subsection{Learning meaningful representations for image-based profiling experiments}
-
-Besodes follow-up discriminative experiments to refine the mechanism - as any other highthrougput experiment to identifiy observations that are created by treatments adversarial to the experimental design, This requires 
-* machine learning augmented interpretation of the resulting data - cite paper which I advised
-
-Representation Space is key 
-what do we describe the phenotype with?
-
-
-Support Set -> interpretability and robustness of the representation space
-* untreated untis (incl. negative control)
-* well annotated treatements (incl. positive control)
-
-the larger the support set the better the guarantees above
-
-Central piece is the representation
-Often learnt on all available data 
-Can be a challenge if we are in an actual discovery process - i.e. target annotation for small molecules are avaiable only for a subset of the tested treatments 
-in RNAi - do not confuse with query and target treatements that are used in combinations. 
-intro support set and query set in this vain - I propose the use of these terms, term is new, but the practice is not
-
-common methods for representation have been 
-feature selection
-unsupervised
-self-supervised
-
-
-Labels for units and treatments
-Interpretable phenotype features
-
-Support Set and Query Set
-profile + label (unit)
-profile + label treatment
-
-Interpretable representations
-
-The integration of image and transcriptome data into ensemble approaches has shown promise to improve MOA determination for synthetic small molecules, natural products and identified bioactive metabolites21,117.
-
-guilt ba association with genetic background or treatment - generalisable through a support set 
-
-by feature processing 
-by interpretable support set
-
-Procure or Engineer Target model and reference model
-Distinguish Target phenotype and Reference phenotype
-
-
-general purpose -> higher iteration speed given reduced design changes
-
-
-
-
-
-In the context of image-based profiling the phenotype that is observed is the morphology of the biological model visualised through a set of unbiased, general purpose staining techniques. The benefits of image-based 
-
-
-Support set of observations
-diseased vs health cells from patients
-different geneticall modified cells 
-cell that are untreated und treated with a compound that is supposed to be imitaded 
-
-Query set of observations
-Test small molecules, identify moelcules that have a desireable trait
-
-Profiling experiments should be so interpretable that they can stand in place for a variety of specific assays. Potentially to the point where they can - together with computer expeirments, a single step between computation-based and clinical experimentation
-
-
-Image-based assays have been used to screen large libraries of small molecules to identify potential drug candidates, to analyze a drug’s mode-of-action, or to classify drug-gene interactions by cell-morphology20–23. 
-
-\subsection{Examples of image-based profiling experiments in Therpeutic Discovery}
-
-Recursion - cavernous malformaiton
-Carpenter - predict MoA from images
-Bernd Fischer
-
-
-
-\subsection{Current limitations of image-based profiling}
-
-predictive validity - if we see an effect we would like it to be real
-models 3D Models
-complex diseases 
-Per- forming large image-based profiling experiments of organoids has been, however, a biological, technical and computational challenge24–26. As a consequence, the morphological hetero- geneity of patient-derived cancer organoids between and within patient donors, their diverging behaviors upon pharmacological perturbation as well as the underlying mechanisms of cancer organoid morphology are not yet systematically understood.
-
-
-if we see an effect we would like to have a hypothesis why it happenend -> guide further decision making; drugs with mechanism have a higher chance of being approved
-meaningful representations - collecting interpretable phenotypes - multi-view data - representation
-gene info is interpretable - but also here peopel identify programs
-morphology is more challenging - features are often not interpretable - commonly done is a PCA or other transformation into compressed
-factorisation
-there are labels for units and treatments, there are not yet interpretable phenotype features - especially in image-based profiling (other modalities have semantic concepts, such as a gene)
-
-
-cost and scale - most affordable profiling method
-can be made for accessible for collaborative discovery if we reduce technical overhead. I.e. brightfield microscopy as a common trunk 
-increase reliability for scientists at different locations
-
-
-
-
-
-
-
+In practice, scenarios in which such a multi-step approach is applied include sequential decision making problems, for example recommender systems \citep{korenMatrixFactorizationTechniques2009}. Here, a new observation is added to a set of existing observations to inform the best next action (i.e. an experiment to run, or a product to recommend). I propose that this approach can also be useful for multi-view profiling of in-vitro organoid models, especially when cost differences between data modalities exist and treatment conditions with an effect of interest are rare: Instead of observing all possible conditions with the complete set of views at once (i.e. transcript expression, morphology, protein abundance), a representative subset of conditions, the support set, is first selected and fully observed to learn a multi-view model. In a second step, a large number of conditions, the query set, are observed with only one modality. This modality is affordable, information dense and does not have to be highly interpretable on its own (i.e. microscopy images). In the third and final step, the single-view observations are projected into the previously learnt multi-view model. Once identified, the small number of conditions with show an effect of interest can then be further characterised by gathering observations from additional views.
 
 \section{Aims of Thesis}
-Here we report a large scale image-based phenotyping study of patient-derived cancer organoids to understand underlying fac- tors governing organoid morphology. Colorectal cancer orga- noids from 11 patients were treated with more than 500 experimental and clinically used small molecules at different concentrations. We systematically mapped the morphological heterogeneity of patient-derived organoids and their response to compound perturbations from more than 3,700,000 confocal microscopy images. We found that the resulting landscape of organoid phenotypes was mainly driven by differences in orga- noid size, viability and cystic vs. solid organoid architecture. Using multi-omics factor analysis for integrating organoid mor- phology, size, gene expression, somatic mutations and drug activity, we identified biological programs underlying these phe- notypes and small molecules that modulate them.
+Here we report a large scale image-based phenotyping study of patient-derived cancer organoids to understand underlying factors governing organoid morphology. Colorectal cancer orga- noids from 11 patients were treated with more than 500 experimental and clinically used small molecules at different concentrations. We systematically mapped the morphological heterogeneity of patient-derived organoids and their response to compound perturbations from more than 3,700,000 confocal microscopy images. We found that the resulting landscape of organoid phenotypes was mainly driven by differences in orga- noid size, viability and cystic vs. solid organoid architecture. Using multi-omics factor analysis for integrating organoid mor- phology, size, gene expression, somatic mutations and drug activity, we identified biological programs underlying these phe- notypes and small molecules that modulate them.
 
 Our contributions are
 
