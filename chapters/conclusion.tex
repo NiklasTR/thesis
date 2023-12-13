@@ -8,6 +8,43 @@ I learned that if you work hard and creatively, you can have just about anything
 
 \chapter{Discussion}
 
+
+% for discussion
+Other methods for representation learning beyond matrix factorization have been developed, including deep-learning methods which introduce multiple layers of non-linear activation functions. While these methods have shown unparalleled results when pre-trained with very large data, their ability to learn robust representations when only few observations are available is limited and subject of the current few-shot learning research field. While not subject of this thesis, in the future there will be multiple, exciting, opportunities to learn deep foundation models for organoid biology. 
+
+To summarise and motivate the use of MOFA in this thesis, one can argue that it is among the simplest methods to learn robust representations across multiple data modalities. Given that we are analysing highly complex data with very limited observations, care should be taken to use simple methods first whenever possible. 
+
+%TODO
+Outliers - Examples that are projected into interpretable regions but are not actually in this regions - reconstruction error methods / outlier detection. This way We can quantify and differentiate between projected samples that are outside of the learnt subspace or inside it.  
+1. no detectable treatment effect
+2. treatment effect outside of the representation space - most likely toxic treatment effect
+3. treatment effect inside the representation space - most likely viable but state changing treatment effect
+
+%TODO
+Why not use simple comparative methods? 
+learn a multi view representation to
+* identify intrinsic dimensionality
+* estimate magnitude
+* simplify the modeling of multiple modalities 
+
+even when the dimensionality of the data is a function of the genotypes that are compared, the estimation of the magnitude is useful, as well as the simplification 
+
+In our case we could train a classifier to compare lines directly, but at the risk of overinterpreting compounds that moved between states
+We invert a function to interpret treated organoid morphology
+
+%TODO 
+limitations to the representativeness of the adenomaprofiling project to a real world discovery situation - mostly due to the joint processing of observations within the query and support set. 
+
+we processed and reduced the dimensionality of our image-based features in one go - in a real world setting there would be considerable drift - reducing the ability to project treatments reliable into a learnt representation
+we include compound activity into the learnt representation as an additional features. This feature would not be available as new data are collected and might have to be removed
+
+In the future operate on raw classic features or learnt representations from self-supervised learning models
+
+
+%TODO - include critique from the MOFA discussion in the original manuscript
+
+
+
 My contributions to the general field of biological profiling methods described in this thesis are (1) application of the image-based profiling method to organoid models, and (2) learning biologically meaningful low dimensional representations of organoid state by pairing imaging data with additional experimental modalities through multi-view representation learning. 
 \bigbreak
 
