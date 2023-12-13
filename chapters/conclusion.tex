@@ -21,6 +21,12 @@ Outliers - Examples that are projected into interpretable regions but are not ac
 3. treatment effect inside the representation space - most likely viable but state changing treatment effect
 
 %TODO
+establish that there is signficant bleed through in the imaging data because of joint PCA pre-processing in both proejcts. 
+For a rigorous evaluation of the proposed appraoch, a fully separate query and support set should be collected and independently pre-processed. 
+One way I can imagine this to happen in the future is to perform low-rank finetuning of organoid microscopy foundaition models on the support set only. Then the query set is processed using the finetuned foundaition model
+In the future, robust representations need to be learned that 
+
+%TODO
 Why not use simple comparative methods? 
 learn a multi view representation to
 * identify intrinsic dimensionality
@@ -72,7 +78,7 @@ Designing or "fitting" in-vitro biological models to a disease along these axiom
 "The rate of creation of valid screening and disease models may be the major constraint on R\&D productivity."
 \end{quote}
 
-\subsection{Applying multi-view representation learning to image-based profiling: Towards multi-view profiling}
+\subsection{Towards multi-view profiling: Applying multi-view representation learning to image-based profiling}
 
 Increasing the interpretability of the representation space within image-based profiling experiments can aid in the discovery of new biological processes. While gene-level measurements from other profiling experiments, such as transcript profiling, are more accessible to existing information-retrieval resources, image-based profiling measurements suffer from a lack of such interpretability. For example, while changes in transcript abundance after treatment with a small molecule can be directly interpreted by biologists and put into context with prior knowledge and literature to guide subsequent decision making, the same is not true for image-based profiling data today. Classic quantitative features of cellular morphology are rarely descriptive, and even when dimensionality reduction methods or self-supervised learning techniques are used, the learnt representations are not interpretable within the context of our current mechanistic understanding of cellular biology. One approach to increase the interpretability of representations in a given image-based profiling experiment, is to collect a multi-view support set comprising transcriptomic, proteomic or metabolomic data to "annotate" the morphological states. This learnt representation space can then be used to interpret observations within the remaining image set, the query set. By choosing such an approach I enabled a higher degree of interpretability of morphological information in image-based profiling experiments, at the cost of increasing the risk of mis- or over-interpreting changes in factor space. The underlying motivation and trade-offs involved in using multi-view representation learning for image-based profiling experiments are further discussed below. 
 \bigbreak
@@ -101,6 +107,7 @@ Given the risks and limitations of interpreting learnt multi-view representation
 Additional simplifications of MOFA include its ability to handle missing data (not supported by iCluster) and high training speed. Generally, multi-view representation learning method should perform simple transformations using modality specific features, have a tolerance to data missingness, and regularised towards sparsity. 
 \bigbreak
 
+% consider deletion
 \subsection{Perspective on multi-view profiling of organoids}
 This thesis discusses the establishment of image-based profiling for patient derived and genetically engineered organoid models. Progress in image analysis \citep{chandrasekaranImagebasedProfilingDrug2021a}, the emergence of standardised protocols \citep{Bray2016-ue}, as well as cross-organisational alliances \citep{chandrasekaranJUMPCellPainting2023} are currently leading to a widespread uptake of the image-based profiling method. In the future, I expect the combination of multi-view representation learning and image-based profiling of organoids introduced in this thesis to be further explored and improved - with possibly even more complex and representative organoid models, such as coculture systems. A direct next step towards more robust multi-view profiling could be the combination of RNA-Sequencing of formalin fixed cells after samples have completed their microscopy run. Directly enriching learnt image representations with such transcriptomic data holds the potential to accelerate the discovery of new biological mechanisms and therapeutic candidates. Advances in modality-specific general purpose representation learning models, such as for biological images, will likely further increase the interest in learning and sampling multi-view representations of cellular state \citep{pfaendlerSelfsupervisedVisionTransformers2023}.
 
@@ -161,9 +168,69 @@ The complete absence of CRIS A or CRIS B organoid models is worthy of further di
 
 In summary, image-based profiling of colon cancer organoids revealed two main axes of variation related to IGF1R signaling and canonical Wnt signaling. The identified organoid states showed a partial agreement with previously described molecular states of colorectal cancer cells. At the same time, imbalances related to the prevalence of certain subtypes within the set of organoid models reveals directions for further methodological improvements. Despite remaining challenges, I expect the establishment of living organoid biobanks to be a long-term public good by creating high fidelity in-vitro models of colorectal cancer. 
 
-\section{Multi-view profiling of pre-malignant models of colon cancer}
+\section{Multi-view profiling of step-wise in-vitro models of colorectal cancer pathogenesis}
 
-WIP
+
+
+\subsection{Murine colon organoids for step-wise in-vitro modeling of colorectal cancer pathogenesis}
+
+* access to mouse genetic toolbox
+* easier to cultivate WT colon organoids than humans 
+* no paneth cells - full control over Wnt dose 
+
+* APC and KRAS mutant mouse models show most tumors in the large instestine \citep{luoMutatedRasAsp122009}
+
+\subsection{Effects of Apc truncation and Kras G12D/- on colon organoid models}
+
+Apc 
+Wnt - characteristic sensitivity in the activity data
+Myc 
+Nucleotide synthesis - satoh 07 and 
+lipid synthesis - reduced beta-oxidatoin, via Myc
+carbohydrates - no significant effect of Warburg - as seen by Imkeller  - in fact, single cell comparison of colorectal cancer samples shows that sampels that are predominantly APC mutant are characterosed by high Myc activity *and* oxidative phosphorylation relative to tumors marked by a high rate of KRAS mutant tumors
+
+cell cycle - microtubuli inhibitor, also APC direct binding
+translation rate
+
+
+
+Kras
+MAPK signaling - characteristic ERK, MEK sensitivity + signs of phenotype shift 
+EGFR resistance - also transcriptional downregulation seen in the gene expression data.
+
+Nucleotide?
+Lipid synthesis - reduced beta oxidation
+Glycolysis - up, Warburg effect, metabolic phenotype - aligned with single cell and CMS data that link KRAS presence to higher glycolysis and reduced oxidative phosphorylation 
+
+\subsection{The interaction of Apc and Kras during colon cancer pathogenesis}
+Kras and Apc interaction
+there have beeb reports of synergy \citep{luoMutatedRasAsp122009} - our data points into a different direction, that they are mostly independent within their respective pathway 
+
+linear
+increased proliferation rate 
+increased translation rate \citep{smitDriverMutationsAdenomacarcinoma2020a}
+
+sakai 
+A mutant mice have a near normal overall survival over 300 days ( \%) In contrast AK Overall surivival of ca 150 days 
+
+In models in which frequent functional variants have been combined, including Apc, Kras, TP53, TGFBR2, Fbxw7 have been combined, APC is necessary but not sufficient in these mouse genetic models to cause colorectal cancer. Elegant experiment shown that Apc Kras and Apc Kras Trp53 bearing mice can have fully intact overall survival beyond 200 days when apc is removed, while if the Apc allele is retained survival is ca. 50 days post allele activation by \citep{dowApcRestorationPromotes2015a} - and sakai lucas dow  \citep{sakaiCombinedMutationApc2018a, matanoModelingColorectalCancer2015a, dowApcRestorationPromotes2015a}
+
+Kras (as the only representative of RAS-MAPK signaling functional events) is necessary but not sufficient for invasion and metastasis in the same model system - 
+continuous expression of activated Kras is required for the main- tenance of invasive and metastatic disease, when removed from AKP tumors
+\citep{boutinOncogenicKrasDrives2017a} 
+withdrawal leads to regression with only emaining adenomas 
+
+
+invation can not be modeled in organoids
+also high EGF dose
+effects related to EGF independence by KRAS - even if only partially - are masked
+
+
+
+\subsection{Image-based profiling for early-stage cancer therapeutic discovery}
+The causal structure of colorectal cancer formation is well understood - Apc is mutated in x cases and within this patient group, especially early during the disease development, it is likely to say that Apc is necessary but not sufficient to drive the disease
+
+
 
 
 
