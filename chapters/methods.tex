@@ -1,35 +1,12 @@
-\begin{savequote}[75mm]
-Details matter, it’s worth waiting to get it right.
-\qauthor{Steve Jobs}
-\end{savequote}
-
 \begin{flushleft}
 
 \chapter{Materials and Methods}
 
-\section{Disclosure}
-Significant parts of this chapter have been adapted from own manuscripts, including \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) were previously developed by Jan Sauer as part of his dissertation \cite{noauthor_undated-ij}. Patient identification and Image-based profiling experiments were supported by Johannes Betge. 
+\section{Disclosure and Acknowledgment}
+Significant parts of this chapter have been adopted in a joint first-author publication \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \cite{Betge2022-kr}. The maximum contrast projection method, organoid segmentation method, feature extraction procedure and organoid viability classification (LDC) were previously developed by Jan Sauer as part of his dissertation \cite{noauthor_undated-ij}. Patient identificatoin, Organoid isolation, and Image-based profiling experiments were supported by Johannes Betge. Amplicon Sequencing of Patient samples was supported by Johannes Betge and Erica Valentini. Proteomics, Lipidomics and Expression Profiling was supported by the respective Core Facilities on the DKFZ and University Heidelberg Campus. 
 
-\section{Materials}
-
-\subsection{Antibodies}
-\begin{table}[htb]
-\caption{List of Antibodies used in experiments}
-\label{tab:antibodies} % Label for referencing
-\begin{tabularx}{\textwidth}{Xll}
-\toprule
-\textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
-\midrule
-Anti-ERK (p44/42 MAPK) (rabbit) & Cell Signaling & 4695 \\
-Anti-phospho-ERK (phospho-p44/42 MAPK) (rabbit) & Cell Signaling & 4370 \\
-Anti-beta-actin HRP (mouse) &  &  \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-
-\subsection{Biological Samples and Cell Lines}
-
+\section{Patients}
+All patients were identified at the University Hospital Mannheim, Mannheim, Germany. We included untreated patients with a new diagnosis of colon or rectal cancer in this study and obtained biopsies from their primary tumors and adjacent normal tissue via forceps based endoscopy. Exclusion criteria were active HIV, HBV or HCV infections. Biopsies were transported in phosphate buffered saline (PBS) on ice for subsequent organoid extraction. Clinical data, tumor characteristics and molecular tumor data were pseudonymized. The study was approved by the Medical Ethics Committee II of the Medical Faculty Mannheim, Heidelberg University (Reference no. 2014-633N-MA and 2016-607N-MA). All patients gave written informed consent before tumor biopsy was performed. In this study, we extracted PDOs from 25 patients with colorectal cancer, 10 of them female, 15 male, with a mean age of 66 years (median 65). 16 patients had a rectum carcinoma, 9 a colon carcinoma.
 
 \begin{table}[htbp]
 \caption{Patient derived organoid Lines}
@@ -57,88 +34,11 @@ D046T & ENA & good & f & rectum & 3 \\
 
 Abbreviations: f, female; m, male; sigm, sigmoid; desc, descending colon; asc, ascending colon; ENA, basal medium + EGF, Noggin and A83-01 (ALK-inhibitor); ENAS, ENA + SB202190 (p38 inhibitor).
 
-
-
-\begin{table}[htb]
-\caption{Cell Lines for Media Production}
-\label{tab:recombinant_dna} % Label for referencing
-\begin{tabularx}{\textwidth}{Xll}
-\toprule
-\textbf{Reagent or Resource} & \textbf{Source}\\
-\midrule
-R-Spondin1 expressing 293T Cell Line & Sigma/Merck; St. Louis, Missouri, USA  \\
-L Wnt-3a Cell Line & Clevers laboratory, Utrecht, Netherlands \\
-HEK-293 Noggin-Fc Cell Line & Clevers laboratory, Utrecht, Netherlands \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-
-
-\begin{table}[htb]
-\caption{List of Oligonucleotides}
-\label{tab:oligonucleotides} % Label for referencing
-\begin{tabularx}{\textwidth}{XlX}
-\toprule
-\textbf{Reagent or Resource} & \textbf{Sequence} & \textbf{Source} \\
-\midrule
-sgAPC1 & GGCACTCAAAACGCTTTTGA & GATC Biotech \\
-sgAPC2 & TCAAAAGCGTTTTGAGTGCC & GATC Biotech \\
-Primer F1 & TCCCTACACGACGCTCTTCCGATCTGGAATGTCAGAAGGGAGACC & GATC Biotech \\
-Primer F2 & TCCCTACACGACGCTCTTCCGATCTGAGGAATGTCAGAAGGGAGA & GATC Biotech \\
-Primer R1 & AGTTCAGACGTGTGCTCTTCCGATCTCCAACCAGAAATGCCAGTG & GATC Biotech \\
-Primer R2 & AGTTCAGACGTGTGCTCTTCCGATCTGCCAACCAGAAATGCCAGT & GATC Biotech \\
-Axin2 F & GAGAGTGAGCGGCAGAGC & GATC Biotech \\
-Axin2 R & CGGCTGACTCGTTCTCCT & GATC Biotech \\
-Ccnd F & TTTCTTTCCAGAGTCATCAAGTGT & GATC Biotech \\
-Ccnd R & TGACTCCAGAAGGGCTTCAA & GATC Biotech \\
-Sdha F & TGTTCA GTTCCACCCCACA & GATC Biotech \\
-Sdha R & TCTCCACGACACCCTTCTGT & GATC Biotech \\
-Hprt F & CCTCCTCAGACCGCTTTTT & GATC Biotech \\
-Hprt R & CCTCCTCAGACCGCTTTTT & GATC Biotech \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[htb]
-\caption{Hydrogels}
-\label{tab:hydrogels} % Label for referencing
-\begin{tabularx}{\textwidth}{XlX}
-\toprule
-\textbf{Reagent or Resource} & \textbf{Manufacturer} \\
-\midrule
-Matrigel & Corning, Corning, NY 14831 USA \\
-BME R1 & Trevigen, Gaithersburg, Maryland, USA \\
-BME V2 & Trevigen, Gaithersburg, Maryland, USA \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-
-
-\subsection*{Recombinant DNA}
-\begin{table}[htb]
-\caption{List of Recombinant DNA}
-\label{tab:recombinant_dna} % Label for referencing
-\begin{tabularx}{\textwidth}{Xll}
-\toprule
-\textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
-\midrule
-pSpCas9(BB)-2A-Puro (PX459) V2.0 & F. Zhang via Addgene & \# 62988 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\section{Methods}
-
-\section{Patients}
-All patients were identified at the University Hospital Mannheim, Mannheim, Germany. We included untreated patients with a new diagnosis of colon or rectal cancer in this study and obtained biopsies from their primary tumors and adjacent normal tissue via forceps based endoscopy. Exclusion criteria were active HIV, HBV or HCV infections. Biopsies were transported in phosphate buffered saline (PBS) on ice for subsequent organoid extraction. Clinical data, tumor characteristics and molecular tumor data were pseudonymized. The study was approved by the Medical Ethics Committee II of the Medical Faculty Mannheim, Heidelberg University (Reference no. 2014-633N-MA and 2016-607N-MA). All patients gave written informed consent before tumor biopsy was performed. In this study, we extracted PDOs from 25 patients with colorectal cancer, 10 of them female, 15 male, with a mean age of 66 years (median 65). 16 patients had a rectum carcinoma, 9 a colon carcinoma.
-
 \section{Organoid Culture}
 
 \subsection{Patient Derived Organoid Culture}
 Patient derived organiod (PDO) cultures were extracted from biopsies as reported by Sato et al. \cite{Sato2011-lh} with slight modifications. Tissue fragments were washed in DPBS (Life technologies) and digested with Liberase TH (Roche) before embedding into BME R1 (Trevigen). The medium, termed ENA, contained Advanced DMEM/F12 (Life technologies) medium with 1\% v/v penicillin/streptomycin (Life Technologies), Glutamax and HEPES (basal medium) supplemented with 100 ng/ml Noggin (Peprotech), B27 (Life technologies), 1,25 mM n-Acetyl Cysteine (Sigma), 10 mM Nicotinamide (Sigma), 50 ng/ml human EGF (Peprotech), 10 nM Gastrin (Peprotech), 500 nM A83-01 (Biocat), 10 nM Prostaglandin E2 (Santa Cruz Biotechnology), 10 μM Y-27632 (Selleck chemicals) and 100 mg/ml Primocin (Invivogen). After isolation, cells were kept in 2 conditions including medium as described (ENA), or supplemented with additional 3 uM SB202190 (Biomol) (ENAS) as described by Fujii et al. \cite{Fujii2016ATumorigenesi  }. 
-The tumor niche was determined after 14 days and organoids were subsequently cultured in the condition with best visible growth. 
+The tumor niche was determined after 14 days and organoids were subsequently cultured in the condition with best growth. 
 Organoids were passaged every 7 days and medium was changed every 2-3 days.
 
 \begin{table}[htbp]
@@ -179,9 +79,6 @@ Primocin & 100 µg/ml & Invivogen; San Diego, California, USA \\
 \end{table}
 
 
-
-
-
 \subsection{Mouse Organoid Culture}
 A heterozygous LSL-Kras G12D (B6.129S4-Krastm4Tyj/J) female mouse was crossed with a homozygous Rosa26-CreERT2 (B6.129-Gt(ROSA)26Sortm1(cre/ERT2)Tyj/J) male to generate offspring with a Tamoxifen activatable KRAS G12D allele. A single healthy LSL-Kras G12D CreERT2 mouse (male, 8 weeks) was sacrificed for organoid generation. 
 
@@ -217,19 +114,68 @@ Primocin & 100 µg/ml & InvivoGen; San Diego, California, USA \\
 \end{tabularx}
 \end{table}
 
+\begin{table}[htb]
+\caption{Cell Lines for Conditioned Media Production}
+\label{tab:recombinant_dna} % Label for referencing
+\begin{tabularx}{\textwidth}{Xll}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Source}\\
+\midrule
+R-Spondin1 expressing 293T Cell Line & Sigma/Merck; St. Louis, Missouri, USA  \\
+L Wnt-3a Cell Line & Clevers laboratory, Utrecht, Netherlands \\
+HEK-293 Noggin-Fc Cell Line & Clevers laboratory, Utrecht, Netherlands \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htb]
+\caption{Hydrogels}
+\label{tab:hydrogels} % Label for referencing
+\begin{tabularx}{\textwidth}{XlX}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Manufacturer} \\
+\midrule
+Matrigel & Corning, Corning, NY 14831 USA \\
+BME R1 & Trevigen, Gaithersburg, Maryland, USA \\
+BME V2 & Trevigen, Gaithersburg, Maryland, USA \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 After isolation, colon organoids were cultured in solidified BME R1 (10mg/ml) droplets and overlaid with genotype and experiment dependent growth medium. The medium was exchanged every 48-72 h. 
 APC mutant colon organoid lines were cultured without Wnt and R-spondin conditioned medium, which was replaced by basal medium instead.
 Organoids were passaged weekly by digestion with TrypLE (Gibco) and resuspension in BME R1 (10mg/ml). 
 Organoids were regularly tested for Mycoplasma contaminations.  
 
 \subsection{Genetic editing of organoids}
-An sgRNA targeting the murine ortholog of the APC mutation cluster region (MCR) was designed using E-CRISP \cite{Heigwer2014-gq}. The Apc targeting sgRNA was cloned into the one-vector plasmid pSpCas9(BB)-2A-Puro (PX459) V2.0 according to Ran et al. \cite{Ran2013-ca}. Briefly, the vector was digested with Bbs1-HF (Thermo Fischer Scientific) and the phosphorylated and annealed oligonucleotide sgApc1 (sgApc1 F and -R) was ligated using T4-Ligase (Thermo Fischer Scientific). The construct was transformed into chemically competent bacterial cells (Stellar, Clontech) and plated on Carbenicillin agar. Individual colonies were isolated and sequencing of plasmid DNA from cultured colonies confirmed successful molecular cloning.   
-Extracted organoids (termed “wildtype”, “WT”) were cultured for multiple passages before transfection of the plasmid with Lipofectamine 2000 (Thermo Fischer Scientific). Here, grown organoids were digested with TrypLE (Gibco) and treated with Lipofectamine and plasmid DNA according to the manufacturer’s protocol. Transfected organoids were seeded in BME R1 (10mg/ml) and Wnt3A/R-Spondin1-Fc withdrawal was started 7 days after transfection. Surviving organoids were cultured continuously without Wnt3A and R-Spondin1-Fc conditioned medium (termed “A”).
-To activate oncogenic Kras, Wildtype and APC mutant organoid lines were treated for 7 days with 0.5uM 4-Hydroxytamoxifen (Sigma) without EGF in the medium. 4-Hydroxytamoxifen was dissolved in Ethanol. After treatment, organoids were cultured with EGF containing media thereafter (termed “K” or “AK”, respectively).
+An sgRNA targeting the murine ortholog of the APC mutation cluster region (MCR) was designed using E-CRISP \cite{Heigwer2014-gq}. The Apc targeting sgRNA was cloned into the one-vector plasmid pSpCas9(BB)-2A-Puro (PX459) V2.0 according to Ran et al. \cite{Ran2013-ca}. Briefly, the vector was digested with Bbs1-HF (Thermo Fischer Scientific) and the phosphorylated and annealed oligonucleotides for sgApc1 (sgApc1 F and -R) was ligated using T4-Ligase (Thermo Fischer Scientific). The construct was transformed into chemically competent bacterial cells (Stellar, Clontech) and plated on Carbenicillin agar. Individual colonies were isolated and sequencing of plasmid DNA from cultured colonies confirmed successful molecular cloning.   
+Extracted organoids (abbreviated, "wildtype" or "WT") were cultured for multiple passages before transfection of the plasmid with Lipofectamine 2000 (Thermo Fischer Scientific). For this step, grown organoids were digested with TrypLE (Gibco) and treated with Lipofectamine and plasmid DNA according to the manufacturer’s protocol. Transfected organoids were seeded in BME R1 (10mg/ml) and Wnt3A/R-Spondin1-Fc withdrawal was started 7 days after transfection. Surviving organoids were cultured continuously without Wnt3A and R-Spondin1-Fc conditioned medium.
+To activate oncogenic Kras, Wildtype and APC mutant organoid lines were treated for 7 days with 0.5uM 4-Hydroxytamoxifen (Sigma) without EGF in the medium. 4-Hydroxytamoxifen was dissolved in Ethanol. After treatment, organoids were cultured with EGF containing media thereafter.
 
-\smallbreak
-Guide oligonulcleotides for Apc are listed below:
-sgApc1: 5´-GGCACTCAAAACGCTTTTGA-3′ and 5′-TCAAAAGCGTTTTGAGTGCC-3′ 
+\begin{table}[htb]
+\caption{List of Recombinant DNA}
+\label{tab:recombinant_dna} % Label for referencing
+\begin{tabularx}{\textwidth}{Xll}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
+\midrule
+pSpCas9(BB)-2A-Puro (PX459) V2.0 & F. Zhang via Addgene & \# 62988 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htb]
+\caption{List of sgRNAs}
+\label{tab:oligonucleotides} % Label for referencing
+\begin{tabularx}{\textwidth}{XlX}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Sequence} & \textbf{Source} \\
+\midrule
+sgAPC1 & GGCACTCAAAACGCTTTTGA & GATC Biotech \\
+sgAPC2 & TCAAAAGCGTTTTGAGTGCC & GATC Biotech \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \section{Biochemical assays}
 
@@ -240,41 +186,91 @@ Also, all variants annotated “benign” according to PolyPhen database and “
 \subsection{Amplicon Sequencing of Mouse Organoids}
 Amplicon sequencing was performed to validate the genetic perturbation of Apc. DNA from Apc targeted and untargeted organoid lines was prepared using the DNA Blood and Tissue Kit (Qiagen), according to the manufacturer’s tissue protocol including an RNAse digestion. The targeted region was PCR amplified using primers F1 to R2, and sequencing libraries were prepared according to the manufacturer’s protocol. Libraries were sequenced on a MySeq (Illumina) using 100bp single end reads. 
 
+\begin{table}[htb]
+\caption{List of Genomic PCR Primers for Amplicon Sequencing}
+\label{tab:oligonucleotides} % Label for referencing
+\begin{tabularx}{\textwidth}{XlX}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Sequence} & \textbf{Source} \\
+\midrule
+Primer F1 & TCCCTACACGACGCTCTTCCGATCTGGAATGTCAGAAGGGAGACC & GATC Biotech \\
+Primer F2 & TCCCTACACGACGCTCTTCCGATCTGAGGAATGTCAGAAGGGAGA & GATC Biotech \\
+Primer R1 & AGTTCAGACGTGTGCTCTTCCGATCTCCAACCAGAAATGCCAGTG & GATC Biotech \\
+Primer R2 & AGTTCAGACGTGTGCTCTTCCGATCTGCCAACCAGAAATGCCAGT & GATC Biotech \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \subsection{Genomic PCR of the KRAS G12D allele in Mouse Organoids}
 To confirm activation of oncogenic Kras in 4-Hydroxytamoxifen treated lines, genomic DNA was isolated from all 4 organoid lines as described above. Presence or absence of the Lox-STOP-Lox cassette was evaluated by PCR according to the Kras G12D conditional PCR protocol by Tyler Jacks’ group \cite{Jackson2001-wv}. Briefly, primers #2 and #3 were used for genotyping on genomic DNA using the Q5 PCR protocol (NEB).
 
+\begin{table}[htb]
+\caption{List of Primers for validating KRAS conditional PCR}
+\label{tab:oligonucleotides} % Label for referencing
+\begin{tabularx}{\textwidth}{XlX}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Sequence} & \textbf{Source} \\
+\midrule
+Primer #2 & CTCTTGCCTACGCCACCAGCT & GATC Biotech \\
+Primer #3 & AGCTAGCCACCATGGCTTGAGTAAGTCTGCA & GATC Biotech \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Western Blot of Patient derived Organoids}
-Organoids seeded in 6-well plates were cultured in Matrigel (Corning). After 3-days incubation with WYE-132, organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Cells were subsequently lysed in RIPA buffer (Thermo Fisher Scientific) supplemented with protease inhibitors (Complete Mini, Roche) and phosphatase inhibitors (Phosphatase Inhibitor 1 and 2, Sigma), followed by sonication (Branson Sonifier, Heinemann). Protein concentrations of supernatants were measured using a BCA assay kit (Thermo Fisher Scientific). Lysates were mixed with an SDS-loading buffer and heated to 99 °C for 5 min. Proteins were separated by SDS–PAGE in MOPS running buffer and transferred to a nitrocellulose membrane. Membranes were blocked with 5\% (w/v) skim milk in PBS containing 0.1\% (v/v) Triton X-100 (PBS-T). Antibodies against IRS1 (06-248, Sigma–Aldrich) and HSP-90 (sc-13119, Santa Cruz) as loading control were used in 1:1000 dilution in 5\% milk in PBS-T, secondary antibodies (Mouse IgG HRP ECL, Sigma–Aldrich) were used in 1:10000. ECL Western Blotting W1001 (Promega) was used for visualization of bands.
+Organoids seeded in 6-well plates were cultured in Matrigel (Corning). After 3-days incubation with WYE-132, organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Cells were subsequently lysed in RIPA buffer (Thermo Fisher Scientific) supplemented with Protease inhibitors (Complete Mini, Roche) and Phosphatase inhibitors 1 and 2 (Sigma), followed by sonication (Branson Sonifier, Heinemann). Protein concentrations of supernatants were measured using the Pierce BCA kit (Thermo Fisher Scientific) according to the manufacturers protocol. Lysates were mixed with an SDS-loading buffer and heated to 99 C for 5 minutes. Proteins were separated by SDS–PAGE in MOPS running buffer and transferred to a nitrocellulose membrane. Membranes were blocked with 5\% (w/v) skim milk in PBS containing 0.1\% (v/v) Triton X-100 (PBS-T). Western Blotting was performed with following antibodies (all in 5\% (w/v) skim milk, PBS-T): anti-IRS1 (1:1000, 06-248, Sigma–Aldrich), anti-HSP-90 (1:1000, sc-13119, Santa Cruz), anti-Mouse-IgG-HRP (1:10000, Sigma–Aldrich). ECL Western Blotting W1001 (Promega) was used for visualization of bands.
+
+\begin{table}[htb]
+\caption{List of Antibodies used in experiments}
+\label{tab:antibodies} % Label for referencing
+\begin{tabularx}{\textwidth}{Xll}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Source} & \textbf{Identifier} \\
+\midrule
+Anti-IRS1 (rabbit) & Sigma–Aldrich & 06-248 \\
+Anti HSP-90 (mouse) & Santa Cruz & 13119 \\
+Anti-ERK (p44/42 MAPK) (rabbit) & Cell Signaling & 4695 \\
+Anti-phospho-ERK (phospho-p44/42 MAPK) (rabbit) & Cell Signaling & 4370 \\
+Anti-beta-actin HRP (mouse) &  &  \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Western Blot of Mouse Organoids}
-Organoids were cultured in Matrigel (Corning). Organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Isolated organoids were lysed in RIPA buffer (Sigma) with Protease inhibitor (Sigma) and Phosphatase inhibitor 3 (Sigma). Protein concentration was measured using the Pierce BCA kit (Thermo Fischer Scientific) according to the manufacturers protocol and samples were loaded onto NuPage gels (Thermo Fischer Scientific). Western Blotting was performed with following antibodies: anti-p(hospho)-Erk (1:2000, Cell Signaling, ID 4370), anti-Erk (1:1000, Cell Signaling, ID 4695) and anti-beta-actin-HRP secondary antibody (1:150,000).
+Organoids were cultured in Matrigel (Corning). Organoids were collected, and cells were isolated using Matrisperse (Corning) for 40 minutes on a rocking table. Isolated organoids were lysed in RIPA buffer (Sigma) with Protease inhibitor (Sigma) and Phosphatase inhibitor 3 (Sigma). Protein concentration was measured using the Pierce BCA kit (Thermo Fischer Scientific) according to the manufacturers protocol. Lysates were mixed with an SDS-loading buffer and heated to 99 C for 5 minutes. Samples were loaded onto NuPage gels (Thermo Fischer Scientific), separated in MOPS running buffer and transferred to a nitrocellulose membrane. Membranes were blocked with 5\% (w/v) skim milk in PBS containing 0.1\% (v/v) Triton X-100 (PBS-T). Western Blotting was performed with following antibodies (all in 5\% (w/v) skim milk, PBS-T): anti-p(hospho)-Erk (1:2000, Cell Signaling, ID 4370), anti-Erk (1:1000, Cell Signaling, ID 4695) and anti-beta-actin-HRP secondary antibody (1:150,000).
 
 \subsection{Mouse Organoid Growth Patterns}
-Organoids were passaged and seeded in 4 different growth media with medium changes every 48h. Images were taken 120h after seeding.  
+Organoids were passaged and seeded in 4 different growth media with medium changes every 48h. Images were taken 120h after seeding with 4x magnification on a Zeis Axiovert. 
 
 \subsection{RT-qPCR of Patient derived Organoids}
-After 120h of growth, total RNA was isolated from organoids with the RNeasy Mini kit (Qiagen). cDNA synthesis was done with Verso cDNA kit (Thermo Fisher Scientific), and RT-PCR was performed using the SYBR Green Mix (Roche) on LightCycler480 system (Roche). 
+Organoids were passaged and seeded. Treatment timing was performed in accordance with the screening protocol. After 120h of growth, total RNA was isolated using the RNAEasy Mini kit (Qiagen) without additives. cDNA synthesis was done with Verso cDNA kit (Thermo Fisher Scientific), and RT-qPCR was performed using the SYBR Green Mix (Roche) on a LightCycler480 system (Roche). UBC expression levels were used as controls.
 
-\smallbreak
-Primers are listed below:
-LGR5: 5´-TTCCCAGGGAGTGGATTCTAT-3′ (forward) and 5′-ACCAGACTATGCCTTTGGAAAC-3′ (reverse)
-UBC: 5´-CTGATCAGCAGAGGTTGATCTTT-3´ (forward) and 5′-TCTGGATGTTGTAGTCAGACAGG-3′ (reverse)
-
+\begin{table}[htb]
+\caption{List of RT-qPCR Primers}
+\label{tab:oligonucleotides} % Label for referencing
+\begin{tabularx}{\textwidth}{XlX}
+\toprule
+\textbf{Reagent or Resource} & \textbf{Target Organism} & \textbf{Sequence} & \textbf{Source} \\
+\midrule
+LGR5 F & Human & TTCCCAGGGAGTGGATTCTAT & GATC Biotech \\
+LGR5 F & Human & ACCAGACTATGCCTTTGGAAAC & GATC Biotech \\
+UBC F & Human & CTGATCAGCAGAGGTTGATCTTT & GATC Biotech \\
+UBC R & Human & TCTGGATGTTGTAGTCAGACAGG & GATC Biotech \\
+Axin2 F & Mouse & GAGAGTGAGCGGCAGAGC & GATC Biotech \\
+Axin2 R & Mouse & CGGCTGACTCGTTCTCCT & GATC Biotech \\
+Ccnd F & Mouse & TTTCTTTCCAGAGTCATCAAGTGT & GATC Biotech \\
+Ccnd R & Mouse & TGACTCCAGAAGGGCTTCAA & GATC Biotech \\
+Sdha F & Mouse & TGTTCAGTTCCACCCCACA & GATC Biotech \\
+Sdha R & Mouse & TCTCCACGACACCCTTCTGT & GATC Biotech \\
+Hprt F & Mouse & CCTCCTCAGACCGCTTTTT & GATC Biotech \\
+Hprt R & Mouse & CCTCCTCAGACCGCTTTTT & GATC Biotech \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{RT-qPCR of Mouse Organoids}
-Organoids were passaged and seeded in 4 different growth media with medium changes every 48h. After 120h, organoid RNA was isolated using the RNAEasy Kit (Qiagen) with beta-Mercaptoethanol (Invitrogen) and a DNAse digestion step. cDNA was synthesized using Oligo-dT primers (Thermo Fisher Scientific), RiboLock Ribonuclease inhibitor (Thermo Fisher Scientific) and Revert Aid H Minus reverse transcriptase (Thermo Fisher Scientific). RT-qPCR was performed using the ROCHE UPL kit (Roche), Sdha and Hprt expression levels were used as controls and averaged. Relative transcript abundance was measured using the ddCT method. RT-qPCR primers targeting Axin2, Ccnd, as well as the mouse reference genes Sdha and Hprt were used. 
-
-\smallbreak
-Primers are listed below:
-Axin2: 5´-gagagtgagcggcagagc-3′ (forward) and 5′-cggctgactcgttctcct-3′ (reverse)
-Ccnd: 5´-tttctttccagagtcatcaagtgt-3´ (forward) and 5′-tgactccagaagggcttcaa-3′ (reverse)
-Ccnd: 5´-tttctttccagagtcatcaagtgt-3´ (forward) and 5′-tgactccagaagggcttcaa-3′ (reverse)
-Sdha: 5´-tgttcagttccaccccaca-3´ (forward) and 5′-tctccacgacacccttctgt-3′ (reverse)
-Hprt 5´-cctcctcagaccgcttttt-3´ (forward) and 5′-cctcctcagaccgcttttt-3′ (reverse)
+Organoids were passaged and seeded in 4 different growth media with medium changes every 48h. After 120h, organoid RNA was isolated using the RNAEasy Kit (Qiagen) with beta-Mercaptoethanol (Invitrogen) and a DNAse digestion step. cDNA was synthesized using Oligo-dT primers (Thermo Fisher Scientific), RiboLock Ribonuclease inhibitor (Thermo Fisher Scientific) and Revert Aid H Minus reverse transcriptase (Thermo Fisher Scientific). RT-qPCR was performed using the ROCHE UPL kit (Roche) on a LightCycler480 system (Roche). Sdha and Hprt expression levels were used as controls and averaged. Relative transcript abundance was measured using the ddCT method.
  
-
-
 \subsection{Proteomics Profiling of Mouse Organoids}
 Organoids were cultured according to the screening protocol (above). Samples were isolated with Matrisperse (Corning) as described above. Isolated organoids were lysed in Ammonium Bicarbonate lysis buffer (50mM, pH 8.2) with 2.5\% w/v SDC and 25U/ml Benzonase. 
 Samples were handed over to the Proteomics core facility at the German Cancer Research Center. There, a 1D-SDS-PAGE of the lysate was run followed by fractionation. Gel pieces were extracted, cysteins residues reduced by DTT and carbamidomethylated using iodoacetamide. The samples were digested with Trypsin overnight.
@@ -285,10 +281,10 @@ Organoids were cultured according to the the screening protocol (above) and prep
 Isolated organoids were processed by the Lipidomics and Metabolomics core facility. 
 After lipid extraction, isolates were analysed using a Qtrap 6500 Mass Spectrometer (SCIEX) coupled to a NanoMate (NanoMate) electrospray source. Metabolome profiles were generated and handed over to the authors for downstream imputation and analysis.
 
-\subsection{Expression Profiling of Patient derived Organoids}
+\subsection{Transcript Expression Profiling of Patient derived Organoids}
 Organoid RNA was isolated from 19 PDO lines with the RNeasy mini kit after snap freezing organoids on dry ice. Samples were hybridized on Affymetrix U133 plus 2.0 arrays. Raw microarray data were normalized using the robust multi-array average (RMA) method \cite{Irizarry2003-vi} followed by quantile normalization as implemented in the ‘affy’ \cite{Gautier2004-jj} R/Bioconductor \cite{Huber2015-kc} package. In order to exclude the presence of batch effects in the data, principal component analysis and hierarchical clustering were applied. Consensus molecular subtypes were determined as described previously using the single sample CMS classification algorithm with default parameters as implemented in the R package ‘CMSclassifier’. In all cases, differential gene expression analyses were performed using a moderated t-test as implemented in the R/Bioconductor package ‘limma’ \cite{Ritchie2015-vf}. Gene set enrichment analyses were performed using ConsensusPathDB \cite{Kamburov2013-co} for discrete gene sets or GSEA as implemented in the ‘fgsea’ \cite{Korotkevich2021-xu} R/Bioconductor package for ranked gene lists.
 
-\subsection{Expression Profiling of Mouse Organoids}
+\subsection{Transcript Expression Profiling of Mouse Organoids}
 Mouse organoids were cultured according to a standardized screening protocol. Briefly, organoid models were seeded and cultured for 72h in WENRAS+Y and additional 96h in ENR-Y. Samples were harvested after 7 days and RNA was isolated using the RNAEasy Kit (Qiagen) as described above. Transcript expression levels were measured using MoGene-2\_0-st chips (Affymetrix).
 Differential gene expression analyses were performed analogous to Patient derived Organoids.
 
@@ -296,6 +292,15 @@ Differential gene expression analyses were performed analogous to Patient derive
 
 \subsection{Patient derived organoid seeding during compound testing}
 Patient dervied organoid drug profiling followed a standardized protocol with comprehensive documentation of all procedures. Organoids were collected and digested in TrypLE Express (Life technologies). Fragments were collected in basal medium with 300 U/ml DNAse and strained through a 40μm filter to achieve a homogeneous cell suspension with single cells and small clusters of cells, but without large organoid fragments. 384 well μclear assay plates (Greiner) were coated with 10μL BME V2 (Trevigen) at a concentration of 6.3 mg/ml in basal medium, centrifuged and incubated for >20 min at 300G and 37° C to allow solidification of the gel. Organoid cell clusters together with culture medium (ENA) and 0,8 mg/ml BME V2 were added in a volume of 50μl per well using a Multidrop dispenser (Thermo Fisher Scientific). Plates were sealed with a plate-loc (Agilent) and centrifuged for additional 20 min allowing cells to settle on the pre-dispensed gel. Cell number was normalized before seeding by measuring ATP levels in a 1:2 dilution series of digested organoids with CellTiter-Glo (Promega). The number of cells matching 10,000 photons was seeded in each well. After seeding of organoid fragments, plates were incubated for three days at 37°C to allow organoid formation before addition of compounds. Two biological replicates of each organoid line from different passages were profiled at different time points.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth,
+                height=\textheight,
+                keepaspectratio]{figures/promise/pdf/fig_0_1.pdf}
+\caption[Core organoid liquid handling methods]{\textbf{Core organoid liquid handling methods a} Organoid isolation procedure. Colorectal cancer tissue biopsies were collected via endoscopy, enzymatically removed from extracellular matrix proteins, washed and resuspended in basal membrane extract hydrogel. After solidification of hydrogel domes, organoids were overlayed with growth factor rich culture medium. \textbf{b} Organoid high-throughput experimentation. Colorectal cancer organoids were harvested, partially digested, seeded in hydrogel-coated 384-well plates. Figure produced with Biorender}
+\label{fig_110}
+\end{figure}
 
 \subsection{Mouse Organoid seeding during compound testing}
 Mouse organoid screening was performed as described above with slight modifications. Clotting of organoid fragments was avoided by adding 10 U/ml of bovine DNAse1 to the medium during filtration. The cell viability of digested fragment suspensions was estimated using Cell-Titer-Glo (Promega). 40ul of cell suspension was mixed with 40ul of undiluted reagent and measured after 30 minutes on a Mithras plate reader (Berthold). Cell fragments with a viability corresponding to 5000 photons were seeded per well on pre-coated 384 well plates using a Multidrop peristaltic pump robot (Thermo Fischer Scientific). 
@@ -321,20 +326,36 @@ Raw luminescence data of each plate were first normalized using the Loess-fit me
 \subsection{Luminescence Viability Read Out of Patient Derived Organoids of Mouse Organoids}
 For selected compounds, before compound addition, organoid viability was measured using Cell-Titer-Glo (Promega) and WENR-Y was added to the remaining plates. Cell viability was measured after compound exposure as described above. The pre-treatment viability of organoids was used to estimate growth-rate controlled dose-response curves according to \cite{Hafner2016-yr} Measurements of GR metrics for was not robust for slow proliferating WT lines. Therefore, these lines were omitted in the analysis.
 
-\subsection{Microscopy}
+\subsection{Automated Microscopy}
 Image-IT DeadGreen (Thermo Fisher) was added to the cultures with a Multidrop dispenser (Thermo Fisher) in 100nM final concentration and incubated for four hours. Afterwards, medium was removed and organoid cultures were fixed with 3\% PFA in PBS with 1\% BSA. Fixed plates were stored at 4° C for up to three days before permeabilization and staining. On the day of imaging, organoids were permeabilized with 0.3\% Triton-X-100 and 0.05\% Tween in PBS with 1\% BSA and stained with 0.1μg/ml TRITC-Phalloidin (Sigma) and 2μg/ml DAPI (Sigma). All liquid handling steps were performed with a BiomekFX. Screening plates were imaged with an Incell Analyzer 6000 (GE Healthcare) line-scanning confocal fluorescent microscope. We acquired 4 fields per well with z-stacks of 16 slices at 10x magnification. The z-steps between the 16 slices had a distance of 5μm, the depth of field of each slice was 3.9μm.
 
 \section{Image analysis}
 
 \subsection{Image Processing}
-Microscopic image z-stacks were compressed to HDF5 format for archival and underwent maximum contrast projection using the R/Bioconductor package MaxContrastProjection developed by Jan Sauer for further processing of the images. Standard image features, including shape, moment, intensity, and Haralick texture features on multiple scales, were extracted using the R/Bioconductor package EBImage \cite{Pau2010-gg}. Of note, the strong diversity of unperturbed organoid phenotypes between organoid lines did not allow the definition of a core set of individual reproducible descriptive features across all screened organoids. Therefore, no correlation-based filtering of features was done, allowing comparisons between different lines. Out-of-focus objects were programmatically and manually removed from the dataset.
+Microscopic image z-stacks were compressed to HDF5 format for archival and underwent maximum contrast projection using the R/Bioconductor package MaxContrastProjection developed by Jan Sauer for further processing of the images. Standard image features, including shape, moment, intensity, and Haralick texture features on multiple scales, were extracted using the R/Bioconductor package EBImage \cite{Pau2010-gg}. Of note, the strong diversity of unperturbed organoid phenotypes between organoid lines did not allow the definition of a core set of individual reproducible descriptive features across all screened organoids. Therefore, no correlation-based filtering of features was done, allowing comparisons between different lines. Out-of-focus objects were manually and programmatically removed from the dataset using a custom classifier developed by Jan Sauer.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth,
+                height=\textheight,
+                keepaspectratio]{figures/promise/pdf/fig_1_2.pdf}
+\caption[Image-based profiling method overview]{\textbf{Image-based profiling method overview a} The image-processing pipeline illustrated with representative example images from two organoid lines: Organoids were imaged at multiple layers along the z-axis. Images were projected using a maximum contrast projection and segmented using a convolutional neural network, both designed and implemented by Jan Sauer. Descriptive features were extracted from all three channels to quantify phenotypes. Feature plots show the median phenotype of unperturbed organoids, six example features (Area, Phalloidin intensity, DAPI intensity, FITC intensity, FITC Haralic angular second moment (ASM) and FITC intensity 1-percentile) and their z-scores relative to all profiled organoid lines are shown. Figure created with support from Jan Sauer (data processing) and Johannes Betge (graphical presentation). Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \citep{Betge2022-kr}}
+\label{fig_135}
+\end{figure}
 
 \subsection{Drug-Induced Phenotypes}
-A principal component analysis (PCA) was performed on the entire datasets (patient derived and mouse organoids seperately) to reduce the dimensionality. 25 principal components were selected, explaining approx. 81\% of the total variance within the dataset. A logistic regression classifier was trained per line and treatment (and per concentration where applicable) to differentiate treated organoids from negative controls based on the PCA-transformed features. To allow comparison between various organoid lines and drug perturbations, the distributions of features describing organoids from different batches were adjusted. Drugs were categorized as either active or inactive based on the accuracy of the model. The direction of the vector perpendicular to the decision plane was interpreted as the treatment effect vector. Drugs were clustered with regard to the angles of their corresponding effect vectors in PCA-feature space.
+A principal component analysis (PCA) was performed on the entire datasets (patient derived and mouse organoids seperately) to reduce the dimensionality. 25 principal components were selected, explaining approx. 80\% of the total variance within the dataset. A logistic regression classifier was trained per line and treatment (and per concentration where applicable) to differentiate treated organoids from negative controls based on the PCA-transformed features. To allow comparison between various organoid lines and drug perturbations, the distributions of features describing organoids from different batches were adjusted. Drugs were categorized as either active or inactive based on the accuracy of the model. The direction of the decision plane's normal vector was used as the treatment effect vector. Drugs were clustered based on the cosine similarity of their normal vectors.
 
 \subsection{Live-Dead Classification}
 A random forest classifier was trained by Jan Sauer on the original single organoid features to differentiate living from dead organoids. Organoids treated with DMSO were used as negative (i.e. living) controls while organoids treated with Bortezomib and SN-38 at the two highest concentrations were used as positive (i.e. dead) controls. Visual inspection of the projected images confirmed the choice of positive controls. Binary classification results were averaged within wells to obtain viability scores ranging from 0 to 1, indicating how lethal a treatment was. A separate classifier was trained for each individual line to ensure inter-line independence.
 
+\section{Analysis of Transcript, Protein and Lipid abundance}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
 
 \section{Multi-omics factor analysis}
 \subsection{Model training of Patient Derived Organoids}
@@ -362,6 +383,6 @@ A multi-omics factor analysis model with k=4 factors was trained and results wer
 To estimate the factor scores for drug-induced organoid morphologies, the morphology profiles of organoids treated with the same drug were averaged. The resulting average profile matrix was multipled with the pseudoinverse of the previously learnt model loading matrix for organoid morphology data. 
 
 \smallbreak
-The resulting projected factor score matrix was used to estimate the drug-induced biological changes in both patient derived and mouse organoids. Associations between drug targets and projected factor scores of drug treated organoids were identified via ANOVA by fitting a linear model, lm(projected factor score ~ target). Drug targets that were represented with at least three small molecule inhibitors were included in this analysis.
+The resulting projected factor score matrix was used to estimate the drug-induced biological changes in both patient derived and mouse organoids. Associations between drug targets and projected factor scores of drug treated organoids were identified via ANOVA by fitting a linear model, lm(projected factor score ~ target). For mouse organoids, the model was extended to account for line-wise effects in the modeling, lm(projected factor score ~ target + organoid_line). Drug targets that were represented with at least three small molecule inhibitors were included in the analysis, except in the modeling of individual small molecule effects on mouse organoids.
 
 \end{flushleft}
