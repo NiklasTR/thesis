@@ -5,19 +5,121 @@
 % Available options include `Harvard`, `Princeton`, and `NYU`.
 \documentclass[School=Harvard]{Dissertate}
 \usepackage{textgreek}
+\usepackage{nomencl}
+\usepackage{etoolbox}
+\makenomenclature
+
+% define function
+\renewcommand\nomgroup[1]{%
+  \ifstrequal{#1}{A}{%
+    \item[\bfseries\large Abbreviations]\vspace{10pt} % Adjust the space as needed
+  }{%
+    \ifstrequal{#1}{N}{%
+      \item[\bfseries\large Notation]\vspace{10pt} % Adjust the space as needed
+    }{}%
+  }%
+}
+
 \begin{document}
 
 % the front matter
 \input{frontmatter/personalize}
 \maketitle
 \copyrightpage
-\dedicationpage
-\authorlist
+
+
+
+
+
+% nomenclature
+\renewcommand{\nomname}{List of Abbreviations and Notation}
+% abbreviation section
+\nomenclature[A]{AUC}{Area under the curve}
+\nomenclature[A]{CIMP}{CpG island methylator phenotype}
+\nomenclature[A]{CIN}{Chromosomal instability}
+\nomenclature[A]{CRC}{Colorectal cancer}
+\nomenclature[A]{PDO}{Patient Derived Organoid}
+\nomenclature[A]{CRISPR}{Clustered Regularly Interspaced Short Palindromic Repeats}
+\nomenclature[A]{DMEM}{Dulbecco’s Modified Eagle Medium}
+\nomenclature[A]{DMSO}{Dimethyl sulfoxide}
+\nomenclature[A]{FDR}{False discovery rate}
+\nomenclature[A]{MSI}{Microsatellite instability}
+\nomenclature[A]{MSS}{Microsatellite stability}
+\nomenclature[A]{AUROC}{Area under the receiver operating characteristic}
+\nomenclature[A]{UICC}{Union for International Cancer Control}
+\nomenclature[A]{sgRNA}{Single guide RNA}
+\nomenclature[A]{5FU}{5-fluorouracil}
+\nomenclature[A]{HexCer}{Hexosylceramide}
+\nomenclature[A]{PA}{Phosphatidate}
+\nomenclature[A]{Cer}{Ceramide}
+\nomenclature[A]{SM}{Sphingomyelin}
+\nomenclature[A]{LPC}{Lysophosphatidylcholine}
+\nomenclature[A]{PS}{Phosphatidylserine}
+\nomenclature[A]{PE}{Phosphatidylethanolamine}
+\nomenclature[A]{PI}{Phosphatidylinositol}
+\nomenclature[A]{PG}{Phosphatidylglycerol}
+\nomenclature[A]{DAG}{Diacylglycerol}
+\nomenclature[A]{PC}{Phosphatidylcholine}
+\nomenclature[A]{Hex2Cer}{Dihexosylceramide}
+\nomenclature[A]{CE}{Cholesterol Ester}
+\nomenclature[A]{Chol}{Cholesterol}
+\nomenclature[A]{TAG}{Triacylglycerol}
+\nomenclature[A]{ARD}{Automatic Relevance Determination}
+\nomenclature[A]{FDR}{False Discovery Rate}
+\nomenclature[A]{FOLFOX}{Folinic Acid, 5-Fluorouracil, and Oxaliplatin}
+\nomenclature[A]{FOLFIRI}{Folinic Acid, 5-Fluorouracil, and Irinotecan}
+\nomenclature[A]{FOLFOXIRI}{Folinic Acid, 5-Fluorouracil, Oxaliplatin, and Irinotecan}
+\nomenclature[A]{EKG}{Electrokardiogram}
+\nomenclature[A]{BMP}{Bone Morphogenic Protein}
+\nomenclature[A]{HRP}{Horse Radish Peroxidase}
+\nomenclature[A]{RIPA}{Radioimmunoprecipitation Assay Buffer}
+\nomenclature[A]{DTT}{Dithiothreitol}
+\nomenclature[A]{PDO}{Patient Derived Organoid}
+\nomenclature[A]{TRITC}{Tetramethylrhodamine}
+\nomenclature[A]{DAPI}{4′,6-Diamidino-2-Phenylindole}
+\nomenclature[A]{HDF5}{Hierarchical Data Format Version 5}
+\nomenclature[A]{PCA}{Principal Component Analysis}
+\nomenclature[A]{ICA}{Independent Component Analysis}
+\nomenclature[A]{NMF}{Non-negative Matrix Factorization}
+\nomenclature[A]{ANOVA}{Analysis of Variance}
+\nomenclature[A]{RMA}{Robust Multiarray Average}
+\nomenclature[A]{MOFA}{Multi-omics Factor Analysis}
+\nomenclature[A]{CMS}{Consensus Molecular Subtype}
+\nomenclature[A]{GSEA}{Gene Set Enrichment Analysis}
+\nomenclature[A]{BCA}{Bicinchoninic Acid Assay}
+\nomenclature[A]{WENRAS}{Organoid Medium containing Wnt3a, Egf, Noggin, R-Spondin, A83-01, and SB202190}
+\nomenclature[A]{ENA}{Organoid Medium containing Egf, Noggin, and A83-01}
+\nomenclature[A]{ENAS}{Organoid Medium containing Egf, Noggin, A83-01, and SB202190}
+\nomenclature[A]{UMAP}{Uniform Manifold Approximation and Projection}
+\nomenclature[A]{CRIS}{CRC Intrinsic Subtypes}
+\nomenclature[A]{BWA}{Burrows-Wheeler Aligner}
+\nomenclature[A]{GATK}{Genome Analysis Toolkit}
+\nomenclature[A]{GRC38}{Genome Reference Consortium Human Build 38}
+\nomenclature[A]{MCR}{Mutation Cluster Region}
+\nomenclature[A]{WT}{Wildtype}
+\nomenclature[A]{HEPES}{4-(2-Hydroxyethyl)-1-Piperazineethanesulfonic Acid}
+\nomenclature[A]{DPBS}{Dulbecco's Phosphate Buffered Saline}
+
+% notation section
+\nomenclature[N]{$\mathbf{X}$}{Matrix}
+\nomenclature[N]{$\mathbf{X}^T$}{Matrix Transpose}
+\nomenclature[N]{$\mathbf{X}^+$}{Pseudoinverse of a Matrix}
+\nomenclature[N]{$\mathbf{Y_m}$}{Measured data matrix of modality $m$}
+\nomenclature[N]{$\mathbf{Z}$}{Factor score matrix}
+\nomenclature[N]{$\mathbf{W_m}$}{Factor weight matrix (also called loading matrix) of modality $m$ }
+\nomenclature[N]{$\boldsymbol{\epsilon_m}$}{Error terms of modality $m$}
+
+
+
+
+% continuing with frontmatter
 \tableofcontents
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoftables
 \addcontentsline{toc}{chapter}{List of Tables}
+\printnomenclature
+\addcontentsline{toc}{chapter}{List of Abbreviations and Nomenclature}
 \doublespacing
 
 
@@ -30,22 +132,19 @@
 \include{chapters/chapter2}
 \include{chapters/chapter3}
 \include{chapters/conclusion}
-\abstractpage
-\begin{appendices}
-    \include{chapters/appendixA}
-\end{appendices}
-
-\singlespacing
-
 % the back matter
+\abstractpage
+\singlespacing
 \clearpage
 \printbibliography
-\addcontentsline{toc}{chapter}{References}
+\addcontentsline{toc}{chapter}{\numberline{9}References}
 %\bibliographystyle{harvard}
 \eigenanteil
-\include{endmatter/colophon} %used for CV
+\addcontentsline{toc}{chapter}{Eigenanteil}
+\curriculumvitae
+\addcontentsline{toc}{chapter}{Curriculum Vitae}
 \acknowledgments
+\addcontentsline{toc}{chapter}{Acknowledgments}
 \eidesstaat
-
-
+\addcontentsline{toc}{chapter}{Eidesstaatliche Versicherung}
 \end{document}

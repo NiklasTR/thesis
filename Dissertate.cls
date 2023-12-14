@@ -51,9 +51,8 @@
 %\RequirePackage[authoryear]{natbib}
 %\bibliographystyle{harvard}
 %\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
-\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false]{biblatex}
+\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false, heading=bibintoc]{biblatex}
 %\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=2, url=false, isbn=false, issn=false]{biblatex}
-\addbibresource{references.bib}
 \addbibresource{references.bib}
 \usepackage{hyperref}
 
