@@ -83,7 +83,7 @@ Different organoid lines within the embedding were located in characteristic reg
 \end{figure}
 \bigbreak
 
-Exploratory data analysis of the relationship between organoid morphology and experimental batch showed overall reproducible measurements of organoid profiles across experiments (Figure \ref{fig_145} e). While objects with a log-area of 8 pixels and larger showed reproducible phenotypes across contexts, smaller objects (mostly dead organoids) showed batch-dependent differences in phenotype.
+Exploratory data analysis of the relationship between organoid morphology and experimental batch showed overall reproducible measurements of organoid profiles across experiments (Figure \ref{fig_145} e). While objects with a log-area of 8 pixels and larger showed reproducible phenotypes across contexts, smaller objects such as organoid fragments and remnants showed batch-dependent differences in phenotype.
 
 \bigbreak
 For example, region 1 within the UMAP embedding was exclusively occupied by observations from batch HC1092-09 and HC1092-10, while region 4 was relatively underoccupied (Figure \ref{fig_216} a). Given the confounding of line differences by experimental batches (experimental batches and tested organoid lines were not independent) and the stronger prevalence of batch effects for small objects, no procedure to remove these batch-dependent differences in organoid phenotype were performed. 
@@ -130,13 +130,7 @@ To further test the link between organoid morphology and cell viability, a lumin
 \end{figure}
 \bigbreak
 
-To test whether a more accurate prediction of organoid viability was achievable by using all available imaging data, I used a previously trained set of random forest classifiers (live/dead classifiers, LDC). These classifiers were trained on individual organoid phenotype profiles to distinguish between negative and positive control treatments (DMSO, Bortezomib and SN-38). 
-
-\bigbreak
-When applying the classifier to the whole imaging dataset and visualizing predictions via UMAP, organoids within previously identified small-object regions 2, 3 and 4 had the highest probabilities for death (Figure \ref{fig_222} b). 
-
-\bigbreak
-Not only organoid size, but also the viability classified (LDC) correlated with luminescence-based viability (CTG) measurements (Figure \ref{fig_222} b and c). In fact, the trained classified, together with organoid size showed the most robust correlation with luminescence-based viability measurements across all profiled organoid lines (Figure \ref{fig_222} d), while other simple features, such as DAPI, Actin, and permeability (DeadGreen) intensity were less suitable to predict the viability of organoids. 
+organoid size showed the most robust correlation with luminescence-based viability measurements across all profiled organoid lines (Figure \ref{fig_222} d), while other features, such as DAPI, Actin, and permeability (DeadGreen) intensity were less suitable to predict the viability of organoids. 
 
 \bigbreak
 In conclusion, organoid size is an informative metric to approximate organoid viability, but is biased by line-specific differences in organoid size. Models consuming more comprehensive morphological information can achieve even higher predictive performance of organoid viability. 
@@ -147,7 +141,7 @@ In conclusion, organoid size is an informative metric to approximate organoid vi
 \includegraphics[width=\textwidth,
                 height=\textheight,
                 keepaspectratio]{figures/promise/pdf/fig_2_3.pdf}
-\caption[Organoid phenotype-profiles reflect ATP-dependent viability measurements]{\textbf{Organoid phenotype-profiles reflect ATP-dependent viability measurements. a} Association of organoid size of selected example lines with organoid viability determined by luminescence-based, ATP-dependent viability profiling with CellTiter-Glo (CTG), which was performed in parallel with imaging on a subset of drug treatments. \textbf{b} UMAP visualization of dead organoids within our dataset, based on supervised machine learning of organoid viability using classifiers trained on positive- (high-dose bortezomib and SN-38) and negative (DMSO) controls (live-dead classifiers, LDC). \textbf{c} Association of organoid size of selected example lines with organoid viability determined by luminescence-based, ATP-dependent viability profiling with CellTiter-Glo (CTG), which was performed in parallel with imaging on a subset of drug treatments for benchmarking. \textbf{d} UMAP visualization of dead organoids within our dataset, based on supervised machine learning of organoid viability using classifiers trained on positive- (high-dose Bortezomib and SN-38) and negative (DMSO) controls (live-dead classifiers, LDC). \textbf{e} Association of LDC and example organoid features (size, DAPI, actin and permeability dye intensities) with benchmark CTG viability read out. Figure created with support from Jan Sauer (LDC classifier training) and adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \citep{Betge2022-kr}}
+\caption[Organoid phenotype-profiles reflect ATP-dependent viability measurements]{\textbf{Organoid phenotype-profiles reflect ATP-dependent viability measurements. a} Association of organoid size of selected example lines with organoid viability determined by luminescence-based, ATP-dependent viability profiling with CellTiter-Glo (CTG), which was performed in parallel with imaging on a subset of drug treatments. \textbf{b} Association of Organoid size and representative features (DNA, actin and permeability dye intensities) with benchmark CTG viability read out. Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \citep{Betge2022-kr}}
 \label{fig_223}
 \end{figure}
 \bigbreak
@@ -197,12 +191,13 @@ Manual inspection of several phenotypes (Figure \ref{fig_231} g) revealed recurr
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
-                keepaspectratio]{figures/promise/pdf/fig_3_2.pdf}
-\caption[Validation of treatment activity and effect quantification]{\textbf{Validation of treatment activity and effect quantification. a} Relationship between eucledian distance of treatment effect vectors and classifier AUROC. The spearman correlation between the two metrics is shown in the top left. Smoothed line represents a loess fit. \textbf{b} Relationship between standard deviation of the AUROC score across bootstrapping runs for one treatment and the mean AUROC score of the treatment. Smoothed line represents a loess fit. \textbf{c} Hierarchical clustering of treatment effect vectors across all observed organoid models. Clustering is based on the eucledian distance of average treatment effect vectors. Sidebars are color-coded by the primary annotated target.}
+                keepaspectratio]{figures/promise/pdf/fig_3_2_1.pdf}
+\caption[Validation of treatment activity and effect quantification method]{\textbf{Validation of treatment activity and effect quantification method. a} Hierarchical clustering of treatment effect vectors across all observed organoid models. Clustering is based on the eucledian distance of average treatment effect vectors. Sidebars are color-coded by the primary annotated target.}
 \label{fig_232}
 \end{figure}
 \bigbreak
 
+I validated the previous approach, and tested alternative methods to 1) quantify treatment activity and 2) cluster treatment effects by similarity. The AUROC score which was previously used to define active treatments, correlated with the euclidean distance of phenotype profiles (spearman correlation = 0.91). Similarly, evaluating an alternative clustering method based on phenotype profile averaging (instead of line-wise concatenating) followed by eucledian distance based clustering (instead of cosine distance) led to an overall similar clustering result of treatments (Figure \ref{fig_232} a). 
 
 \newpage
 
@@ -237,7 +232,7 @@ The support data used to fit the MOFA model consisted of a set of five matrices,
 \bigbreak
 Overall, MOFA factors explained up to 40\% of variance in median organoid size, drug activity and gene expression, while less than 30\% of variance in baseline organoid morphology was explained by the model (Figure \ref{fig_240} b). Organoid lines D046T and D004T stood out as lines with the strongest score for factor 1, while lines D018T and D013T had the strongest score in factor 2. Visual inspection of organoids revealed that organoid lines with a higher factor 1 score tended to be larger in size and organoids with high factor 2 score tended to have a more cystic organoid architecture based on manual classification (Figure \ref{fig_240} c). No interpretable morphological differences between factor 3 low and high organoids were identifiable, so the subsequent analysis was focused on the first two interpretable factors generated by MOFA. To ensure that the learnt embeddings, especially with regards to size and morphology differences, were not biased by the dimensionality of individual views within the support set, I explored the gene expression data directly and plotted organoid models by their manual morpholoical classiciation (Figure \ref{fig_241} a) and measured size (Figure \ref{fig_241} b). Principal component analysis of high variance probes recovered the same observations. To summarize, unsupervised multi-view representation learning with MOFA identified factors within the dataset that explained variation between organoid lines across different data modalities, including organoid morphology and median organoid size. 
 
-\begin{figure}[h!]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth,
                 height=\textheight,
