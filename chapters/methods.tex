@@ -349,13 +349,6 @@ A principal component analysis (PCA) was performed on the entire datasets (patie
 \subsection{Live-Dead Classification}
 A random forest classifier was trained by Jan Sauer on the original single organoid features to differentiate living from dead organoids. Organoids treated with DMSO were used as negative (i.e. living) controls while organoids treated with Bortezomib and SN-38 at the two highest concentrations were used as positive (i.e. dead) controls. Visual inspection of the projected images confirmed the choice of positive controls. Binary classification results were averaged within wells to obtain viability scores ranging from 0 to 1, indicating how lethal a treatment was. A separate classifier was trained for each individual line to ensure inter-line independence.
 
-\section{Analysis of Transcript, Protein and Lipid abundance}
-
-\subsection{}
-
-\subsection{}
-
-\subsection{}
 
 \section{Multi-omics factor analysis}
 \subsection{Model training of Patient Derived Organoids}
@@ -377,7 +370,7 @@ A multi-omics factor analysis model with k=4 factors was trained and results wer
 * organoid lipid abundance [12 replicates, 397 features]
 * organoid genotype for the Apc and KrasG12 allele [12 replicates, 2 features]
 * organoid morphology as determined by averaging DMSO treated morphological profiles (one replicate of Apc-/- organoids was removed from the analysis) [7 replicates, 25 features]
-* organoid drug activity as determined by AUROC score of logistic regression models for drugs that were defined as active in at least one observation [7 replicates, 1699 features]
+* organoid drug activity as determined by AUROC score of logistic regression models for drugs [7 replicates, 1699 features]
 
 \subsection{Model projection}
 To estimate the factor scores for drug-induced organoid morphologies, the morphology profiles of organoids treated with the same drug were averaged. The resulting average profile matrix was multipled with the pseudoinverse of the previously learnt model loading matrix for organoid morphology data. 
