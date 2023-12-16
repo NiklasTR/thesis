@@ -5,18 +5,20 @@
 \universitycity{Heidelberg}
 \universitystate{Baden-Württemberg}
 
+%\hypersetup{
+%    colorlinks,
+%    citecolor=SchoolColor,
+%    filecolor=black,
+%    linkcolor=black,
+%    urlcolor=SchoolColor,
+%}
+
 % School color found from university's graphic identity site:
 % http://isites.harvard.edu/icb/icb.do?keyword=k75408&pageid=icb.page392732
 \definecolor{SchoolColor}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
 \definecolor{chaptergrey}{rgb}{0.6471, 0.1098, 0.1882} % for chapter numbers
 
-\hypersetup{
-    colorlinks,
-    citecolor=SchoolColor,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=SchoolColor,
-}
+
 
 % Formatting guidelines found in:
 % http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
@@ -41,7 +43,7 @@
 	\vspace*{\fill}
 	\begin{center}
 	\textsc{Aus dem Deutschen Krebsforschungszentrum\\
-	und dem Lehrstuhl für Zell- und Molekularbiologie \\ der Medizinischen Fakultät Mannheim \\
+	Abteilung Signalwege und Funktionelle Genomik\\
 	Leitung: \@advisor
 	}
 	\vspace{100pt}
@@ -52,12 +54,14 @@
 	\vspace{12pt}
 	Inauguraldissertation \\
 	zur Erlangung des medizinischen Doktorgrades \\
+    \vspace{12pt}
 	an der \\
 	Medizinischen Fakultät Heidelberg der\\
 	Ruprecht-Karls-Universität\\
 	\vspace{12pt}
-	vorgelegt von
+	vorgelegt von \\
 	\theauthor\\
+    \vspace{12pt}
 	aus Tübingen\\
     \vspace{12pt}
 	\@degreeyear}
@@ -90,19 +94,32 @@
 %	\lhead{Doktorvater: \@advisor} \rhead{\@author}
 %	\renewcommand{\headrulewidth}{0.0pt}
 %	\vspace*{35pt}
-	\chapter{Summary}
+	\chapter*{Summary}
     \begin{flushleft}
 %	\vspace*{20pt}
 %	\scshape Zusammenfassung \\ \rm
 	\input{frontmatter/summary}
     \end{flushleft}
     \newpage
-	\chapter{Zusammenfassung}
+	\chapter*{Zusammenfassung}
     \begin{flushleft}
     \input{frontmatter/zusammenfassung}
     \end{flushleft}
 	\vspace*{\fill}
-	\cfoot{\thepage}
+}
+
+\newcommand{\addsummary}{
+	\chapter*{Summary}
+	\noindent
+	\input{frontmatter/summarys}
+	\vspace*{\fill} \newpage
+}
+
+\newcommand{\addzusammenfassung}{
+	\chapter*{Zusammenfassung}
+	\noindent
+	\input{frontmatter/zusammenfassung}
+	\vspace*{\fill} \newpage
 }
 
 \newcommand{\acknowledgments}{
