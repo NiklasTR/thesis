@@ -1,114 +1,57 @@
 \begin{flushleft}
 
 \chapter{Discussion}
+This discussion is divided into three sections, a general methodological section as well as discussions on findings within patient-derived organoids, and the engineered mouse colon organoids.
 
-
-% for discussion
-Other methods for representation learning beyond matrix factorization have been developed, including deep-learning methods which introduce multiple layers of non-linear activation functions. While these methods have shown unparalleled results when pre-trained with very large data, their ability to learn robust representations when only few observations are available is limited and subject of the current few-shot learning research field. While not subject of this thesis, in the future there will be multiple, exciting, opportunities to learn deep foundation models for organoid biology. 
-
-To summarise and motivate the use of MOFA in this thesis, one can argue that it is among the simplest methods to learn robust representations across multiple data modalities. Given that we are analysing highly complex data with very limited observations, care should be taken to use simple methods first whenever possible. 
-
-%TODO
-Outliers - Examples that are projected into interpretable regions but are not actually in this regions - reconstruction error methods / outlier detection. This way We can quantify and differentiate between projected samples that are outside of the learnt subspace or inside it.  
-1. no detectable treatment effect
-2. treatment effect outside of the representation space - most likely toxic treatment effect
-3. treatment effect inside the representation space - most likely viable but state changing treatment effect
-
-%TODO
-establish that there is signficant bleed through in the imaging data because of joint PCA pre-processing in both proejcts. 
-For a rigorous evaluation of the proposed appraoch, a fully separate query and support set should be collected and independently pre-processed. 
-One way I can imagine this to happen in the future is to perform low-rank finetuning of organoid microscopy foundaition models on the support set only. Then the query set is processed using the finetuned foundaition model
-In the future, robust representations need to be learned that 
-
-%TODO
-Why not use simple comparative methods? 
-learn a multi view representation to
-* identify intrinsic dimensionality
-* estimate magnitude
-* simplify the modeling of multiple modalities 
-
-even when the dimensionality of the data is a function of the genotypes that are compared, the estimation of the magnitude is useful, as well as the simplification 
-
-In our case we could train a classifier to compare lines directly, but at the risk of overinterpreting compounds that moved between states
-We invert a function to interpret treated organoid morphology
-
-%TODO 
-limitations to the representativeness of the adenomaprofiling project to a real world discovery situation - mostly due to the joint processing of observations within the query and support set. 
-
-we processed and reduced the dimensionality of our image-based features in one go - in a real world setting there would be considerable drift - reducing the ability to project treatments reliable into a learnt representation
-we include compound activity into the learnt representation as an additional features. This feature would not be available as new data are collected and might have to be removed
-
-In the future operate on raw classic features or learnt representations from self-supervised learning models
-
-
-%TODO - include critique from the MOFA discussion in the original manuscript
-
-
-
-My contributions to the general field of biological profiling methods described in this thesis are (1) application of the image-based profiling method to organoid models, and (2) learning biologically meaningful low dimensional representations of organoid state by pairing imaging data with additional experimental modalities through multi-view representation learning. 
-\bigbreak
-
-This discussion is divided into three sections, a general methodological part as well as discussions on findings within the patient-derived organoid project, and the engineered mouse organoid profiling project.
-
+\section{Disclosure}
+Parts of this chapter have been adapted from a joint first-author publication, \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \citep{betgeDruginducedPhenotypicLandscape2022}. 
 
 \section{Image-based profiling of organoids}
 
-\subsection{Organoids as high validity in-vitro models}
+\subsection{Using organoids as high validity \textit{in-vitro} models for image-based profiling}
 
-Organoids are representative in vitro models for diverse human tissues and can be used for image-based profiling. While the prospective use of cancer organoids as a diagnostic is currently limited by high sample dropout and tunraround time, a high overall predictive validity for multiple therapeutic regimens has been reported. The use of organoid models in early stage drug discovery, however, is not limited by the same constraints existing in a diagnostic context. For therapeutic discovery, previous studies have successfully used organoids to perform medium-scale small molecule treatment assays. The most commonly used method is screening with an ATP based cell viability readouts \citep{vandeweteringProspectiveDerivationLiving2015}. Additionally, imaging studies with organoids have been used to characterize developmental processes such as the self-organization of intestinal cells \citep{lukoninPhenotypicLandscapeIntestinal2020, boehnkeAssayEstablishmentValidation2016a} or the morphological response to individual drugs \citep{Badder2020-au, serraSelforganizationSymmetryBreaking2019}. While image-based profiling of in vitro models has become an important tool for the analysis of biological processes, particularly in drug discovery and functional genomics \citep{carpenterImagebasedChemicalScreening2007}, performing such high-content experiments in organoids has been a technological challenge. The primary challenges comprise the 3D growth pattern of organoid models as well as the high morphological heterogeneity. Sparse 3D imaging and projection as well as adjustment to the fragment seeding protocol presented in this thesis enabled small molecule image-based profiling of patient-derived and genetically engineered organoid disease models. 
+Organoids are representative \textit{in-vitro} models for diverse human tissues and can be used for image-based profiling. While the prospective use of cancer organoids as a diagnostic is currently limited by high sample dropout and long tunraround time, a high overall predictive validity for multiple therapeutic regimens has been reported \citep{ooftProspectiveExperimentalTreatment2021}. The use of organoid models in early stage drug discovery, however, is not limited by the same constraints existing in a diagnostic context. For therapeutic discovery, previous studies have successfully used organoids to perform medium-scale small molecule treatment assays. The most commonly used method is screening with an ATP based cell viability readouts \citep{vandeweteringProspectiveDerivationLiving2015}. Additionally, imaging studies with organoids have been used to characterize developmental processes such as the self-organization of intestinal cells \citep{lukoninPhenotypicLandscapeIntestinal2020, boehnkeAssayEstablishmentValidation2016a} or the morphological response to individual drugs \citep{Badder2020-au, serraSelforganizationSymmetryBreaking2019}. While image-based profiling of \textit{in-vitro} models has become an important method in functional genomics and therapeutic discovery \citep{carpenterImagebasedChemicalScreening2007}, performing such high-throughput experiments in organoid models has been a technological challenge given the 3D multi-cellular growth pattern of organoids as well as their high morphological heterogeneity. In this thesis, sparse 3D imaging as well as adjustment to the seeding and staining protocol enabled small molecule image-based profiling of patient-derived and genetically engineered colorectal cancer organoid models. 
 \bigbreak
 
-High validity in-vitro models, such as organoids, are an essential component of the therapeutic discovery process. Therapeutic discovery is a sequential decision making process in which, for example, a selected small moelcule can not, for ethical and practical reasons, be tested directly in a clinical context to observe its treatment effect. Instead, therapeutic candidates have to be evaluated using one or more models to approximate the treatment effect that could be observed in large clinical trials. In the context of optimisation theory, these models can be considered "surrogate models", while the large clinical trial being an "oracle" that is approximated. In practice, multiple in-silico, in-vitro and in-vivo surrogate models are combined and used sequentially to guide decision making during a discovery program. The higher the predictive validity and the lower the (ethical and financial) cost of using a surrogate model, the more value does it provide to the therapeutic discovery process. While determining the validity of an in-vitro model is an empirical process, a set of axioms to prioritise models have been formulated by Vincent et al. \citep{vincentDevelopingPredictiveAssays2015a} are presented below in a modified format: 
 
-\begin{enumerate}
-    \item The model must have a clear link to the disease of interest (i.e. matched tissue of origin, representative culture conditions) and, if engineered, model the disease state based on the best understanding of the disease pathophysiology
-    \item The phenotype observed during the experiment should represent the desired clinical endpoint (i.e. overall tumor regression) and ideally capture a high degree of information
-    \item The treatment schedule and overall experimental design should be closely aligned to assays that have been successfully used in a clinical diagnostic context
-\end{enumerate}
+\subsection{Towards multi-view profiling}
+A challenge in image-based profiling is the low interpretability of the morphological representation that is generated during the image analysis step. Classic quantitative features of cellular morphology are rarely descriptive, and even when dimensionality reduction methods or self-supervised learning techniques are used, the learnt representations are rarely directly interpretable within the context of cellular biology. To increase the interpretability of observations in a given image-based profiling experiment, supporting multi-view data, for example transcriptomic, proteomic or metabolomic data can be collected to "annotate" images. A simple and idealised approach to perform such annotation would be to collect the complete multi-view information for all tested treatment conditions (i.e. imaging, transcript abundance, protein abundance, lipid abundance). Both from a physical (some measurement methods destroy the sample) and cost perspective, however, this approach is not accessible. 
+\par
 
-Designing or "fitting" in-vitro biological models to a disease along these axioms is a cost intensive process, but already minor changes in predictive validity of an experiment can offset these cost in a drug discovery program. In fact, economic research into the overall cost of therapeutic discovery by Scannel et al. \citep{scannellWhenQualityBeats2016} concludes with the statement:
+In this thesis an alternative model-based approach was chose to increase the interpretability of morphology information: First, a well-annotated multi-view representation of untreated organoids was learnt by modeling morphological features as well as molecular features (i.e. transcript expression). In a second step, single-view treatment-induced morphologies were projected into the learnt representation. The resulting factor scores were used to identify treatments with an interpretable effect. Examples of such identified effects include (1) the increase in organoid size and IGF1R-signaling as a response to mTOR inhibition (factor 1, patient derived organoids); (2) the spherical reorganisation and increase in LGR5 transcript expression as a response to MEK inhibition (factor 2, patient derived organoids); as well as (3) the increase in organoid size, DNA staining intensity and canonical Wnt signaling as a response to GSK3-beta inhibition (factor 1, mouse organoids). While this approach helped interpret observations from otherwise challenging=to-interpret but easy-to-measure morphology information, a series of important limitations exist.
+\par
 
-\begin{quote}
-"The rate of creation of valid screening and disease models may be the major constraint on R\&D productivity."
-\end{quote}
+A central limitation of the described multi-view representation learning approach are out \textbf{of distribution observations}. An observed treatment within the query set that is far outside of the distribution learnt from the support set is likely to be misinterpreted. For example, if observation from \textit{Apc} mutant organoid lines had not been included in the support set that the multi-view representation was learnt from, the effect of GSK3-beta inhibitors on \textit{Apc} wildtype organoids would have been not interpretable. These treatment-induced morphologies would have been grouped with the set of non-specific but active treatments, such as Proteasome inhibitors. Given the limitation of out of distribution observations, it is important to include conditions in the support set that are well annotated \textbf{and} representative of the effects that are supposed to be explored, as the representation learnt from this data will be used to interpret all remaining observations within the query set. Put differently, a support set needs to be constructed with the biological question in mind, because all other observations will be interpreted using a model that was learnt from it.
+\par
 
-\subsection{Towards multi-view profiling: Applying multi-view representation learning to image-based profiling}
+A second limitation associated with the used approach is the risk of \textbf{overinterpretation} of treatment effects. To use the example of GSK3-beta inhibitors again: While causality between the treatment and the shift in factor space can be established, it is not clear what underlying mechanisms led to the shift. Without further knowledge about the small molecules, the plausible hypotheses explaining the GSK3-beta inhibitor's effect could include (2) activation of Wnt receptors, (2) inhibition of \textit{Apc}, and (3) activation of \textit{Myc} based transcription, to name a few. While describing the state of the biological model using multiple factors instead of a single factor (such as cell viability), increases the interpretability of the experimental system, there are still a multitude of possible expected and unexpected mechanisms that can lead to a factor change.
+\par
 
-Increasing the interpretability of the representation space within image-based profiling experiments can aid in the discovery of new biological processes. While gene-level measurements from other profiling experiments, such as transcript profiling, are more accessible to existing information-retrieval resources, image-based profiling measurements suffer from a lack of such interpretability. For example, while changes in transcript abundance after treatment with a small molecule can be directly interpreted by biologists and put into context with prior knowledge and literature to guide subsequent decision making, the same is not true for image-based profiling data today. Classic quantitative features of cellular morphology are rarely descriptive, and even when dimensionality reduction methods or self-supervised learning techniques are used, the learnt representations are not interpretable within the context of our current mechanistic understanding of cellular biology. One approach to increase the interpretability of representations in a given image-based profiling experiment, is to collect a multi-view support set comprising transcriptomic, proteomic or metabolomic data to "annotate" the morphological states. This learnt representation space can then be used to interpret observations within the remaining image set, the query set. By choosing such an approach I enabled a higher degree of interpretability of morphological information in image-based profiling experiments, at the cost of increasing the risk of mis- or over-interpreting changes in factor space. The underlying motivation and trade-offs involved in using multi-view representation learning for image-based profiling experiments are further discussed below. 
-\bigbreak
 
-The most direct way to increase the interpretability and robustness of profiling experiments in general and image-based profiling experiments in particular would be to collect complete multi-view information for all observed conditions (i.e. imaging, transcript abundance, protein abundance, and phosphorylation state). Such experiments would also directly address the "target deconvolution problem" of phenotype-based therapeutic discovery. A treatment could be interpreted both in terms of its effect on course-grained morphological and fine-grained molecular states. Both from a physical (some measurement methods destroy the sample) and financial perspective, however, performing such profiling experiments poses a challenge. A possible solution to approximate the interpretability of such a thorough "multi-view profiling" experiment, is to divide the conditions and the corresponding observations into a thoroughly annotated small, multi-view (i.e. images, transcript abundance, protein abundance) support set and a large, uncharacterised single-view (i.e. only images) query set. Once the support set is available, a simple multi-view representation is learnt from the data. It is important to include conditions in the support set that are well annotated *and* representative of the states within the phenotype space that are supposed to be explored, as the representation learnt from this data will be used to interpret the remaining observations within the query set. For example, in the mouse adenoma project, observations of all four untreated organoid models were part of the support set which then enabled describing treatments within the query set, such as GSK3b inhibitors, in terms of their ability to shift Apc wildtype organoids towards an Apc-null-like state. With a support set defined and a representation learnt, the remaining observations within the query set can then be projected into the representation space. This way hard-to-interpret but easy-to-measure morphology changes can be interpreted based on the previously learnt relationships between morphology and other, more interpretable, modalities.
-\bigbreak
+% causality  - good example in oroginal pape
 
-There are, however, risks associated with applying multi-view representation learning in profiling experiments generally, and image based profiling experiments in particular. A central limitation of the described multi-view representation learning approach are out of distribution samples - the risk of misinterpreting the state of a sample within the query set that is far outside of the distribution of states learnt from the support set. For example, if observation from Apc mutant organoid lines had not been included in the support set that the multi-view representation was learnt from, the effect of GSK3b inhibitors on Apc wildtype organoids would have been not interpretable or, even more risky, misinterpreted. Put differently, a support set needs to be constructed with care, because all other observations will be interpreted using a model that was learnt from it.
-\bigbreak
 
-A second risk associated with multi-view representation learning is overinterpretation of treatment effects that go beyond the learnt factor-level. To use the example of GSK3b inhibitors again: While causality between the treatment and the shift in factor space can be established, it is not clear what underlying mechanisms led to the shift. Without further knowledge about the small molecules, the plausible hypotheses explaining the GSK3b inhibitor's effect could include (1) inhibition of Apc, (2) activation of beta-catenin, and (3) activation of Myc based transcription, to name a few. While describing the state of the biological model using multiple factors instead of a single factor, like cell viability, reduces the degeneracy (= the number of ways a given state can be explained) of the experimental system, there are still a multitude of possible molecular mechanisms that can lead to a shift in factors.
-\bigbreak
+% shifts in data - this study was not representative for large scale scenarios in which data is collected over multiple runs etc.
 
-Another challenge this approach faces is at the same time an opportunity: increasing the resolution of factors and discovering causal relationships between them. For example, factor 1 in the mouse colon organoid project was driven by (1) transcript abundance changes associated with mitosis and (2) dna repair, as well as (3) changes of cholesterol ester abundance. Factor 2, in contrast, was driven by (1) transcript abundance changes associated with cellular senescence, and (2) reduced beta-oxidation, as well as (3) accumulation of triacylglycerol lipid species. At this point, it is challenging to assign any causal hierarchy to these coarse-grained factors or the diverse processes that they contain from the data alone. With more observations being available, breaking down coarse-grained factors and establishing a directional graph between them becomes a possibility. First directed factor graph representations are already being learnt on single-view perturb-seq profiling data and show promising results in their ability to predict the phenotype of unseen treatments. Overall, identification of directed factor graphs is challenging, but new opportunities in machine learning aided causal discovery are emerging lopezLargeScaleDifferentiableCausal2022.
-\bigbreak
 
+% model choice 
 Given the risks and limitations of interpreting learnt multi-view representations, simple, linear methods should be preferred. In the presented projects, I used 
-% consider deletion
-\subsection{Perspective on multi-view profiling of organoids}
+
+
+\bigbreak
+
+
+% consider deletion or delete large section and start - slim down and give an outlook 
 This thesis discusses the establishment of image-based profiling for patient derived and genetically engineered organoid models. Progress in image analysis \citep{chandrasekaranImagebasedProfilingDrug2021a}, the emergence of standardised protocols \citep{Bray2016-ue}, as well as cross-organisational alliances \citep{chandrasekaranJUMPCellPainting2023} are currently leading to a widespread uptake of the image-based profiling method. In the future, I expect the combination of multi-view representation learning and image-based profiling of organoids introduced in this thesis to be further explored and improved - with possibly even more complex and representative organoid models, such as coculture systems. A direct next step towards more robust multi-view profiling could be the combination of RNA-Sequencing of formalin fixed cells after samples have completed their microscopy run. Directly enriching learnt image representations with such transcriptomic data holds the potential to accelerate the discovery of new biological mechanisms and therapeutic candidates. Advances in modality-specific general purpose representation learning models, such as for biological images, will likely further increase the interest in learning and sampling multi-view representations of cellular state \citep{pfaendlerSelfsupervisedVisionTransformers2023}.
 
 
 
 \section{Multi-view profiling of patient derived colorectal cancer organoids identifies factors of cancer organoid architecture}
 
-\subsection{The importance of large in-vitro cancer organoid collections for translational medicine}
+% TODO %  introduce goal quickly
 
-Patient derived cancer organoids are representative in-vitro models of their tissue of origin. In therapeutic discovery, it is desireable to test a candidate against as many such high validity in-vitro models as possible, to make confident estimates about its future clinical value. Despite the extremely high value of human in-vitro models, the number of available models is relatively low. Today only about 500 in-vitro models are easily accesible from large commercial-grade providers, about 2000 have been systematically characterised by international scientific consortia, and about 100,000 human cell lines have been tracked in literature-based repositories. More so, not all human cell lines models have the same degree of representativeness relative to their tissue of origin. Mapping of transcript abundance data from human cancer cell lines and bulk tissue samples shows systematic differences in the degree of representation across tissues. Central nervous system, liver and lung cancer derived cell lines have the lowest similarity with their tissue of origin, while colorectal cancer cell lines show an overall high degree of similarity. As a consequence, both the quantity and quality of new in-vitro models needs to be considered during the establishing process. At the time of writing, there are multiple efforts to develop new in-vitro disease models from primary samples. Here, the organoid method has emerged as a popular approach to develop new models, given its establishment efficiency and availability of protocols for multiple tissues. 
-\bigbreak
 
-\subsection{Characterising colorectal cancer organoid collections with image-based profiling}
-
-To increase their value for translational medical research, new in-vitro models should be thoroughly characterised - both in an untreated and perturbed state. Image-based profiling is a cost effective and informative profiling method (introduced and discussed above). In this project I combined the isolation of new patient derived organoid models with the direct collection of an image-based profiling reference dataset. I applied a multi-view representation learning approach to model the observed data (discussed above) and identified two primary axes of variation across organoid models. 
-\bigbreak
-
-\subsection{Two primary biological programs identified in colorectal cancer organoids}
+\subsection{Two multi-omics factors defining patient-derived colorectal cancer organoid phenotype}
 
 The first axis of phenotype variation is an IGF1R signaling program associated with increased organoid size, EGFR inhibitor resistance which can be induced by mTOR inhibition. Insulin-like growth factors are central and conserved regulators promoting cell size, organ size and organism growth \citep{pucheHumanConditionsInsulinlike2012, sunMechanismCellSize2006}. The IGF1 receptor (IGF1R) signaling cascade is activated in around 20\% of colorectal cancer patients and leads to downstream mitotic stimuli via mitogen activated kinase signaling and mTOR\citep{zhongOverproductionIGF2Drives2017}. In patient-derived cancer organoids, we observed that average organoid size was positively correlated with elevated IGF1R signaling activity.
 \smallbreak
@@ -116,138 +59,132 @@ The first axis of phenotype variation is an IGF1R signaling program associated w
 Increased IGF1R signaling activity also presented with a characteristic pharmacological sensitivity profile. In accordance with previous observations\citep{yaoCombinedIGF1RMEK2016}, colorectal cancer organoids in a high IGF1R signaling state were less responsive to EGFR inhibitors and more responsive to IGF1R and MEK blockade, demonstrating the central role of IGF1R mediated mitogen activated protein kinase (IGFR1-MAPK) signaling. In fact, reciprocal resistance between IGF1R and EGFR signaling inhibitors has been described in multiple cancer types \citep{huaInsulinlikeGrowthFactor2020a}. Also, organoids could be moved into a state of increased IGF1R-MAPK signaling by inhibition of mTOR, a downstream mediator of IGF1R activity. In line with this observation, a reactive induction of IGF1R signaling has been previously described as a resistance mechanism to small molecule mTOR inhibitors in cancer \citep{sharma_chromatin-mediated_2010, yoonFocalAdhesionIGF1RDependent2017a}. Its role in controlling cell size and the high number of interactions with other signaling mechanisms, such as EGFR and mTOR, have made IGF1R signaling an attractive target for therapeutic discovery. So far, however, neither mono- nor combination therapies containing IGF1R receptor inhibitors have shown clinical utility\citep{beckwithMinireviewWereIGF2015}, \citep{CostsCausesOncologya}. A speculative explanation for this failure in clinical trials might be related to its signaling network centrality. While the IGF1R receptor and its downstream effectors are are central mediators of growth-stimulating processes, they do not themselves constitute a unique dependency, which is -in contrast- often the case for genetic events involved in disease development, such as APC loss \citep{Dow2015-pc}, KRAS gain-of-function, or EGFR amplification \citep{katoRevisitingEpidermalGrowth2019}, \citep{randonEGFRAmplificationMetastatic2021}. With its high degree of connectivity within the proliferative signalling network, but no unique causal role in disease emergence, the "shock" from removing IGF1R from the signaling network through targeted inhibition might be easily compensated by neighbouring pathways such as EGFR, growth hormone, and insulin signaling \citep{beckwithMinireviewWereIGF2015}. Similar network resilience mechanisms have been observed in other networks across the life and social sciences \citep{liuNetworkResilience2022a}.
 \smallbreak
 
-While the potential of IGF1R as a target for therapeutic discovery appears mixed in light of past evidence, direct implications for the method of organoid culture - in particular the role of supplementing IGF-1 to increase organoid growth in-vitro - might be drawn from the results of this study. Next to the observation that organoids with strong IGF1R signaling were of greater average size, the emerging role of IGF1R signaling in organoid culture was recently emphasized by the observation that addition of the IGF-1 ligand, relative to EGF, increased culture efficiency of organoids from healthy human intestinal tissue \citep{fujiiHumanIntestinalOrganoids2018a}. Given the association of IGF1R signaling with organoid size within this thesis as well as the observation from organoid isolation studies \citep{fujiiHumanIntestinalOrganoids2018a}, I hypothesize that addition of IGF-1 ligand to colorectal cancer organoid culture media could (1) further increase culture establishment efficiency and (2) reduce additional genetic bottleneck effects that might bias isolated organoid cultures towards increased IGF1R signaling.
+While the potential of IGF1R as a target for therapeutic discovery appears mixed in light of past evidence, direct implications for the method of organoid culture - in particular the role of supplementing IGF-1 to increase organoid growth \textit{in-vitro} - might be drawn from the results of this study. Next to the observation that organoids with strong IGF1R signaling were of greater average size, the emerging role of IGF1R signaling in organoid culture was recently emphasized by the observation that addition of the IGF-1 ligand, relative to EGF, increased culture efficiency of organoids from healthy human intestinal tissue \citep{fujiiHumanIntestinalOrganoids2018a}. Given the association of IGF1R signaling with organoid size within this thesis as well as the observation from organoid isolation studies \citep{fujiiHumanIntestinalOrganoids2018a}, I hypothesize that addition of IGF-1 ligand to colorectal cancer organoid culture media could (1) further increase culture establishment efficiency and (2) reduce additional genetic bottleneck effects that might bias isolated organoid cultures towards increased IGF1R signaling.
 \bigbreak
 
 The second axis of phenotype variation is an LGR5+ program associated with cystic organoid architecture and Wnt signaling inhibitor sensitivity, which can be induced by inhibition of MEK. Organoid models with a high factor score showed a monolayer organisation with a characteristic actin cytoskeleton and an enrichment of an LGR5 intestinal stem cell signature along the factor weights. These LGR5+ organoids were more sensitive to Wnt inhibitor (Pri-724) treatment and showed a relative resistance to Erk and Mek small molecule inhibitors. Suprisingly, not only were organoids in this stem-like state more morphologically resistant to Mek inhibition, treatment with Mek inhibitors shifted organoids towards this LGR5+ state. Put differently, a subset of organoids which are LGR5+ are insensitive to MEK inhibition and Mek inhibition drives (surviving) organoids towards this LGR5+ state.
 \smallbreak
 
-The ability of RAS MAPK inhibition (here EGFR and MEK) to move intestinal organoids into a quiescent LGR5+ state was described by \citep{basakInducedQuiescenceLgr52017c} and led to the "clutch and gas pedal" model of Wnt and RAS-MAPK signaling in which Wnt signaling is necessary and sufficient to maintain the LGR5+ stemlike state, while RAS-MAPK signaling is a primary signal to drive stem cell proliferation \citep{basakInducedQuiescenceLgr52017c}. Additional work by \citep{zhanMEKInhibitorsActivate2019a} extended this model by demonstrating that inhibition of MEK in colorectal cancer cell lines and organoid models leads to an increase in canonical Wnt signaling through inhibition of EGR1-depencent transcription of AXIN1, a necessary member of the destruction complex. According to this extended model, Wnt signaling is necessary and sufficient to maintain the LGR5+ cell state, and inhibition of RAS-MAPK signaling can further shift the cellular state distribution towards the LGR5+ identity. 
+The ability of ERK-MAPK inhibition (here EGFR and MEK) to move intestinal organoids into a quiescent LGR5+ state was described by \citep{basakInducedQuiescenceLgr52017c} and led to a "clutch and gas pedal" model of Wnt and ERK-MAPK signaling in which Wnt signaling is necessary and sufficient to maintain the LGR5+ stemlike state, while ERK-MAPK signaling is a primary signal to cause (stem cell) proliferation \citep{basakInducedQuiescenceLgr52017c}. Additional work by \citep{zhanMEKInhibitorsActivate2019a} recently extended this model by demonstrating that inhibition of MEK in colorectal cancer cell lines and organoid models leads to an increase in canonical Wnt signaling through inhibition of EGR1-depencent transcription of AXIN1, a necessary member of the destruction complex. According to this extended model, Wnt signaling is necessary and sufficient to maintain the LGR5+ cell state, and ERK-MAPK signaling is not only the primary proliferative signal, but its inhibition can even further shift the cellular state towards the LGR5+ identity. 
 \smallbreak
 
 %TODO shorten
-\subsection{Towards an organoid multi-view profiling atlas}
-Organoid models did not appear to be evenly distributed within the space created by the two identified factors. While constrained by a small number of observations, I observed three prototypical states:
-\begin{itemize} 
-    \item \textit{F1-; F2-}: The largest group of observed organoid samples were both factor 1 and factor 2 low. These samples had a dense architecture, relatively smaller volume and a high relative sensitivity to EGFR inhibitors. 
-    \item \textit{F1+; F2-}: A second group of samples were factor 1 high and factor 2 low. These samples had a dense architecture but large volume. They showed strong IGFR1 signaling, had sensitivity to IGF1R inhibitors, and were comparably resistant to EGFR inhibitors. 
-    \item \textit{F2+}: The smallest group of samples had an average factor 1 score and high factor 2 score. These samples had a cystic architecture and were marked by high canonical Wnt signaling. 
-\end{itemize}
+\subsection{Are patient derived organoids representative of known molecular colorectal cancer states?}
 
-When searching for previous description of such stereotypical states in colorectal cancer, I noticed a partial alignment of the these states with the previously published colorectal cancer intrinsic subtype (CRIS) model \citep{isellaSelectiveAnalysisCancercell2017a}. The CRIS model was identified based on transcriptomic data from patient derived xenografts (PDX), an alternative method to propagate patient derived cancer cells ex-vivo with high efficiency. By removing genes that are not expressed in epithelial cells during model development, the resulting classification avoided previously described instabilities when applying it to previously un-observed, heterogenous clinical samples \citep{dunneCancercellIntrinsicGene2017}.
+CMS 
+criticism - fibroblast contamination
+more of a continuum than a set of discrete states
+heterogeneity within a tumor
+Classification of CMS - mostly type X (look up!)
+Missing subtypes
+
+% review 
+During the multi-view modeling of patient derived organoids, I noticed a partial alignment of modeled states with the previously published colorectal cancer intrinsic subtype (CRIS) model \citep{isellaSelectiveAnalysisCancercell2017a}. The CRIS model was identified based on transcriptomic data from patient derived xenografts (PDX), an alternative method to propagate patient derived cancer cells ex-vivo with high efficiency. By removing genes that are not expressed in epithelial cells during model development, the resulting classification avoided previously described instabilities when applying it to previously un-observed, heterogenous clinical samples \citep{dunneCancercellIntrinsicGene2017}.
 
 Abbreviated, the five states comprising the CRIS model are: 
 \begin{itemize} 
     \item CRIS A: BRAF-mutated MSI, and KRAS-mutated MSS samples
     \item CRIS B: TGF-b pathway activation, enriched for MSI samples 
-    \item CRIS C: EGFR activation, and sensitive to inhibition (\textit{F1-; F2-})
-    \item CRIS D: IGF signaling activation and EGFR inhibitor resistance (\textit{F1+; F2-}) 
+    \item CRIS C: EGFR activation, and sensitive to inhibition
+    \item CRIS D: IGF signaling activation and EGFR inhibitor resistance
     \item CRIS E: high canonical Wnt signaling with a "Paneth cell-like" transcriptome signature
 \end{itemize}
 
 A subset of CRIS classes was identified within the presented organoid profiling data. The gene sets defining CRIS C and D were found to be separated along factor 1, with low factor 1 scores (\textit{F1-; F2-}) associated with CRIS C and high factor 1 scores (\textit{F1+; F2-}) associated with CRIS D. There was no significant enrichment identified for the other states outlined within the CRIS model, however, a potential association between CRIS E and \textit{F2+} might motivate further investigation.
+\par
 
-The complete absence of CRIS A or CRIS B organoid models is worthy of further discussion. The enrichment of MSI positive cases within CRIS A and B might serve as an explanation for the absence of organoids with this classification \citep{isellaSelectiveAnalysisCancercell2017a}. Throughout this project, I was not able to isolate and profile MSI positive organoids. Both MSI positive colorectal cancer cell lines \citep{imkellerMetabolicBalanceColorectal2022} and PDX models \citep{isellaSelectiveAnalysisCancercell2017a} have been reported to show lower levels of intrinsic canonical Wnt signaling and an enrichment for RNF43 mutations, a Wnt signaling related functional event that -in contrast to truncating mutations of APC- does not render cells independent of Wnt ligands \citep{vandeweteringProspectiveDerivationLiving2015}. At this point it is important to state that the quality of Wnt ligands in organoid medium is a common source of poor colon organoid culture efficiency (Kim Boonekamp, direct correspondence). From this observation, I hypothesise that the organoid methodology applied at the time of this study exerted a systematic bias against the development of Wnt low, MSI positive colon cancer organoids - possible due to methodological challenges related to maintaining sufficiently Wnt-high organoid culture conditions. Further standardising and optimising reagents related to colon cancer organoid culture will accelerate the development of fully representative in-vitro model collections for translational colorectal cancer research. 
+Just like with Consensus Molecular Subtypes 1 (CMS 1), the complete absence of CRIS A or CRIS B organoid models is worthy of further discussion. The enrichment of MSI positive cases within CRIS A and B might serve as an explanation for the absence of organoids with this classification \citep{isellaSelectiveAnalysisCancercell2017a}. Throughout this project, I was not able to isolate and profile MSI positive organoids. Both MSI positive colorectal cancer cell lines \citep{imkellerMetabolicBalanceColorectal2022} and PDX models \citep{isellaSelectiveAnalysisCancercell2017a} have been reported to show lower levels of intrinsic canonical Wnt signaling and an enrichment for RNF43 mutations, a Wnt signaling related functional event that -in contrast to truncating mutations of APC- does not render cells independent of Wnt ligands \citep{vandeweteringProspectiveDerivationLiving2015}. At this point it is important to state that the quality of Wnt ligands in organoid medium is a common source of poor colon organoid culture efficiency (Kim Boonekamp, direct correspondence). From this observation, it is conveivable that the organoid methodology applied at the time of this study exerted a systematic bias against the development of Wnt low, MSI positive colon cancer organoids - possible due to methodological challenges related to maintaining sufficiently Wnt-high organoid culture conditions. Further standardising and optimising reagents related to colon cancer organoid culture will accelerate the development of fully representative \textit{in-vitro} model collections for translational colorectal cancer research. 
 
-In summary, image-based profiling of colon cancer organoids revealed two main axes of variation related to IGF1R signaling and canonical Wnt signaling. The identified organoid states showed a partial agreement with previously described molecular states of colorectal cancer cells. At the same time, imbalances related to the prevalence of certain subtypes within the set of organoid models reveals directions for further methodological improvements. Despite remaining challenges, I expect the establishment of living organoid biobanks to be a long-term public good by creating high fidelity in-vitro models of colorectal cancer. 
+In summary, image-based profiling of colon cancer organoids revealed two main axes of variation related to IGF1R signaling and canonical Wnt signaling. The resulting identified organoid states showed a partial agreement with previously described molecular states of colorectal cancer. At the same time, imbalances related to the prevalence of certain subtypes for both CMS and CRIS in within the set of organoid models reveals directions for further methodological improvements. Despite remaining challenges, I expect the establishment of living organoid biobanks to be a long-term public good by creating high fidelity \textit{in-vitro} models of colorectal cancer. 
 
-\section{Multi-view profiling of step-wise in-vitro models of colorectal cancer pathogenesis}
+\section{Multi-view profiling of step-wise \textit{in-vitro} models of colorectal cancer pathogenesis}
 
+value of step=wise model to understand disease
 
-
-\subsection{Murine colon organoids for step-wise in-vitro modeling of colorectal cancer pathogenesis}
-
-* access to mouse genetic toolbox
-* easier to cultivate WT colon organoids than humans 
-* no paneth cells - full control over Wnt dose 
-
+why large instestine>
 * APC and KRAS mutant mouse models show most tumors in the large instestine \citep{luoMutatedRasAsp122009}
 
-\subsection{Effects of Apc truncation and Kras G12D/- on colon organoid models}
+why mouse
+* easier to cultivate WT colon organoids than humans for high throughput screen with >1000 small molecule treatments
+* access to mouse genetic toolbox with Wide variety of engineered mouse strains serve as a REssource for organoid develpoment
+Animal wellbeing - reduced demand for laboratory animals, Eventually complete avoidance and working with human organoids embedded in multi-tissue structures
 
-Apc 
-Wnt - characteristic sensitivity in the activity data
-Myc 
-Nucleotide synthesis - satoh 07 and 
-lipid synthesis - reduced beta-oxidatoin, via Myc
-carbohydrates - no significant effect of Warburg - as seen by Imkeller  - in fact, single cell comparison of colorectal cancer samples shows that sampels that are predominantly APC mutant are characterosed by high Myc activity *and* oxidative phosphorylation relative to tumors marked by a high rate of KRAS mutant tumors
-
-cell cycle - microtubuli inhibitor, also APC direct binding
-translation rate
-
-GSK inhibition shifts morphology
-
-
-Kras
-MAPK signaling - characteristic ERK, MEK sensitivity + signs of phenotype shift 
-EGFR resistance - also transcriptional downregulation seen in the gene expression data.
-
-Nucleotide?
-Lipid synthesis - reduced beta oxidation
-Glycolysis - up, Warburg effect, metabolic phenotype - aligned with single cell and CMS data that link KRAS presence to higher glycolysis and reduced oxidative phosphorylation 
-
-\subsection{The interaction of Apc and Kras during colon cancer pathogenesis}
-Kras and Apc interaction
-there have beeb reports of synergy \citep{luoMutatedRasAsp122009} - our data points into a different direction, that they are mostly independent within their respective pathway 
-
-linear
-
-
-increased proliferation rate 
-
-
-increased translation rate \citep{smitDriverMutationsAdenomacarcinoma2020a}
-
-sakai 
-A mutant mice have a near normal overall survival over 300 days ( \%) In contrast AK Overall surivival of ca 150 days 
-
-In models in which frequent functional variants have been combined, including Apc, Kras, TP53, TGFBR2, Fbxw7 have been combined, APC is necessary but not sufficient in these mouse genetic models to cause colorectal cancer. Elegant experiment shown that Apc Kras and Apc Kras Trp53 bearing mice can have fully intact overall survival beyond 200 days when apc is removed, while if the Apc allele is retained survival is ca. 50 days post allele activation by \citep{dowApcRestorationPromotes2015a} - and sakai lucas dow  \citep{sakaiCombinedMutationApc2018a, matanoModelingColorectalCancer2015a, dowApcRestorationPromotes2015a}
-
-Kras (as the only representative of RAS-MAPK signaling functional events) is necessary but not sufficient for invasion and metastasis in the same model system - 
-continuous expression of activated Kras is required for the main- tenance of invasive and metastatic disease, when removed from AKP tumors
-\citep{boutinOncogenicKrasDrives2017a} 
-withdrawal leads to regression with only emaining adenomas 
-
-
-invation can not be modeled in organoids
-also high EGF dose
-effects related to EGF independence by KRAS - even if only partially - are masked
-
-colony formation - number of organoids different? 
-organoids smaller on average 
-
-not yet understood 
-
+\subsection{Effects of \textit{Apc} truncation and \textit{Kras}\textsuperscript{G12D/+} on colon organoid models}
 
 Apc recovery 
-* FAK
-* characteristic Wnt inhibitor sensitivity
-* mTOR role
+Wnt - characteristic sensitivity in the activity data and phenocopy by GSK * Proof of concept - recover treatments that cause a phenotype shift - most pronounced in GSK3-beta inhibitors, phenocopying due to Wnt signaling effect
+Myc state:
+Nucleotide synthesis - satoh 07 and cell cycle
+comes with sensitivity beyond Wnt signaling inhibitors, pointing towards additinoal roles of APC
+* microtubuli inhibitor, also APC direct binding
+* FAK - role of APC on focal adhesions
+% * mTOR role - Apc paper  - Samson (not sure wether well placed here)
+\par
 
 Kras recovery
-* Oncogene induced senescence
-* characteristic ERK/MAPK signaling inhibitor sensitivity
+* characteristic ERK/MAPK signaling inhibitor sensitivity:
+MAPK signaling - characteristic ERK, MEK sensitivity + signs of phenotype shift in t statistic
+EGFR resistance - also transcriptional downregulation seen in the gene expression data.
+* Oncogene induced senescence - previously described
+\par
 
+
+% metabolic effects
 New observations 
 * Storage Lipid accumulation
 
-Proof of concept
-* recover treatments that cause a phenotype shift
+lipid synthesis - reduced beta-oxidatoin, via Myc
+carbohydrates - no significant effect of Warburg - as seen by Imkeller  - in fact, single cell comparison of colorectal cancer samples shows that sampels that are predominantly APC mutant are characterosed by high Myc activity *and* oxidative phosphorylation relative to tumors marked by a high rate of KRAS mutant tumors
+
+Lipid synthesis - reduced beta oxidation
+Glycolysis - up, Warburg effect, metabolic phenotype - aligned with single cell and CMS data that link KRAS presence to higher glycolysis and reduced oxidative phosphorylation 
 
 
-Wide variety of engineered mouse strains
-REssource for organoid develpoment
-Animal wellbeing - reduced demand for laboratory animals
-Eventually complete avoidance and working with human organoids embedded in multi-tissue structures
+\subsection{The interaction of Apc and Kras during colon cancer pathogenesis}
+Kras and Apc interaction open question - Dow
+there have beeb reports of synergy \citep{luoMutatedRasAsp122009} - our data points into a different direction, that they are mostly independent within their respective pathway 
+in addition high similarity with Apc -/- models
+the interaction seen is in (1) mTORC1 activtiy and inhibitor sensitivity and (2) absence of oncogene induced senescence 
+increased mTOR activation rate - mtor - translation rate
+increased translation rate \citep{smitDriverMutationsAdenomacarcinoma2020a} - linear
 
-\subsection{Image-based profiling for early-stage cancer therapeutic discovery}
-The causal structure of colorectal cancer formation is well understood - Apc is mutated in x cases and within this patient group, especially early during the disease development, it is likely to say that Apc is necessary but not sufficient to drive the disease
+% private effects
+beyond this effect - effects within their pathways
+as outlined in the intro 
+Apc - Wnt stemness 
+Kras - growth
+reminder only with Tgfb or TP53 do they show signs of invasion
+\par
+
+%limitations
+limitation was the presence of Egf in the medium during image-based profiling and supporting experiments. The effect of Kras G12D might have been partially masked by the ligand in the medium. 
+also high EGF dose
+effects related to EGF independence by KRAS - even if only partially - are masked - 
+expect to see differences in the number and size of outgrowing organoids
 
 
-do this with less annotated library
-targeet Apc
+% perspective
+\section{Perspective}
 
+Patient derived cancer organoids are representative \textit{in-vitro} models of their tissue of origin. In therapeutic discovery, it is desireable to test a candidate against as many such high validity \textit{in-vitro} models as possible, to make confident estimates about its future clinical value. Despite the extremely high value of human \textit{in-vitro} models, the number of available models is relatively low. Today only about 500 \textit{in-vitro} models are easily accesible from large commercial-grade providers and about 2000 have been systematically characterised by international scientific consortia. 
+%citation!
 
+High validity \textit{in-vitro} models, such as organoids, are an essential component of the therapeutic discovery process. Therapeutic discovery is a sequential decision making process in which, for example, a candidate small moelcule can not, for ethical and practical reasons, be tested directly in a clinical context to observe its treatment effect. Instead, therapeutic candidates have to be evaluated using one or more models to approximate the treatment effect that could be observed in large clinical trials. When framed as an engineering problem, these in-vitro models can be considered "surrogate models", while the large clinical trial serves as an "oracle". While the term surrogate model is frequently used in engineering disciplines \citep{cozadLearningSurrogateModels2014}, it has just recently found use in the therapeutic discovery literature \citep{clydeProteinLigandDockingSurrogate2021}. In practice, multiple in-silico, \textit{in-vitro} and in-vivo surrogate models are combined and used sequentially to guide decision making during a discovery program. The higher the predictive validity and the lower the cost of using a surrogate model, the more value does it provide to the therapeutic discovery process. While determining the validity of an \textit{in-vitro} model is an empirical process, a set of axioms to prioritise models have been formulated by Vincent et al. and are presented below in a modified format \citep{vincentDevelopingPredictiveAssays2015} : 
+
+\begin{enumerate}
+    \item The model must have a clear link to the disease of interest (i.e. matched tissue of origin, representative culture conditions) and, if engineered, model the disease state based on the best understanding of the disease pathophysiology.
+    \item The treatment should only represent the planned clinical intervention. Additional stimuli, such as cytokines or damage-inducing chemicals, that are required to model the disease associated phenotype should be avoided.
+    \item The phenotype observed during the experiment should represent a coarse-grained function (cytotoxicity, muscle contraction) that is related to the desired clinical endpoint, rather than a molecular biomarker (transcript expression).
+\end{enumerate}
+
+Designing or "fitting" \textit{in-vitro} biological models to a disease along these axioms is a cost intensive process, but already minor changes in predictive validity of an experiment can offset these costs in a discovery program. In fact, economic research into the overall cost of therapeutic discovery by Scannel et al. \citep{scannellWhenQualityBeats2016} concludes with the statement:
+
+\begin{quote}
+"The rate of creation of valid screening and disease models may be the major constraint on R\&D productivity."
+\end{quote}
+
+% contribution - image based profiling for this model
+% looking forward to using this approach 
 
 
 
