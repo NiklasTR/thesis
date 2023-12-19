@@ -88,16 +88,8 @@
 
 \newcommand{\abstractpage}{
 	\newpage
-%	\pagenumbering{roman}
-%	\setcounter{page}{3}
-%	\pagestyle{fancy}
-%	\lhead{Doktorvater: \@advisor} \rhead{\@author}
-%	\renewcommand{\headrulewidth}{0.0pt}
-%	\vspace*{35pt}
 	\chapter*{Summary}
     \begin{flushleft}
-%	\vspace*{20pt}
-%	\scshape Zusammenfassung \\ \rm
 	\input{frontmatter/summary}
     \end{flushleft}
     \newpage
@@ -127,8 +119,6 @@
 	\noindent
 	\input{frontmatter/thanks}
 	\vspace*{\fill} \newpage
-%	\setcounter{page}{1}
-%	\pagenumbering{arabic}
 }
 
 \newcommand{\eigenanteil}{
@@ -139,7 +129,7 @@
 }
 
 \newcommand{\eidesstaat}{
-	\chapter*{Eidestaatlicher Versicherung}
+	\chapter*{Eidestaatliche Versicherung}
 	\noindent
 	\input{frontmatter/eidestaat}
 	\vspace*{\fill} \newpage

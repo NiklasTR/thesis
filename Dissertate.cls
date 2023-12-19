@@ -53,24 +53,12 @@
 %\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
 \usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false, heading=bibintoc]{biblatex}
 %\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=2, url=false, isbn=false, issn=false]{biblatex}
-\addbibresource{references.bib}
+\addbibresource{My Library.bib}
 \usepackage{hyperref}
 
 % Remove quotation marks around titles
 \DeclareFieldFormat[article]{title}{#1}
 \DeclareFieldFormat[misc]{title}{#1} % Apply same title format to misc entries
-
-% Regular expression to extract 'Pages: XXXX' from the note field for preprints
-\DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{
-      \pertype{misc}
-      \step[fieldsource=note, match=\regexp{Pages:\s+(\d+)}, final]
-      \step[fieldset=pages, origfieldval, overwrite]
-    }
-  }
-}
-
 
 % Redefine the article driver
 \DeclareBibliographyDriver{article}{%
