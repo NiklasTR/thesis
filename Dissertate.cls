@@ -51,8 +51,8 @@
 %\RequirePackage[authoryear]{natbib}
 %\bibliographystyle{harvard}
 %\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
-\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false, issn=false, heading=bibintoc]{biblatex}
-%\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=2, url=false, isbn=false, issn=false]{biblatex}
+\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false]{biblatex}
+%\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=2, url=false, isbn=false, issn=false, heading=bibintoc]{biblatex}
 \addbibresource{My Library.bib}
 \usepackage{hyperref}
 
@@ -95,7 +95,7 @@
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 
-\renewcommand{\bibnumfmt}[1]{[#1]}
+%\renewcommand{\bibnumfmt}[1]{[#1]}
 \usepackage[titletoc]{appendix}
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
 
@@ -116,6 +116,8 @@
 \renewcommand\listfigurename{Listing of figures}
 %\RaggedRight
 
+% needs to be loaded before mathspec
+\usepackage{amsmath}
 \parindent 12pt
 \RequirePackage{mathspec}
 
@@ -204,8 +206,8 @@
 
 
 % Remove natbib compatibility option since we're using biblatex's commands
-\renewcommand{\citep}[1]{\parencite{#1}}
-\renewcommand{\citet}[1]{\citeauthor{#1} \citeyear{#1}}
+%\renewcommand{\citep}[1]{\parencite{#1}}
+%\renewcommand{\citet}[1]{\citeauthor{#1} \citeyear{#1}}
 %\setmainfont{TeX Gyre Termes}
 
 \makeatletter
