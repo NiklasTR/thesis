@@ -42,15 +42,19 @@
 	\thispagestyle{empty}
 	\vspace*{\fill}
 	\begin{center}
-	\textsc{Aus dem Deutschen Krebsforschungszentrum\\
+	%\textsc{
+    Aus dem Deutschen Krebsforschungszentrum\\
 	Abteilung Signalwege und Funktionelle Genomik\\
 	Leitung: \@advisor
-	}
+	%}
 	\vspace{100pt}
+    \end{center} 
 	\begin{center}
-	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	%\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+    %\fontsize{18pt}{24pt}\selectfont \textcolor{SchoolColor}{\thetitle} \normalsize \\
+    \fontsize{18pt}{24pt}\selectfont {\thetitle} \normalsize \\
 	\vspace{100pt}
-	\textsc{
+	%\textsc{
 	\vspace{12pt}
 	Inauguraldissertation \\
 	zur Erlangung des medizinischen Doktorgrades \\
@@ -64,15 +68,17 @@
     \vspace{12pt}
 	aus Tübingen\\
     \vspace{12pt}
-	\@degreeyear}
-	\end{center} \vspace*{\fill}
+	\@degreeyear %}
+	\end{center} 
+    \vspace*{\fill}
 }
 
 \newcommand{\copyrightpage}{
 	\newpage
 	\thispagestyle{empty}
 	\vspace*{\fill}
-	\scshape \noindent 
+	%\scshape \noindent 
+    \noindent 
 	Dekan: \@advisor\\
 	Doktorvater: \@advisor\\
 	\vspace*{\fill}

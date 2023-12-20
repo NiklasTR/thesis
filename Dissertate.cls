@@ -95,6 +95,12 @@
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 
+% used to control figure position
+\usepackage{float}
+
+% used in eidesstaat
+\usepackage{enumitem}
+
 %\renewcommand{\bibnumfmt}[1]{[#1]}
 \usepackage[titletoc]{appendix}
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
