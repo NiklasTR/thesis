@@ -48,6 +48,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
 
+%\usepackage[english,german]{babel}
 %\RequirePackage[authoryear]{natbib}
 %\bibliographystyle{harvard}
 %\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
