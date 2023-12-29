@@ -209,15 +209,6 @@ Two compound libraries were used for profiling: A library containing 63 clinical
 After 72 hours of expansion at 37C, medium was aspirated from all organoid screening plates and replaced with fresh ENA medium devoid of Y-27632, resulting in 45μl volume per well. Drug libraries were diluted in basal medium and subsequently 5μl of each compound was distributed to screening plates. 
 All liquid handling steps were performed using a Biomek FX robotic system (Beckmann Coulter). Plates were sealed and incubated with the compounds for four days. All PDO lines underwent profiling with the clinical cancer library, while the KiStem library was used with 13 PDO lines.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/promise/pdf/fig_1_3.pdf}
-\caption[Dataset dimensions and compound library overview]{\textbf{Dataset dimensions and compound library overview a} Number of organoid models and number of perturbations in previous publications reporting high-throughput drug screenings with patient derived cancer organoids, \textbf{b} Graphical representation of the compound libraries used for drug screening in this project: A library targeting kinases and stem cell pathways (KiStem library, 464 compounds) and a clinical library with 63 drugs in 5 concentrations. Figure created with support from Johannes Betge and adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \parencite{betgeDruginducedPhenotypicLandscape2022}}
-\label{fig_137}
-\end{figure}
-
 \subsection{Compound Libraries and Treatment for Mouse Organoids}
 Two compound libraries were used for profiling: The KiStem library (see above) as well as a library of FDA-approved small molecules. For both the KiStem library and the FDA-approved library, one single concentration was used. All compounds in this library were used in a concentration of 7.5μM. All compounds were obtained from Selleck chemicals. Compounds of both libraries were arranged in an optimized random layout and complete compound libraries were stored in DMSO at -80 C.
 \bigbreak
@@ -238,15 +229,6 @@ For selected compounds, before compound addition, organoid viability was measure
 
 \subsection{Image Processing}
 Microscopic image z-stacks were compressed to HDF5 format for archival and underwent maximum contrast projection using the R/Bioconductor package MaxContrastProjection developed by Jan Sauer for further processing of the images. Standard image features, including shape, moment, intensity, and Haralick texture features on multiple scales, were extracted using the R/Bioconductor package EBImage \parencite{pauEBImagePackageImage2010}. Of note, the strong diversity of unperturbed organoid phenotypes between organoid lines did not allow the definition of a core set of individual reproducible descriptive features across all screened organoids. Therefore, no correlation-based filtering of features was done, allowing comparisons between different lines. Out-of-focus objects were manually and programmatically removed from the dataset using a custom classifier developed by Jan Sauer.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth,
-                height=\textheight,
-                keepaspectratio]{figures/promise/pdf/fig_1_2.pdf}
-\caption[Image-based profiling method overview]{\textbf{Image-based profiling method overview a} The image-processing pipeline illustrated with representative example images from two organoid lines: Organoids were imaged at multiple layers along the z-axis. Images were projected using a maximum contrast projection and segmented using a convolutional neural network, both designed and implemented by Jan Sauer. Descriptive features were extracted from all three channels to quantify phenotypes. Feature plots show the median phenotype of unperturbed organoids, six example features (Area, Phalloidin intensity, DAPI intensity, FITC intensity, FITC Haralic angular second moment (ASM) and FITC intensity 1-percentile) and their z-scores relative to all profiled organoid lines are shown. Figure created with support from Jan Sauer (data processing) and Johannes Betge (graphical presentation). Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \parencite{betgeDruginducedPhenotypicLandscape2022}}
-\label{fig_135}
-\end{figure}
 
 \subsection{Feature Processing and Treatment-Induced Phenotypes}
 The dimensionality of calculated single-organoid morphological features was reduced using a principal component analysis (PCA) that was performed on the entire datasets (patient derived and mouse organoids separately) to reduce the dimensionality. 25 principal components were selected, explaining ca. 80\% of the total variance within both datasets. These 25 principal components were used for further analysis of single-organoid morphology and were averaged on a per-well level for the MOFA analysis.

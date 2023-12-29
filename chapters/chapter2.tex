@@ -19,7 +19,17 @@ A standard protocol for cell-based assays, including image-based profiling, is s
 Conventional image-based profiling of adherent cells is based on automatic microscopy of one 2D plane per field of view. Given the 3D growth patterns of organoids, more data has to be acquired to fully capture organoid phenotype. Acquiring multiple planes of imaging data per field of view, however, creates a technical data storage and processing burden. For a fixed 3D volume, the size of the collected data increase linearly with the number of acquired planes and quadratically with the target z-axis resolution. To reduce the observed 3D volume and thus the number of required imaging planes, the vertical distribution of organoid fragments within the basal membrane extract layer was controlled by centrifuging organoid fragments post-seeding at 500G for 20 minutes at 37 degrees Celsius. The centrifugal force led to an accelerated sedimentation of organoid fragments onto the same optical plane before the polymerization of the hydrogel was complete.
 \bigbreak
 
-After three days of culture and four days of compound treatment, organoids were fixed and stained for actin (Phalloidin/TRITC), DNA (DAPI), and cell permeability (DeadGreen/FITC). Subsequently, plates were imaged at multiple z-positions by automated confocal microscopy. During treatment with the hyperosmolar fixative (3\% para-formaldehyde in phosphate buffered saline) the protein rich hydrogel underwent an irreversible volume contraction (data not shown). To reduce this artefact, the fixative was supplemented with bovine serum albumin to a final concentration of 1\% weight/volume.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth,
+                height=\textheight,
+                keepaspectratio]{figures/promise/pdf/fig_1_2.pdf}
+\caption[Image-based profiling method overview]{\textbf{Image-based profiling method overview. a} The image-processing pipeline illustrated with representative example images from two organoid lines: Organoids were imaged at multiple layers along the z-axis. Images were projected using a maximum contrast projection and segmented using a convolutional neural network, both designed and implemented by Jan Sauer. Descriptive features were extracted from all three channels to quantify phenotypes. Feature plots show the median phenotype of unperturbed organoids, six example features (Area, Phalloidin intensity, DAPI intensity, FITC intensity, FITC Haralic angular second moment (ASM) and FITC intensity 1-percentile) and their z-scores relative to all profiled organoid lines are shown. Figure created with support from Jan Sauer (data processing) and Johannes Betge (graphical presentation). Figure adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \parencite{betgeDruginducedPhenotypicLandscape2022}}
+\label{fig_135}
+\end{figure}
+
+After three days of culture and four days of compound treatment, organoids were fixed and stained for actin (Phalloidin/TRITC), DNA (DAPI), and cell permeability (Image-IT DeadGreen/FITC). Subsequently, plates were imaged at multiple z-positions by automated confocal microscopy. During treatment with the hyperosmolar fixative (3\% para-formaldehyde in phosphate buffered saline) the protein rich hydrogel underwent an irreversible volume contraction (data not shown). To reduce this physical artefact, the fixative was supplemented with bovine serum albumin to a final concentration of 1\% weight/volume. After image acquisition, the three-dimensional morphological information was projected onto a two-dimensional plane to further compress the size of the acquired data (Figure \ref{fig_135} a), organoids were detected, and classic phenotype features were calculated (implemented by Jan Sauer). These organoid-level morphological descriptors were used for further analysis.  
+
 \par
 To summarise, (1) seeding organoid fragments with controlled number and size-distribution instead of single cells, (2) centrifuging organoid fragments to reduce the imaged 3D volume, and (3) modifying liquid handling buffers to avoid hydrogel-driven artefacts, technically enabled high-throughput image-based profiling of organoid models. 
 \bigbreak
@@ -28,7 +38,18 @@ To summarise, (1) seeding organoid fragments with controlled number and size-dis
 
 \section{Image-based profiling captures the morphological diversity of patient-derived cancer organoids}
 
-To better understand the diversity of patient derived organoid phenotypes and how their morphology was linked to biological state, image-based profiling at single organoid resolution was performed with 11 patient derived cancer organoids using compounds targeting developmental pathways (464 compounds), as well as compounds in clinical use (63 compounds in 5 concentrations, Figure \ref{fig_137} a and b). Additional transcript expression profiles of untreated organoids, and somatic mutation data were collected as supporting data. The resulting data comprised morphological profiles for each organoid with 528 phenotypic features that were subsequently processed using PCA. Based on an elbow method, 25 principle components, accounting for 81\% of morphological variance were retained as used as morphological features throughout this project. 
+To better understand the diversity of patient derived organoid phenotypes and how their morphology was linked to biological state, image-based profiling at single organoid resolution was performed with 11 patient derived cancer organoids using compounds targeting developmental pathways (464 compounds), as well as compounds in clinical use (63 compounds in 5 concentrations, Figure \ref{fig_137} a and b). 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth,
+                height=\textheight,
+                keepaspectratio]{figures/promise/pdf/fig_1_3.pdf}
+\caption[Dataset dimensions and compound library overview]{\textbf{Dataset dimensions and compound library overview a} Number of organoid models and number of perturbations in previous publications reporting high-throughput drug screenings with patient derived cancer organoids, \textbf{b} Graphical representation of the compound libraries used for drug screening in this project: A library targeting kinases and stem cell pathways (KiStem library, 464 compounds) and a clinical library with 63 drugs in 5 concentrations. Figure created with support from Johannes Betge and adapted from \textit{The drug-induced phenotypic landscape of colorectal cancer organoids} \parencite{betgeDruginducedPhenotypicLandscape2022}}
+\label{fig_137}
+\end{figure}
+
+Additional transcript expression profiles of untreated organoids, and amplicon-based somatic mutation profiles were collected as supporting data. The resulting data comprised morphological profiles for each organoid with 528 phenotypic features that were subsequently processed using PCA. Based on an elbow method, 25 principle components, accounting for 81\% of morphological variance were retained as used as morphological features throughout this project. 
 
 \begin{figure}[h]
 \centering
