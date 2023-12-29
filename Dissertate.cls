@@ -54,7 +54,8 @@
 %\usepackage[backend=biber, style=authoryear, doi=true, natbib=true]{biblatex}
 \usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=1, url=false, isbn=false]{biblatex}
 %\usepackage[backend=biber, style=authoryear, doi=true, maxbibnames=99, maxcitenames=2, url=false, isbn=false, issn=false, heading=bibintoc]{biblatex}
-\addbibresource{My Library.bib}
+%\addbibresource{My Library.bib}
+\addbibresource{references.bib}
 \usepackage{hyperref}
 
 % Remove quotation marks around titles
