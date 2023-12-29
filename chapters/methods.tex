@@ -374,7 +374,7 @@ Pearson correlation between Protein and Transcript abundance ranged between 0.3-
 \subsection{Lipidomics Profiling of Mouse Organoids}
 Organoids were cultured according to the the image-based profiling protocol and prepared for analysis according to the method developed for proteomics profiling (above). 
 Isolated organoids were processed by the Lipidomics and Metabolomics core facility. 
-"After lipid extraction, isolates were analysed using a Qtrap 6500 Mass Spectrometer (SCIEX) coupled to a NanoMate (NanoMate) electrospray source" (\textit{quoted description taken from direct correspondence with the core facility}).
+"After lipid extraction, isolates were analysed using a Qtrap 6500 mass spectrometer (SCIEX) coupled to a NanoMate (NanoMate) electrospray source" (\textit{quoted description taken from direct correspondence with the core facility}).
 \bigbreak
 Lipid abundance data was processed using the DEP package \parencite{zhangProteomewideIdentificationUbiquitin2018} accessed through the R/Bioconductor ecosystem \parencite{huberOrchestratingHighthroughputGenomic2015}. After removing missing values, ca. 350 lipid species were observed across all 12 conditions. Data were normalised using VSN variance stabilisation \parencite{huberVarianceStabilizationApplied2002} and missing values imputed. Batch effects were removed using "Combat" \parencite{leekCapturingHeterogeneityGene2007}. 
 
